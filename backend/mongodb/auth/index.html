@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Mongodb 备份 &amp; 恢复 &amp; 增加密码 | Sapphire611</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    
+    <meta name="description" content="感谢来访🙏 ">
+    <meta name="twitter:title" content="Mongodb 备份 &amp; 恢复 &amp; 增加密码">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://sapphire611.github.io/backend/mongodb/auth/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Mongodb 备份 &amp; 恢复 &amp; 增加密码">
+    <meta property="og:description" content="">
+    <meta property="og:url" content="https://sapphire611.github.io/backend/mongodb/auth/">
+    <meta property="og:site_name" content="Sapphire611">
+    <meta property="article:published_time" content="2022-11-8">
+    <meta property="article:tag" content="mongodb">
+    <meta itemprop="name" content="Mongodb 备份 &amp; 恢复 &amp; 增加密码">
+    <meta itemprop="description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.4d964e3d.css" as="style"><link rel="preload" href="/assets/js/app.a211322c.js" as="script"><link rel="preload" href="/assets/js/7.a0e3bda0.js" as="script"><link rel="preload" href="/assets/js/2.e75476bf.js" as="script"><link rel="preload" href="/assets/js/1.39a666f7.js" as="script"><link rel="preload" href="/assets/js/41.1b319bdc.js" as="script"><link rel="prefetch" href="/assets/js/10.2a7b0cbf.js"><link rel="prefetch" href="/assets/js/11.9403cb10.js"><link rel="prefetch" href="/assets/js/14.f55d4868.js"><link rel="prefetch" href="/assets/js/15.71896607.js"><link rel="prefetch" href="/assets/js/16.72df25fe.js"><link rel="prefetch" href="/assets/js/17.1be21a24.js"><link rel="prefetch" href="/assets/js/18.a7801e81.js"><link rel="prefetch" href="/assets/js/19.27a56651.js"><link rel="prefetch" href="/assets/js/20.4d6c7946.js"><link rel="prefetch" href="/assets/js/21.60d803da.js"><link rel="prefetch" href="/assets/js/22.e381aea8.js"><link rel="prefetch" href="/assets/js/23.b8ef172b.js"><link rel="prefetch" href="/assets/js/24.6fd868c8.js"><link rel="prefetch" href="/assets/js/25.0087c946.js"><link rel="prefetch" href="/assets/js/26.829d2b2f.js"><link rel="prefetch" href="/assets/js/27.a7059b71.js"><link rel="prefetch" href="/assets/js/28.b05e431f.js"><link rel="prefetch" href="/assets/js/29.816b9647.js"><link rel="prefetch" href="/assets/js/3.fa8cd189.js"><link rel="prefetch" href="/assets/js/30.b705f3c6.js"><link rel="prefetch" href="/assets/js/31.f4104a25.js"><link rel="prefetch" href="/assets/js/32.4a0411ec.js"><link rel="prefetch" href="/assets/js/33.8433973d.js"><link rel="prefetch" href="/assets/js/34.f3c53e6c.js"><link rel="prefetch" href="/assets/js/35.bffc4d54.js"><link rel="prefetch" href="/assets/js/36.a6256d4b.js"><link rel="prefetch" href="/assets/js/37.ec5f59c8.js"><link rel="prefetch" href="/assets/js/38.5ca098a8.js"><link rel="prefetch" href="/assets/js/39.8e098fc8.js"><link rel="prefetch" href="/assets/js/4.dbdd3fee.js"><link rel="prefetch" href="/assets/js/40.26b18439.js"><link rel="prefetch" href="/assets/js/42.6599d3fa.js"><link rel="prefetch" href="/assets/js/43.d0d79390.js"><link rel="prefetch" href="/assets/js/44.363e7486.js"><link rel="prefetch" href="/assets/js/45.76d1f572.js"><link rel="prefetch" href="/assets/js/46.3007b434.js"><link rel="prefetch" href="/assets/js/47.a1e75011.js"><link rel="prefetch" href="/assets/js/48.3c1c7b80.js"><link rel="prefetch" href="/assets/js/49.225b615a.js"><link rel="prefetch" href="/assets/js/5.f9d10451.js"><link rel="prefetch" href="/assets/js/50.fc16dc25.js"><link rel="prefetch" href="/assets/js/51.65b3de99.js"><link rel="prefetch" href="/assets/js/52.e79c8f32.js"><link rel="prefetch" href="/assets/js/53.671c501c.js"><link rel="prefetch" href="/assets/js/54.2fc703a8.js"><link rel="prefetch" href="/assets/js/55.e46f6c36.js"><link rel="prefetch" href="/assets/js/56.d48939cc.js"><link rel="prefetch" href="/assets/js/57.5626fc74.js"><link rel="prefetch" href="/assets/js/58.abcb9803.js"><link rel="prefetch" href="/assets/js/59.decfb432.js"><link rel="prefetch" href="/assets/js/6.8257e871.js"><link rel="prefetch" href="/assets/js/60.28345b14.js"><link rel="prefetch" href="/assets/js/61.224626d7.js"><link rel="prefetch" href="/assets/js/62.8711634b.js"><link rel="prefetch" href="/assets/js/63.a20c5aa8.js"><link rel="prefetch" href="/assets/js/64.814e2829.js"><link rel="prefetch" href="/assets/js/65.b992f408.js"><link rel="prefetch" href="/assets/js/66.147f9b6b.js"><link rel="prefetch" href="/assets/js/67.f90675b1.js"><link rel="prefetch" href="/assets/js/68.ad4fb9b1.js"><link rel="prefetch" href="/assets/js/69.08f89445.js"><link rel="prefetch" href="/assets/js/70.2c5d7bd9.js"><link rel="prefetch" href="/assets/js/71.e00e73d0.js"><link rel="prefetch" href="/assets/js/72.46be8d7c.js"><link rel="prefetch" href="/assets/js/73.f3d838a1.js"><link rel="prefetch" href="/assets/js/74.20f4be52.js"><link rel="prefetch" href="/assets/js/75.62b5d6db.js"><link rel="prefetch" href="/assets/js/76.be55e597.js"><link rel="prefetch" href="/assets/js/77.bd766989.js"><link rel="prefetch" href="/assets/js/78.7605c34c.js"><link rel="prefetch" href="/assets/js/79.604d40ae.js"><link rel="prefetch" href="/assets/js/8.55d7737b.js"><link rel="prefetch" href="/assets/js/80.58dd651d.js"><link rel="prefetch" href="/assets/js/81.e5cf59b3.js"><link rel="prefetch" href="/assets/js/82.e94b5fd9.js"><link rel="prefetch" href="/assets/js/83.87c8bf1f.js"><link rel="prefetch" href="/assets/js/84.05fe3a3e.js"><link rel="prefetch" href="/assets/js/9.71befd08.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.93cc9fbd.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.4d964e3d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-7dd95ae2><div data-v-7dd95ae2><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>Sapphire611</h3> <p class="description" data-v-59e6cb88>感谢来访🙏 </p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><!---->
+          
+        <span data-v-59e6cb88>2021 - </span>
+        2024
+      </a></span></div></div> <div class="hide" data-v-7dd95ae2><header class="navbar" data-v-7dd95ae2><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logo.jpg" alt="Sapphire611" class="logo"> <span class="site-name">Sapphire611</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/aboutMe/" class="nav-link"><i class="info"></i>
+  About Me
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Me/" class="nav-link"><i class="undefined"></i>
+  Me
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Backend/" class="nav-link"><i class="undefined"></i>
+  Backend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Frontend/" class="nav-link"><i class="undefined"></i>
+  Frontend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Algorithm/" class="nav-link"><i class="undefined"></i>
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Javascript/" class="nav-link"><i class="undefined"></i>
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/backend/" class="nav-link"><i class="undefined"></i>
+  backend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Other/" class="nav-link"><i class="undefined"></i>
+  Other
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Certificate/" class="nav-link"><i class="undefined"></i>
+  Certificate
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Deploy/" class="nav-link"><i class="undefined"></i>
+  Deploy
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div> <a href="https://github.com/Sapphire611/vuepress-sapphire611" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask" data-v-7dd95ae2></div> <aside class="sidebar" data-v-7dd95ae2><div class="personal-info-wrapper" data-v-1fad0c41 data-v-7dd95ae2><img src="/img/logo.jpg" alt="author-avatar" class="personal-img" data-v-1fad0c41> <!----> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>45</h3> <h6 data-v-1fad0c41>Articles</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>30</h3> <h6 data-v-1fad0c41>Tags</h6></div></div> <ul class="social-links" data-v-1fad0c41><li class="social-item" data-v-1fad0c41><i class="iconfont reco-github" style="color:#fb9b5f;" data-v-1fad0c41></i></li><li class="social-item" data-v-1fad0c41><i class="iconfont reco-bilibili" style="color:#f47e60;" data-v-1fad0c41></i></li><li class="social-item" data-v-1fad0c41><i class="iconfont reco-zhihu" style="color:#3498db;" data-v-1fad0c41></i></li></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><a href="/aboutMe/" class="nav-link"><i class="info"></i>
+  About Me
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Me/" class="nav-link"><i class="undefined"></i>
+  Me
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Backend/" class="nav-link"><i class="undefined"></i>
+  Backend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Frontend/" class="nav-link"><i class="undefined"></i>
+  Frontend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Algorithm/" class="nav-link"><i class="undefined"></i>
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Javascript/" class="nav-link"><i class="undefined"></i>
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/backend/" class="nav-link"><i class="undefined"></i>
+  backend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Other/" class="nav-link"><i class="undefined"></i>
+  Other
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Certificate/" class="nav-link"><i class="undefined"></i>
+  Certificate
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Deploy/" class="nav-link"><i class="undefined"></i>
+  Deploy
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div> <a href="https://github.com/Sapphire611/vuepress-sapphire611" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>Mongodb 备份 &amp; 恢复 &amp; 增加密码</h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><!---->
+          
+        <span data-v-59e6cb88>2021 - </span>
+        2024
+      </a></span></div></div> <div data-v-7dd95ae2><div data-v-7dd95ae2><main class="page"><section style="display:;"><div class="page-title"><h1 class="title">Mongodb 备份 &amp; 恢复 &amp; 增加密码</h1> <div data-v-8a445198><!----> <i class="iconfont reco-date" data-v-8a445198><span data-v-8a445198>11/8/2022</span></i> <i class="iconfont reco-eye" data-v-8a445198><span id="/backend/mongodb/auth/" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-8a445198><a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;"></a></span></i> <i class="tags iconfont reco-tag" data-v-8a445198><span class="tag-item" data-v-8a445198>mongodb</span></i></div></div> <div class="theme-reco-content content__default"><h2 id="mongodb-不能裸奔"><a href="#mongodb-不能裸奔" class="header-anchor">#</a> Mongodb 不能裸奔</h2> <blockquote><p>某次工作途中测试服务器的mongodb没有上密码，直接被人清库了两次，特此记录</p></blockquote> <h3 id="基于-docker-给-mongodb-增加密码"><a href="#基于-docker-给-mongodb-增加密码" class="header-anchor">#</a> 基于 docker 给 mongodb 增加密码</h3> <div class="language- extra-class"><pre class="language-text"><code>docker run --name mongo -d -p 27017:27017 --restart always mongo --auth # 利用docker挂载mongo，顺便设置自启动
+docker ps
+docker exec -it [container_id] mongo admin
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>MongoDB shell version v5.0.6
+connecting to: mongodb://127.0.0.1:27017/admin?compressors=disabled&amp;gssapiServiceName=mongodb
+Implicit session: session { &quot;id&quot; : UUID(&quot;a9721af9-51b8-4771-ba38-20396ca807a9&quot;) }
+MongoDB server version: 5.0.6
+================
+Warning: the &quot;mongo&quot; shell has been superseded by &quot;mongosh&quot;,
+which delivers improved usability and compatibility.The &quot;mongo&quot; shell has been deprecated and will be removed in
+an upcoming release.
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+
+&gt; db.createUser({ user: 'root', pwd: 'root', roles: [ { role: &quot;userAdminAnyDatabase&quot;, db: &quot;admin&quot; } ] });
+
+Successfully added user: {
+	&quot;user&quot; : &quot;root&quot;,
+	&quot;roles&quot; : [
+		{
+			&quot;role&quot; : &quot;userAdminAnyDatabase&quot;,
+			&quot;db&quot; : &quot;admin&quot;
+		}
+	]
+}
+
+&gt; exit
+bye
+</code></pre></div><div class="custom-block tip"><p class="title"></p><p>其实到这一步，就可以了，不一定要针对单数据库创建特定的管理员，用一个就行</p></div><hr> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 更新权限</span>
+db<span class="token punctuation">.</span><span class="token function">updateUser</span><span class="token punctuation">(</span>
+ <span class="token string">&quot;root&quot;</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+            <span class="token literal-property property">roles</span> <span class="token operator">:</span> 
+            <span class="token punctuation">[</span>
+                  <span class="token punctuation">{</span><span class="token string-property property">&quot;role&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;userAdminAnyDatabase&quot;</span><span class="token punctuation">,</span><span class="token string-property property">&quot;db&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;admin&quot;</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+                  <span class="token punctuation">{</span><span class="token string-property property">&quot;role&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;dbOwner&quot;</span><span class="token punctuation">,</span><span class="token string-property property">&quot;db&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;admin&quot;</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+                  <span class="token punctuation">{</span><span class="token string-property property">&quot;role&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;clusterAdmin&quot;</span><span class="token punctuation">,</span> <span class="token string-property property">&quot;db&quot;</span><span class="token operator">:</span> <span class="token string">&quot;admin&quot;</span><span class="token punctuation">}</span>
+             <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+<span class="token punctuation">)</span> 
+
+<span class="token comment">// 授予备份，恢复数据权限</span>
+db<span class="token punctuation">.</span><span class="token function">grantRolesToUser</span><span class="token punctuation">(</span><span class="token string">&quot;root&quot;</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token literal-property property">role</span><span class="token operator">:</span>”backup”<span class="token punctuation">,</span><span class="token literal-property property">db</span><span class="token operator">:</span><span class="token string">&quot;admin&quot;</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+db<span class="token punctuation">.</span><span class="token function">grantRolesToUser</span><span class="token punctuation">(</span><span class="token string">&quot;root&quot;</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token literal-property property">role</span><span class="token operator">:</span><span class="token string">&quot;restore&quot;</span><span class="token punctuation">,</span><span class="token literal-property property">db</span><span class="token operator">:</span><span class="token string">&quot;admin&quot;</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre></div><hr> <div class="language- extra-class"><pre class="language-text"><code># mongodb链接url
+
+db: mongodb://[username]:[password]@[ip]:[port]/[dbName]?readPreference=primary&amp;directConnection=true&amp;ssl=false&amp;authMechanism=DEFAULT&amp;authSource=admin
+
+# authSource=admin 一定要加
+</code></pre></div><hr> <h3 id="mongodump-mongorestore"><a href="#mongodump-mongorestore" class="header-anchor">#</a> Mongodump &amp; Mongorestore</h3> <p><a href="https://juejin.cn/post/7036272188915187742" target="_blank" rel="noopener noreferrer">如何使用mongodump<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <div class="custom-block tip"><p class="title"></p><p>mongodb将主体与插件进行了分离，需要额外下载插件包MongoDB Database Tools 下载地址: <a href="https://www.mongodb.com/try/download/database-tools" target="_blank" rel="noopener noreferrer">下载地址<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></div><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">tar</span> <span class="token parameter variable">-zxvf</span> mongodb.tools.xxxxxxx.tgz <span class="token comment"># 解压</span>
+</code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token builtin class-name">cd</span> /bin <span class="token comment"># 解压后进入 /bin 目录</span>
+./mongodump
+./mongodump <span class="token parameter variable">--forceTableScan</span> <span class="token parameter variable">-d</span> <span class="token punctuation">[</span>database_name<span class="token punctuation">]</span> <span class="token comment"># 因mongodb版本不一致导致的导出失败解决方案:</span>
+./mongorestore
+</code></pre></div><h3 id="对应mongo库打包成gz"><a href="#对应mongo库打包成gz" class="header-anchor">#</a> 对应mongo库打包成gz</h3> <h4 id="mongodump"><a href="#mongodump" class="header-anchor">#</a> mongodump</h4> <div class="language-shell extra-class"><pre class="language-shell"><code>mongodump <span class="token parameter variable">-h</span> <span class="token number">127.0</span>.0.1:27017 <span class="token parameter variable">-d</span> <span class="token punctuation">[</span>database_name<span class="token punctuation">]</span> <span class="token parameter variable">--gzip</span> <span class="token parameter variable">--archive</span><span class="token operator">=</span>xxx.gz <span class="token comment"># 无密码</span>
+mongodump <span class="token parameter variable">-h</span> <span class="token number">127.0</span>.0.1:27017 <span class="token parameter variable">-u</span> <span class="token punctuation">[</span>username<span class="token punctuation">]</span> <span class="token parameter variable">-p</span> <span class="token punctuation">[</span>password<span class="token punctuation">]</span> <span class="token parameter variable">--authenticationDatabase</span> admin <span class="token parameter variable">-d</span> <span class="token punctuation">[</span>database_name<span class="token punctuation">]</span> <span class="token parameter variable">--gzip</span> <span class="token parameter variable">--archive</span><span class="token operator">=</span>xxx.gz <span class="token comment">#有密码</span>
+</code></pre></div><h4 id="mongorestore"><a href="#mongorestore" class="header-anchor">#</a> mongorestore</h4> <div class="language-shell extra-class"><pre class="language-shell"><code>mongorestore <span class="token parameter variable">-h</span> <span class="token number">127.0</span>.0.1:27017 <span class="token parameter variable">-d</span> <span class="token punctuation">[</span>database_name<span class="token punctuation">]</span> <span class="token parameter variable">--gzip</span> <span class="token parameter variable">--archive</span><span class="token operator">=</span>xxx.gz <span class="token comment"># 无密码</span>
+mongorestore <span class="token parameter variable">-h</span> <span class="token number">127.0</span>.0.1:27017 <span class="token parameter variable">-u</span> <span class="token punctuation">[</span>username<span class="token punctuation">]</span> <span class="token parameter variable">-p</span> <span class="token punctuation">[</span>password<span class="token punctuation">]</span> <span class="token parameter variable">--authenticationDatabase</span> admin <span class="token parameter variable">-d</span> <span class="token punctuation">[</span>database_name<span class="token punctuation">]</span> <span class="token parameter variable">--gzip</span> <span class="token parameter variable">--archive</span><span class="token operator">=</span>xxx.gz <span class="token comment">#有密码</span>
+</code></pre></div></div></section> <footer class="page-edit"><!----> <!----></footer> <!----> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:12rem;" data-v-b57cc07c data-v-7dd95ae2><li class="level-2" data-v-b57cc07c><a href="/backend/mongodb/auth/#mongodb-不能裸奔" class="sidebar-link reco-side-mongodb-不能裸奔" data-v-b57cc07c>Mongodb 不能裸奔</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/mongodb/auth/#基于-docker-给-mongodb-增加密码" class="sidebar-link reco-side-基于-docker-给-mongodb-增加密码" data-v-b57cc07c>基于 docker 给 mongodb 增加密码</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/mongodb/auth/#mongodump-mongorestore" class="sidebar-link reco-side-mongodump-mongorestore" data-v-b57cc07c>Mongodump &amp; Mongorestore</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/mongodb/auth/#对应mongo库打包成gz" class="sidebar-link reco-side-对应mongo库打包成gz" data-v-b57cc07c>对应mongo库打包成gz</a></li></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><div><div class="sponsor-container" data-v-a142c76a><div class="sponsor-love position-absolute transition-3ms" data-v-a142c76a>
+    Sponsor
+  </div> <a href="https://github.com/yokefellow/vuepress-plugin-sponsor" target="_blank" title="Github" class="sponsor-github position-absolute transition-3ms" data-v-a142c76a></a> <ul class="sponsor-payment-options transition-3ms" data-v-a142c76a><li id="alipay-option" class="transition-3ms" data-v-a142c76a></li> <li id="wechat-option" class="transition-3ms" data-v-a142c76a></li> <li id="qq-option" class="transition-3ms" data-v-a142c76a></li> <li id="paypal-option" class="transition-3ms" data-v-a142c76a></li></ul> <div class="sponsor-qrcode-container position-absolute" style="display:none;" data-v-a142c76a data-v-a142c76a><div class="sponsor-qrcode-info" style="background-image:url();pointer-events:none;display:none;" data-v-a142c76a data-v-a142c76a></div></div> <div class="sponsor-message position-absolute" style="display:none;" data-v-a142c76a data-v-a142c76a>
+      主人忘记设置啦
+    </div></div></div><canvas id="vuepress-canvas-ribbon"></canvas><div class="Sakura" data-v-248d85d6><canvas id="canvas_sakura" style="z-index:-1;" data-v-248d85d6></canvas></div></div></div>
+    <script src="/assets/js/app.a211322c.js" defer></script><script src="/assets/js/7.a0e3bda0.js" defer></script><script src="/assets/js/2.e75476bf.js" defer></script><script src="/assets/js/1.39a666f7.js" defer></script><script src="/assets/js/41.1b319bdc.js" defer></script>
+  </body>
+</html>

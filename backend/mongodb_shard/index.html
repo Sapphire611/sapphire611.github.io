@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MongoDB Shard Demo | Sapphire611</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    
+    <meta name="description" content=":: right
+测试环境：Mac
+已安装Docker相关环境
+请确保 27017 ～ 27020 端口没有被占用
+来自 Sapphire611
+:::">
+    <meta name="twitter:title" content="MongoDB Shard Demo">
+    <meta name="twitter:description" content=":: right
+测试环境：Mac
+已安装Docker相关环境
+请确保 27017 ～ 27020 端口没有被占用
+来自 Sapphire611
+:::">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://sapphire611.github.io/backend/mongodb_shard/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="MongoDB Shard Demo">
+    <meta property="og:description" content=":: right
+测试环境：Mac
+已安装Docker相关环境
+请确保 27017 ～ 27020 端口没有被占用
+来自 Sapphire611
+:::">
+    <meta property="og:url" content="https://sapphire611.github.io/backend/mongodb_shard/">
+    <meta property="og:site_name" content="Sapphire611">
+    <meta property="article:published_time" content="2025-6-24">
+    <meta itemprop="name" content="MongoDB Shard Demo">
+    <meta itemprop="description" content=":: right
+测试环境：Mac
+已安装Docker相关环境
+请确保 27017 ～ 27020 端口没有被占用
+来自 Sapphire611
+:::">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.1645be0a.css" as="style"><link rel="preload" href="/assets/js/app.b6f78af9.js" as="script"><link rel="preload" href="/assets/js/7.1077a71e.js" as="script"><link rel="preload" href="/assets/js/2.e054aee5.js" as="script"><link rel="preload" href="/assets/js/1.388f40f4.js" as="script"><link rel="preload" href="/assets/js/46.4e4aa851.js" as="script"><link rel="prefetch" href="/assets/js/10.1ef88b34.js"><link rel="prefetch" href="/assets/js/11.3219b221.js"><link rel="prefetch" href="/assets/js/14.122bf10b.js"><link rel="prefetch" href="/assets/js/15.1262aa08.js"><link rel="prefetch" href="/assets/js/16.b5a55116.js"><link rel="prefetch" href="/assets/js/17.d7d33446.js"><link rel="prefetch" href="/assets/js/18.70ed19a9.js"><link rel="prefetch" href="/assets/js/19.0ac15c9e.js"><link rel="prefetch" href="/assets/js/20.1d7e4bf1.js"><link rel="prefetch" href="/assets/js/21.5c0debce.js"><link rel="prefetch" href="/assets/js/22.a944dd57.js"><link rel="prefetch" href="/assets/js/23.09c42f75.js"><link rel="prefetch" href="/assets/js/24.8b60b5ca.js"><link rel="prefetch" href="/assets/js/25.a359b136.js"><link rel="prefetch" href="/assets/js/26.de225473.js"><link rel="prefetch" href="/assets/js/27.dc68676b.js"><link rel="prefetch" href="/assets/js/28.f4658075.js"><link rel="prefetch" href="/assets/js/29.da1a9929.js"><link rel="prefetch" href="/assets/js/3.54a6bf28.js"><link rel="prefetch" href="/assets/js/30.82726e5c.js"><link rel="prefetch" href="/assets/js/31.09d56f42.js"><link rel="prefetch" href="/assets/js/32.167240b6.js"><link rel="prefetch" href="/assets/js/33.42cd2ef9.js"><link rel="prefetch" href="/assets/js/34.d4a0f090.js"><link rel="prefetch" href="/assets/js/35.b4fe8237.js"><link rel="prefetch" href="/assets/js/36.a4180f84.js"><link rel="prefetch" href="/assets/js/37.f266f07f.js"><link rel="prefetch" href="/assets/js/38.3953ded0.js"><link rel="prefetch" href="/assets/js/39.38c1c564.js"><link rel="prefetch" href="/assets/js/4.43501b1c.js"><link rel="prefetch" href="/assets/js/40.67551d7e.js"><link rel="prefetch" href="/assets/js/41.901dc26d.js"><link rel="prefetch" href="/assets/js/42.f8657462.js"><link rel="prefetch" href="/assets/js/43.bfae1f4c.js"><link rel="prefetch" href="/assets/js/44.d937631b.js"><link rel="prefetch" href="/assets/js/45.1901199e.js"><link rel="prefetch" href="/assets/js/47.f8142a5f.js"><link rel="prefetch" href="/assets/js/48.b5f49d68.js"><link rel="prefetch" href="/assets/js/49.4140d18f.js"><link rel="prefetch" href="/assets/js/5.cc49fd84.js"><link rel="prefetch" href="/assets/js/50.b924aa0f.js"><link rel="prefetch" href="/assets/js/51.323ff0e7.js"><link rel="prefetch" href="/assets/js/52.97f83ad6.js"><link rel="prefetch" href="/assets/js/53.fb023387.js"><link rel="prefetch" href="/assets/js/54.5403b45c.js"><link rel="prefetch" href="/assets/js/55.1745434c.js"><link rel="prefetch" href="/assets/js/56.205b1e8d.js"><link rel="prefetch" href="/assets/js/57.be26196c.js"><link rel="prefetch" href="/assets/js/58.6ff1dafa.js"><link rel="prefetch" href="/assets/js/59.e9f3fc7c.js"><link rel="prefetch" href="/assets/js/6.fed4eafd.js"><link rel="prefetch" href="/assets/js/60.ee8b5399.js"><link rel="prefetch" href="/assets/js/61.dbee7c9c.js"><link rel="prefetch" href="/assets/js/62.03c80add.js"><link rel="prefetch" href="/assets/js/63.b1f608e4.js"><link rel="prefetch" href="/assets/js/64.72150b3a.js"><link rel="prefetch" href="/assets/js/65.d7fc107f.js"><link rel="prefetch" href="/assets/js/66.938583ef.js"><link rel="prefetch" href="/assets/js/67.6e0949a4.js"><link rel="prefetch" href="/assets/js/68.5dd934c6.js"><link rel="prefetch" href="/assets/js/69.fdd8b6ee.js"><link rel="prefetch" href="/assets/js/70.ad948440.js"><link rel="prefetch" href="/assets/js/71.3195b5c7.js"><link rel="prefetch" href="/assets/js/72.f130dc83.js"><link rel="prefetch" href="/assets/js/73.247ea1bf.js"><link rel="prefetch" href="/assets/js/74.81a43409.js"><link rel="prefetch" href="/assets/js/75.c5fad545.js"><link rel="prefetch" href="/assets/js/76.5ddc4265.js"><link rel="prefetch" href="/assets/js/77.70d8fa3e.js"><link rel="prefetch" href="/assets/js/78.3174d393.js"><link rel="prefetch" href="/assets/js/79.6f9ec2b1.js"><link rel="prefetch" href="/assets/js/8.610579ad.js"><link rel="prefetch" href="/assets/js/80.0e562a8f.js"><link rel="prefetch" href="/assets/js/81.8da197c9.js"><link rel="prefetch" href="/assets/js/82.04ada75c.js"><link rel="prefetch" href="/assets/js/83.c698b5f1.js"><link rel="prefetch" href="/assets/js/84.a6d98093.js"><link rel="prefetch" href="/assets/js/85.fc7874bf.js"><link rel="prefetch" href="/assets/js/86.5ab3194f.js"><link rel="prefetch" href="/assets/js/87.01ebc5ef.js"><link rel="prefetch" href="/assets/js/88.5718e02c.js"><link rel="prefetch" href="/assets/js/9.fc56f4a9.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.1db7383c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.1645be0a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-7dd95ae2><div data-v-7dd95ae2><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>Sapphire611</h3> <p class="description" data-v-59e6cb88>感谢来访🙏 </p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><!---->
+          
+        <span data-v-59e6cb88>2021 - </span>
+        2025
+      </a></span></div></div> <div class="hide" data-v-7dd95ae2><header class="navbar" data-v-7dd95ae2><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logo.jpg" alt="Sapphire611" class="logo"> <span class="site-name">Sapphire611</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/aboutMe/" class="nav-link"><i class="info"></i>
+  About Me
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Me/" class="nav-link"><i class="undefined"></i>
+  Me
+</a></li><li class="dropdown-item"><!----> <a href="/categories/deploy/" class="nav-link"><i class="undefined"></i>
+  deploy
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Backend/" class="nav-link"><i class="undefined"></i>
+  Backend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/archietcture/" class="nav-link"><i class="undefined"></i>
+  archietcture
+</a></li><li class="dropdown-item"><!----> <a href="/categories/mongodb/" class="nav-link"><i class="undefined"></i>
+  mongodb
+</a></li><li class="dropdown-item"><!----> <a href="/categories/shard/" class="nav-link"><i class="undefined"></i>
+  shard
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Frontend/" class="nav-link"><i class="undefined"></i>
+  Frontend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Algorithm/" class="nav-link"><i class="undefined"></i>
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/categories/interview/" class="nav-link"><i class="undefined"></i>
+  interview
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Javascript/" class="nav-link"><i class="undefined"></i>
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/backend/" class="nav-link"><i class="undefined"></i>
+  backend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Other/" class="nav-link"><i class="undefined"></i>
+  Other
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Certificate/" class="nav-link"><i class="undefined"></i>
+  Certificate
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Deploy/" class="nav-link"><i class="undefined"></i>
+  Deploy
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div> <a href="https://github.com/Sapphire611/vuepress-sapphire611" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask" data-v-7dd95ae2></div> <aside class="sidebar" data-v-7dd95ae2><div class="personal-info-wrapper" data-v-1fad0c41 data-v-7dd95ae2><img src="/img/logo.jpg" alt="author-avatar" class="personal-img" data-v-1fad0c41> <!----> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>49</h3> <h6 data-v-1fad0c41>Articles</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>31</h3> <h6 data-v-1fad0c41>Tags</h6></div></div> <ul class="social-links" data-v-1fad0c41><li class="social-item" data-v-1fad0c41><i class="iconfont reco-github" style="color:#fb9b5f;" data-v-1fad0c41></i></li><li class="social-item" data-v-1fad0c41><i class="iconfont reco-bilibili" style="color:#fb9b5f;" data-v-1fad0c41></i></li><li class="social-item" data-v-1fad0c41><i class="iconfont reco-zhihu" style="color:#f47e60;" data-v-1fad0c41></i></li></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><a href="/aboutMe/" class="nav-link"><i class="info"></i>
+  About Me
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Me/" class="nav-link"><i class="undefined"></i>
+  Me
+</a></li><li class="dropdown-item"><!----> <a href="/categories/deploy/" class="nav-link"><i class="undefined"></i>
+  deploy
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Backend/" class="nav-link"><i class="undefined"></i>
+  Backend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/archietcture/" class="nav-link"><i class="undefined"></i>
+  archietcture
+</a></li><li class="dropdown-item"><!----> <a href="/categories/mongodb/" class="nav-link"><i class="undefined"></i>
+  mongodb
+</a></li><li class="dropdown-item"><!----> <a href="/categories/shard/" class="nav-link"><i class="undefined"></i>
+  shard
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Frontend/" class="nav-link"><i class="undefined"></i>
+  Frontend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Algorithm/" class="nav-link"><i class="undefined"></i>
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/categories/interview/" class="nav-link"><i class="undefined"></i>
+  interview
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Javascript/" class="nav-link"><i class="undefined"></i>
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/backend/" class="nav-link"><i class="undefined"></i>
+  backend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Other/" class="nav-link"><i class="undefined"></i>
+  Other
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Certificate/" class="nav-link"><i class="undefined"></i>
+  Certificate
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Deploy/" class="nav-link"><i class="undefined"></i>
+  Deploy
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div> <a href="https://github.com/Sapphire611/vuepress-sapphire611" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>MongoDB Shard Demo</h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><!---->
+          
+        <span data-v-59e6cb88>2021 - </span>
+        2025
+      </a></span></div></div> <div data-v-7dd95ae2><div data-v-7dd95ae2><main class="page"><section style="display:;"><div class="page-title"><h1 class="title">MongoDB Shard Demo</h1> <div data-v-8a445198><!----> <i class="iconfont reco-date" data-v-8a445198><span data-v-8a445198>6/24/2025</span></i> <i class="iconfont reco-eye" data-v-8a445198><span id="/backend/mongodb_shard/" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-8a445198><a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;"></a></span></i> <!----></div></div> <div class="theme-reco-content content__default"><h2 id="mongodb-shard-demo"><a href="#mongodb-shard-demo" class="header-anchor">#</a> MongoDB Shard Demo</h2> <p>:: right
+测试环境：Mac
+已安装Docker相关环境
+请确保 27017 ～ 27020 端口没有被占用
+来自 <a href="http://sapphire611.github.io" target="_blank" rel="noopener noreferrer">Sapphire611<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>
+:::</p> <h3 id="_1-docker-compose-yml"><a href="#_1-docker-compose-yml" class="header-anchor">#</a> 1. docker-compose.yml</h3> <blockquote><p>在目录下，创建docker-compose.yml文件</p></blockquote> <blockquote><p>--bind_ip_all 添加后，本地才能访问到</p></blockquote> <div class="language-yml extra-class"><pre class="language-yml"><code><span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token comment"># 配置服务器 (Config Server)</span>
+  <span class="token key atrule">configsvr</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> mongo<span class="token punctuation">:</span><span class="token number">5.0</span>
+    <span class="token key atrule">command</span><span class="token punctuation">:</span> mongod <span class="token punctuation">-</span><span class="token punctuation">-</span>configsvr <span class="token punctuation">-</span><span class="token punctuation">-</span>replSet configrs <span class="token punctuation">-</span><span class="token punctuation">-</span>bind_ip_all <span class="token punctuation">-</span><span class="token punctuation">-</span>port 27017
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">&quot;27019:27017&quot;</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> configsvr_data<span class="token punctuation">:</span>/data/configdb
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> mongodb<span class="token punctuation">-</span>network
+
+  <span class="token comment"># 分片服务器1 (Shard 1)</span>
+  <span class="token key atrule">shard1</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> mongo<span class="token punctuation">:</span><span class="token number">5.0</span>
+    <span class="token key atrule">command</span><span class="token punctuation">:</span> mongod <span class="token punctuation">-</span><span class="token punctuation">-</span>shardsvr <span class="token punctuation">-</span><span class="token punctuation">-</span>replSet shard1rs <span class="token punctuation">-</span><span class="token punctuation">-</span>bind_ip_all <span class="token punctuation">-</span><span class="token punctuation">-</span>port 27017
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">&quot;27018:27017&quot;</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> shard1_data<span class="token punctuation">:</span>/data/db
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> mongodb<span class="token punctuation">-</span>network
+
+  <span class="token comment"># 分片服务器2 (Shard 2) </span>
+  <span class="token key atrule">shard2</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> mongo<span class="token punctuation">:</span><span class="token number">5.0</span>
+    <span class="token key atrule">command</span><span class="token punctuation">:</span> mongod <span class="token punctuation">-</span><span class="token punctuation">-</span>shardsvr <span class="token punctuation">-</span><span class="token punctuation">-</span>replSet shard2rs <span class="token punctuation">-</span><span class="token punctuation">-</span>bind_ip_all <span class="token punctuation">-</span><span class="token punctuation">-</span>port 27017
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">&quot;27020:27017&quot;</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> shard2_data<span class="token punctuation">:</span>/data/db
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> mongodb<span class="token punctuation">-</span>network
+
+  <span class="token comment"># 路由服务器 (Mongos)</span>
+  <span class="token key atrule">mongos</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> mongo<span class="token punctuation">:</span><span class="token number">5.0</span>
+    <span class="token key atrule">command</span><span class="token punctuation">:</span> mongos <span class="token punctuation">-</span><span class="token punctuation">-</span>configdb configrs/configsvr<span class="token punctuation">:</span>27017 <span class="token punctuation">-</span><span class="token punctuation">-</span>bind_ip_all <span class="token punctuation">-</span><span class="token punctuation">-</span>port 27017
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">&quot;27017:27017&quot;</span>
+    <span class="token key atrule">depends_on</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> configsvr
+      <span class="token punctuation">-</span> shard1
+      <span class="token punctuation">-</span> shard2
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> mongodb<span class="token punctuation">-</span>network
+
+<span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+  <span class="token key atrule">configsvr_data</span><span class="token punctuation">:</span>
+  <span class="token key atrule">shard1_data</span><span class="token punctuation">:</span>
+  <span class="token key atrule">shard2_data</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">networks</span><span class="token punctuation">:</span>
+  <span class="token key atrule">mongodb-network</span><span class="token punctuation">:</span>
+    <span class="token key atrule">driver</span><span class="token punctuation">:</span> bridge
+</code></pre></div><hr> <h3 id="_2-启用容器"><a href="#_2-启用容器" class="header-anchor">#</a> 2. 启用容器</h3> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">docker-compose</span> up <span class="token parameter variable">-d</span>
+</code></pre></div><hr> <h3 id="_3-创建初始化命令文件"><a href="#_3-创建初始化命令文件" class="header-anchor">#</a> 3. 创建初始化命令文件</h3> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment"># init.sh</span>
+<span class="token comment"># 完整分片集群初始化脚本</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;=== 开始初始化MongoDB分片集群 ===&quot;</span>
+
+<span class="token comment"># 1. 初始化配置服务器副本集</span>
+<span class="token builtin class-name">echo</span> <span class="token parameter variable">-n</span> <span class="token string">&quot;正在初始化配置服务器副本集...&quot;</span>
+<span class="token function">docker-compose</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-T</span> configsvr mongosh <span class="token parameter variable">--eval</span> <span class="token string">'
+rs.initiate({
+  _id: &quot;configrs&quot;,
+  configsvr: true,
+  members: [{ _id: 0, host: &quot;configsvr:27017&quot; }]
+});
+'</span> <span class="token operator">&gt;</span> /dev/null <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">echo</span> <span class="token string">&quot;完成&quot;</span>
+
+<span class="token comment"># 2. 初始化分片副本集</span>
+<span class="token builtin class-name">echo</span> <span class="token parameter variable">-n</span> <span class="token string">&quot;正在初始化分片1副本集...&quot;</span>
+<span class="token function">docker-compose</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-T</span> shard1 mongosh <span class="token parameter variable">--eval</span> <span class="token string">'
+rs.initiate({
+  _id: &quot;shard1rs&quot;,
+  members: [{ _id: 0, host: &quot;shard1:27017&quot; }]
+});
+'</span> <span class="token operator">&gt;</span> /dev/null <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">echo</span> <span class="token string">&quot;完成&quot;</span>
+
+<span class="token builtin class-name">echo</span> <span class="token parameter variable">-n</span> <span class="token string">&quot;正在初始化分片2副本集...&quot;</span>
+<span class="token function">docker-compose</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-T</span> shard2 mongosh <span class="token parameter variable">--eval</span> <span class="token string">'
+rs.initiate({
+  _id: &quot;shard2rs&quot;,
+  members: [{ _id: 0, host: &quot;shard2:27017&quot; }]
+});
+'</span> <span class="token operator">&gt;</span> /dev/null <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">echo</span> <span class="token string">&quot;完成&quot;</span>
+
+<span class="token comment"># 3. 等待副本集初始化完成</span>
+<span class="token builtin class-name">echo</span> <span class="token parameter variable">-n</span> <span class="token string">&quot;等待集群初始化(15秒)...&quot;</span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">i</span> <span class="token keyword">in</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">..</span><span class="token number">15</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+  <span class="token function">sleep</span> <span class="token number">1</span>
+  <span class="token builtin class-name">echo</span> <span class="token parameter variable">-n</span> <span class="token string">&quot;.&quot;</span>
+<span class="token keyword">done</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;就绪&quot;</span>
+
+<span class="token comment"># 4. 在mongos上执行分片配置</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;正在配置分片集群...&quot;</span>
+<span class="token function">docker-compose</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-T</span> mongos mongosh <span class="token parameter variable">--eval</span> <span class="token string">'
+// 添加分片到集群
+print(&quot;添加分片到集群...&quot;);
+sh.addShard(&quot;shard1rs/shard1:27017&quot;);
+sh.addShard(&quot;shard2rs/shard2:27017&quot;);
+
+// 对数据库启用分片
+print(&quot;\n启用数据库分片...&quot;);
+sh.enableSharding(&quot;sharded_db&quot;);
+
+// 创建哈希分片键索引
+print(&quot;\n创建分片键索引...&quot;);
+db.getSiblingDB(&quot;sharded_db&quot;).orders.createIndex({ order_id: &quot;hashed&quot; });
+
+// 对集合启用分片
+print(&quot;\n启用集合分片...&quot;);
+sh.shardCollection(&quot;sharded_db.orders&quot;, { order_id: &quot;hashed&quot; });
+
+// 插入测试数据
+print(&quot;\n插入测试数据(200条)...&quot;);
+for (let i = 1; i &lt;= 200; i++) {
+  db.getSiblingDB(&quot;sharded_db&quot;).orders.insertOne({
+    order_id: i,
+    customer: &quot;user_&quot; + Math.floor(Math.random() * 50),
+    amount: Math.random() * 500,
+    created_at: new Date()
+  });
+  if (i % 50 == 0) print(&quot;已插入 &quot; + i + &quot; 条&quot;);
+}
+
+// 强制刷新分片分布统计
+print(&quot;\n刷新分片分布统计...&quot;);
+db.adminCommand({ flushRouterConfig: 1 });
+
+// 获取分片分布详情
+print(&quot;\n=== 详细分片分布 ===&quot;);
+printjson(db.getSiblingDB(&quot;sharded_db&quot;).orders.getShardDistribution());
+
+print(&quot;\n✅ 分片集群初始化完成&quot;);
+'</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;=== 初始化脚本执行完成 ===&quot;</span>
+</code></pre></div><hr> <h3 id="_4-给文件增加执行权限后执行"><a href="#_4-给文件增加执行权限后执行" class="header-anchor">#</a> 4. 给文件增加执行权限后执行</h3> <div class="language- extra-class"><pre class="language-text"><code>chmod +x init.sh
+./init.sh
+</code></pre></div><hr> <h2 id="demo输出"><a href="#demo输出" class="header-anchor">#</a> Demo输出</h2> <div class="language-bash extra-class"><pre class="language-bash"><code>liuliyi@liuliyideMacBook-Pro <span class="token function">docker-compose</span> % <span class="token function">docker-compose</span> up <span class="token parameter variable">-d</span>
+<span class="token punctuation">[</span>+<span class="token punctuation">]</span> Running <span class="token number">8</span>/8
+ ✔ Network docker-compose_mongodb-network  Created                         <span class="token number">0</span>.0s
+ ✔ Volume <span class="token string">&quot;docker-compose_shard1_data&quot;</span>     Created                         <span class="token number">0</span>.0s
+ ✔ Volume <span class="token string">&quot;docker-compose_shard2_data&quot;</span>     Created                         <span class="token number">0</span>.0s
+ ✔ Volume <span class="token string">&quot;docker-compose_configsvr_data&quot;</span>  Created                         <span class="token number">0</span>.0s
+ ✔ Container docker-compose-configsvr-1    Started                         <span class="token number">0</span>.4s
+ ✔ Container docker-compose-shard2-1       Started                         <span class="token number">0</span>.3s
+ ✔ Container docker-compose-shard1-1       Started                         <span class="token number">0</span>.3s
+ ✔ Container docker-compose-mongos-1       Started                         <span class="token number">0</span>.4s
+liuliyi@liuliyideMacBook-Pro <span class="token function">docker-compose</span> % ./init.sh
+<span class="token operator">==</span><span class="token operator">=</span> 开始初始化MongoDB分片集群 <span class="token operator">==</span><span class="token operator">=</span>
+正在初始化配置服务器副本集<span class="token punctuation">..</span>.完成
+正在初始化分片1副本集<span class="token punctuation">..</span>.完成
+正在初始化分片2副本集<span class="token punctuation">..</span>.完成
+等待集群初始化<span class="token punctuation">(</span><span class="token number">15</span>秒<span class="token punctuation">)</span><span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span>就绪
+正在配置分片集群<span class="token punctuation">..</span>.
+添加分片到集群<span class="token punctuation">..</span>.
+
+启用数据库分片<span class="token punctuation">..</span>.
+
+创建分片键索引<span class="token punctuation">..</span>.
+
+启用集合分片<span class="token punctuation">..</span>.
+
+插入测试数据<span class="token punctuation">(</span><span class="token number">200</span>条<span class="token punctuation">)</span><span class="token punctuation">..</span>.
+已插入 <span class="token number">50</span> 条
+已插入 <span class="token number">100</span> 条
+已插入 <span class="token number">150</span> 条
+已插入 <span class="token number">200</span> 条
+
+刷新分片分布统计<span class="token punctuation">..</span>.
+
+<span class="token operator">==</span><span class="token operator">=</span> 详细分片分布 <span class="token operator">==</span><span class="token operator">=</span>
+Shard shard1rs at shard1rs/shard1:27017
+<span class="token punctuation">{</span>
+  data: <span class="token string">'8KiB'</span>,
+  docs: <span class="token number">92</span>,
+  chunks: <span class="token number">2</span>,
+  <span class="token string">'estimated data per chunk'</span><span class="token builtin class-name">:</span> <span class="token string">'4KiB'</span>,
+  <span class="token string">'estimated docs per chunk'</span><span class="token builtin class-name">:</span> <span class="token number">46</span>
+<span class="token punctuation">}</span>
+---
+Shard shard2rs at shard2rs/shard2:27017
+<span class="token punctuation">{</span>
+  data: <span class="token string">'9KiB'</span>,
+  docs: <span class="token number">108</span>,
+  chunks: <span class="token number">2</span>,
+  <span class="token string">'estimated data per chunk'</span><span class="token builtin class-name">:</span> <span class="token string">'4KiB'</span>,
+  <span class="token string">'estimated docs per chunk'</span><span class="token builtin class-name">:</span> <span class="token number">54</span>
+<span class="token punctuation">}</span>
+---
+Totals
+<span class="token punctuation">{</span>
+  data: <span class="token string">'18KiB'</span>,
+  docs: <span class="token number">200</span>,
+  chunks: <span class="token number">4</span>,
+  <span class="token string">'Shard shard1rs'</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span>
+    <span class="token string">'46.01 % data'</span>,
+    <span class="token string">'46 % docs in cluster'</span>,
+    <span class="token string">'93B avg obj size on shard'</span>
+  <span class="token punctuation">]</span>,
+  <span class="token string">'Shard shard2rs'</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span>
+    <span class="token string">'53.98 % data'</span>,
+    <span class="token string">'54 % docs in cluster'</span>,
+    <span class="token string">'93B avg obj size on shard'</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+✅ 分片集群初始化完成
+<span class="token operator">==</span><span class="token operator">=</span> 初始化脚本执行完成 <span class="token operator">==</span><span class="token operator">=</span>
+</code></pre></div></div></section> <footer class="page-edit"><!----> <!----></footer> <!----> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:12rem;" data-v-b57cc07c data-v-7dd95ae2><li class="level-2" data-v-b57cc07c><a href="/backend/mongodb_shard/#mongodb-shard-demo" class="sidebar-link reco-side-mongodb-shard-demo" data-v-b57cc07c>MongoDB Shard Demo</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/mongodb_shard/#_1-docker-compose-yml" class="sidebar-link reco-side-_1-docker-compose-yml" data-v-b57cc07c>1. docker-compose.yml</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/mongodb_shard/#_2-启用容器" class="sidebar-link reco-side-_2-启用容器" data-v-b57cc07c>2. 启用容器</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/mongodb_shard/#_3-创建初始化命令文件" class="sidebar-link reco-side-_3-创建初始化命令文件" data-v-b57cc07c>3. 创建初始化命令文件</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/mongodb_shard/#_4-给文件增加执行权限后执行" class="sidebar-link reco-side-_4-给文件增加执行权限后执行" data-v-b57cc07c>4. 给文件增加执行权限后执行</a></li><li class="level-2" data-v-b57cc07c><a href="/backend/mongodb_shard/#demo输出" class="sidebar-link reco-side-demo输出" data-v-b57cc07c>Demo输出</a></li></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><div><div class="sponsor-container" data-v-a142c76a><div class="sponsor-love position-absolute transition-3ms" data-v-a142c76a>
+    Sponsor
+  </div> <a href="https://github.com/yokefellow/vuepress-plugin-sponsor" target="_blank" title="Github" class="sponsor-github position-absolute transition-3ms" data-v-a142c76a></a> <ul class="sponsor-payment-options transition-3ms" data-v-a142c76a><li id="alipay-option" class="transition-3ms" data-v-a142c76a></li> <li id="wechat-option" class="transition-3ms" data-v-a142c76a></li> <li id="qq-option" class="transition-3ms" data-v-a142c76a></li> <li id="paypal-option" class="transition-3ms" data-v-a142c76a></li></ul> <div class="sponsor-qrcode-container position-absolute" style="display:none;" data-v-a142c76a data-v-a142c76a><div class="sponsor-qrcode-info" style="background-image:url();pointer-events:none;display:none;" data-v-a142c76a data-v-a142c76a></div></div> <div class="sponsor-message position-absolute" style="display:none;" data-v-a142c76a data-v-a142c76a>
+      主人忘记设置啦
+    </div></div></div></div></div>
+    <script src="/assets/js/app.b6f78af9.js" defer></script><script src="/assets/js/7.1077a71e.js" defer></script><script src="/assets/js/2.e054aee5.js" defer></script><script src="/assets/js/1.388f40f4.js" defer></script><script src="/assets/js/46.4e4aa851.js" defer></script>
+  </body>
+</html>

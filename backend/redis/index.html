@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Redis 学习笔记 | Sapphire611</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    
+    <meta name="description" content="【尚硅谷】Redis 6 入门到精通 超详细 教程">
+    <meta name="image" content="https://img-blog.csdnimg.cn/652465d11add436ea377bfe71c983b44.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NDA4Mzkw,size_16,color_FFFFFF,t_70#pic_center">
+    <meta name="twitter:title" content="Redis 学习笔记">
+    <meta name="twitter:description" content="【尚硅谷】Redis 6 入门到精通 超详细 教程">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://img-blog.csdnimg.cn/652465d11add436ea377bfe71c983b44.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NDA4Mzkw,size_16,color_FFFFFF,t_70#pic_center">
+    <meta name="twitter:url" content="https://sapphire611.github.io/backend/redis/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Redis 学习笔记">
+    <meta property="og:description" content="【尚硅谷】Redis 6 入门到精通 超详细 教程">
+    <meta property="og:image" content="https://img-blog.csdnimg.cn/652465d11add436ea377bfe71c983b44.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NDA4Mzkw,size_16,color_FFFFFF,t_70#pic_center">
+    <meta property="og:url" content="https://sapphire611.github.io/backend/redis/">
+    <meta property="og:site_name" content="Sapphire611">
+    <meta property="article:published_time" content="2025-6-18">
+    <meta property="article:tag" content="redis">
+    <meta itemprop="name" content="Redis 学习笔记">
+    <meta itemprop="description" content="【尚硅谷】Redis 6 入门到精通 超详细 教程">
+    <meta itemprop="image" content="https://img-blog.csdnimg.cn/652465d11add436ea377bfe71c983b44.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NDA4Mzkw,size_16,color_FFFFFF,t_70#pic_center">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.1645be0a.css" as="style"><link rel="preload" href="/assets/js/app.be8121bb.js" as="script"><link rel="preload" href="/assets/js/7.1077a71e.js" as="script"><link rel="preload" href="/assets/js/2.e054aee5.js" as="script"><link rel="preload" href="/assets/js/1.388f40f4.js" as="script"><link rel="preload" href="/assets/js/64.5940fa83.js" as="script"><link rel="prefetch" href="/assets/js/10.1ef88b34.js"><link rel="prefetch" href="/assets/js/11.3219b221.js"><link rel="prefetch" href="/assets/js/14.122bf10b.js"><link rel="prefetch" href="/assets/js/15.1262aa08.js"><link rel="prefetch" href="/assets/js/16.b5a55116.js"><link rel="prefetch" href="/assets/js/17.d7d33446.js"><link rel="prefetch" href="/assets/js/18.70ed19a9.js"><link rel="prefetch" href="/assets/js/19.0ac15c9e.js"><link rel="prefetch" href="/assets/js/20.1d7e4bf1.js"><link rel="prefetch" href="/assets/js/21.5c0debce.js"><link rel="prefetch" href="/assets/js/22.a944dd57.js"><link rel="prefetch" href="/assets/js/23.09c42f75.js"><link rel="prefetch" href="/assets/js/24.8b60b5ca.js"><link rel="prefetch" href="/assets/js/25.a359b136.js"><link rel="prefetch" href="/assets/js/26.de225473.js"><link rel="prefetch" href="/assets/js/27.dc68676b.js"><link rel="prefetch" href="/assets/js/28.f4658075.js"><link rel="prefetch" href="/assets/js/29.da1a9929.js"><link rel="prefetch" href="/assets/js/3.54a6bf28.js"><link rel="prefetch" href="/assets/js/30.82726e5c.js"><link rel="prefetch" href="/assets/js/31.09d56f42.js"><link rel="prefetch" href="/assets/js/32.167240b6.js"><link rel="prefetch" href="/assets/js/33.42cd2ef9.js"><link rel="prefetch" href="/assets/js/34.d4a0f090.js"><link rel="prefetch" href="/assets/js/35.b4fe8237.js"><link rel="prefetch" href="/assets/js/36.a4180f84.js"><link rel="prefetch" href="/assets/js/37.f266f07f.js"><link rel="prefetch" href="/assets/js/38.d8d33f4c.js"><link rel="prefetch" href="/assets/js/39.2cefd7c9.js"><link rel="prefetch" href="/assets/js/4.43501b1c.js"><link rel="prefetch" href="/assets/js/40.5442eeda.js"><link rel="prefetch" href="/assets/js/41.1d3b7390.js"><link rel="prefetch" href="/assets/js/42.20709029.js"><link rel="prefetch" href="/assets/js/43.a06827f8.js"><link rel="prefetch" href="/assets/js/44.1287c956.js"><link rel="prefetch" href="/assets/js/45.ca7249bb.js"><link rel="prefetch" href="/assets/js/46.aefcb29b.js"><link rel="prefetch" href="/assets/js/47.197a6718.js"><link rel="prefetch" href="/assets/js/48.08afcf0d.js"><link rel="prefetch" href="/assets/js/49.75447eaa.js"><link rel="prefetch" href="/assets/js/5.cc49fd84.js"><link rel="prefetch" href="/assets/js/50.4a392cbf.js"><link rel="prefetch" href="/assets/js/51.c1f82fd8.js"><link rel="prefetch" href="/assets/js/52.054a0fde.js"><link rel="prefetch" href="/assets/js/53.1a90408c.js"><link rel="prefetch" href="/assets/js/54.cdbc2d0d.js"><link rel="prefetch" href="/assets/js/55.b0127b29.js"><link rel="prefetch" href="/assets/js/56.66dc7345.js"><link rel="prefetch" href="/assets/js/57.28db5c79.js"><link rel="prefetch" href="/assets/js/58.f0c9e314.js"><link rel="prefetch" href="/assets/js/59.79d145fc.js"><link rel="prefetch" href="/assets/js/6.fed4eafd.js"><link rel="prefetch" href="/assets/js/60.f5c53d76.js"><link rel="prefetch" href="/assets/js/61.77920e93.js"><link rel="prefetch" href="/assets/js/62.e0e0ee08.js"><link rel="prefetch" href="/assets/js/63.0c727790.js"><link rel="prefetch" href="/assets/js/65.e8fd4bd1.js"><link rel="prefetch" href="/assets/js/66.3b9b8e85.js"><link rel="prefetch" href="/assets/js/67.d66434c6.js"><link rel="prefetch" href="/assets/js/68.192c1263.js"><link rel="prefetch" href="/assets/js/69.bd0da472.js"><link rel="prefetch" href="/assets/js/70.f4cfe08f.js"><link rel="prefetch" href="/assets/js/71.fb4cb7f7.js"><link rel="prefetch" href="/assets/js/72.62ebbc19.js"><link rel="prefetch" href="/assets/js/73.00ba4409.js"><link rel="prefetch" href="/assets/js/74.6dd6de9b.js"><link rel="prefetch" href="/assets/js/75.5ce2eb79.js"><link rel="prefetch" href="/assets/js/76.04acce53.js"><link rel="prefetch" href="/assets/js/77.d2bc67f5.js"><link rel="prefetch" href="/assets/js/78.72bbeb04.js"><link rel="prefetch" href="/assets/js/79.a57a27a5.js"><link rel="prefetch" href="/assets/js/8.610579ad.js"><link rel="prefetch" href="/assets/js/80.c54ba506.js"><link rel="prefetch" href="/assets/js/81.188d8acf.js"><link rel="prefetch" href="/assets/js/82.2a35cc94.js"><link rel="prefetch" href="/assets/js/83.cfbdce20.js"><link rel="prefetch" href="/assets/js/84.ff2733ee.js"><link rel="prefetch" href="/assets/js/85.39ede0ff.js"><link rel="prefetch" href="/assets/js/86.c7ae87b4.js"><link rel="prefetch" href="/assets/js/87.37650ce9.js"><link rel="prefetch" href="/assets/js/88.538166d3.js"><link rel="prefetch" href="/assets/js/89.0b6f2265.js"><link rel="prefetch" href="/assets/js/9.fc56f4a9.js"><link rel="prefetch" href="/assets/js/90.eb7c64bd.js"><link rel="prefetch" href="/assets/js/91.e5d5138a.js"><link rel="prefetch" href="/assets/js/92.9e38e326.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.1db7383c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.1645be0a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-7dd95ae2><div data-v-7dd95ae2><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>Sapphire611</h3> <p class="description" data-v-59e6cb88>感谢来访🙏 </p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><!---->
+          
+        <span data-v-59e6cb88>2021 - </span>
+        2025
+      </a></span></div></div> <div class="hide" data-v-7dd95ae2><header class="navbar" data-v-7dd95ae2><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logo.jpg" alt="Sapphire611" class="logo"> <span class="site-name">Sapphire611</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/aboutMe/" class="nav-link"><i class="info"></i>
+  About Me
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/elasticSearch/" class="nav-link"><i class="undefined"></i>
+  elasticSearch
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Me/" class="nav-link"><i class="undefined"></i>
+  Me
+</a></li><li class="dropdown-item"><!----> <a href="/categories/archietcture/" class="nav-link"><i class="undefined"></i>
+  archietcture
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Backend/" class="nav-link"><i class="undefined"></i>
+  Backend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/mongodb/" class="nav-link"><i class="undefined"></i>
+  mongodb
+</a></li><li class="dropdown-item"><!----> <a href="/categories/shard/" class="nav-link"><i class="undefined"></i>
+  shard
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Frontend/" class="nav-link"><i class="undefined"></i>
+  Frontend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Algorithm/" class="nav-link"><i class="undefined"></i>
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/categories/interview/" class="nav-link"><i class="undefined"></i>
+  interview
+</a></li><li class="dropdown-item"><!----> <a href="/categories/postgres/" class="nav-link"><i class="undefined"></i>
+  postgres
+</a></li><li class="dropdown-item"><!----> <a href="/categories/database/" class="nav-link"><i class="undefined"></i>
+  database
+</a></li><li class="dropdown-item"><!----> <a href="/categories/backend/" class="nav-link"><i class="undefined"></i>
+  backend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Javascript/" class="nav-link"><i class="undefined"></i>
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Certificate/" class="nav-link"><i class="undefined"></i>
+  Certificate
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Other/" class="nav-link"><i class="undefined"></i>
+  Other
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Deploy/" class="nav-link"><i class="undefined"></i>
+  Deploy
+</a></li><li class="dropdown-item"><!----> <a href="/categories/graphql/" class="nav-link"><i class="undefined"></i>
+  graphql
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div> <a href="https://github.com/Sapphire611/vuepress-sapphire611" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask" data-v-7dd95ae2></div> <aside class="sidebar" data-v-7dd95ae2><div class="personal-info-wrapper" data-v-1fad0c41 data-v-7dd95ae2><img src="/img/logo.jpg" alt="author-avatar" class="personal-img" data-v-1fad0c41> <!----> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>53</h3> <h6 data-v-1fad0c41>Articles</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>33</h3> <h6 data-v-1fad0c41>Tags</h6></div></div> <ul class="social-links" data-v-1fad0c41><li class="social-item" data-v-1fad0c41><i class="iconfont reco-github" style="color:#3498db;" data-v-1fad0c41></i></li><li class="social-item" data-v-1fad0c41><i class="iconfont reco-bilibili" style="color:#abbd81;" data-v-1fad0c41></i></li><li class="social-item" data-v-1fad0c41><i class="iconfont reco-zhihu" style="color:#3498db;" data-v-1fad0c41></i></li></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><a href="/aboutMe/" class="nav-link"><i class="info"></i>
+  About Me
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/elasticSearch/" class="nav-link"><i class="undefined"></i>
+  elasticSearch
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Me/" class="nav-link"><i class="undefined"></i>
+  Me
+</a></li><li class="dropdown-item"><!----> <a href="/categories/archietcture/" class="nav-link"><i class="undefined"></i>
+  archietcture
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Backend/" class="nav-link"><i class="undefined"></i>
+  Backend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/mongodb/" class="nav-link"><i class="undefined"></i>
+  mongodb
+</a></li><li class="dropdown-item"><!----> <a href="/categories/shard/" class="nav-link"><i class="undefined"></i>
+  shard
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Frontend/" class="nav-link"><i class="undefined"></i>
+  Frontend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Algorithm/" class="nav-link"><i class="undefined"></i>
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/categories/interview/" class="nav-link"><i class="undefined"></i>
+  interview
+</a></li><li class="dropdown-item"><!----> <a href="/categories/postgres/" class="nav-link"><i class="undefined"></i>
+  postgres
+</a></li><li class="dropdown-item"><!----> <a href="/categories/database/" class="nav-link"><i class="undefined"></i>
+  database
+</a></li><li class="dropdown-item"><!----> <a href="/categories/backend/" class="nav-link"><i class="undefined"></i>
+  backend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Javascript/" class="nav-link"><i class="undefined"></i>
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Certificate/" class="nav-link"><i class="undefined"></i>
+  Certificate
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Other/" class="nav-link"><i class="undefined"></i>
+  Other
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Deploy/" class="nav-link"><i class="undefined"></i>
+  Deploy
+</a></li><li class="dropdown-item"><!----> <a href="/categories/graphql/" class="nav-link"><i class="undefined"></i>
+  graphql
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div> <a href="https://github.com/Sapphire611/vuepress-sapphire611" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>Redis 学习笔记</h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><!---->
+          
+        <span data-v-59e6cb88>2021 - </span>
+        2025
+      </a></span></div></div> <div data-v-7dd95ae2><div data-v-7dd95ae2><main class="page"><section style="display:;"><div class="page-title"><h1 class="title">Redis 学习笔记</h1> <div data-v-8a445198><!----> <i class="iconfont reco-date" data-v-8a445198><span data-v-8a445198>6/18/2025</span></i> <i class="iconfont reco-eye" data-v-8a445198><span id="/backend/redis/" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-8a445198><a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;"></a></span></i> <i class="tags iconfont reco-tag" data-v-8a445198><span class="tag-item" data-v-8a445198>redis</span></i></div></div> <div class="theme-reco-content content__default"><h2 id="redis-概念"><a href="#redis-概念" class="header-anchor">#</a> Redis 概念</h2> <p><a href="https://www.bilibili.com/video/BV1Rv41177Af" target="_blank" rel="noopener noreferrer">【尚硅谷】Redis 6 入门到精通 超详细 教程<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="https://blog.csdn.net/qq_45408390/category_11225849.html" target="_blank" rel="noopener noreferrer">cV 展示的学习园 (这人笔记写的很好)<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <blockquote><p>Redis(Remote Dictinary Server),C 语言开发,高性能(key-value)数据库, <strong>单线程 + 多路 IO 复用</strong></p></blockquote> <h2 id="docker-redis-cli"><a href="#docker-redis-cli" class="header-anchor">#</a> Docker &amp; Redis-Cli</h2> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token parameter variable">--name</span> redis <span class="token parameter variable">-p</span> <span class="token number">6379</span>:6379 <span class="token parameter variable">--restart</span> always redis <span class="token comment"># Aha，顺便设置自启动</span>
+<span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> redis redis-cli
+</code></pre></div><h3 id="redis-cli-test"><a href="#redis-cli-test" class="header-anchor">#</a> Redis-Cli-Test</h3> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> <span class="token function">ping</span>
+PONG <span class="token comment"># 看到这个就代表成功了</span>
+</code></pre></div><h2 id="redis-五大数据类型"><a href="#redis-五大数据类型" class="header-anchor">#</a> Redis 五大数据类型</h2> <div class="custom-block warning"><p class="title"></p><ul><li>String (90%+) ， 二进制安全</li> <li>List ，双向链表</li> <li>Set ，自动去重 ，字典</li> <li>Hash ，类似 HashMap，存储键值对</li> <li>Zset ，有序集合，score（从小到大排列）</li></ul></div><h3 id="medis"><a href="#medis" class="header-anchor">#</a> Medis</h3> <p><a href="https://getmedis.com/" target="_blank" rel="noopener noreferrer">【Mac】Medis For Redis GUI<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="https://github.com/qishibo/AnotherRedisDesktopManager/releases/tag/v1.5.5" target="_blank" rel="noopener noreferrer">【Windows】Another Redis Desktop Manager<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="redis-基本操作"><a href="#redis-基本操作" class="header-anchor">#</a> Redis 基本操作</h2> <h3 id="key-常用命令"><a href="#key-常用命令" class="header-anchor">#</a> Key 常用命令</h3> <div class="language-shell extra-class"><pre class="language-shell"><code>keys *
+
+exists key <span class="token comment"># 判断key是否存在</span>
+
+del key <span class="token comment"># 同步删除</span>
+unlink key <span class="token comment"># 异步删除</span>
+
+expire key <span class="token number">10</span> <span class="token comment"># 给key设置过期时间，单位是秒</span>
+ttl key <span class="token comment"># time-to-live,查看key还有多久过期，-1永不过期，-2已过期</span>
+
+<span class="token keyword">select</span> <span class="token number">1</span> <span class="token comment"># 切换数据库</span>
+
+dbsize <span class="token comment"># 查看当前数据库keys的数量</span>
+
+flushdb <span class="token comment"># 清空当前数据库</span>
+flushall <span class="token comment"># 清空所有数据库</span>
+</code></pre></div><h3 id="string-常用命令"><a href="#string-常用命令" class="header-anchor">#</a> String 常用命令</h3> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token builtin class-name">set</span> k1 <span class="token number">111</span>
+get k1
+
+mset k1 v1 k2 v2 <span class="token punctuation">..</span>.
+msetnx k1 v1 k2 v2 <span class="token punctuation">..</span>. <span class="token comment"># 原子性</span>
+mget k1 k2 <span class="token punctuation">..</span>.
+
+strlen k1 <span class="token comment"># 获得k1的长度</span>
+
+setnx k1 <span class="token number">111</span> <span class="token comment">#setnx 只有key不存在时才能成功</span>
+
+getrange k1 <span class="token number">1</span> <span class="token number">2</span> <span class="token comment"># (java) = k1.substring(1,2)</span>
+setrange k1 <span class="token number">2</span> value
+
+setex k1 <span class="token number">600</span> v1 <span class="token comment"># 同时设置过期时间</span>
+getset k1 v2 <span class="token comment"># 读 &amp; 设置新值</span>
+
+<span class="token comment"># 以下命令是原子性操作（不会被线程调度机制打断）</span>
+incr k1  <span class="token comment"># +1</span>
+decr k1  <span class="token comment"># -1</span>
+
+incrby k1 <span class="token number">10</span> <span class="token comment"># +10</span>
+decrby k1 <span class="token number">10</span> <span class="token comment"># -10</span>
+</code></pre></div><h3 id="list-常用命令"><a href="#list-常用命令" class="header-anchor">#</a> list 常用命令</h3> <div class="language-shell extra-class"><pre class="language-shell"><code>lpush / rpush k1 v1 k2 v2 <span class="token punctuation">..</span>.
+lpop / rpop k1 <span class="token comment"># 东西弹光了key就消失了</span>
+
+rpoplpush k1 k2 <span class="token comment"># 右弹 + 左插</span>
+
+lrange k1 <span class="token number">0</span> <span class="token parameter variable">-1</span> <span class="token comment"># &lt;start&gt; &lt;stop&gt; , 其中 0 -1 代表取所有值</span>
+
+lindex k1 <span class="token number">1</span>
+
+llen k1
+
+linsert k2 before/after k1 <span class="token string">&quot;value&quot;</span>
+
+lrem k1 <span class="token number">2</span> <span class="token string">&quot;value1&quot;</span> <span class="token comment"># 从k1左边删除2个value1</span>
+
+lset k1 <span class="token number">1</span> <span class="token string">&quot;value2&quot;</span> <span class="token comment"># 将k1中下标为1的值替换成“value2”</span>
+</code></pre></div><h3 id="set-常用命令"><a href="#set-常用命令" class="header-anchor">#</a> Set 常用命令</h3> <div class="language-shell extra-class"><pre class="language-shell"><code>sadd set1 v1 v2 v3
+
+smembers set1
+sismember set1 v1 <span class="token comment"># 判断set1中有无v1这个值</span>
+
+scard set1 <span class="token comment"># 返回set1中元素个数</span>
+
+srem set1 v1 v2 <span class="token punctuation">..</span>. <span class="token comment"># 删除集合中的元素</span>
+
+spop set1 <span class="token comment"># 随机从该集合中吐出一个值</span>
+
+srandmember set1 <span class="token number">3</span> <span class="token comment"># 随机从set1中取出3个值，但不会删除它们</span>
+
+smove k1 k2 v3 <span class="token comment"># 把v3从k1移到k2中</span>
+
+sinter k1 k2 <span class="token comment"># 交集</span>
+
+sunion k1 k2 <span class="token comment"># 并集</span>
+
+<span class="token function">sdiff</span> k1 k2 <span class="token comment"># 差集</span>
+</code></pre></div><h3 id="hash-常用命令"><a href="#hash-常用命令" class="header-anchor">#</a> Hash 常用命令</h3> <div class="language-shell extra-class"><pre class="language-shell"><code>hset user <span class="token function">id</span> <span class="token number">611</span>
+hset user name liuliyi
+
+hmset user <span class="token function">id</span> <span class="token number">1</span> name liuliyi611 age <span class="token number">24</span> <span class="token comment"># 批量设置</span>
+
+hexists user name <span class="token comment"># user.name 是否存在</span>
+
+hkeys user <span class="token comment"># 查询user的所有key</span>
+hvals user <span class="token comment"># 查询user的所有value</span>
+hgetall user <span class="token comment"># 一次性查询user的所有内容</span>
+
+hincrby user age <span class="token number">10</span> <span class="token comment"># user.age += 10</span>
+
+hsetnx user wife sara <span class="token comment"># 只有没有此属性，才能设置成功</span>
+</code></pre></div><h3 id="zset-常用命令"><a href="#zset-常用命令" class="header-anchor">#</a> ZSet 常用命令</h3> <div class="language-shell extra-class"><pre class="language-shell"><code>
+zadd <span class="token function">top</span> <span class="token number">100</span> user1 <span class="token number">90</span> user2 <span class="token number">80</span> user3  <span class="token comment"># 从小到大排列</span>
+
+zrange <span class="token function">top</span> <span class="token number">0</span> <span class="token parameter variable">-1</span>
+zrange <span class="token function">top</span> <span class="token number">0</span> <span class="token parameter variable">-1</span> withscores <span class="token comment"># withscores 会带上分数一起显示</span>
+
+zrangebyscore <span class="token function">top</span> <span class="token number">90</span> <span class="token number">100</span> <span class="token comment"># 显示 top 中 90～100 分的</span>
+zrangebyscore <span class="token function">top</span> <span class="token number">90</span> <span class="token number">100</span> withscores
+
+ZREVRANGEBYSCORE <span class="token function">top</span> <span class="token number">100</span> <span class="token number">80</span> <span class="token comment"># 从大到小排列</span>
+ZREVRANGEBYSCORE <span class="token function">top</span> <span class="token number">100</span> <span class="token number">80</span> withscores
+
+ZINCRBY <span class="token function">top</span> <span class="token number">50</span> user1 <span class="token comment"># 给top中的user1加50</span>
+
+ZREM <span class="token function">top</span> user
+
+ZCOUNT <span class="token function">top</span> <span class="token number">70</span> <span class="token number">100</span>
+
+ZRANK <span class="token function">top</span> user2
+</code></pre></div><h2 id="redis-配置文件"><a href="#redis-配置文件" class="header-anchor">#</a> Redis 配置文件</h2> <p><a href="https://blog.csdn.net/qq_45408390/article/details/119730969" target="_blank" rel="noopener noreferrer">Redis6 篇 （二）配置文件的介绍<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="redis-发布-订阅"><a href="#redis-发布-订阅" class="header-anchor">#</a> Redis 发布 &amp; 订阅</h2> <div class="language-shell extra-class"><pre class="language-shell"><code>subscribe channel1 <span class="token comment"># Terminal 1</span>
+publish channel1 hello <span class="token comment">#Terminal 2</span>
+</code></pre></div><h2 id="redis-新数据类型"><a href="#redis-新数据类型" class="header-anchor">#</a> Redis 新数据类型</h2> <p><a href="https://blog.csdn.net/qq_45408390/article/details/119731008" target="_blank" rel="noopener noreferrer">Redis6 篇 （三）Redis 新数据类型<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h3 id="bitmaps"><a href="#bitmaps" class="header-anchor">#</a> BitMaps</h3> <blockquote><p>利用二进制扩展成字符串的方式存储数据,可用于查找用户是否访问过某文章</p></blockquote> <blockquote><p>&quot;abc&quot; = &quot;01100001&quot; + &quot;01100010&quot; + &quot;01100011&quot; = &quot;011000010110001001100011&quot;</p></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code>SETBIT bitmap1 <span class="token number">1</span> <span class="token number">1</span>
+GETBIT bitmap1 <span class="token number">1</span>  <span class="token comment"># 1</span>
+GETBIT bitmap1 <span class="token number">2</span>  <span class="token comment"># 0</span>
+
+BITCOUNT bitmap1 <span class="token comment"># 计算bitmap1.count(下标=1)</span>
+BITCOUNT bitmap1 <span class="token punctuation">[</span>start<span class="token punctuation">]</span> <span class="token punctuation">[</span>end<span class="token punctuation">]</span> <span class="token comment"># 可以自定义count范围,其中-1代表倒数第一位,-2是倒数第二位，以此类推</span>
+</code></pre></div><div class="custom-block warning"><p class="title"></p><p>对于亿级用户来说，使用 Bitmaps 能节省很多的内存空间，但数量很少的情况下适得其反</p></div><h3 id="hyperloglog"><a href="#hyperloglog" class="header-anchor">#</a> HyperLogLog</h3> <blockquote><p>是用来做基数统计(去重后的元素个数)的算法</p></blockquote> <blockquote><p>HyperLogLog 的优点是，在输入元素的数量或者体积非常非常大时，计算基数所需的空间总是固定的、并且是很小的。</p></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code>pfadd HLL1 <span class="token string">&quot;test1&quot;</span> <span class="token string">&quot;test2&quot;</span> <span class="token string">&quot;test3&quot;</span> <span class="token string">&quot;test1&quot;</span>
+
+pfcount HLL1 <span class="token comment"># 3</span>
+
+pfadd HLL2 <span class="token string">&quot;test2&quot;</span> <span class="token string">&quot;test3&quot;</span> <span class="token string">&quot;test4&quot;</span>
+
+pfcount HLL2 <span class="token comment"># 3</span>
+
+pfmerge HLL3 HLL1 HLL2 <span class="token comment"># 把HLL1和HLL2合并成HLL3</span>
+
+pfcount HLL3 <span class="token comment"># 4</span>
+</code></pre></div><div class="custom-block warning"><p class="title"></p><p>HyperLogLog 只会根据输入元素来计算基数，而不会储存输入元素本身，所以 HyperLogLog 不能像集合那样，返回输入的各个元素。</p></div><h3 id="geospatial"><a href="#geospatial" class="header-anchor">#</a> Geospatial</h3> <blockquote><p>Redis 3.2 中增加了对 GEO 类型的支持。GEO，Geographic，地理信息的缩写,在地图上就是经纬度。</p></blockquote> <blockquote><p>redis 基于该类型，提供了经纬度设置，查询，范围查询，距离查询，经纬度 Hash 等常见操作。</p></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> geoadd city <span class="token number">121.47</span> <span class="token number">31.23</span> shanghai
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">1</span>
+<span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> geoadd city <span class="token number">106.50</span> <span class="token number">29.53</span> chongqing
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">1</span>
+<span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> GEOPOS city shanghai
+<span class="token number">1</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;121.47000163793563843&quot;</span>
+   <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;31.22999903975783553&quot;</span>
+<span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> GEOPOS city chongqing
+<span class="token number">1</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;106.49999767541885376&quot;</span>
+   <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;29.52999957900659211&quot;</span>
+<span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> GEODIST city shanghai chongqing
+<span class="token string">&quot;1447673.6920&quot;</span>
+<span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> GEORADIUS city <span class="token number">110</span> <span class="token number">30</span> <span class="token number">1000</span> km
+<span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;chongqing&quot;</span>
+</code></pre></div><h2 id="redis-事务操作"><a href="#redis-事务操作" class="header-anchor">#</a> Redis 事务操作</h2> <p><a href="https://blog.csdn.net/qq_45408390/article/details/119731054" target="_blank" rel="noopener noreferrer">Redis6 篇 （五）Redis 事务操作 + Redis 事务-秒杀案例<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h3 id="事务的概述"><a href="#事务的概述" class="header-anchor">#</a> 事务的概述</h3> <ul><li>Redis 事务是一个单独的隔离操作：事务中的所有命令都会序列化、按顺序地执行。</li> <li>事务在执行的过程中，不会被其他客户端发送来的命令请求所打断。</li></ul> <h3 id="multi、exec、discard"><a href="#multi、exec、discard" class="header-anchor">#</a> Multi、Exec、discard</h3> <ul><li>从输入 Multi 命令开始，输入的命令都会依次进入命令队列中，但不会执行</li> <li>直到输入 Exec 后，Redis 会将之前的命令队列中的命令依次执行</li> <li>组队的过程中可以通过 discard</li></ul> <hr> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> multi
+OK
+<span class="token number">127.0</span>.0.1:6379<span class="token punctuation">(</span>TX<span class="token punctuation">)</span><span class="token operator">&gt;</span> flushdb
+QUEUED
+<span class="token number">127.0</span>.0.1:6379<span class="token punctuation">(</span>TX<span class="token punctuation">)</span><span class="token operator">&gt;</span> <span class="token builtin class-name">set</span> k1 v1
+QUEUED
+<span class="token number">127.0</span>.0.1:6379<span class="token punctuation">(</span>TX<span class="token punctuation">)</span><span class="token operator">&gt;</span> <span class="token builtin class-name">set</span> k2 v2
+QUEUED
+<span class="token number">127.0</span>.0.1:6379<span class="token punctuation">(</span>TX<span class="token punctuation">)</span><span class="token operator">&gt;</span> SET k3 v3
+QUEUED
+<span class="token number">127.0</span>.0.1:6379<span class="token punctuation">(</span>TX<span class="token punctuation">)</span><span class="token operator">&gt;</span> <span class="token builtin class-name">exec</span>
+<span class="token number">1</span><span class="token punctuation">)</span> OK
+<span class="token number">2</span><span class="token punctuation">)</span> OK
+<span class="token number">3</span><span class="token punctuation">)</span> OK
+<span class="token number">4</span><span class="token punctuation">)</span> OK
+</code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> multi
+OK
+<span class="token number">127.0</span>.0.1:6379<span class="token punctuation">(</span>TX<span class="token punctuation">)</span><span class="token operator">&gt;</span> del k1
+QUEUED
+<span class="token number">127.0</span>.0.1:6379<span class="token punctuation">(</span>TX<span class="token punctuation">)</span><span class="token operator">&gt;</span> del k2
+QUEUED
+<span class="token number">127.0</span>.0.1:6379<span class="token punctuation">(</span>TX<span class="token punctuation">)</span><span class="token operator">&gt;</span> del k3
+QUEUED
+<span class="token number">127.0</span>.0.1:6379<span class="token punctuation">(</span>TX<span class="token punctuation">)</span><span class="token operator">&gt;</span> discard <span class="token comment"># discard后上述命令全部失效</span>
+OK
+<span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> keys *
+<span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;k3&quot;</span>
+<span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;k2&quot;</span>
+<span class="token number">3</span><span class="token punctuation">)</span> <span class="token string">&quot;k1&quot;</span>
+</code></pre></div><h3 id="事务的错误处理"><a href="#事务的错误处理" class="header-anchor">#</a> 事务的错误处理</h3> <ul><li>组队中某个命令出现了报告错误，执行时整个的所有队列都会被取消</li> <li>如果执行阶段某个命令报出了错误，则只有报错的命令不会被执行，而其他的命令都会执行，不会回滚。</li></ul> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> multi
+OK
+<span class="token number">127.0</span>.0.1:6379<span class="token punctuation">(</span>TX<span class="token punctuation">)</span><span class="token operator">&gt;</span> del k1 <span class="token comment"># 这句执行了</span>
+QUEUED
+<span class="token number">127.0</span>.0.1:6379<span class="token punctuation">(</span>TX<span class="token punctuation">)</span><span class="token operator">&gt;</span> del k2 <span class="token comment"># 这句执行了</span>
+QUEUED
+<span class="token number">127.0</span>.0.1:6379<span class="token punctuation">(</span>TX<span class="token punctuation">)</span><span class="token operator">&gt;</span> incr k3 <span class="token comment"># 这句没执行</span>
+QUEUED
+<span class="token number">127.0</span>.0.1:6379<span class="token punctuation">(</span>TX<span class="token punctuation">)</span><span class="token operator">&gt;</span> <span class="token builtin class-name">exec</span>
+<span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">1</span>
+<span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">1</span>
+<span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> ERR value is not an integer or out of range
+<span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> keys *
+<span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;k3&quot;</span>
+</code></pre></div><h3 id="乐观锁-悲观锁"><a href="#乐观锁-悲观锁" class="header-anchor">#</a> 乐观锁 &amp; 悲观锁</h3> <div class="custom-block tip"><p class="title"></p><ul><li>乐观锁(Optimistic Lock), 顾名思义，就是很乐观，每次去拿数据的时候都认为别人不会修改，所以不会上锁，但是在更新的时候会判断一下在此期间别人有没有去更新这个数据，可以使用版本号等机制。乐观锁适用于多读的应用类型，这样可以提高吞吐量。Redis 就是利用这种 check-and-set 机制实现事务的。</li></ul></div><div class="custom-block warning"><p class="title"></p><ul><li>悲观锁(Pessimistic Lock), 顾名思义，就是很悲观，每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁，这样别人想拿这个数据就会 block 直到它拿到锁。传统的关系型数据库里边就用到了很多这种锁机制，比如行锁，表锁等，读锁，写锁等，都是在做操作之前先上锁。</li></ul></div><h3 id="watch"><a href="#watch" class="header-anchor">#</a> WATCH</h3> <ul><li>在执行 multi 之前，先执行 watch key1 [key2],可以监视一个(或多个) key</li> <li>如果在事务执行之前这个(或这些) key 被其他命令所改动，那么事务将被打断。</li></ul> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> get k1
+<span class="token string">&quot;120&quot;</span>
+<span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> <span class="token function">watch</span> k1 <span class="token comment"># 监视 k1</span>
+OK
+<span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> multi
+OK
+<span class="token number">127.0</span>.0.1:6379<span class="token punctuation">(</span>TX<span class="token punctuation">)</span><span class="token operator">&gt;</span> incrby k1 <span class="token number">123</span>
+QUEUED
+
+<span class="token comment">######### 另一个终端窗口</span>
+<span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> <span class="token builtin class-name">set</span> k1 <span class="token number">111</span> <span class="token comment"># 修改了 k1</span>
+OK
+<span class="token comment">#########</span>
+
+<span class="token number">127.0</span>.0.1:6379<span class="token punctuation">(</span>TX<span class="token punctuation">)</span><span class="token operator">&gt;</span> <span class="token builtin class-name">exec</span>
+<span class="token punctuation">(</span>nil<span class="token punctuation">)</span> <span class="token comment"># 在开启事务的时候，在执行前先修改一下信息，就会执行失败，这是watch key的作用</span>
+</code></pre></div><h3 id="unwatch"><a href="#unwatch" class="header-anchor">#</a> UNWATCH</h3> <ul><li>取消 WATCH 命令对所有 key 的监视。</li> <li>如果在执行 WATCH 命令之后，EXEC 命令或 DISCARD 命令先被执行了的话，那么就不需要再执行 UNWATCH 了</li></ul> <h2 id="redis-持久化"><a href="#redis-持久化" class="header-anchor">#</a> Redis 持久化</h2> <p><a href="https://blog.csdn.net/qq_45408390/article/details/119731077" target="_blank" rel="noopener noreferrer">Redis6 篇 （六）Redis 持久化<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <blockquote><p>RDB = Redis Database = 在指定的时间间隔内将内存中的数据集快照 snapshot 写入到磁盘中</p></blockquote> <blockquote><p>AOF = Append Only File = 以日志形式记录每一个写操作（只许追加不可改写）</p></blockquote> <h3 id="redis-持久化-aof-rdb-的区别和选择"><a href="#redis-持久化-aof-rdb-的区别和选择" class="header-anchor">#</a> Redis 持久化 AOF/ RDB 的区别和选择</h3> <ol><li>RDB 持久化</li></ol> <ul><li>RDB 持久化是将 Redis 中的数据保存到磁盘中的一种方式。当配置了 RDB 持久化后，Redis 会定期将内存中的数据快照写入到磁盘中，形成一个 RDB 文件。RDB 文件是一个二进制文件，包含了 Redis 在某个时间点上的所有数据，可以用于恢复 Redis 的数据。</li></ul> <blockquote><p>RDB 持久化的优点是占用空间小，数据恢复速度快，适合于备份和灾难恢复。缺点是在持久化过程中可能会丢失一些数据，因为它只能定期将数据快照写入磁盘，如果在快照写入磁盘之前 Redis 发生了崩溃，那么内存中未保存到磁盘的数据将会丢失。</p></blockquote> <ol start="2"><li>AOF 持久化</li></ol> <ul><li>AOF 持久化是将 Redis 中的操作记录保存到磁盘中的一种方式。当配置了 AOF 持久化后，Redis 会将每个写入命令追加到一个文件中，称为 AOF 文件。AOF 文件是一个文本文件，包含了 Redis 所有的写入操作，可以用于恢复 Redis 的数据。</li></ul> <blockquote><p>AOF 持久化的优点是可以保证数据的完整性和一致性，因为它会记录每个写入操作。缺点是占用空间大，恢复速度较慢，适合于数据重要性较高的应用场景。另外，由于 AOF 文件中记录了所有的写入操作，如果写入操作非常频繁，AOF 文件可能会变得非常大，影响性能。</p></blockquote> <p><strong>综上所述，RDB 持久化适合于数据量较大、写入操作不频繁、数据恢复速度要求较高的场景，而 AOF 持久化适合于数据重要性较高、写入操作较为频繁的场景。可以根据实际的业务需求选择适合自己的持久化方式。</strong></p> <div class="custom-block tip"><p class="title"></p><blockquote><p>官方推荐两个都启用。
+如果对数据不敏感，可以选单独用 RDB。不建议单独用 AOF，因为可能会出现 Bug。如果只是做纯内存缓存，可以都不用。</p></blockquote> <ul><li><p>RDB 持久化方式能够在指定的时间间隔能对你的数据进行快照存储</p></li> <li><p>AOF 持久化方式记录每次对服务器写的操作,当服务器重启的时候会重新执行这些命令来恢复原始的数据,AOF 命令以 redis 协议追加保存每次写的操作到文件末尾.</p></li> <li><p>Redis 还能对 AOF 文件进行后台重写,使得 AOF 文件的体积不至于过大</p></li> <li><p>如果你只希望你的数据在服务器运行的时候存在,你也可以不使用任何持久化方式.</p></li></ul></div><h3 id="性能建议"><a href="#性能建议" class="header-anchor">#</a> 性能建议</h3> <div class="language-shell extra-class"><pre class="language-shell"><code>因为RDB文件只用作后备用途，建议只在Slave上持久化RDB文件，而且只要15分钟备份一次就够了，只保留save <span class="token number">900</span> <span class="token number">1</span>这条规则。
+
+如果使用AOF，好处是在最恶劣情况下也只会丢失不超过两秒数据，启动脚本较简单只load自己的AOF文件就可以了。
+
+代价,一是带来了持续的IO，二是AOF rewrite的最后将rewrite过程中产生的新数据写到新文件造成的阻塞几乎是不可避免的。
+
+只要硬盘许可，应该尽量减少AOF rewrite的频率，AOF重写的基础大小默认值64M太小了，可以设到5G以上。
+
+默认超过原大小100%大小时重写可以改到适当的数值。
+
+————————————————
+版权声明：本文为CSDN博主「cv展示」的原创文章，遵循CC <span class="token number">4.0</span> BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/qq_45408390/article/details/119731077
+</code></pre></div><h2 id="redis-主从复制-redis-集群"><a href="#redis-主从复制-redis-集群" class="header-anchor">#</a> Redis 主从复制 + Redis 集群</h2> <p><a href="https://blog.csdn.net/qq_45408390/article/details/119731094" target="_blank" rel="noopener noreferrer">Redis6 篇 （七）Redis 主从复制 + Redis 集群<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="https://blog.csdn.net/super1223/article/details/119060113" target="_blank" rel="noopener noreferrer">Redis.conf 原文件 + 配置详解<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><img src="https://img-blog.csdnimg.cn/652465d11add436ea377bfe71c983b44.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NDA4Mzkw,size_16,color_FFFFFF,t_70#pic_center" alt="img"></p> <h3 id="搭建主从复制"><a href="#搭建主从复制" class="header-anchor">#</a> 搭建主从复制</h3> <p><a href="https://blog.csdn.net/wq57885/article/details/121392104" target="_blank" rel="noopener noreferrer">Error: No such file or directory @ rb_sysopen (缺少某库的解决方法)<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <div class="language- extra-class"><pre class="language-text"><code>brew install ca-certificates # 看报错，少什么brew
+</code></pre></div><p><a href="https://www.cnblogs.com/qianmaoliugou/p/15006539.html" target="_blank" rel="noopener noreferrer">mac brew 安装 redis (mac 本地安装 redis，便于操作)<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <div class="language- extra-class"><pre class="language-text"><code>brew install redis
+</code></pre></div><hr> <img src="/img/redis-test.jpg" style="border:2;"> <hr> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">###################### redis6379.conf #######################</span>
+include myredis/redis.conf <span class="token comment"># 测试中没使用绝对路径，否则前面增加‘/’</span>
+pidfile /var/run/redis_6379.pid
+port <span class="token number">6379</span>
+dbfilename dump6379.rdb
+
+<span class="token comment">###################### redis6380.conf #######################</span>
+include myredis/redis.conf
+pidfile /var/run/redis_6380.pid
+port <span class="token number">6380</span>
+dbfilename dump6380.rdb
+
+<span class="token comment">###################### redis6381.conf #######################</span>
+include myredis/redis.conf
+pidfile /var/run/redis_6381.pid
+port <span class="token number">6381</span>
+dbfilename dump6381.rdb
+</code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code>liuliyi@liuliyideMacBook-Pro redis-test % redis-server redis6379.conf
+liuliyi@liuliyideMacBook-Pro redis-test % redis-server redis6380.conf
+liuliyi@liuliyideMacBook-Pro redis-test % redis-server redis6381.conf
+
+liuliyi@liuliyideMacBook-Pro redis-test % <span class="token function">ps</span> <span class="token parameter variable">-ef</span> <span class="token operator">|</span> <span class="token function">grep</span> redis
+  <span class="token number">501</span>  <span class="token number">8617</span>     <span class="token number">1</span>   <span class="token number">0</span>  <span class="token number">3</span>:23下午 ??         <span class="token number">0</span>:00.63 /opt/homebrew/opt/redis/bin/redis-server <span class="token number">127.0</span>.0.1:6379
+  <span class="token number">501</span>  <span class="token number">8685</span>     <span class="token number">1</span>   <span class="token number">0</span>  <span class="token number">3</span>:30下午 ??         <span class="token number">0</span>:00.51 redis-server <span class="token number">127.0</span>.0.1:6380
+  <span class="token number">501</span>  <span class="token number">8687</span>     <span class="token number">1</span>   <span class="token number">0</span>  <span class="token number">3</span>:30下午 ??         <span class="token number">0</span>:00.50 redis-server <span class="token number">127.0</span>.0.1:6381
+  <span class="token number">501</span>  <span class="token number">8841</span>  <span class="token number">3363</span>   <span class="token number">0</span>  <span class="token number">3</span>:32下午 ttys001    <span class="token number">0</span>:00.00 <span class="token function">grep</span> redis
+
+liuliyi@liuliyideMacBook-Pro redis-test % redis-cli <span class="token parameter variable">-p</span> <span class="token number">6379</span> <span class="token comment"># 进入指定端口的redis服务</span>
+<span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> info replication
+<span class="token comment"># Replication</span>
+role:master
+connected_slaves:0 <span class="token comment"># 现在没有附属机</span>
+master_failover_state:no-failover
+master_replid:e44ac240b5de658e4541aa0bddf6645325214997
+master_replid2:0000000000000000000000000000000000000000
+master_repl_offset:0
+second_repl_offset:-1
+repl_backlog_active:0
+repl_backlog_size:1048576
+repl_backlog_first_byte_offset:0
+repl_backlog_histlen:0
+
+liuliyi@liuliyideMacBook-Pro redis-test % redis-cli <span class="token parameter variable">-p</span> <span class="token number">6380</span>
+<span class="token number">127.0</span>.0.1:638<span class="token operator"><span class="token file-descriptor important">0</span>&gt;</span> slaveof <span class="token number">127.0</span>.0.1 <span class="token number">6379</span> <span class="token comment"># 设置主人为6379</span>
+OK
+
+liuliyi@liuliyideMacBook-Pro redis-test % redis-cli <span class="token parameter variable">-p</span> <span class="token number">6381</span>
+<span class="token number">127.0</span>.0.1:638<span class="token operator"><span class="token file-descriptor important">1</span>&gt;</span> slaveof <span class="token number">127.0</span>.0.1 <span class="token number">6379</span>
+OK
+
+liuliyi@liuliyideMacBook-Pro redis-test % redis-cli <span class="token parameter variable">-p</span> <span class="token number">6379</span>
+<span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> info replication
+<span class="token comment"># Replication</span>
+role:master
+connected_slaves:2 <span class="token comment"># 有两台从机了</span>
+slave0:ip<span class="token operator">=</span><span class="token number">127.0</span>.0.1,port<span class="token operator">=</span><span class="token number">6380</span>,state<span class="token operator">=</span>online,offset<span class="token operator">=</span><span class="token number">28</span>,lag<span class="token operator">=</span><span class="token number">0</span>
+slave1:ip<span class="token operator">=</span><span class="token number">127.0</span>.0.1,port<span class="token operator">=</span><span class="token number">6381</span>,state<span class="token operator">=</span>online,offset<span class="token operator">=</span><span class="token number">28</span>,lag<span class="token operator">=</span><span class="token number">1</span>
+master_failover_state:no-failover
+master_replid:0146ab97e819f0c04303677fc70f451a3f1aa244
+master_replid2:0000000000000000000000000000000000000000
+master_repl_offset:28
+second_repl_offset:-1
+repl_backlog_active:1
+repl_backlog_size:1048576
+repl_backlog_first_byte_offset:1
+repl_backlog_histlen:28
+</code></pre></div><div class="custom-block warning"><p class="title">Q &amp; A</p><ul><li>从机会【全量】复制主机的内容</li> <li>在主机上写，在从机上可以读取数据，在从机上写数据报错</li> <li>主机挂掉，重启就行，一切如初，从机重启需重设：slaveof 127.0.0.1 6379</li> <li>主机 shutdown 后，从机原地待命，等待主机重新启动，一切回复正常</li></ul></div><div class="custom-block tip"><p class="title">复制原理</p><ul><li>Slave 启动成功连接到 master 后会发送一个 sync 命令</li> <li>Master 接到命令启动后台的存盘进程，同时收集所有接收到的用于修改数据集命令， 在后台进程执行完毕之后，master 将传送整个数据文件到 slave,以完成一次完全同步</li> <li>全量复制：而 slave 服务在接收到数据库文件数据后，将其存盘并加载到内存中。</li> <li>增量复制：Master 继续将新的所有收集到的修改命令依次传给 slave,完成同步</li> <li>但是只要是重新连接 master,一次完全同步（全量复制)将被自动执行</li></ul></div><h3 id="反客为主"><a href="#反客为主" class="header-anchor">#</a> 反客为主</h3> <blockquote><p>从机也可以有从机，还可以在主机挂掉的时候反客为主</p></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code>slaveof no one <span class="token comment"># 反客为主</span>
+</code></pre></div><h3 id="哨兵模式"><a href="#哨兵模式" class="header-anchor">#</a> 哨兵模式</h3> <blockquote><p>反客为主的自动版，能够后台监控主机是否故障，如果故障了根据投票数自动将从库转换为主库</p></blockquote> <blockquote><p>先搭建一主二从的环境，自定义的/myredis 目录下新建 sentinel.conf 文件</p></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">###################### sentinel.conf #######################</span>
+<span class="token comment"># 其中mymaster为监控对象起的服务器名称， 1 为至少有多少个哨兵同意迁移的数量。</span>
+sentinel monitor mymaster <span class="token number">127.0</span>.0.1 <span class="token number">6379</span> <span class="token number">1</span>
+</code></pre></div><p><img src="https://img-blog.csdnimg.cn/06d6391b367d46309376900f9962e3cc.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NDA4Mzkw,size_16,color_FFFFFF,t_70#pic_center" alt="img"></p> <h2 id="redis-集群"><a href="#redis-集群" class="header-anchor">#</a> Redis 集群</h2> <div class="custom-block warning"><p class="title">集群之前遇到的问题</p><ol><li>容量不够，redis 如何进行扩容？</li> <li>并发写操作， redis 如何分摊？</li> <li>主从模式，薪火相传模式，主机宕机，导致 ip 地址发生变化，应用程序中配置需要修改对应的主机地址、端口等信息。</li></ol> <p>redis3.0 中提供了解决方案。就是无中心化集群配置。</p></div><h3 id="集群概述"><a href="#集群概述" class="header-anchor">#</a> 集群概述</h3> <ul><li><p>Redis 集群实现了对 Redis 的水平扩容</p></li> <li><p>即启动 N 个 redis 节点，将整个数据库分布存储在这 N 个节点中，每个节点存储总数据的 1/N。</p></li> <li><p>Redis 集群通过分区（partition）来提供一定程度的可用性（availability）</p></li> <li><p>即使集群中有一部分节点失效或者无法进行通讯， 集群也可以继续处理命令请求。</p></li></ul> <p><img src="https://img-blog.csdnimg.cn/a119e8e84725496b9cc8022f62f98260.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NDA4Mzkw,size_16,color_FFFFFF,t_70#pic_center" alt="img"></p> <div class="custom-block danger"><p class="title">总结：Redis 部署的四种模式</p><ol><li>单机模式 💻</li> <li>主从模式 💻 - 💻 - 💻</li> <li>哨兵模式 🪖 - ?&gt;&gt; 💻</li> <li>集群模式 💻💻💻💻💻💻 !&gt;&gt; 💻</li></ol></div><p><a href="https://blog.csdn.net/qq_45408390/article/details/119731094" target="_blank" rel="noopener noreferrer">具体命令点击查看，没往下写了<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></div></section> <footer class="page-edit"><!----> <!----></footer> <!----> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:12rem;" data-v-b57cc07c data-v-7dd95ae2><li class="level-2" data-v-b57cc07c><a href="/backend/redis/#redis-概念" class="sidebar-link reco-side-redis-概念" data-v-b57cc07c>Redis 概念</a></li><li class="level-2" data-v-b57cc07c><a href="/backend/redis/#docker-redis-cli" class="sidebar-link reco-side-docker-redis-cli" data-v-b57cc07c>Docker &amp; Redis-Cli</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/redis/#redis-cli-test" class="sidebar-link reco-side-redis-cli-test" data-v-b57cc07c>Redis-Cli-Test</a></li><li class="level-2" data-v-b57cc07c><a href="/backend/redis/#redis-五大数据类型" class="sidebar-link reco-side-redis-五大数据类型" data-v-b57cc07c>Redis 五大数据类型</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/redis/#medis" class="sidebar-link reco-side-medis" data-v-b57cc07c>Medis</a></li><li class="level-2" data-v-b57cc07c><a href="/backend/redis/#redis-基本操作" class="sidebar-link reco-side-redis-基本操作" data-v-b57cc07c>Redis 基本操作</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/redis/#key-常用命令" class="sidebar-link reco-side-key-常用命令" data-v-b57cc07c>Key 常用命令</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/redis/#string-常用命令" class="sidebar-link reco-side-string-常用命令" data-v-b57cc07c>String 常用命令</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/redis/#list-常用命令" class="sidebar-link reco-side-list-常用命令" data-v-b57cc07c>list 常用命令</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/redis/#set-常用命令" class="sidebar-link reco-side-set-常用命令" data-v-b57cc07c>Set 常用命令</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/redis/#hash-常用命令" class="sidebar-link reco-side-hash-常用命令" data-v-b57cc07c>Hash 常用命令</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/redis/#zset-常用命令" class="sidebar-link reco-side-zset-常用命令" data-v-b57cc07c>ZSet 常用命令</a></li><li class="level-2" data-v-b57cc07c><a href="/backend/redis/#redis-配置文件" class="sidebar-link reco-side-redis-配置文件" data-v-b57cc07c>Redis 配置文件</a></li><li class="level-2" data-v-b57cc07c><a href="/backend/redis/#redis-发布-订阅" class="sidebar-link reco-side-redis-发布-订阅" data-v-b57cc07c>Redis 发布 &amp; 订阅</a></li><li class="level-2" data-v-b57cc07c><a href="/backend/redis/#redis-新数据类型" class="sidebar-link reco-side-redis-新数据类型" data-v-b57cc07c>Redis 新数据类型</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/redis/#bitmaps" class="sidebar-link reco-side-bitmaps" data-v-b57cc07c>BitMaps</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/redis/#hyperloglog" class="sidebar-link reco-side-hyperloglog" data-v-b57cc07c>HyperLogLog</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/redis/#geospatial" class="sidebar-link reco-side-geospatial" data-v-b57cc07c>Geospatial</a></li><li class="level-2" data-v-b57cc07c><a href="/backend/redis/#redis-事务操作" class="sidebar-link reco-side-redis-事务操作" data-v-b57cc07c>Redis 事务操作</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/redis/#事务的概述" class="sidebar-link reco-side-事务的概述" data-v-b57cc07c>事务的概述</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/redis/#multi、exec、discard" class="sidebar-link reco-side-multi、exec、discard" data-v-b57cc07c>Multi、Exec、discard</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/redis/#事务的错误处理" class="sidebar-link reco-side-事务的错误处理" data-v-b57cc07c>事务的错误处理</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/redis/#乐观锁-悲观锁" class="sidebar-link reco-side-乐观锁-悲观锁" data-v-b57cc07c>乐观锁 &amp; 悲观锁</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/redis/#watch" class="sidebar-link reco-side-watch" data-v-b57cc07c>WATCH</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/redis/#unwatch" class="sidebar-link reco-side-unwatch" data-v-b57cc07c>UNWATCH</a></li><li class="level-2" data-v-b57cc07c><a href="/backend/redis/#redis-持久化" class="sidebar-link reco-side-redis-持久化" data-v-b57cc07c>Redis 持久化</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/redis/#redis-持久化-aof-rdb-的区别和选择" class="sidebar-link reco-side-redis-持久化-aof-rdb-的区别和选择" data-v-b57cc07c>Redis 持久化 AOF/ RDB 的区别和选择</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/redis/#性能建议" class="sidebar-link reco-side-性能建议" data-v-b57cc07c>性能建议</a></li><li class="level-2" data-v-b57cc07c><a href="/backend/redis/#redis-主从复制-redis-集群" class="sidebar-link reco-side-redis-主从复制-redis-集群" data-v-b57cc07c>Redis 主从复制 + Redis 集群</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/redis/#搭建主从复制" class="sidebar-link reco-side-搭建主从复制" data-v-b57cc07c>搭建主从复制</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/redis/#反客为主" class="sidebar-link reco-side-反客为主" data-v-b57cc07c>反客为主</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/redis/#哨兵模式" class="sidebar-link reco-side-哨兵模式" data-v-b57cc07c>哨兵模式</a></li><li class="level-2" data-v-b57cc07c><a href="/backend/redis/#redis-集群" class="sidebar-link reco-side-redis-集群" data-v-b57cc07c>Redis 集群</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/redis/#集群概述" class="sidebar-link reco-side-集群概述" data-v-b57cc07c>集群概述</a></li></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><!----></div></div>
+    <script src="/assets/js/app.be8121bb.js" defer></script><script src="/assets/js/7.1077a71e.js" defer></script><script src="/assets/js/2.e054aee5.js" defer></script><script src="/assets/js/1.388f40f4.js" defer></script><script src="/assets/js/64.5940fa83.js" defer></script>
+  </body>
+</html>

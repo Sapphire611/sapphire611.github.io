@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>POSTGRESQL 相关 | Sapphire611</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    
+    <meta name="description" content="环境：Docker 容器中的 PostgreSQL">
+    <meta name="twitter:title" content="POSTGRESQL 相关">
+    <meta name="twitter:description" content="环境：Docker 容器中的 PostgreSQL">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://sapphire611.github.io/backend/postgreSql/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="POSTGRESQL 相关">
+    <meta property="og:description" content="环境：Docker 容器中的 PostgreSQL">
+    <meta property="og:url" content="https://sapphire611.github.io/backend/postgreSql/">
+    <meta property="og:site_name" content="Sapphire611">
+    <meta property="article:published_time" content="2026-03-08T00:00:00.000Z">
+    <meta itemprop="name" content="POSTGRESQL 相关">
+    <meta itemprop="description" content="环境：Docker 容器中的 PostgreSQL">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.1645be0a.css" as="style"><link rel="preload" href="/assets/js/app.c522256a.js" as="script"><link rel="preload" href="/assets/js/7.7a630101.js" as="script"><link rel="preload" href="/assets/js/2.f8874ec3.js" as="script"><link rel="preload" href="/assets/js/1.64e7c351.js" as="script"><link rel="preload" href="/assets/js/65.7308b306.js" as="script"><link rel="prefetch" href="/assets/js/10.189f867a.js"><link rel="prefetch" href="/assets/js/100.fc8a47fe.js"><link rel="prefetch" href="/assets/js/101.b4ecdb7d.js"><link rel="prefetch" href="/assets/js/102.b469a4bc.js"><link rel="prefetch" href="/assets/js/103.28d3eb6a.js"><link rel="prefetch" href="/assets/js/11.07b06b96.js"><link rel="prefetch" href="/assets/js/14.f24aac5a.js"><link rel="prefetch" href="/assets/js/15.571cff54.js"><link rel="prefetch" href="/assets/js/16.3cbd230c.js"><link rel="prefetch" href="/assets/js/17.3b0d18c7.js"><link rel="prefetch" href="/assets/js/18.91bd10c6.js"><link rel="prefetch" href="/assets/js/19.b47d0982.js"><link rel="prefetch" href="/assets/js/20.e36d99c1.js"><link rel="prefetch" href="/assets/js/21.e0d16a83.js"><link rel="prefetch" href="/assets/js/22.2df79638.js"><link rel="prefetch" href="/assets/js/23.88695ac7.js"><link rel="prefetch" href="/assets/js/24.faa8c60f.js"><link rel="prefetch" href="/assets/js/25.162f2b54.js"><link rel="prefetch" href="/assets/js/26.f5687de0.js"><link rel="prefetch" href="/assets/js/27.3fb11c6a.js"><link rel="prefetch" href="/assets/js/28.aaeceaea.js"><link rel="prefetch" href="/assets/js/29.faf17931.js"><link rel="prefetch" href="/assets/js/3.3f7346c5.js"><link rel="prefetch" href="/assets/js/30.a843b1c9.js"><link rel="prefetch" href="/assets/js/31.b6627419.js"><link rel="prefetch" href="/assets/js/32.b8d835fb.js"><link rel="prefetch" href="/assets/js/33.572460a2.js"><link rel="prefetch" href="/assets/js/34.4a59ece7.js"><link rel="prefetch" href="/assets/js/35.4207ff7e.js"><link rel="prefetch" href="/assets/js/36.45d0cc1a.js"><link rel="prefetch" href="/assets/js/37.5bb90b19.js"><link rel="prefetch" href="/assets/js/38.aef2f120.js"><link rel="prefetch" href="/assets/js/39.0195891a.js"><link rel="prefetch" href="/assets/js/4.cffa421f.js"><link rel="prefetch" href="/assets/js/40.e38d24d7.js"><link rel="prefetch" href="/assets/js/41.05207fed.js"><link rel="prefetch" href="/assets/js/42.ec503eb9.js"><link rel="prefetch" href="/assets/js/43.e67db07d.js"><link rel="prefetch" href="/assets/js/44.cec45af4.js"><link rel="prefetch" href="/assets/js/45.241b32bd.js"><link rel="prefetch" href="/assets/js/46.3c58bca4.js"><link rel="prefetch" href="/assets/js/47.8f221823.js"><link rel="prefetch" href="/assets/js/48.b7562876.js"><link rel="prefetch" href="/assets/js/49.7f7468d2.js"><link rel="prefetch" href="/assets/js/5.63870e03.js"><link rel="prefetch" href="/assets/js/50.8adc6499.js"><link rel="prefetch" href="/assets/js/51.fb6a5651.js"><link rel="prefetch" href="/assets/js/52.ab57b151.js"><link rel="prefetch" href="/assets/js/53.2dab3dc1.js"><link rel="prefetch" href="/assets/js/54.2364dfa2.js"><link rel="prefetch" href="/assets/js/55.f3c8f95b.js"><link rel="prefetch" href="/assets/js/56.5a6889e3.js"><link rel="prefetch" href="/assets/js/57.db62a7bd.js"><link rel="prefetch" href="/assets/js/58.084e9ed5.js"><link rel="prefetch" href="/assets/js/59.1bdc22dd.js"><link rel="prefetch" href="/assets/js/6.c0857dc2.js"><link rel="prefetch" href="/assets/js/60.2f59493f.js"><link rel="prefetch" href="/assets/js/61.962731fb.js"><link rel="prefetch" href="/assets/js/62.d451f7b8.js"><link rel="prefetch" href="/assets/js/63.15351943.js"><link rel="prefetch" href="/assets/js/64.4172003e.js"><link rel="prefetch" href="/assets/js/66.37e43499.js"><link rel="prefetch" href="/assets/js/67.881e5249.js"><link rel="prefetch" href="/assets/js/68.28d9f255.js"><link rel="prefetch" href="/assets/js/69.c52b923a.js"><link rel="prefetch" href="/assets/js/70.b9a4c051.js"><link rel="prefetch" href="/assets/js/71.bac64098.js"><link rel="prefetch" href="/assets/js/72.7e1cde71.js"><link rel="prefetch" href="/assets/js/73.fc0aae5c.js"><link rel="prefetch" href="/assets/js/74.044a6686.js"><link rel="prefetch" href="/assets/js/75.eea07c4c.js"><link rel="prefetch" href="/assets/js/76.1d35d91d.js"><link rel="prefetch" href="/assets/js/77.fa80b307.js"><link rel="prefetch" href="/assets/js/78.220d3b3a.js"><link rel="prefetch" href="/assets/js/79.920c8501.js"><link rel="prefetch" href="/assets/js/8.99458c85.js"><link rel="prefetch" href="/assets/js/80.150296e4.js"><link rel="prefetch" href="/assets/js/81.1f66d9b4.js"><link rel="prefetch" href="/assets/js/82.511c6cee.js"><link rel="prefetch" href="/assets/js/83.8999dbcf.js"><link rel="prefetch" href="/assets/js/84.b577abd1.js"><link rel="prefetch" href="/assets/js/85.e0c7dbd9.js"><link rel="prefetch" href="/assets/js/86.bcb975a0.js"><link rel="prefetch" href="/assets/js/87.ddb68e70.js"><link rel="prefetch" href="/assets/js/88.1917a817.js"><link rel="prefetch" href="/assets/js/89.aa709c47.js"><link rel="prefetch" href="/assets/js/9.188c6dc1.js"><link rel="prefetch" href="/assets/js/90.18836b82.js"><link rel="prefetch" href="/assets/js/91.7c776dd2.js"><link rel="prefetch" href="/assets/js/92.fc870f95.js"><link rel="prefetch" href="/assets/js/93.992504cd.js"><link rel="prefetch" href="/assets/js/94.b74a2e5e.js"><link rel="prefetch" href="/assets/js/95.4d48c81b.js"><link rel="prefetch" href="/assets/js/96.27b84433.js"><link rel="prefetch" href="/assets/js/97.12b0910d.js"><link rel="prefetch" href="/assets/js/98.9e7231a7.js"><link rel="prefetch" href="/assets/js/99.237570ae.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.caa45a04.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.1645be0a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-7dd95ae2><div data-v-7dd95ae2><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>Sapphire611</h3> <p class="description" data-v-59e6cb88>感谢来访🙏 </p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><!---->
+          
+        <span data-v-59e6cb88>2021 - </span>
+        2026
+      </a></span></div></div> <div class="hide" data-v-7dd95ae2><header class="navbar" data-v-7dd95ae2><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logo.jpg" alt="Sapphire611" class="logo"> <span class="site-name">Sapphire611</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/aboutMe/" class="nav-link"><i class="info"></i>
+  About Me
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Me/" class="nav-link"><i class="undefined"></i>
+  Me
+</a></li><li class="dropdown-item"><!----> <a href="/categories/archietcture/" class="nav-link"><i class="undefined"></i>
+  archietcture
+</a></li><li class="dropdown-item"><!----> <a href="/categories/elasticSearch/" class="nav-link"><i class="undefined"></i>
+  elasticSearch
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Backend/" class="nav-link"><i class="undefined"></i>
+  Backend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/mongodb/" class="nav-link"><i class="undefined"></i>
+  mongodb
+</a></li><li class="dropdown-item"><!----> <a href="/categories/interview/" class="nav-link"><i class="undefined"></i>
+  interview
+</a></li><li class="dropdown-item"><!----> <a href="/categories/shard/" class="nav-link"><i class="undefined"></i>
+  shard
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Frontend/" class="nav-link"><i class="undefined"></i>
+  Frontend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/sql/" class="nav-link"><i class="undefined"></i>
+  sql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Algorithm/" class="nav-link"><i class="undefined"></i>
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Javascript/" class="nav-link"><i class="undefined"></i>
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/backend/" class="nav-link"><i class="undefined"></i>
+  backend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/postgres/" class="nav-link"><i class="undefined"></i>
+  postgres
+</a></li><li class="dropdown-item"><!----> <a href="/categories/database/" class="nav-link"><i class="undefined"></i>
+  database
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Other/" class="nav-link"><i class="undefined"></i>
+  Other
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Certificate/" class="nav-link"><i class="undefined"></i>
+  Certificate
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Deploy/" class="nav-link"><i class="undefined"></i>
+  Deploy
+</a></li><li class="dropdown-item"><!----> <a href="/categories/graphql/" class="nav-link"><i class="undefined"></i>
+  graphql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/AI/" class="nav-link"><i class="undefined"></i>
+  AI
+</a></li><li class="dropdown-item"><!----> <a href="/categories/misc/" class="nav-link"><i class="undefined"></i>
+  misc
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div> <a href="https://github.com/Sapphire611/vuepress-sapphire611" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask" data-v-7dd95ae2></div> <aside class="sidebar" data-v-7dd95ae2><div class="personal-info-wrapper" data-v-1fad0c41 data-v-7dd95ae2><img src="/img/logo.jpg" alt="author-avatar" class="personal-img" data-v-1fad0c41> <!----> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>64</h3> <h6 data-v-1fad0c41>Articles</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>43</h3> <h6 data-v-1fad0c41>Tags</h6></div></div> <ul class="social-links" data-v-1fad0c41><li class="social-item" data-v-1fad0c41><i class="iconfont reco-github" style="color:#abbd81;" data-v-1fad0c41></i></li></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><a href="/aboutMe/" class="nav-link"><i class="info"></i>
+  About Me
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Me/" class="nav-link"><i class="undefined"></i>
+  Me
+</a></li><li class="dropdown-item"><!----> <a href="/categories/archietcture/" class="nav-link"><i class="undefined"></i>
+  archietcture
+</a></li><li class="dropdown-item"><!----> <a href="/categories/elasticSearch/" class="nav-link"><i class="undefined"></i>
+  elasticSearch
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Backend/" class="nav-link"><i class="undefined"></i>
+  Backend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/mongodb/" class="nav-link"><i class="undefined"></i>
+  mongodb
+</a></li><li class="dropdown-item"><!----> <a href="/categories/interview/" class="nav-link"><i class="undefined"></i>
+  interview
+</a></li><li class="dropdown-item"><!----> <a href="/categories/shard/" class="nav-link"><i class="undefined"></i>
+  shard
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Frontend/" class="nav-link"><i class="undefined"></i>
+  Frontend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/sql/" class="nav-link"><i class="undefined"></i>
+  sql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Algorithm/" class="nav-link"><i class="undefined"></i>
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Javascript/" class="nav-link"><i class="undefined"></i>
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/backend/" class="nav-link"><i class="undefined"></i>
+  backend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/postgres/" class="nav-link"><i class="undefined"></i>
+  postgres
+</a></li><li class="dropdown-item"><!----> <a href="/categories/database/" class="nav-link"><i class="undefined"></i>
+  database
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Other/" class="nav-link"><i class="undefined"></i>
+  Other
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Certificate/" class="nav-link"><i class="undefined"></i>
+  Certificate
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Deploy/" class="nav-link"><i class="undefined"></i>
+  Deploy
+</a></li><li class="dropdown-item"><!----> <a href="/categories/graphql/" class="nav-link"><i class="undefined"></i>
+  graphql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/AI/" class="nav-link"><i class="undefined"></i>
+  AI
+</a></li><li class="dropdown-item"><!----> <a href="/categories/misc/" class="nav-link"><i class="undefined"></i>
+  misc
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div> <a href="https://github.com/Sapphire611/vuepress-sapphire611" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>POSTGRESQL 相关</h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><!---->
+          
+        <span data-v-59e6cb88>2021 - </span>
+        2026
+      </a></span></div></div> <div data-v-7dd95ae2><div data-v-7dd95ae2><main class="page"><section style="display:;"><div class="page-title"><h1 class="title">POSTGRESQL 相关</h1> <div data-v-8a445198><!----> <i class="iconfont reco-date" data-v-8a445198><span data-v-8a445198>3/8/2026</span></i> <i class="iconfont reco-eye" data-v-8a445198><span id="/backend/postgreSql/" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-8a445198><a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;"></a></span></i> <!----></div></div> <div class="theme-reco-content content__default"><h2 id="postgresql-相关"><a href="#postgresql-相关" class="header-anchor">#</a> POSTGRESQL 相关</h2> <h3 id="_1-postgresql-基本操作命令"><a href="#_1-postgresql-基本操作命令" class="header-anchor">#</a> 1. PostgreSQL 基本操作命令</h3> <blockquote><p><strong>环境</strong>：Docker 容器中的 PostgreSQL</p></blockquote> <h4 id="docker-容器操作"><a href="#docker-容器操作" class="header-anchor">#</a> Docker 容器操作</h4> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># ========== 查看运行中的 PostgreSQL 容器 ==========</span>
+<span class="token function">docker</span> <span class="token function">ps</span> <span class="token parameter variable">-a</span> <span class="token operator">|</span> <span class="token function">grep</span> postgres
+
+<span class="token comment"># ========== 启动 PostgreSQL 容器 ==========</span>
+<span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">--name</span> postgres <span class="token punctuation">\</span>
+  <span class="token parameter variable">-e</span> <span class="token assign-left variable">POSTGRES_PASSWORD</span><span class="token operator">=</span>your_password <span class="token punctuation">\</span>
+  <span class="token parameter variable">-p</span> <span class="token number">5432</span>:5432 <span class="token punctuation">\</span>
+  postgres:16
+
+<span class="token comment"># ========== 或者使用 docker-compose ==========</span>
+version: <span class="token string">'3.8'</span>
+services:
+  postgres:
+    image: postgres:16
+    container_name: postgres
+    environment:
+      POSTGRES_PASSWORD: your_password
+      POSTGRES_DB: mydb
+    ports:
+      - <span class="token string">&quot;5432:5432&quot;</span>
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: always
+
+volumes:
+  postgres_data:
+</code></pre></div><h4 id="进入-postgresql-命令行"><a href="#进入-postgresql-命令行" class="header-anchor">#</a> 进入 PostgreSQL 命令行</h4> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># ========== 方法一：直接进入 psql（推荐） ==========</span>
+<span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> postgres psql <span class="token parameter variable">-U</span> postgres
+
+<span class="token comment"># 连接到特定数据库</span>
+<span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> postgres psql <span class="token parameter variable">-U</span> postgres <span class="token parameter variable">-d</span> mydb
+
+<span class="token comment"># ========== 方法二：先进入容器再连接 ==========</span>
+<span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> postgres <span class="token function">bash</span>
+psql <span class="token parameter variable">-U</span> postgres
+
+<span class="token comment"># ========== 方法三：执行单条 SQL 命令 ==========</span>
+<span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> postgres psql <span class="token parameter variable">-U</span> postgres <span class="token parameter variable">-c</span> <span class="token string">&quot;SELECT version();&quot;</span>
+<span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> postgres psql <span class="token parameter variable">-U</span> postgres <span class="token parameter variable">-c</span> <span class="token string">&quot;\l&quot;</span>
+</code></pre></div><h4 id="psql-常用命令"><a href="#psql-常用命令" class="header-anchor">#</a> psql 常用命令</h4> <table><thead><tr><th>命令</th> <th>说明</th> <th>示例</th></tr></thead> <tbody><tr><td><code>\l</code> 或 <code>\list</code></td> <td>查看所有数据库</td> <td><code>\l</code></td></tr> <tr><td><code>\c database_name</code></td> <td>连接到指定数据库</td> <td><code>\c mydb</code></td></tr> <tr><td><code>\dt</code></td> <td>查看当前数据库的所有表</td> <td><code>\dt</code></td></tr> <tr><td><code>\d table_name</code></td> <td>查看表结构</td> <td><code>\d users</code></td></tr> <tr><td><code>\du</code></td> <td>查看所有用户</td> <td><code>\du</code></td></tr> <tr><td><code>\di</code></td> <td>查看所有索引</td> <td><code>\di</code></td></tr> <tr><td><code>\dn</code></td> <td>查看所有 schema</td> <td><code>\dn</code></td></tr> <tr><td><code>\conninfo</code></td> <td>查看当前连接信息</td> <td><code>\conninfo</code></td></tr> <tr><td><code>\x</code></td> <td>切换扩展显示模式</td> <td><code>\x</code></td></tr> <tr><td><code>\q</code> 或 <code>quit</code></td> <td>退出 psql</td> <td><code>\q</code></td></tr></tbody></table> <h4 id="常用-sql-操作"><a href="#常用-sql-操作" class="header-anchor">#</a> 常用 SQL 操作</h4> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token comment">-- ========== 数据库操作 ==========</span>
+<span class="token comment">-- 创建数据库</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">DATABASE</span> mydb<span class="token punctuation">;</span>
+
+<span class="token comment">-- 删除数据库</span>
+<span class="token keyword">DROP</span> <span class="token keyword">DATABASE</span> mydb<span class="token punctuation">;</span>
+
+<span class="token comment">-- 切换数据库</span>
+\c mydb<span class="token punctuation">;</span>
+
+<span class="token comment">-- ========== 表操作 ==========</span>
+<span class="token comment">-- 创建表</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> users <span class="token punctuation">(</span>
+  id <span class="token keyword">SERIAL</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">,</span>
+  name <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  email <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span> <span class="token keyword">UNIQUE</span><span class="token punctuation">,</span>
+  created_at <span class="token keyword">TIMESTAMP</span> <span class="token keyword">DEFAULT</span> <span class="token keyword">CURRENT_TIMESTAMP</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 查看表结构</span>
+\d users<span class="token punctuation">;</span>
+
+<span class="token comment">-- 查看所有表</span>
+\dt
+
+<span class="token comment">-- 删除表</span>
+<span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> users<span class="token punctuation">;</span>
+
+<span class="token comment">-- ========== 数据操作 ==========</span>
+<span class="token comment">-- 插入数据</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> users <span class="token punctuation">(</span>name<span class="token punctuation">,</span> email<span class="token punctuation">)</span> <span class="token keyword">VALUES</span>
+  <span class="token punctuation">(</span><span class="token string">'Alice'</span><span class="token punctuation">,</span> <span class="token string">'alice@example.com'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">(</span><span class="token string">'Bob'</span><span class="token punctuation">,</span> <span class="token string">'bob@example.com'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 查询数据</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> users<span class="token punctuation">;</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> users <span class="token keyword">WHERE</span> name <span class="token operator">=</span> <span class="token string">'Alice'</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 更新数据</span>
+<span class="token keyword">UPDATE</span> users <span class="token keyword">SET</span> email <span class="token operator">=</span> <span class="token string">'newemail@example.com'</span> <span class="token keyword">WHERE</span> name <span class="token operator">=</span> <span class="token string">'Alice'</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 删除数据</span>
+<span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> users <span class="token keyword">WHERE</span> name <span class="token operator">=</span> <span class="token string">'Bob'</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- ========== 用户管理 ==========</span>
+<span class="token comment">-- 创建用户</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">USER</span> app_user <span class="token keyword">WITH</span> PASSWORD <span class="token string">'secure_password'</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 授权</span>
+<span class="token keyword">GRANT</span> <span class="token keyword">ALL</span> <span class="token keyword">PRIVILEGES</span> <span class="token keyword">ON</span> <span class="token keyword">DATABASE</span> mydb <span class="token keyword">TO</span> app_user<span class="token punctuation">;</span>
+<span class="token keyword">GRANT</span> <span class="token keyword">ALL</span> <span class="token keyword">PRIVILEGES</span> <span class="token keyword">ON</span> <span class="token keyword">ALL</span> <span class="token keyword">TABLES</span> <span class="token operator">IN</span> <span class="token keyword">SCHEMA</span> <span class="token keyword">public</span> <span class="token keyword">TO</span> app_user<span class="token punctuation">;</span>
+
+<span class="token comment">-- 查看所有用户</span>
+\du
+
+<span class="token comment">-- ========== 导入导出 ==========</span>
+<span class="token comment"># 导出整个数据库</span>
+docker <span class="token keyword">exec</span> <span class="token operator">-</span>it postgres pg_dump <span class="token operator">-</span>U postgres mydb <span class="token operator">&gt;</span> mydb_backup<span class="token punctuation">.</span><span class="token keyword">sql</span>
+
+<span class="token comment"># 导入数据库</span>
+docker <span class="token keyword">exec</span> <span class="token operator">-</span>i postgres psql <span class="token operator">-</span>U postgres mydb <span class="token operator">&lt;</span> mydb_backup<span class="token punctuation">.</span><span class="token keyword">sql</span>
+
+<span class="token comment"># 导出单个表</span>
+docker <span class="token keyword">exec</span> <span class="token operator">-</span>it postgres pg_dump <span class="token operator">-</span>U postgres <span class="token operator">-</span>t users mydb <span class="token operator">&gt;</span> users_backup<span class="token punctuation">.</span><span class="token keyword">sql</span>
+
+<span class="token comment"># 导出为 CSV 格式</span>
+docker <span class="token keyword">exec</span> <span class="token operator">-</span>it postgres psql <span class="token operator">-</span>U postgres <span class="token operator">-</span>c <span class="token string">&quot;COPY (SELECT * FROM users) TO STDOUT WITH CSV HEADER&quot;</span> <span class="token operator">&gt;</span> users<span class="token punctuation">.</span>csv
+</code></pre></div><h4 id="实用技巧"><a href="#实用技巧" class="header-anchor">#</a> 实用技巧</h4> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># ========== 查看数据库大小 ==========</span>
+<span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> postgres psql <span class="token parameter variable">-U</span> postgres <span class="token parameter variable">-c</span> <span class="token string">&quot;
+  SELECT pg_database.datname,
+         pg_size_pretty(pg_database_size(pg_database.datname)) AS size
+  FROM pg_database
+  ORDER BY pg_database_size(pg_database.datname) DESC;
+&quot;</span>
+
+<span class="token comment"># ========== 查看表大小 ==========</span>
+<span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> postgres psql <span class="token parameter variable">-U</span> postgres <span class="token parameter variable">-c</span> <span class="token string">&quot;
+  SELECT schemaname,
+         tablename,
+         pg_size_pretty(pg_total_relation_size(schemaname||'.'||tablename)) AS size
+  FROM pg_tables
+  WHERE schemaname = 'public'
+  ORDER BY pg_total_relation_size(schemaname||'.'||tablename) DESC;
+&quot;</span>
+
+<span class="token comment"># ========== 查看当前连接数 ==========</span>
+<span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> postgres psql <span class="token parameter variable">-U</span> postgres <span class="token parameter variable">-c</span> <span class="token string">&quot;
+  SELECT count(*) AS connections,
+         max(datname) AS database
+  FROM pg_stat_activity
+  GROUP BY datname;
+&quot;</span>
+
+<span class="token comment"># ========== 终止某个连接 ==========</span>
+<span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> postgres psql <span class="token parameter variable">-U</span> postgres <span class="token parameter variable">-c</span> <span class="token string">&quot;
+  SELECT pg_terminate_backend(pid)
+  FROM pg_stat_activity
+  WHERE datname = 'mydb' AND pid &lt;&gt; pg_backend_pid();
+&quot;</span>
+
+<span class="token comment"># ========== 查看慢查询 ==========</span>
+<span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> postgres psql <span class="token parameter variable">-U</span> postgres <span class="token parameter variable">-c</span> <span class="token string">&quot;
+  SELECT query,
+         calls,
+         total_time,
+         mean_time
+  FROM pg_stat_statements
+  ORDER BY mean_time DESC
+  LIMIT 10;
+&quot;</span>
+</code></pre></div><div class="custom-block tip"><p class="title">连接字符串示例</p><div class="language- extra-class"><pre class="language-text"><code># Node.js (pg)
+postgresql://postgres:password@localhost:5432/mydb
+
+# Python (psycopg2)
+dbname=mydb user=postgres password=password host=localhost port=5432
+
+# Java (JDBC)
+jdbc:postgresql://localhost:5432/mydb?user=postgres&amp;password=password
+</code></pre></div></div><hr> <h3 id="_2-postgresql-相比-mysql-的优势"><a href="#_2-postgresql-相比-mysql-的优势" class="header-anchor">#</a> 2. PostgreSQL 相比 MySQL 的优势？</h3> <p><strong>PostgreSQL 是世界上最先进的开源关系型数据库，被称为&quot;开源界的 Oracle&quot;</strong></p> <table><thead><tr><th>特性</th> <th>PostgreSQL</th> <th>MySQL</th></tr></thead> <tbody><tr><td><strong>SQL 标准</strong></td> <td>完全支持 SQL 标准</td> <td>部分支持</td></tr> <tr><td><strong>复杂查询</strong></td> <td>支持窗口函数、递归查询、CTE</td> <td>8.0+ 支持窗口函数</td></tr> <tr><td><strong>数据类型</strong></td> <td>JSON/JSONB、数组、GIS 等</td> <td>JSON 支持，但功能较弱</td></tr> <tr><td><strong>并发控制</strong></td> <td>MVCC（无锁读）</td> <td>MVCC + 间隙锁</td></tr> <tr><td><strong>事务完整性</strong></td> <td>完全支持 ACID</td> <td>InnoDB 支持 ACID</td></tr> <tr><td><strong>存储过程</strong></td> <td>支持 PL/pgSQL、Python 等</td> <td>支持，但功能有限</td></tr> <tr><td><strong>外键约束</strong></td> <td>完全支持</td> <td>InnoDB 支持</td></tr> <tr><td><strong>全文搜索</strong></td> <td>内置强大支持</td> <td>5.6+ 支持，功能较弱</td></tr> <tr><td><strong>适用场景</strong></td> <td>复杂查询、数据分析、高并发</td> <td>简单查询、Web 应用、读多写少</td></tr></tbody></table> <p><strong>PostgreSQL 核心优势：</strong></p> <ol><li><p><strong>更强大的数据类型</strong></p> <p><strong>① JSON/JSONB</strong>：原生支持，查询性能优于 MySQL</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token comment">-- 创建表（JSONB 列）</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> users <span class="token punctuation">(</span>
+  id <span class="token keyword">SERIAL</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">,</span>
+  name <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token keyword">data</span> JSONB
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 插入 JSON 数据</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> users <span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token keyword">data</span><span class="token punctuation">)</span> <span class="token keyword">VALUES</span>
+<span class="token punctuation">(</span><span class="token string">'Alice'</span><span class="token punctuation">,</span> <span class="token string">'{&quot;age&quot;: 25, &quot;city&quot;: &quot;Beijing&quot;, &quot;hobbies&quot;: [&quot;reading&quot;, &quot;coding&quot;]}'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">(</span><span class="token string">'Bob'</span><span class="token punctuation">,</span> <span class="token string">'{&quot;age&quot;: 30, &quot;city&quot;: &quot;Shanghai&quot;, &quot;hobbies&quot;: [&quot;gaming&quot;, &quot;travel&quot;]}'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 查询 JSON 字段</span>
+<span class="token keyword">SELECT</span> name<span class="token punctuation">,</span> <span class="token keyword">data</span><span class="token operator">-</span><span class="token operator">&gt;&gt;</span><span class="token string">'age'</span> <span class="token keyword">as</span> age<span class="token punctuation">,</span> <span class="token keyword">data</span><span class="token operator">-</span><span class="token operator">&gt;&gt;</span><span class="token string">'city'</span> <span class="token keyword">as</span> city
+<span class="token keyword">FROM</span> users
+<span class="token keyword">WHERE</span> <span class="token punctuation">(</span><span class="token keyword">data</span><span class="token operator">-</span><span class="token operator">&gt;&gt;</span><span class="token string">'age'</span><span class="token punctuation">)</span>::<span class="token keyword">int</span> <span class="token operator">&gt;</span> <span class="token number">25</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 查询 JSON 数组</span>
+<span class="token keyword">SELECT</span> name<span class="token punctuation">,</span> <span class="token keyword">data</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token string">'hobbies'</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token number">0</span> <span class="token keyword">as</span> first_hobby
+<span class="token keyword">FROM</span> users<span class="token punctuation">;</span>
+
+<span class="token comment">-- 检查 JSON 键是否存在</span>
+<span class="token keyword">SELECT</span> name <span class="token keyword">FROM</span> users <span class="token keyword">WHERE</span> <span class="token keyword">data</span> ? <span class="token string">'city'</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- JSONB 包含查询（GIN 索引加速）</span>
+<span class="token keyword">SELECT</span> name <span class="token keyword">FROM</span> users <span class="token keyword">WHERE</span> <span class="token keyword">data</span> @<span class="token operator">&gt;</span> <span class="token string">'{&quot;age&quot;: 25}'</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 更新 JSON 字段</span>
+<span class="token keyword">UPDATE</span> users <span class="token keyword">SET</span> <span class="token keyword">data</span> <span class="token operator">=</span> jsonb_set<span class="token punctuation">(</span><span class="token keyword">data</span><span class="token punctuation">,</span> <span class="token string">'{age}'</span><span class="token punctuation">,</span> <span class="token string">'26'</span><span class="token punctuation">)</span> <span class="token keyword">WHERE</span> id <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 创建 GIN 索引（性能优于 MySQL）</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">INDEX</span> idx_users_data <span class="token keyword">ON</span> users <span class="token keyword">USING</span> GIN <span class="token punctuation">(</span><span class="token keyword">data</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p><strong>② 数组类型</strong>：可以直接存储数组</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token comment">-- 创建表（数组列）</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> products <span class="token punctuation">(</span>
+  id <span class="token keyword">SERIAL</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">,</span>
+  name <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  tags <span class="token keyword">TEXT</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>              <span class="token comment">-- 文本数组</span>
+  prices <span class="token keyword">NUMERIC</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>   <span class="token comment">-- 价格数组</span>
+  stock <span class="token keyword">INTEGER</span><span class="token punctuation">[</span><span class="token punctuation">]</span>           <span class="token comment">-- 库存数组</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 插入数组数据</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> products <span class="token punctuation">(</span>name<span class="token punctuation">,</span> tags<span class="token punctuation">,</span> prices<span class="token punctuation">,</span> stock<span class="token punctuation">)</span> <span class="token keyword">VALUES</span>
+<span class="token punctuation">(</span><span class="token string">'iPhone'</span><span class="token punctuation">,</span> <span class="token string">'{&quot;electronics&quot;, &quot;apple&quot;, &quot;phone&quot;}'</span><span class="token punctuation">,</span> <span class="token string">'{7999, 8999, 9999}'</span><span class="token punctuation">,</span> <span class="token string">'{100, 50, 30}'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">(</span><span class="token string">'MacBook'</span><span class="token punctuation">,</span> <span class="token string">'{&quot;electronics&quot;, &quot;apple&quot;, &quot;laptop&quot;}'</span><span class="token punctuation">,</span> <span class="token string">'{12999, 14999}'</span><span class="token punctuation">,</span> <span class="token string">'{20, 10}'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 查询数组元素</span>
+<span class="token keyword">SELECT</span> name<span class="token punctuation">,</span> tags<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token keyword">as</span> first_tag<span class="token punctuation">,</span> prices<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token keyword">as</span> current_price
+<span class="token keyword">FROM</span> products<span class="token punctuation">;</span>
+
+<span class="token comment">-- 检查数组是否包含某个值</span>
+<span class="token keyword">SELECT</span> name <span class="token keyword">FROM</span> products <span class="token keyword">WHERE</span> <span class="token string">'apple'</span> <span class="token operator">=</span> <span class="token keyword">ANY</span><span class="token punctuation">(</span>tags<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 检查数组是否包含所有值</span>
+<span class="token keyword">SELECT</span> name <span class="token keyword">FROM</span> products <span class="token keyword">WHERE</span> tags @<span class="token operator">&gt;</span> <span class="token string">'{electronics, apple}'</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 数组展开查询（unnest）</span>
+<span class="token keyword">SELECT</span> name<span class="token punctuation">,</span> unnest<span class="token punctuation">(</span>tags<span class="token punctuation">)</span> <span class="token keyword">as</span> tag<span class="token punctuation">,</span> unnest<span class="token punctuation">(</span>prices<span class="token punctuation">)</span> <span class="token keyword">as</span> price
+<span class="token keyword">FROM</span> products<span class="token punctuation">;</span>
+
+<span class="token comment">-- 更新数组元素</span>
+<span class="token keyword">UPDATE</span> products <span class="token keyword">SET</span> stock<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">80</span> <span class="token keyword">WHERE</span> id <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 向数组追加元素</span>
+<span class="token keyword">UPDATE</span> products <span class="token keyword">SET</span> tags <span class="token operator">=</span> array_append<span class="token punctuation">(</span>tags<span class="token punctuation">,</span> <span class="token string">'new'</span><span class="token punctuation">)</span> <span class="token keyword">WHERE</span> id <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 数组聚合</span>
+<span class="token keyword">SELECT</span> array_agg<span class="token punctuation">(</span><span class="token keyword">DISTINCT</span> unnest<span class="token punctuation">(</span>tags<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">as</span> all_tags <span class="token keyword">FROM</span> products<span class="token punctuation">;</span>
+</code></pre></div><p><strong>③ GIS 地理信息</strong>：PostGIS 扩展，全球最强 GIS 数据库</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token comment">-- 安装 PostGIS 扩展</span>
+<span class="token keyword">CREATE</span> EXTENSION postgis<span class="token punctuation">;</span>
+
+<span class="token comment">-- 创建表（地理坐标）</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> places <span class="token punctuation">(</span>
+  id <span class="token keyword">SERIAL</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">,</span>
+  name <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  location GEOGRAPHY<span class="token punctuation">(</span><span class="token keyword">POINT</span><span class="token punctuation">,</span> <span class="token number">4326</span><span class="token punctuation">)</span>  <span class="token comment">-- 经纬度坐标</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 插入地点（经度, 纬度）</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> places <span class="token punctuation">(</span>name<span class="token punctuation">,</span> location<span class="token punctuation">)</span> <span class="token keyword">VALUES</span>
+<span class="token punctuation">(</span><span class="token string">'天安门'</span><span class="token punctuation">,</span> ST_MakePoint<span class="token punctuation">(</span><span class="token number">116.397128</span><span class="token punctuation">,</span> <span class="token number">39.916527</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">(</span><span class="token string">'故宫'</span><span class="token punctuation">,</span> ST_MakePoint<span class="token punctuation">(</span><span class="token number">116.397477</span><span class="token punctuation">,</span> <span class="token number">39.918058</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">(</span><span class="token string">'颐和园'</span><span class="token punctuation">,</span> ST_MakePoint<span class="token punctuation">(</span><span class="token number">116.273000</span><span class="token punctuation">,</span> <span class="token number">39.999000</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 查询距离某个点 5km 内的地点</span>
+<span class="token keyword">SELECT</span> name<span class="token punctuation">,</span>
+       ST_Distance<span class="token punctuation">(</span>location<span class="token punctuation">,</span> ST_MakePoint<span class="token punctuation">(</span><span class="token number">116.397128</span><span class="token punctuation">,</span> <span class="token number">39.916527</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">1000</span> <span class="token keyword">as</span> distance_km
+<span class="token keyword">FROM</span> places
+<span class="token keyword">WHERE</span> ST_DWithin<span class="token punctuation">(</span>location<span class="token punctuation">,</span> ST_MakePoint<span class="token punctuation">(</span><span class="token number">116.397128</span><span class="token punctuation">,</span> <span class="token number">39.916527</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">5000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">-- 5km</span>
+
+<span class="token comment">-- 计算两点距离</span>
+<span class="token keyword">SELECT</span> name<span class="token punctuation">,</span>
+       ST_Distance<span class="token punctuation">(</span>
+         <span class="token punctuation">(</span><span class="token keyword">SELECT</span> location <span class="token keyword">FROM</span> places <span class="token keyword">WHERE</span> name <span class="token operator">=</span> <span class="token string">'天安门'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+         location
+       <span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">1000</span> <span class="token keyword">as</span> distance_from_tiananmen
+<span class="token keyword">FROM</span> places<span class="token punctuation">;</span>
+
+<span class="token comment">-- 查询某个矩形区域内的地点</span>
+<span class="token keyword">SELECT</span> name <span class="token keyword">FROM</span> places
+<span class="token keyword">WHERE</span> ST_Within<span class="token punctuation">(</span>
+  location<span class="token punctuation">,</span>
+  ST_MakeEnvelope<span class="token punctuation">(</span><span class="token number">116.3</span><span class="token punctuation">,</span> <span class="token number">39.9</span><span class="token punctuation">,</span> <span class="token number">116.5</span><span class="token punctuation">,</span> <span class="token number">40.0</span><span class="token punctuation">,</span> <span class="token number">4326</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 创建地理空间索引（GiST）</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">INDEX</span> idx_places_location <span class="token keyword">ON</span> places <span class="token keyword">USING</span> GIST <span class="token punctuation">(</span>location<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 多边形查询（查询某个多边形内的地点）</span>
+<span class="token keyword">SELECT</span> name <span class="token keyword">FROM</span> places
+<span class="token keyword">WHERE</span> ST_Contains<span class="token punctuation">(</span>
+  ST_GeomFromText<span class="token punctuation">(</span><span class="token string">'POLYGON((116.3 39.9, 116.5 39.9, 116.5 40.0, 116.3 40.0, 116.3 39.9))'</span><span class="token punctuation">,</span> <span class="token number">4326</span><span class="token punctuation">)</span>::geography<span class="token punctuation">,</span>
+  location
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></li> <li><p><strong>更复杂的查询能力</strong></p></li></ol> <h3 id="什么是窗口函数"><a href="#什么是窗口函数" class="header-anchor">#</a> 什么是窗口函数？</h3> <blockquote><p>窗口函数可以在<strong>不合并行</strong>的情况下，对每一行数据进行&quot;窗口范围内的计算&quot;</p></blockquote> <p><strong>通俗理解：</strong></p> <ul><li><strong>GROUP BY（聚合函数）</strong>：把多行聚合成一行，只能看到&quot;数学平均分&quot;</li> <li><strong>窗口函数</strong>：保留每个同学的记录，但能看到&quot;我比班上多少人高&quot;、&quot;我的排名&quot;、&quot;我的分数和平均分的差距&quot;</li></ul> <p><strong>核心示例：</strong></p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token comment">-- 假设有员工表</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> employees <span class="token punctuation">(</span>
+  id <span class="token keyword">INT</span><span class="token punctuation">,</span>
+  name <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  department <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  salary <span class="token keyword">INT</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> employees <span class="token keyword">VALUES</span>
+<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'张三'</span><span class="token punctuation">,</span> <span class="token string">'技术部'</span><span class="token punctuation">,</span> <span class="token number">10000</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'李四'</span><span class="token punctuation">,</span> <span class="token string">'技术部'</span><span class="token punctuation">,</span> <span class="token number">15000</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">'王五'</span><span class="token punctuation">,</span> <span class="token string">'技术部'</span><span class="token punctuation">,</span> <span class="token number">12000</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token string">'赵六'</span><span class="token punctuation">,</span> <span class="token string">'销售部'</span><span class="token punctuation">,</span> <span class="token number">8000</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token string">'钱七'</span><span class="token punctuation">,</span> <span class="token string">'销售部'</span><span class="token punctuation">,</span> <span class="token number">9000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- ① 排名（不合并行）</span>
+<span class="token keyword">SELECT</span> name<span class="token punctuation">,</span> salary<span class="token punctuation">,</span>
+       RANK<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span> <span class="token punctuation">(</span><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> salary <span class="token keyword">DESC</span><span class="token punctuation">)</span> <span class="token keyword">as</span> salary_rank
+<span class="token keyword">FROM</span> employees<span class="token punctuation">;</span>
+<span class="token comment">-- 结果：5 行数据，每行都有排名</span>
+<span class="token comment">-- | 李四 | 15000 | 1 |</span>
+<span class="token comment">-- | 王五 | 12000 | 2 |</span>
+<span class="token comment">-- | 张三 | 10000 | 3 |</span>
+
+<span class="token comment">-- ② 部门内排名</span>
+<span class="token keyword">SELECT</span> name<span class="token punctuation">,</span> department<span class="token punctuation">,</span> salary<span class="token punctuation">,</span>
+       RANK<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span> <span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> department <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> salary <span class="token keyword">DESC</span><span class="token punctuation">)</span> <span class="token keyword">as</span> dept_rank
+<span class="token keyword">FROM</span> employees<span class="token punctuation">;</span>
+<span class="token comment">-- 技术部和销售部分别排名</span>
+
+<span class="token comment">-- ③ 和部门平均工资对比</span>
+<span class="token keyword">SELECT</span> name<span class="token punctuation">,</span> salary<span class="token punctuation">,</span>
+       <span class="token function">AVG</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span> <span class="token keyword">OVER</span> <span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> department<span class="token punctuation">)</span> <span class="token keyword">as</span> dept_avg<span class="token punctuation">,</span>
+       salary <span class="token operator">-</span> <span class="token function">AVG</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span> <span class="token keyword">OVER</span> <span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> department<span class="token punctuation">)</span> <span class="token keyword">as</span> diff
+<span class="token keyword">FROM</span> employees<span class="token punctuation">;</span>
+<span class="token comment">-- 每个人都能看到自己工资和部门平均的差距</span>
+
+<span class="token comment">-- ④ 累计求和</span>
+<span class="token keyword">SELECT</span> <span class="token keyword">month</span><span class="token punctuation">,</span> sales<span class="token punctuation">,</span>
+       <span class="token function">SUM</span><span class="token punctuation">(</span>sales<span class="token punctuation">)</span> <span class="token keyword">OVER</span> <span class="token punctuation">(</span><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token keyword">month</span><span class="token punctuation">)</span> <span class="token keyword">as</span> cumulative
+<span class="token keyword">FROM</span> sales_data<span class="token punctuation">;</span>
+<span class="token comment">-- 1月: 1000 | 2月: 3000 (1000+2000) | 3月: 4500 (1000+2000+1500)</span>
+
+<span class="token comment">-- ⑤ 同比/环比增长</span>
+<span class="token keyword">SELECT</span> <span class="token keyword">month</span><span class="token punctuation">,</span> sales<span class="token punctuation">,</span>
+       LAG<span class="token punctuation">(</span>sales<span class="token punctuation">)</span> <span class="token keyword">OVER</span> <span class="token punctuation">(</span><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token keyword">month</span><span class="token punctuation">)</span> <span class="token keyword">as</span> last_month<span class="token punctuation">,</span>  <span class="token comment">-- 上月数据</span>
+       sales <span class="token operator">-</span> LAG<span class="token punctuation">(</span>sales<span class="token punctuation">)</span> <span class="token keyword">OVER</span> <span class="token punctuation">(</span><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token keyword">month</span><span class="token punctuation">)</span> <span class="token keyword">as</span> growth  <span class="token comment">-- 增长额</span>
+<span class="token keyword">FROM</span> sales_data<span class="token punctuation">;</span>
+</code></pre></div><p><strong>常用窗口函数：</strong></p> <table><thead><tr><th>函数</th> <th>作用</th> <th>示例</th></tr></thead> <tbody><tr><td><code>ROW_NUMBER()</code></td> <td>连续排名（1,2,3,4）</td> <td>无并列</td></tr> <tr><td><code>RANK()</code></td> <td>跳跃排名（1,2,2,4）</td> <td>有并列会跳号</td></tr> <tr><td><code>DENSE_RANK()</code></td> <td>密集排名（1,2,2,3）</td> <td>有并列不跳号</td></tr> <tr><td><code>SUM() OVER</code></td> <td>累计和</td> <td>计算累计销售额</td></tr> <tr><td><code>AVG() OVER</code></td> <td>移动平均</td> <td>计算平均值</td></tr> <tr><td><code>LAG()</code></td> <td>取前一行的值</td> <td>同比增长</td></tr> <tr><td><code>LEAD()</code></td> <td>取后一行的值</td> <td>环比增长</td></tr></tbody></table> <p><strong>窗口函数语法：</strong></p> <div class="language-sql extra-class"><pre class="language-sql"><code>函数名 <span class="token keyword">OVER</span> <span class="token punctuation">(</span>
+  <span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>  <span class="token comment">-- 分组（可选）</span>
+  <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>      <span class="token comment">-- 排序（可选）</span>
+  窗口框架          <span class="token comment">-- 范围（可选，如 ROWS BETWEEN）</span>
+<span class="token punctuation">)</span>
+</code></pre></div><p><strong>递归查询（树形结构）：</strong></p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token comment">-- 查询组织架构中的所有下属</span>
+<span class="token keyword">WITH</span> RECURSIVE subordinates <span class="token keyword">AS</span> <span class="token punctuation">(</span>
+  <span class="token comment">-- 初始查询：找到某个员工</span>
+  <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> employees <span class="token keyword">WHERE</span> id <span class="token operator">=</span> <span class="token number">1</span>
+  <span class="token keyword">UNION</span> <span class="token keyword">ALL</span>
+  <span class="token comment">-- 递归查询：找到所有下属</span>
+  <span class="token keyword">SELECT</span> e<span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">FROM</span> employees e
+  <span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> subordinates s <span class="token keyword">ON</span> e<span class="token punctuation">.</span>manager_id <span class="token operator">=</span> s<span class="token punctuation">.</span>id
+<span class="token punctuation">)</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> subordinates<span class="token punctuation">;</span>
+</code></pre></div><ol start="3"><li><p><strong>更可靠的并发控制</strong></p> <ul><li>MVCC 实现更优，读写不阻塞</li> <li>不需要间隙锁，死锁更少</li></ul></li> <li><p><strong>更好的扩展性</strong></p> <ul><li>支持表分区、表继承</li> <li>丰富的扩展生态系统（PostGIS、pgcrypto、hstore 等）</li></ul></li></ol> <hr> <h3 id="_3-什么是-mvcc-postgresql-如何实现"><a href="#_3-什么是-mvcc-postgresql-如何实现" class="header-anchor">#</a> 3. 什么是 MVCC？PostgreSQL 如何实现？</h3> <p><strong>MVCC（多版本并发控制）是一种乐观锁机制，通过保存数据的多个版本实现读写不加锁</strong></p> <h4 id="postgresql-的-mvcc-实现原理"><a href="#postgresql-的-mvcc-实现原理" class="header-anchor">#</a> PostgreSQL 的 MVCC 实现原理</h4> <p><strong>核心机制：通过元组（tuple）中的隐藏字段实现版本控制</strong></p> <p>每个数据行（元组）包含两个隐藏字段：</p> <ul><li><strong>xmin</strong>：插入该行的事务 ID</li> <li><strong>xmax</strong>：删除或更新该行的事务 ID</li></ul> <div class="language- extra-class"><pre class="language-text"><code>示例：UPDATE users SET balance = 900 WHERE id = 1;
+
+1. 原始数据（xmin=100, xmax=0）
+   | id | name  | balance | xmin | xmax |
+   |----|-------|---------|------|------|
+   | 1  | Alice | 1000    | 100  | 0    |
+
+2. 更新操作（事务 200）
+   - 旧行标记为失效（xmax=200）
+   - 插入新行（xmin=200, xmax=0）
+
+   旧行（xmax=200，表示被事务 200 删除）：
+   | id | name  | balance | xmin | xmax |
+   |----|-------|---------|------|------|
+   | 1  | Alice | 1000    | 100  | 200  |
+
+   新行（xmin=200）：
+   | id | name  | balance | xmin | xmax |
+   |----|-------|---------|------|------|
+   | 1  | Alice | 900     | 200  | 0    |
+
+3. 可见性判断
+   - 读取事务根据自身的事务 ID 判断
+   - 只能看到 xmin &lt;= 当前事务 AND (xmax = 0 OR xmax &gt; 当前事务) 的行
+</code></pre></div><p><strong>PostgreSQL vs MySQL MVCC 对比：</strong></p> <table><thead><tr><th>特性</th> <th>PostgreSQL</th> <th>MySQL (InnoDB)</th></tr></thead> <tbody><tr><td><strong>版本存储</strong></td> <td>元组本身（旧版在堆中）</td> <td>Undo Log（回滚段）</td></tr> <tr><td><strong>更新机制</strong></td> <td>插入新行，标记旧行无效</td> <td>覆盖原记录，旧版本移到 undo log</td></tr> <tr><td><strong>空间回收</strong></td> <td>VACUUM 进程清理死元组</td> <td>purge 线程清理 undo log</td></tr> <tr><td><strong>长事务影响</strong></td> <td>导致表膨胀（需要频繁 VACUUM）</td> <td>导致 undo log 增大</td></tr> <tr><td><strong>读取性能</strong></td> <td>快（直接读堆）</td> <td>较慢（需构建读视图）</td></tr></tbody></table> <p><strong>VACUUM 机制：</strong></p> <p>PostgreSQL 需要定期执行 VACUUM 来清理死元组：</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token comment">-- 手动清理</span>
+VACUUM users<span class="token punctuation">;</span>
+
+<span class="token comment">-- 分析表并更新统计信息</span>
+VACUUM <span class="token keyword">ANALYZE</span> users<span class="token punctuation">;</span>
+
+<span class="token comment">-- 自动清理（推荐启用）</span>
+<span class="token comment">-- 配置参数：</span>
+autovacuum <span class="token operator">=</span> <span class="token keyword">on</span>
+autovacuum_vacuum_scale_factor <span class="token operator">=</span> <span class="token number">0.2</span>  <span class="token comment">-- 20% 的数据死亡时触发</span>
+</code></pre></div><div class="custom-block right"><p>———— PostgreSQL 不会像 MySQL 那样出现 undo log 无限增长的问题，但需要定期 VACUUM</p></div> <hr> <h3 id="_4-postgresql-索引类型有哪些"><a href="#_4-postgresql-索引类型有哪些" class="header-anchor">#</a> 4. PostgreSQL 索引类型有哪些？</h3> <p>PostgreSQL 提供了多种索引类型，针对不同场景优化：</p> <table><thead><tr><th>索引类型</th> <th>使用场景</th> <th>示例</th></tr></thead> <tbody><tr><td><strong>B-tree</strong></td> <td>默认索引，支持等值和范围查询</td> <td><code>CREATE INDEX idx_name ON users (name);</code></td></tr> <tr><td><strong>GIN</strong></td> <td>数组、JSONB、全文搜索</td> <td><code>CREATE INDEX idx_gin ON articles USING GIN (tags);</code></td></tr> <tr><td><strong>Hash</strong></td> <td>等值查询（=, IN）</td> <td><code>CREATE INDEX idx_hash ON users USING HASH (email);</code></td></tr> <tr><td><strong>GiST</strong></td> <td>几何数据、全文搜索</td> <td><code>CREATE INDEX idx_gist ON places USING GIST (location);</code></td></tr> <tr><td><strong>SP-GiST</strong></td> <td>分区数据（电话、树形结构）</td> <td><code>CREATE INDEX idx_spgist ON phone USING SPGIST (number);</code></td></tr> <tr><td><strong>BRIN</strong></td> <td>大表（按块存储元数据）</td> <td><code>CREATE INDEX idx_brin ON logs USING BRIN (created_at);</code></td></tr></tbody></table> <p><strong>常用索引示例：</strong></p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token comment">-- 1. B-tree 索引（默认）</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">INDEX</span> idx_users_email <span class="token keyword">ON</span> users <span class="token punctuation">(</span>email<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 2. 复合索引（遵循最左前缀）</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">INDEX</span> idx_users_age_balance <span class="token keyword">ON</span> users <span class="token punctuation">(</span>age<span class="token punctuation">,</span> balance<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 3. 唯一索引</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">UNIQUE</span> <span class="token keyword">INDEX</span> idx_users_username <span class="token keyword">ON</span> users <span class="token punctuation">(</span>username<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 4. 部分索引（只索引符合条件的行）</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">INDEX</span> idx_active_users <span class="token keyword">ON</span> users <span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token keyword">WHERE</span> <span class="token keyword">status</span> <span class="token operator">=</span> <span class="token string">'active'</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 5. 表达式索引</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">INDEX</span> idx_users_lower_name <span class="token keyword">ON</span> users <span class="token punctuation">(</span>LOWER<span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 6. JSONB 索引（GIN）</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">INDEX</span> idx_users_data <span class="token keyword">ON</span> users <span class="token keyword">USING</span> GIN <span class="token punctuation">(</span><span class="token keyword">data</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 查询 JSONB 字段</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> users <span class="token keyword">WHERE</span> <span class="token keyword">data</span> @<span class="token operator">&gt;</span> <span class="token string">'{&quot;key&quot;: &quot;value&quot;}'</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 7. 全文搜索索引</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">INDEX</span> idx_articles_content <span class="token keyword">ON</span> articles <span class="token keyword">USING</span> GIN <span class="token punctuation">(</span>to_tsvector<span class="token punctuation">(</span><span class="token string">'english'</span><span class="token punctuation">,</span> content<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 全文搜索</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> articles
+<span class="token keyword">WHERE</span> to_tsvector<span class="token punctuation">(</span><span class="token string">'english'</span><span class="token punctuation">,</span> content<span class="token punctuation">)</span> @@ to_tsquery<span class="token punctuation">(</span><span class="token string">'english'</span><span class="token punctuation">,</span> <span class="token string">'PostgreSQL'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 8. BRIN 索引（适合日志、时序数据）</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">INDEX</span> idx_logs_created <span class="token keyword">ON</span> logs <span class="token keyword">USING</span> BRIN <span class="token punctuation">(</span>created_at<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p><strong>索引选择建议：</strong></p> <ul><li><strong>B-tree</strong>：90% 的场景，默认选择</li> <li><strong>GIN</strong>：数组、JSONB、全文搜索</li> <li><strong>Hash</strong>：仅等值查询，比 B-tree 更小更快</li> <li><strong>GiST</strong>：地理数据、范围数据</li> <li><strong>BRIN</strong>：超大表（日志、时序），索引极小但性能一般</li></ul> <hr> <h3 id="_5-postgresql-vs-mysql-索引对比"><a href="#_5-postgresql-vs-mysql-索引对比" class="header-anchor">#</a> 5. PostgreSQL vs MySQL 索引对比</h3> <table><thead><tr><th>特性</th> <th>PostgreSQL</th> <th>MySQL (InnoDB)</th></tr></thead> <tbody><tr><td><strong>默认索引</strong></td> <td>B-tree</td> <td>B-tree</td></tr> <tr><td><strong>全文索引</strong></td> <td>内置（GIN）</td> <td>FULLTEXT 索引</td></tr> <tr><td><strong>地理索引</strong></td> <td>PostGIS（GiST）</td> <td>不支持</td></tr> <tr><td><strong>JSON 索引</strong></td> <td>GIN（强大）</td> <td>虚拟列 + 索引（弱）</td></tr> <tr><td><strong>部分索引</strong></td> <td>✅ 支持</td> <td>❌ 不支持</td></tr> <tr><td><strong>表达式索引</strong></td> <td>✅ 支持</td> <td>MySQL 8.0+ 支持</td></tr> <tr><td><strong>并发索引创建</strong></td> <td>✅ CREATE INDEX CONCURRENTLY</td> <td>❌ 需要锁表</td></tr></tbody></table> <hr> <h3 id="_6-postgresql-分布式事务是如何实现的"><a href="#_6-postgresql-分布式事务是如何实现的" class="header-anchor">#</a> 6. PostgreSQL 分布式事务是如何实现的？</h3> <p>PostgreSQL 支持 <strong>2PC（两阶段提交）</strong> 协议来实现分布式事务。</p> <p><strong>PostgreSQL 的分布式事务语法：</strong></p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token comment">-- ========== 数据库 A ==========</span>
+<span class="token keyword">BEGIN</span><span class="token punctuation">;</span>                                   <span class="token comment">-- 开启事务</span>
+<span class="token keyword">UPDATE</span> accounts <span class="token keyword">SET</span> balance <span class="token operator">=</span> balance <span class="token operator">-</span> <span class="token number">100</span> <span class="token keyword">WHERE</span> account_id <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">PREPARE</span> <span class="token keyword">TRANSACTION</span> <span class="token string">'transaction_A'</span><span class="token punctuation">;</span>     <span class="token comment">-- 准备事务（持久化到磁盘）</span>
+
+<span class="token comment">-- ========== 数据库 B ==========</span>
+<span class="token keyword">BEGIN</span><span class="token punctuation">;</span>                                   <span class="token comment">-- 开启事务</span>
+<span class="token keyword">UPDATE</span> accounts <span class="token keyword">SET</span> balance <span class="token operator">=</span> balance <span class="token operator">+</span> <span class="token number">100</span> <span class="token keyword">WHERE</span> account_id <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token keyword">PREPARE</span> <span class="token keyword">TRANSACTION</span> <span class="token string">'transaction_B'</span><span class="token punctuation">;</span>     <span class="token comment">-- 准备事务</span>
+
+<span class="token comment">-- ========== 全局提交 ==========</span>
+<span class="token keyword">COMMIT</span> PREPARED <span class="token string">'transaction_A'</span><span class="token punctuation">;</span>         <span class="token comment">-- 提交准备好的事务</span>
+<span class="token keyword">COMMIT</span> PREPARED <span class="token string">'transaction_B'</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- ========== 全局回滚 ==========</span>
+<span class="token comment">-- ROLLBACK PREPARED 'transaction_A';    -- 回滚准备好的事务</span>
+<span class="token comment">-- ROLLBACK PREPARED 'transaction_B';</span>
+</code></pre></div><p><strong>PostgreSQL 特有的分布式事务功能：</strong></p> <table><thead><tr><th>功能</th> <th>说明</th></tr></thead> <tbody><tr><td><strong>PREPARE TRANSACTION</strong></td> <td>将事务状态持久化到磁盘，可跨会话恢复</td></tr> <tr><td><strong>COMMIT PREPARED</strong></td> <td>提交已准备的事务</td></tr> <tr><td><strong>ROLLBACK PREPARED</strong></td> <td>回滚已准备的事务</td></tr> <tr><td><strong>自动恢复</strong></td> <td>系统崩溃后自动恢复未完成的事务</td></tr></tbody></table> <p>查看准备中的事务：</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token comment">-- 查看所有准备中的事务</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> pg_prepared_xacts<span class="token punctuation">;</span>
+
+<span class="token comment">-- 查看当前数据库的准备事务</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> pg_prepared_statements<span class="token punctuation">;</span>
+</code></pre></div><p><strong>两阶段提交流程：</strong></p> <div class="language- extra-class"><pre class="language-text"><code>┌─────────────┐
+│  第一阶段   │  PREPARE TRANSACTION（准备阶段）
+│  投票阶段   │  → 执行本地事务但不提交
+└─────────────┘  → 将事务状态持久化到磁盘
+                  → 返回 Ready 状态
+
+┌─────────────┐
+│  第二阶段   │  COMMIT PREPARED（执行阶段）
+│  执行阶段   │  → COMMIT PREPARED：提交事务
+└─────────────┘  → ROLLBACK PREPARED：回滚事务
+</code></pre></div><div class="custom-block tip"><p class="title">与 MySQL 的区别</p><ul><li><strong>MySQL</strong>：使用 XA 协议（<code>XA START/END/PREPARE/COMMIT</code>）</li> <li><strong>PostgreSQL</strong>：使用 PREPARE TRANSACTION 语法</li> <li><strong>恢复机制</strong>：PostgreSQL 自动恢复，MySQL 需要手动 <code>XA RECOVER</code></li></ul></div><div class="custom-block warning"><p class="title">生产环境建议</p><p>2PC 事务在生产环境中使用需要谨慎：</p> <ul><li><strong>性能问题</strong>：锁资源时间长，并发性能差</li> <li><strong>可用性问题</strong>：单点故障可能导致长时间锁定</li> <li><strong>推荐方案</strong>：优先考虑最终一致性方案（TCC、Saga、消息队列）</li></ul></div></div></section> <footer class="page-edit"><!----> <!----></footer> <!----> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:12rem;" data-v-b57cc07c data-v-7dd95ae2><li class="level-2" data-v-b57cc07c><a href="/backend/postgreSql/#postgresql-相关" class="sidebar-link reco-side-postgresql-相关" data-v-b57cc07c>POSTGRESQL 相关</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/postgreSql/#_1-postgresql-基本操作命令" class="sidebar-link reco-side-_1-postgresql-基本操作命令" data-v-b57cc07c>1. PostgreSQL 基本操作命令</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/postgreSql/#_2-postgresql-相比-mysql-的优势" class="sidebar-link reco-side-_2-postgresql-相比-mysql-的优势" data-v-b57cc07c>2. PostgreSQL 相比 MySQL 的优势？</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/postgreSql/#什么是窗口函数" class="sidebar-link reco-side-什么是窗口函数" data-v-b57cc07c>什么是窗口函数？</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/postgreSql/#_3-什么是-mvcc-postgresql-如何实现" class="sidebar-link reco-side-_3-什么是-mvcc-postgresql-如何实现" data-v-b57cc07c>3. 什么是 MVCC？PostgreSQL 如何实现？</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/postgreSql/#_4-postgresql-索引类型有哪些" class="sidebar-link reco-side-_4-postgresql-索引类型有哪些" data-v-b57cc07c>4. PostgreSQL 索引类型有哪些？</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/postgreSql/#_5-postgresql-vs-mysql-索引对比" class="sidebar-link reco-side-_5-postgresql-vs-mysql-索引对比" data-v-b57cc07c>5. PostgreSQL vs MySQL 索引对比</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/postgreSql/#_6-postgresql-分布式事务是如何实现的" class="sidebar-link reco-side-_6-postgresql-分布式事务是如何实现的" data-v-b57cc07c>6. PostgreSQL 分布式事务是如何实现的？</a></li></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><!----></div></div>
+    <script src="/assets/js/app.c522256a.js" defer></script><script src="/assets/js/7.7a630101.js" defer></script><script src="/assets/js/2.f8874ec3.js" defer></script><script src="/assets/js/1.64e7c351.js" defer></script><script src="/assets/js/65.7308b306.js" defer></script>
+  </body>
+</html>

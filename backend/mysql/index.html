@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MYSQL 相关 | Sapphire611</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    
+    <meta name="description" content="| 特性 | InnoDB | MyISAM |
+|------|--------|--------|
+| 事务支持 | ✅ 支持 | ❌ 不支持 |
+| 锁机制 | 行锁 | 表锁 |
+| 外键 | ✅ 支持 | ❌ 不支持 |
+| 崩溃恢复 | ✅ 自动恢复 | ❌ 需手动修复 |
+| 读性能 | 较好 | 更好 |
+| 写性能 | 较好 | 较差 |
+| 适用场景 | 高并发、事务要求高 | 读多写少、无事务要求 |">
+    <meta name="twitter:title" content="MYSQL 相关">
+    <meta name="twitter:description" content="| 特性 | InnoDB | MyISAM |
+|------|--------|--------|
+| 事务支持 | ✅ 支持 | ❌ 不支持 |
+| 锁机制 | 行锁 | 表锁 |
+| 外键 | ✅ 支持 | ❌ 不支持 |
+| 崩溃恢复 | ✅ 自动恢复 | ❌ 需手动修复 |
+| 读性能 | 较好 | 更好 |
+| 写性能 | 较好 | 较差 |
+| 适用场景 | 高并发、事务要求高 | 读多写少、无事务要求 |">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://sapphire611.github.io/backend/mysql/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="MYSQL 相关">
+    <meta property="og:description" content="| 特性 | InnoDB | MyISAM |
+|------|--------|--------|
+| 事务支持 | ✅ 支持 | ❌ 不支持 |
+| 锁机制 | 行锁 | 表锁 |
+| 外键 | ✅ 支持 | ❌ 不支持 |
+| 崩溃恢复 | ✅ 自动恢复 | ❌ 需手动修复 |
+| 读性能 | 较好 | 更好 |
+| 写性能 | 较好 | 较差 |
+| 适用场景 | 高并发、事务要求高 | 读多写少、无事务要求 |">
+    <meta property="og:url" content="https://sapphire611.github.io/backend/mysql/">
+    <meta property="og:site_name" content="Sapphire611">
+    <meta property="article:published_time" content="2026-03-03T00:00:00.000Z">
+    <meta itemprop="name" content="MYSQL 相关">
+    <meta itemprop="description" content="| 特性 | InnoDB | MyISAM |
+|------|--------|--------|
+| 事务支持 | ✅ 支持 | ❌ 不支持 |
+| 锁机制 | 行锁 | 表锁 |
+| 外键 | ✅ 支持 | ❌ 不支持 |
+| 崩溃恢复 | ✅ 自动恢复 | ❌ 需手动修复 |
+| 读性能 | 较好 | 更好 |
+| 写性能 | 较好 | 较差 |
+| 适用场景 | 高并发、事务要求高 | 读多写少、无事务要求 |">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.1645be0a.css" as="style"><link rel="preload" href="/assets/js/app.c522256a.js" as="script"><link rel="preload" href="/assets/js/7.7a630101.js" as="script"><link rel="preload" href="/assets/js/2.f8874ec3.js" as="script"><link rel="preload" href="/assets/js/1.64e7c351.js" as="script"><link rel="preload" href="/assets/js/52.ab57b151.js" as="script"><link rel="prefetch" href="/assets/js/10.189f867a.js"><link rel="prefetch" href="/assets/js/100.fc8a47fe.js"><link rel="prefetch" href="/assets/js/101.b4ecdb7d.js"><link rel="prefetch" href="/assets/js/102.b469a4bc.js"><link rel="prefetch" href="/assets/js/103.28d3eb6a.js"><link rel="prefetch" href="/assets/js/11.07b06b96.js"><link rel="prefetch" href="/assets/js/14.f24aac5a.js"><link rel="prefetch" href="/assets/js/15.571cff54.js"><link rel="prefetch" href="/assets/js/16.3cbd230c.js"><link rel="prefetch" href="/assets/js/17.3b0d18c7.js"><link rel="prefetch" href="/assets/js/18.91bd10c6.js"><link rel="prefetch" href="/assets/js/19.b47d0982.js"><link rel="prefetch" href="/assets/js/20.e36d99c1.js"><link rel="prefetch" href="/assets/js/21.e0d16a83.js"><link rel="prefetch" href="/assets/js/22.2df79638.js"><link rel="prefetch" href="/assets/js/23.88695ac7.js"><link rel="prefetch" href="/assets/js/24.faa8c60f.js"><link rel="prefetch" href="/assets/js/25.162f2b54.js"><link rel="prefetch" href="/assets/js/26.f5687de0.js"><link rel="prefetch" href="/assets/js/27.3fb11c6a.js"><link rel="prefetch" href="/assets/js/28.aaeceaea.js"><link rel="prefetch" href="/assets/js/29.faf17931.js"><link rel="prefetch" href="/assets/js/3.3f7346c5.js"><link rel="prefetch" href="/assets/js/30.a843b1c9.js"><link rel="prefetch" href="/assets/js/31.b6627419.js"><link rel="prefetch" href="/assets/js/32.b8d835fb.js"><link rel="prefetch" href="/assets/js/33.572460a2.js"><link rel="prefetch" href="/assets/js/34.4a59ece7.js"><link rel="prefetch" href="/assets/js/35.4207ff7e.js"><link rel="prefetch" href="/assets/js/36.45d0cc1a.js"><link rel="prefetch" href="/assets/js/37.5bb90b19.js"><link rel="prefetch" href="/assets/js/38.aef2f120.js"><link rel="prefetch" href="/assets/js/39.0195891a.js"><link rel="prefetch" href="/assets/js/4.cffa421f.js"><link rel="prefetch" href="/assets/js/40.e38d24d7.js"><link rel="prefetch" href="/assets/js/41.05207fed.js"><link rel="prefetch" href="/assets/js/42.ec503eb9.js"><link rel="prefetch" href="/assets/js/43.e67db07d.js"><link rel="prefetch" href="/assets/js/44.cec45af4.js"><link rel="prefetch" href="/assets/js/45.241b32bd.js"><link rel="prefetch" href="/assets/js/46.3c58bca4.js"><link rel="prefetch" href="/assets/js/47.8f221823.js"><link rel="prefetch" href="/assets/js/48.b7562876.js"><link rel="prefetch" href="/assets/js/49.7f7468d2.js"><link rel="prefetch" href="/assets/js/5.63870e03.js"><link rel="prefetch" href="/assets/js/50.8adc6499.js"><link rel="prefetch" href="/assets/js/51.fb6a5651.js"><link rel="prefetch" href="/assets/js/53.2dab3dc1.js"><link rel="prefetch" href="/assets/js/54.2364dfa2.js"><link rel="prefetch" href="/assets/js/55.f3c8f95b.js"><link rel="prefetch" href="/assets/js/56.5a6889e3.js"><link rel="prefetch" href="/assets/js/57.db62a7bd.js"><link rel="prefetch" href="/assets/js/58.084e9ed5.js"><link rel="prefetch" href="/assets/js/59.1bdc22dd.js"><link rel="prefetch" href="/assets/js/6.c0857dc2.js"><link rel="prefetch" href="/assets/js/60.2f59493f.js"><link rel="prefetch" href="/assets/js/61.962731fb.js"><link rel="prefetch" href="/assets/js/62.d451f7b8.js"><link rel="prefetch" href="/assets/js/63.15351943.js"><link rel="prefetch" href="/assets/js/64.4172003e.js"><link rel="prefetch" href="/assets/js/65.7308b306.js"><link rel="prefetch" href="/assets/js/66.37e43499.js"><link rel="prefetch" href="/assets/js/67.881e5249.js"><link rel="prefetch" href="/assets/js/68.28d9f255.js"><link rel="prefetch" href="/assets/js/69.c52b923a.js"><link rel="prefetch" href="/assets/js/70.b9a4c051.js"><link rel="prefetch" href="/assets/js/71.bac64098.js"><link rel="prefetch" href="/assets/js/72.7e1cde71.js"><link rel="prefetch" href="/assets/js/73.fc0aae5c.js"><link rel="prefetch" href="/assets/js/74.044a6686.js"><link rel="prefetch" href="/assets/js/75.eea07c4c.js"><link rel="prefetch" href="/assets/js/76.1d35d91d.js"><link rel="prefetch" href="/assets/js/77.fa80b307.js"><link rel="prefetch" href="/assets/js/78.220d3b3a.js"><link rel="prefetch" href="/assets/js/79.920c8501.js"><link rel="prefetch" href="/assets/js/8.99458c85.js"><link rel="prefetch" href="/assets/js/80.150296e4.js"><link rel="prefetch" href="/assets/js/81.1f66d9b4.js"><link rel="prefetch" href="/assets/js/82.511c6cee.js"><link rel="prefetch" href="/assets/js/83.8999dbcf.js"><link rel="prefetch" href="/assets/js/84.b577abd1.js"><link rel="prefetch" href="/assets/js/85.e0c7dbd9.js"><link rel="prefetch" href="/assets/js/86.bcb975a0.js"><link rel="prefetch" href="/assets/js/87.ddb68e70.js"><link rel="prefetch" href="/assets/js/88.1917a817.js"><link rel="prefetch" href="/assets/js/89.aa709c47.js"><link rel="prefetch" href="/assets/js/9.188c6dc1.js"><link rel="prefetch" href="/assets/js/90.18836b82.js"><link rel="prefetch" href="/assets/js/91.7c776dd2.js"><link rel="prefetch" href="/assets/js/92.fc870f95.js"><link rel="prefetch" href="/assets/js/93.992504cd.js"><link rel="prefetch" href="/assets/js/94.b74a2e5e.js"><link rel="prefetch" href="/assets/js/95.4d48c81b.js"><link rel="prefetch" href="/assets/js/96.27b84433.js"><link rel="prefetch" href="/assets/js/97.12b0910d.js"><link rel="prefetch" href="/assets/js/98.9e7231a7.js"><link rel="prefetch" href="/assets/js/99.237570ae.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.caa45a04.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.1645be0a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-7dd95ae2><div data-v-7dd95ae2><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>Sapphire611</h3> <p class="description" data-v-59e6cb88>感谢来访🙏 </p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><!---->
+          
+        <span data-v-59e6cb88>2021 - </span>
+        2026
+      </a></span></div></div> <div class="hide" data-v-7dd95ae2><header class="navbar" data-v-7dd95ae2><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logo.jpg" alt="Sapphire611" class="logo"> <span class="site-name">Sapphire611</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/aboutMe/" class="nav-link"><i class="info"></i>
+  About Me
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Me/" class="nav-link"><i class="undefined"></i>
+  Me
+</a></li><li class="dropdown-item"><!----> <a href="/categories/archietcture/" class="nav-link"><i class="undefined"></i>
+  archietcture
+</a></li><li class="dropdown-item"><!----> <a href="/categories/elasticSearch/" class="nav-link"><i class="undefined"></i>
+  elasticSearch
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Backend/" class="nav-link"><i class="undefined"></i>
+  Backend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/mongodb/" class="nav-link"><i class="undefined"></i>
+  mongodb
+</a></li><li class="dropdown-item"><!----> <a href="/categories/interview/" class="nav-link"><i class="undefined"></i>
+  interview
+</a></li><li class="dropdown-item"><!----> <a href="/categories/shard/" class="nav-link"><i class="undefined"></i>
+  shard
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Frontend/" class="nav-link"><i class="undefined"></i>
+  Frontend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/sql/" class="nav-link"><i class="undefined"></i>
+  sql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Algorithm/" class="nav-link"><i class="undefined"></i>
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Javascript/" class="nav-link"><i class="undefined"></i>
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/backend/" class="nav-link"><i class="undefined"></i>
+  backend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/postgres/" class="nav-link"><i class="undefined"></i>
+  postgres
+</a></li><li class="dropdown-item"><!----> <a href="/categories/database/" class="nav-link"><i class="undefined"></i>
+  database
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Other/" class="nav-link"><i class="undefined"></i>
+  Other
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Certificate/" class="nav-link"><i class="undefined"></i>
+  Certificate
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Deploy/" class="nav-link"><i class="undefined"></i>
+  Deploy
+</a></li><li class="dropdown-item"><!----> <a href="/categories/graphql/" class="nav-link"><i class="undefined"></i>
+  graphql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/AI/" class="nav-link"><i class="undefined"></i>
+  AI
+</a></li><li class="dropdown-item"><!----> <a href="/categories/misc/" class="nav-link"><i class="undefined"></i>
+  misc
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div> <a href="https://github.com/Sapphire611/vuepress-sapphire611" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask" data-v-7dd95ae2></div> <aside class="sidebar" data-v-7dd95ae2><div class="personal-info-wrapper" data-v-1fad0c41 data-v-7dd95ae2><img src="/img/logo.jpg" alt="author-avatar" class="personal-img" data-v-1fad0c41> <!----> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>64</h3> <h6 data-v-1fad0c41>Articles</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>43</h3> <h6 data-v-1fad0c41>Tags</h6></div></div> <ul class="social-links" data-v-1fad0c41><li class="social-item" data-v-1fad0c41><i class="iconfont reco-github" style="color:#abbd81;" data-v-1fad0c41></i></li></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><a href="/aboutMe/" class="nav-link"><i class="info"></i>
+  About Me
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Me/" class="nav-link"><i class="undefined"></i>
+  Me
+</a></li><li class="dropdown-item"><!----> <a href="/categories/archietcture/" class="nav-link"><i class="undefined"></i>
+  archietcture
+</a></li><li class="dropdown-item"><!----> <a href="/categories/elasticSearch/" class="nav-link"><i class="undefined"></i>
+  elasticSearch
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Backend/" class="nav-link"><i class="undefined"></i>
+  Backend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/mongodb/" class="nav-link"><i class="undefined"></i>
+  mongodb
+</a></li><li class="dropdown-item"><!----> <a href="/categories/interview/" class="nav-link"><i class="undefined"></i>
+  interview
+</a></li><li class="dropdown-item"><!----> <a href="/categories/shard/" class="nav-link"><i class="undefined"></i>
+  shard
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Frontend/" class="nav-link"><i class="undefined"></i>
+  Frontend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/sql/" class="nav-link"><i class="undefined"></i>
+  sql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Algorithm/" class="nav-link"><i class="undefined"></i>
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Javascript/" class="nav-link"><i class="undefined"></i>
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/backend/" class="nav-link"><i class="undefined"></i>
+  backend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/postgres/" class="nav-link"><i class="undefined"></i>
+  postgres
+</a></li><li class="dropdown-item"><!----> <a href="/categories/database/" class="nav-link"><i class="undefined"></i>
+  database
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Other/" class="nav-link"><i class="undefined"></i>
+  Other
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Certificate/" class="nav-link"><i class="undefined"></i>
+  Certificate
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Deploy/" class="nav-link"><i class="undefined"></i>
+  Deploy
+</a></li><li class="dropdown-item"><!----> <a href="/categories/graphql/" class="nav-link"><i class="undefined"></i>
+  graphql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/AI/" class="nav-link"><i class="undefined"></i>
+  AI
+</a></li><li class="dropdown-item"><!----> <a href="/categories/misc/" class="nav-link"><i class="undefined"></i>
+  misc
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div> <a href="https://github.com/Sapphire611/vuepress-sapphire611" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>MYSQL 相关</h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><!---->
+          
+        <span data-v-59e6cb88>2021 - </span>
+        2026
+      </a></span></div></div> <div data-v-7dd95ae2><div data-v-7dd95ae2><main class="page"><section style="display:;"><div class="page-title"><h1 class="title">MYSQL 相关</h1> <div data-v-8a445198><!----> <i class="iconfont reco-date" data-v-8a445198><span data-v-8a445198>3/3/2026</span></i> <i class="iconfont reco-eye" data-v-8a445198><span id="/backend/mysql/" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-8a445198><a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;"></a></span></i> <!----></div></div> <div class="theme-reco-content content__default"><h2 id="mysql-相关"><a href="#mysql-相关" class="header-anchor">#</a> MYSQL 相关</h2> <h3 id="_1-innodb-和-myisam-的区别"><a href="#_1-innodb-和-myisam-的区别" class="header-anchor">#</a> 1. InnoDB 和 MyISAM 的区别？</h3> <table><thead><tr><th>特性</th> <th>InnoDB</th> <th>MyISAM</th></tr></thead> <tbody><tr><td><strong>事务支持</strong></td> <td>✅ 支持</td> <td>❌ 不支持</td></tr> <tr><td><strong>锁机制</strong></td> <td>行锁</td> <td>表锁</td></tr> <tr><td><strong>外键</strong></td> <td>✅ 支持</td> <td>❌ 不支持</td></tr> <tr><td><strong>崩溃恢复</strong></td> <td>✅ 自动恢复</td> <td>❌ 需手动修复</td></tr> <tr><td><strong>读性能</strong></td> <td>较好</td> <td>更好</td></tr> <tr><td><strong>写性能</strong></td> <td>较好</td> <td>较差</td></tr> <tr><td><strong>适用场景</strong></td> <td>高并发、事务要求高</td> <td>读多写少、无事务要求</td></tr></tbody></table> <blockquote><p>InnoDB 是 MySQL 5.5+ 的默认存储引擎</p></blockquote> <p><strong>代码示例：</strong></p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token comment">-- 1️⃣ 创建不同存储引擎的表</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> users_innodb <span class="token punctuation">(</span>
+  id <span class="token keyword">INT</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token keyword">AUTO_INCREMENT</span><span class="token punctuation">,</span>
+  name <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  balance <span class="token keyword">DECIMAL</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span> <span class="token keyword">ENGINE</span><span class="token operator">=</span><span class="token keyword">InnoDB</span><span class="token punctuation">;</span>
+
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> users_myisam <span class="token punctuation">(</span>
+  id <span class="token keyword">INT</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token keyword">AUTO_INCREMENT</span><span class="token punctuation">,</span>
+  name <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  balance <span class="token keyword">DECIMAL</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span> <span class="token keyword">ENGINE</span><span class="token operator">=</span>MyISAM<span class="token punctuation">;</span>
+
+<span class="token comment">-- 2️⃣ 事务测试（只有 InnoDB 支持事务）</span>
+<span class="token keyword">START</span> <span class="token keyword">TRANSACTION</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- InnoDB：可以回滚</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> users_innodb <span class="token punctuation">(</span>name<span class="token punctuation">,</span> balance<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'Alice'</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">ROLLBACK</span><span class="token punctuation">;</span>  <span class="token comment">-- ✅ 数据被回滚</span>
+
+<span class="token comment">-- MyISAM：无法回滚</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> users_myisam <span class="token punctuation">(</span>name<span class="token punctuation">,</span> balance<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'Bob'</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">ROLLBACK</span><span class="token punctuation">;</span>  <span class="token comment">-- ❌ 数据已插入，回滚无效</span>
+
+<span class="token comment">-- 3️⃣ 外键测试（只有 InnoDB 支持外键）</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> orders_innodb <span class="token punctuation">(</span>
+  id <span class="token keyword">INT</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token keyword">AUTO_INCREMENT</span><span class="token punctuation">,</span>
+  user_id <span class="token keyword">INT</span><span class="token punctuation">,</span>
+  amount <span class="token keyword">DECIMAL</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>user_id<span class="token punctuation">)</span> <span class="token keyword">REFERENCES</span> users_innodb<span class="token punctuation">(</span>id<span class="token punctuation">)</span>
+    <span class="token keyword">ON</span> <span class="token keyword">DELETE</span> <span class="token keyword">CASCADE</span>
+<span class="token punctuation">)</span> <span class="token keyword">ENGINE</span><span class="token operator">=</span><span class="token keyword">InnoDB</span><span class="token punctuation">;</span>  <span class="token comment">-- ✅ 成功</span>
+
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> orders_myisam <span class="token punctuation">(</span>
+  id <span class="token keyword">INT</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token keyword">AUTO_INCREMENT</span><span class="token punctuation">,</span>
+  user_id <span class="token keyword">INT</span><span class="token punctuation">,</span>
+  amount <span class="token keyword">DECIMAL</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>user_id<span class="token punctuation">)</span> <span class="token keyword">REFERENCES</span> users_myisam<span class="token punctuation">(</span>id<span class="token punctuation">)</span>
+<span class="token punctuation">)</span> <span class="token keyword">ENGINE</span><span class="token operator">=</span>MyISAM<span class="token punctuation">;</span>  <span class="token comment">-- ❌ 报错：外键约束需要 InnoDB</span>
+
+<span class="token comment">-- 4️⃣ 并发锁测试</span>
+<span class="token comment">-- InnoDB：行锁，只锁住修改的行</span>
+<span class="token keyword">UPDATE</span> users_innodb <span class="token keyword">SET</span> balance <span class="token operator">=</span> <span class="token number">900</span> <span class="token keyword">WHERE</span> id <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token comment">-- 其他事务可以修改 id != 1 的行 ✅</span>
+
+<span class="token comment">-- MyISAM：表锁，锁住整张表</span>
+<span class="token keyword">UPDATE</span> users_myisam <span class="token keyword">SET</span> balance <span class="token operator">=</span> <span class="token number">900</span> <span class="token keyword">WHERE</span> id <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token comment">-- 其他事务无法修改这张表的任何行 ❌</span>
+
+<span class="token comment">-- 5️⃣ 查看表的存储引擎</span>
+<span class="token keyword">SHOW</span> <span class="token keyword">TABLE</span> <span class="token keyword">STATUS</span> <span class="token keyword">WHERE</span> Name <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'users_innodb'</span><span class="token punctuation">,</span> <span class="token string">'users_myisam'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><hr> <h3 id="_2-什么是索引-索引类型有哪些"><a href="#_2-什么是索引-索引类型有哪些" class="header-anchor">#</a> 2. 什么是索引？索引类型有哪些？</h3> <p><strong>索引是帮助 MySQL 高效获取数据的数据结构（类似书的目录）</strong></p> <p><strong>索引类型：</strong></p> <ul><li><strong>主键索引</strong>：<code>PRIMARY KEY</code> - 唯一且不能为空，一张表只能有一个</li> <li><strong>唯一索引</strong>：<code>UNIQUE KEY / UNIQUE INDEX</code> - 值唯一，但可以为空</li> <li><strong>普通索引</strong>：<code>INDEX / KEY</code> - 最基本的索引，无限制</li> <li><strong>联合索引</strong>：<code>INDEX (col1, col2, ...)</code> - 多个字段组成的索引，遵循最左前缀原则</li> <li><strong>全文索引</strong>：<code>FULLTEXT INDEX</code> - 用于文本搜索（MATCH AGAINST）</li> <li><strong>空间索引</strong>：<code>SPATIAL INDEX</code> - 用于地理空间数据</li></ul> <hr> <h3 id="_3-b-树索引的原理-为什么-mysql-选择-b-树"><a href="#_3-b-树索引的原理-为什么-mysql-选择-b-树" class="header-anchor">#</a> 3. B+ 树索引的原理？为什么 MySQL 选择 B+ 树？</h3> <p><strong>B+ 树特点：</strong></p> <ul><li>所有数据存储在叶子节点</li> <li>非叶子节点只存储键值，不存储数据</li> <li>叶子节点之间通过指针连接，形成链表</li></ul> <p><strong>MySQL 选择 B+ 树的原因：</strong></p> <ol><li><strong>层级少</strong>：相比 B 树更矮胖，减少磁盘 I/O 次数</li> <li><strong>范围查询快</strong>：叶子节点有链表，遍历范围数据效率高</li> <li><strong>查询稳定</strong>：所有查询都要走到叶子节点，性能稳定</li> <li><strong>节点容量大</strong>：非叶子节点不存数据，可以存更多索引项</li></ol> <div class="custom-block right"><p>———— B 树每个节点都存数据，导致节点容量小，树的高度更高</p></div> <hr> <h3 id="_4-什么是事务-acid-特性是什么"><a href="#_4-什么是事务-acid-特性是什么" class="header-anchor">#</a> 4. 什么是事务？ACID 特性是什么？</h3> <p><strong>事务是逻辑上的一组操作，要么都成功，要么都失败</strong></p> <p><strong>ACID 特性：</strong></p> <table><thead><tr><th>特性</th> <th>说明</th> <th>示例</th></tr></thead> <tbody><tr><td><strong>原子性 (A)</strong></td> <td>事务中的操作不可分割</td> <td>转账：扣款和存款要么都成功，要么都失败</td></tr> <tr><td><strong>一致性 (C)</strong></td> <td>事务前后数据的完整性约束不变</td> <td>转账前后总金额不变</td></tr> <tr><td><strong>隔离性 (I)</strong></td> <td>并发事务之间互不干扰</td> <td>两个用户同时转账，不会互相影响</td></tr> <tr><td><strong>持久性 (D)</strong></td> <td>事务提交后永久保存</td> <td>即使系统崩溃，提交的数据也不会丢失</td></tr></tbody></table> <hr> <h3 id="_5-事务隔离级别有哪些"><a href="#_5-事务隔离级别有哪些" class="header-anchor">#</a> 5. 事务隔离级别有哪些？</h3> <table><thead><tr><th>隔离级别</th> <th>脏读</th> <th>不可重复读</th> <th>幻读</th> <th>说明</th></tr></thead> <tbody><tr><td><strong>读未提交</strong></td> <td>✅</td> <td>✅</td> <td>✅</td> <td>可能读取到未提交的数据</td></tr> <tr><td><strong>读已提交</strong></td> <td>❌</td> <td>✅</td> <td>✅</td> <td>只能读取已提交的数据（Oracle 默认）</td></tr> <tr><td><strong>可重复读</strong></td> <td>❌</td> <td>❌</td> <td>✅</td> <td>同一事务多次读取结果一致（MySQL 默认）</td></tr> <tr><td><strong>串行化</strong></td> <td>❌</td> <td>❌</td> <td>❌</td> <td>完全串行执行，性能最差</td></tr></tbody></table> <p><strong>常见问题：</strong></p> <ul><li><strong>脏读</strong>：读取到其他事务未提交的数据</li> <li><strong>不可重复读</strong>：同一事务两次读取同一条数据结果不同</li> <li><strong>幻读</strong>：同一事务两次查询数据量不一致（其他事务插入/删除了数据）</li></ul> <hr> <h3 id="_6-什么是-mvcc"><a href="#_6-什么是-mvcc" class="header-anchor">#</a> 6. 什么是 MVCC？</h3> <p><strong>MVCC（多版本并发控制）是一种乐观锁机制，通过保存数据的多个版本实现读写不加锁</strong></p> <p><strong>核心原理：</strong></p> <ol><li><strong>版本链</strong>：每行记录隐藏字段（trx_id、roll_ptr），通过 undo log 形成版本链</li> <li><strong>Read View</strong>：读时生成快照，根据事务 ID 判断可见性</li> <li><strong>写时复制</strong>：更新时复制到新版本，旧版本保留在 undo log</li></ol> <p><strong>优势：</strong></p> <ul><li>读不阻塞写，写不阻塞读</li> <li>实现了可重复读隔离级别</li> <li>避免了锁竞争，提高并发性能</li></ul> <hr> <h3 id="_7-mysql-慢查询如何优化"><a href="#_7-mysql-慢查询如何优化" class="header-anchor">#</a> 7. MySQL 慢查询如何优化？</h3> <p><strong>定位慢查询：</strong></p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token comment">-- 开启慢查询日志</span>
+<span class="token keyword">SET</span> <span class="token keyword">GLOBAL</span> slow_query_log <span class="token operator">=</span> <span class="token keyword">ON</span><span class="token punctuation">;</span>
+<span class="token keyword">SET</span> <span class="token keyword">GLOBAL</span> long_query_time <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>  <span class="token comment">-- 超过 1 秒记录</span>
+
+<span class="token comment">-- 查看慢查询</span>
+<span class="token keyword">SHOW</span> VARIABLES <span class="token operator">LIKE</span> <span class="token string">'slow_query%'</span><span class="token punctuation">;</span>
+</code></pre></div><p><strong>优化方法：</strong></p> <ol><li><p><strong>使用 EXPLAIN 分析执行计划</strong></p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">EXPLAIN</span> <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> users <span class="token keyword">WHERE</span> age <span class="token operator">&gt;</span> <span class="token number">20</span><span class="token punctuation">;</span>
+</code></pre></div></li> <li><p><strong>索引优化</strong></p> <ul><li>在 WHERE、ORDER BY、JOIN 的字段上建立索引</li> <li>避免索引失效（使用函数、OR、LIKE %开头）</li></ul></li> <li><p><strong>SQL 语句优化</strong></p> <ul><li>避免 <code>SELECT *</code>，只查询需要的字段</li> <li>避免在 WHERE 中对字段进行函数操作</li> <li>合理使用 LIMIT，避免全表扫描</li></ul></li> <li><p><strong>分页优化</strong></p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token comment">-- 传统分页（越往后越慢）</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> users <span class="token keyword">LIMIT</span> <span class="token number">1000000</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 优化方案（先查 ID，再关联）</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> users u
+<span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> id <span class="token keyword">FROM</span> users <span class="token keyword">LIMIT</span> <span class="token number">1000000</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span> t
+<span class="token keyword">ON</span> u<span class="token punctuation">.</span>id <span class="token operator">=</span> t<span class="token punctuation">.</span>id<span class="token punctuation">;</span>
+</code></pre></div></li> <li><p><strong>其他优化</strong></p> <ul><li>垂直分表：字段多时拆分表</li> <li>水平分表：数据量大时按规则拆分</li> <li>读写分离：主库写，从库读</li> <li>使用缓存：Redis 缓存热点数据</li></ul></li></ol> <h3 id="_8-mysql-分布式事务是如何实现的"><a href="#_8-mysql-分布式事务是如何实现的" class="header-anchor">#</a> 8. MySQL 分布式事务是如何实现的？</h3> <p><strong>分布式事务</strong>：多个独立的数据库实例参与同一个全局事务，保证所有操作要么全部成功，要么全部失败。</p> <p>MySQL 通过 <strong>XA 协议</strong> 实现分布式事务，采用 <strong>2PC（两阶段提交）</strong> 算法。</p> <p><strong>核心组件：</strong></p> <table><thead><tr><th>组件</th> <th>英文</th> <th>职责</th></tr></thead> <tbody><tr><td>应用程序</td> <td>AP（Application）</td> <td>发起全局事务</td></tr> <tr><td>事务管理器</td> <td>TM（Transaction Manager）</td> <td>协调各资源管理器</td></tr> <tr><td>资源管理器</td> <td>RM（Resource Manager）</td> <td>实际执行事务的数据库实例</td></tr></tbody></table> <p><strong>两阶段提交流程：</strong></p> <div class="language- extra-class"><pre class="language-text"><code>┌─────────────┐
+│  第一阶段   │  Prepare（准备阶段）
+│  投票阶段   │  → TM 向所有 RM 发送 Prepare 指令
+└─────────────┘  → RM 执行操作但不提交，锁定资源
+                  → RM 向 TM 返回 Ready/Abort
+
+┌─────────────┐
+│  第二阶段   │  Commit/Rollback（执行阶段）
+│  执行阶段   │  → 全部 Ready：发送 Commit 指令
+└─────────────┘  → 任一 Abort：发送 Rollback 指令
+</code></pre></div><p><strong>XA 事务代码示例：</strong></p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token comment">-- ========== 数据库 A（RM1） ==========</span>
+XA <span class="token keyword">START</span> <span class="token string">'transaction_A'</span><span class="token punctuation">;</span>              <span class="token comment">-- 开启 XA 事务</span>
+<span class="token keyword">UPDATE</span> accounts <span class="token keyword">SET</span> balance <span class="token operator">=</span> balance <span class="token operator">-</span> <span class="token number">100</span> <span class="token keyword">WHERE</span> account_id <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+XA <span class="token keyword">END</span> <span class="token string">'transaction_A'</span><span class="token punctuation">;</span>                <span class="token comment">-- 结束 XA 事务</span>
+XA <span class="token keyword">PREPARE</span> <span class="token string">'transaction_A'</span><span class="token punctuation">;</span>            <span class="token comment">-- 进入准备状态</span>
+
+<span class="token comment">-- ========== 数据库 B（RM2） ==========</span>
+XA <span class="token keyword">START</span> <span class="token string">'transaction_B'</span><span class="token punctuation">;</span>              <span class="token comment">-- 开启 XA 事务</span>
+<span class="token keyword">UPDATE</span> accounts <span class="token keyword">SET</span> balance <span class="token operator">=</span> balance <span class="token operator">+</span> <span class="token number">100</span> <span class="token keyword">WHERE</span> account_id <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+XA <span class="token keyword">END</span> <span class="token string">'transaction_B'</span><span class="token punctuation">;</span>                <span class="token comment">-- 结束 XA 事务</span>
+XA <span class="token keyword">PREPARE</span> <span class="token string">'transaction_B'</span><span class="token punctuation">;</span>            <span class="token comment">-- 进入准备状态</span>
+
+<span class="token comment">-- ========== 全局提交（应用层协调） ==========</span>
+<span class="token comment">-- 如果所有分支都 Prepare 成功</span>
+XA <span class="token keyword">COMMIT</span> <span class="token string">'transaction_A'</span><span class="token punctuation">;</span>
+XA <span class="token keyword">COMMIT</span> <span class="token string">'transaction_B'</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- ========== 全局回滚（任一分支失败） ==========</span>
+<span class="token comment">-- 如果任何一个分支 Prepare 失败</span>
+XA <span class="token keyword">ROLLBACK</span> <span class="token string">'transaction_A'</span><span class="token punctuation">;</span>
+XA <span class="token keyword">ROLLBACK</span> <span class="token string">'transaction_B'</span><span class="token punctuation">;</span>
+</code></pre></div><p><strong>2PC 的优缺点：</strong></p> <table><thead><tr><th>优点</th> <th>缺点</th></tr></thead> <tbody><tr><td>✅ 强一致性，保证原子性</td> <td>❌ 同步阻塞，性能较差</td></tr> <tr><td>✅ 原理简单，易于理解</td> <td>❌ 单点故障（TM 挂了怎么办？）</td></tr> <tr><td>✅ MySQL 原生支持 XA 协议</td> <td>❌ 数据隔离问题（中间状态可见）</td></tr></tbody></table> <div class="custom-block tip"><p class="title">其他方案</p><ul><li><strong>TCC（Try-Confirm-Cancel）</strong>：应用层补偿机制</li> <li><strong>本地消息表</strong>：基于消息的最终一致性</li> <li><strong>Saga</strong>：长事务拆分为多个本地事务</li></ul></div><hr> <h3 id="_9-mysql-vs-postgresql-分布式事务对比"><a href="#_9-mysql-vs-postgresql-分布式事务对比" class="header-anchor">#</a> 9. MySQL vs PostgreSQL 分布式事务对比</h3> <table><thead><tr><th>对比项</th> <th>MySQL XA</th> <th>PostgreSQL 2PC</th></tr></thead> <tbody><tr><td><strong>协议标准</strong></td> <td>XA 协议（X/Open CAE）</td> <td>两阶段提交（PREPARE TRANSACTION）</td></tr> <tr><td><strong>准备语法</strong></td> <td><code>XA PREPARE 'id'</code></td> <td><code>PREPARE TRANSACTION 'id'</code></td></tr> <tr><td><strong>提交语法</strong></td> <td><code>XA COMMIT 'id'</code></td> <td><code>COMMIT PREPARED 'id'</code></td></tr> <tr><td><strong>回滚语法</strong></td> <td><code>XA ROLLBACK 'id'</code></td> <td><code>ROLLBACK PREPARED 'id'</code></td></tr> <tr><td><strong>崩溃恢复</strong></td> <td>需手动恢复（<code>XA RECOVER</code>）</td> <td>✅ 自动恢复</td></tr> <tr><td><strong>查看方式</strong></td> <td><code>XA RECOVER</code></td> <td><code>pg_prepared_xacts</code> 视图</td></tr> <tr><td><strong>性能开销</strong></td> <td>较高（锁定资源时间长）</td> <td>较高（类似 MySQL）</td></tr></tbody></table> <div class="custom-block tip"><p class="title">PostgreSQL 优势</p><p>PostgreSQL 的 2PC 实现更简洁，且支持崩溃后自动恢复，不需要人工介入。</p></div><div class="custom-block warning"><p class="title">生产环境建议</p><p>2PC/XA 事务在生产环境中使用需要谨慎：</p> <ul><li><strong>性能问题</strong>：锁资源时间长，并发性能差</li> <li><strong>可用性问题</strong>：单点故障可能导致长时间锁定</li> <li><strong>推荐方案</strong>：优先考虑最终一致性方案（TCC、Saga、消息队列）</li></ul></div><hr> <h3 id="_10-分布式事务的其他实现方案"><a href="#_10-分布式事务的其他实现方案" class="header-anchor">#</a> 10. 分布式事务的其他实现方案</h3> <p><strong>基于消息的最终一致性（推荐）：</strong></p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token comment">-- 本地事务 + 消息队列</span>
+<span class="token keyword">BEGIN</span><span class="token punctuation">;</span>
+  <span class="token keyword">UPDATE</span> accounts <span class="token keyword">SET</span> balance <span class="token operator">=</span> balance <span class="token operator">-</span> <span class="token number">100</span> <span class="token keyword">WHERE</span> id <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> outbox <span class="token punctuation">(</span>event_type<span class="token punctuation">,</span> payload<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'TRANSFER'</span><span class="token punctuation">,</span> <span class="token string">'{&quot;to&quot;: 2, &quot;amount&quot;: 100}'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">COMMIT</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 消息消费者处理</span>
+<span class="token comment">-- 消费消息后更新另一个数据库</span>
+<span class="token keyword">UPDATE</span> accounts <span class="token keyword">SET</span> balance <span class="token operator">=</span> balance <span class="token operator">+</span> <span class="token number">100</span> <span class="token keyword">WHERE</span> id <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+</code></pre></div><table><thead><tr><th>方案</th> <th>一致性</th> <th>性能</th> <th>复杂度</th> <th>适用场景</th></tr></thead> <tbody><tr><td><strong>2PC/XA</strong></td> <td>强一致性</td> <td>⭐⭐</td> <td>⭐</td> <td>金融核心系统</td></tr> <tr><td><strong>TCC</strong></td> <td>最终一致性</td> <td>⭐⭐⭐⭐</td> <td>⭐⭐⭐⭐</td> <td>高并发电商</td></tr> <tr><td><strong>Saga</strong></td> <td>最终一致性</td> <td>⭐⭐⭐⭐</td> <td>⭐⭐⭐</td> <td>长流程业务</td></tr> <tr><td><strong>消息队列</strong></td> <td>最终一致性</td> <td>⭐⭐⭐⭐⭐</td> <td>⭐⭐⭐</td> <td>异步解耦场景</td></tr></tbody></table> <hr> <h3 id="_11-mysql-与-mongodb-地理索引对比"><a href="#_11-mysql-与-mongodb-地理索引对比" class="header-anchor">#</a> 11. MySQL 与 MongoDB 地理索引对比</h3> <blockquote><p><strong>场景</strong>：需要存储和查询地理位置数据（附近的人、距离计算、区域查询等）</p></blockquote> <h4 id="mysql-地理空间索引"><a href="#mysql-地理空间索引" class="header-anchor">#</a> MySQL 地理空间索引</h4> <p>MySQL 5.7+ 支持地理空间数据类型和空间索引，但功能相对有限。</p> <p><strong>支持的几何类型：</strong></p> <table><thead><tr><th>类型</th> <th>说明</th> <th>示例</th></tr></thead> <tbody><tr><td><code>GEOMETRY</code></td> <td>任意几何类型</td> <td>通用类型</td></tr> <tr><td><code>POINT</code></td> <td>点（经纬度）</td> <td>位置标记</td></tr> <tr><td><code>LINESTRING</code></td> <td>线串</td> <td>路径、路线</td></tr> <tr><td><code>POLYGON</code></td> <td>多边形</td> <td>区域范围</td></tr> <tr><td><code>MULTIPOINT</code></td> <td>多个点</td> <td>多个位置</td></tr></tbody></table> <p><strong>基本使用示例：</strong></p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token comment">-- ========== 创建带地理坐标的表 ==========</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> places <span class="token punctuation">(</span>
+  id <span class="token keyword">INT</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token keyword">AUTO_INCREMENT</span><span class="token punctuation">,</span>
+  name <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  location <span class="token keyword">POINT</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment">-- 存储 POINT 类型</span>
+  SPATIAL <span class="token keyword">INDEX</span> idx_location <span class="token punctuation">(</span>location<span class="token punctuation">)</span>  <span class="token comment">-- 创建空间索引</span>
+<span class="token punctuation">)</span> <span class="token keyword">ENGINE</span><span class="token operator">=</span><span class="token keyword">InnoDB</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- ========== 插入地理坐标（经度, 纬度） ==========</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> places <span class="token punctuation">(</span>name<span class="token punctuation">,</span> location<span class="token punctuation">)</span> <span class="token keyword">VALUES</span>
+<span class="token punctuation">(</span><span class="token string">'天安门'</span><span class="token punctuation">,</span> ST_GeomFromText<span class="token punctuation">(</span><span class="token string">'POINT(116.397128 39.916527)'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">(</span><span class="token string">'故宫'</span><span class="token punctuation">,</span> ST_GeomFromText<span class="token punctuation">(</span><span class="token string">'POINT(116.397477 39.918058)'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">(</span><span class="token string">'颐和园'</span><span class="token punctuation">,</span> ST_GeomFromText<span class="token punctuation">(</span><span class="token string">'POINT(116.273000 39.999000)'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- ========== 查询距离某个点一定范围内的地点 ==========</span>
+<span class="token comment">-- 查询距离天安门 5km 内的地点（使用矩形边界近似）</span>
+<span class="token keyword">SELECT</span> name<span class="token punctuation">,</span>
+       ST_Distance_Sphere<span class="token punctuation">(</span>
+         location<span class="token punctuation">,</span>
+         ST_GeomFromText<span class="token punctuation">(</span><span class="token string">'POINT(116.397128 39.916527)'</span><span class="token punctuation">)</span>
+       <span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">1000</span> <span class="token keyword">as</span> distance_km
+<span class="token keyword">FROM</span> places
+<span class="token keyword">WHERE</span> ST_Distance_Sphere<span class="token punctuation">(</span>
+        location<span class="token punctuation">,</span>
+        ST_GeomFromText<span class="token punctuation">(</span><span class="token string">'POINT(116.397128 39.916527)'</span><span class="token punctuation">)</span>
+      <span class="token punctuation">)</span> <span class="token operator">&lt;=</span> <span class="token number">5000</span>  <span class="token comment">-- 5公里</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> distance_km<span class="token punctuation">;</span>
+
+<span class="token comment">-- ========== 计算两点之间的距离 ==========</span>
+<span class="token keyword">SELECT</span> ST_Distance_Sphere<span class="token punctuation">(</span>
+  <span class="token punctuation">(</span><span class="token keyword">SELECT</span> location <span class="token keyword">FROM</span> places <span class="token keyword">WHERE</span> name <span class="token operator">=</span> <span class="token string">'天安门'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">(</span><span class="token keyword">SELECT</span> location <span class="token keyword">FROM</span> places <span class="token keyword">WHERE</span> name <span class="token operator">=</span> <span class="token string">'故宫'</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">1000</span> <span class="token keyword">as</span> distance_km<span class="token punctuation">;</span>
+
+<span class="token comment">-- ========== 查询矩形区域内的地点 ==========</span>
+<span class="token keyword">SELECT</span> name
+<span class="token keyword">FROM</span> places
+<span class="token keyword">WHERE</span> MBRContains<span class="token punctuation">(</span>
+  ST_GeomFromText<span class="token punctuation">(</span><span class="token string">'LINESTRING(116.3 39.9, 116.5 40.0)'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  location
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p><strong>MySQL 地理索引限制：</strong></p> <table><thead><tr><th>限制项</th> <th>说明</th></tr></thead> <tbody><tr><td><strong>球形距离计算</strong></td> <td>5.7+ 支持 <code>ST_Distance_Sphere</code>，早期版本只支持平面距离</td></tr> <tr><td><strong>空间关系查询</strong></td> <td>功能较弱，不支持复杂的空间关系判断</td></tr> <tr><td><strong>地理坐标系</strong></td> <td>对 WGS84 (GPS 坐标系) 支持不如 PostgreSQL</td></tr> <tr><td><strong>性能</strong></td> <td>大规模地理数据查询性能一般</td></tr></tbody></table> <hr> <h4 id="mongodb-地理空间索引"><a href="#mongodb-地理空间索引" class="header-anchor">#</a> MongoDB 地理空间索引</h4> <p>MongoDB 原生支持地理空间查询，功能强大且易用。</p> <p><strong>支持的地理数据类型：</strong></p> <table><thead><tr><th>类型</th> <th>说明</th> <th>坐标系</th></tr></thead> <tbody><tr><td><code>2d</code></td> <td>平面坐标索引</td> <td>笛卡尔坐标</td></tr> <tr><td><code>2dsphere</code></td> <td>球面坐标索引（推荐）</td> <td>GeoJSON / WGS84</td></tr></tbody></table> <p><strong>基本使用示例：</strong></p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// ========== 创建集合并添加地理索引 ==========</span>
+db<span class="token punctuation">.</span>places<span class="token punctuation">.</span><span class="token function">createIndex</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">location</span><span class="token operator">:</span> <span class="token string">&quot;2dsphere&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// ========== 插入地理坐标数据 ==========</span>
+db<span class="token punctuation">.</span>places<span class="token punctuation">.</span><span class="token function">insertMany</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;天安门&quot;</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">location</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">&quot;Point&quot;</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">coordinates</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">116.397128</span><span class="token punctuation">,</span> <span class="token number">39.916527</span><span class="token punctuation">]</span>  <span class="token comment">// [经度, 纬度]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;故宫&quot;</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">location</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">&quot;Point&quot;</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">coordinates</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">116.397477</span><span class="token punctuation">,</span> <span class="token number">39.918058</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;颐和园&quot;</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">location</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">&quot;Point&quot;</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">coordinates</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">116.273000</span><span class="token punctuation">,</span> <span class="token number">39.999000</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// ========== 查询附近地点（near 查询） ==========</span>
+db<span class="token punctuation">.</span>places<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">location</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">$near</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">$geometry</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">&quot;Point&quot;</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">coordinates</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">116.397128</span><span class="token punctuation">,</span> <span class="token number">39.916527</span><span class="token punctuation">]</span>  <span class="token comment">// 天安门坐标</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">$maxDistance</span><span class="token operator">:</span> <span class="token number">5000</span>  <span class="token comment">// 5公里内</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// ========== 使用 aggregate 计算距离 ==========</span>
+db<span class="token punctuation">.</span>places<span class="token punctuation">.</span><span class="token function">aggregate</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">$geoNear</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">near</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">&quot;Point&quot;</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">coordinates</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">116.397128</span><span class="token punctuation">,</span> <span class="token number">39.916527</span><span class="token punctuation">]</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">distanceField</span><span class="token operator">:</span> <span class="token string">&quot;distance&quot;</span><span class="token punctuation">,</span>  <span class="token comment">// 距离字段</span>
+      <span class="token literal-property property">maxDistance</span><span class="token operator">:</span> <span class="token number">5000</span><span class="token punctuation">,</span>           <span class="token comment">// 最大距离 5km</span>
+      <span class="token literal-property property">spherical</span><span class="token operator">:</span> <span class="token boolean">true</span>              <span class="token comment">// 使用球形计算</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">$project</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">distance</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">distance_km</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">$divide</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;$distance&quot;</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">]</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// ========== 查询圆形区域内的地点 ==========</span>
+db<span class="token punctuation">.</span>places<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">location</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">$geoWithin</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">$centerSphere</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">[</span><span class="token number">116.397128</span><span class="token punctuation">,</span> <span class="token number">39.916527</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token comment">// 中心点</span>
+        <span class="token number">5</span> <span class="token operator">/</span> <span class="token number">6378.1</span>               <span class="token comment">// 半径（5km / 地球半径km）</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// ========== 查询多边形区域内的地点 ==========</span>
+db<span class="token punctuation">.</span>places<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">location</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">$geoWithin</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">$polygon</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">[</span><span class="token number">116.3</span><span class="token punctuation">,</span> <span class="token number">39.9</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token comment">// 多边形顶点</span>
+        <span class="token punctuation">[</span><span class="token number">116.5</span><span class="token punctuation">,</span> <span class="token number">39.9</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">[</span><span class="token number">116.5</span><span class="token punctuation">,</span> <span class="token number">40.0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">[</span><span class="token number">116.3</span><span class="token punctuation">,</span> <span class="token number">40.0</span><span class="token punctuation">]</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><hr> <h4 id="mysql-vs-mongodb-地理索引对比"><a href="#mysql-vs-mongodb-地理索引对比" class="header-anchor">#</a> MySQL vs MongoDB 地理索引对比</h4> <table><thead><tr><th>对比项</th> <th>MySQL</th> <th>MongoDB</th></tr></thead> <tbody><tr><td><strong>数据类型</strong></td> <td>POINT, LINESTRING, POLYGON 等</td> <td>GeoJSON 格式</td></tr> <tr><td><strong>索引类型</strong></td> <td>SPATIAL 索引</td> <td>2dsphere / 2d 索引</td></tr> <tr><td><strong>坐标系</strong></td> <td>支持但不完善</td> <td>原生支持 WGS84</td></tr> <tr><td><strong>距离计算</strong></td> <td><code>ST_Distance_Sphere</code></td> <td><code>$geoNear</code>, <code>$near</code></td></tr> <tr><td><strong>查询语法</strong></td> <td>SQL 函数</td> <td>GeoJSON 查询操作符</td></tr> <tr><td><strong>性能</strong></td> <td>中等</td> <td>优秀</td></tr> <tr><td><strong>复杂查询</strong></td> <td>较弱</td> <td>强大（多边形、圆形等）</td></tr> <tr><td><strong>易用性</strong></td> <td>需要了解 GIS 函数</td> <td>JSON 格式，更直观</td></tr></tbody></table> <p><strong>使用建议：</strong></p> <table><thead><tr><th>场景</th> <th>推荐方案</th> <th>原因</th></tr></thead> <tbody><tr><td><strong>简单位置查询</strong></td> <td>MySQL</td> <td>已有 MySQL 基础设施</td></tr> <tr><td><strong>LBS 社交应用</strong></td> <td>MongoDB</td> <td>性能好，查询灵活</td></tr> <tr><td><strong>地图应用</strong></td> <td>PostgreSQL + PostGIS</td> <td>功能最强大</td></tr> <tr><td><strong>附近的人</strong></td> <td>MongoDB</td> <td>2dsphere 索引性能优秀</td></tr> <tr><td><strong>复杂地理分析</strong></td> <td>PostgreSQL + PostGIS</td> <td>专业 GIS 功能</td></tr></tbody></table> <div class="custom-block tip"><p class="title">MongoDB 地理索引优势</p><p>MongoDB 的 2dsphere 索针对 LBS（基于位置的服务）场景特别友好：</p> <ul><li>性能优秀，支持大规模地理数据</li> <li>查询语法简洁，使用 GeoJSON 标准格式</li> <li>支持多种地理形状（点、线、多边形）</li> <li>距离计算精度高，支持球形距离</li></ul></div></div></section> <footer class="page-edit"><!----> <!----></footer> <!----> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:12rem;" data-v-b57cc07c data-v-7dd95ae2><li class="level-2" data-v-b57cc07c><a href="/backend/mysql/#mysql-相关" class="sidebar-link reco-side-mysql-相关" data-v-b57cc07c>MYSQL 相关</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/mysql/#_1-innodb-和-myisam-的区别" class="sidebar-link reco-side-_1-innodb-和-myisam-的区别" data-v-b57cc07c>1. InnoDB 和 MyISAM 的区别？</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/mysql/#_2-什么是索引-索引类型有哪些" class="sidebar-link reco-side-_2-什么是索引-索引类型有哪些" data-v-b57cc07c>2. 什么是索引？索引类型有哪些？</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/mysql/#_3-b-树索引的原理-为什么-mysql-选择-b-树" class="sidebar-link reco-side-_3-b-树索引的原理-为什么-mysql-选择-b-树" data-v-b57cc07c>3. B+ 树索引的原理？为什么 MySQL 选择 B+ 树？</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/mysql/#_4-什么是事务-acid-特性是什么" class="sidebar-link reco-side-_4-什么是事务-acid-特性是什么" data-v-b57cc07c>4. 什么是事务？ACID 特性是什么？</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/mysql/#_5-事务隔离级别有哪些" class="sidebar-link reco-side-_5-事务隔离级别有哪些" data-v-b57cc07c>5. 事务隔离级别有哪些？</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/mysql/#_6-什么是-mvcc" class="sidebar-link reco-side-_6-什么是-mvcc" data-v-b57cc07c>6. 什么是 MVCC？</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/mysql/#_7-mysql-慢查询如何优化" class="sidebar-link reco-side-_7-mysql-慢查询如何优化" data-v-b57cc07c>7. MySQL 慢查询如何优化？</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/mysql/#_8-mysql-分布式事务是如何实现的" class="sidebar-link reco-side-_8-mysql-分布式事务是如何实现的" data-v-b57cc07c>8. MySQL 分布式事务是如何实现的？</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/mysql/#_9-mysql-vs-postgresql-分布式事务对比" class="sidebar-link reco-side-_9-mysql-vs-postgresql-分布式事务对比" data-v-b57cc07c>9. MySQL vs PostgreSQL 分布式事务对比</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/mysql/#_10-分布式事务的其他实现方案" class="sidebar-link reco-side-_10-分布式事务的其他实现方案" data-v-b57cc07c>10. 分布式事务的其他实现方案</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/mysql/#_11-mysql-与-mongodb-地理索引对比" class="sidebar-link reco-side-_11-mysql-与-mongodb-地理索引对比" data-v-b57cc07c>11. MySQL 与 MongoDB 地理索引对比</a></li></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><!----></div></div>
+    <script src="/assets/js/app.c522256a.js" defer></script><script src="/assets/js/7.7a630101.js" defer></script><script src="/assets/js/2.f8874ec3.js" defer></script><script src="/assets/js/1.64e7c351.js" defer></script><script src="/assets/js/52.ab57b151.js" defer></script>
+  </body>
+</html>

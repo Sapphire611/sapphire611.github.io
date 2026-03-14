@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>WebGL 极速入门 | Sapphire611</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    
+    <meta name="description" content=":::right
+WebGL 就是让你在浏览器里调用 GPU（显卡） 来画图的一种方式
+:::">
+    <meta name="twitter:title" content="WebGL 极速入门">
+    <meta name="twitter:description" content=":::right
+WebGL 就是让你在浏览器里调用 GPU（显卡） 来画图的一种方式
+:::">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://sapphire611.github.io/frontend/webgl/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="WebGL 极速入门">
+    <meta property="og:description" content=":::right
+WebGL 就是让你在浏览器里调用 GPU（显卡） 来画图的一种方式
+:::">
+    <meta property="og:url" content="https://sapphire611.github.io/frontend/webgl/">
+    <meta property="og:site_name" content="Sapphire611">
+    <meta property="article:published_time" content="2026-02-25T00:00:00.000Z">
+    <meta property="article:tag" content="webgl">
+    <meta itemprop="name" content="WebGL 极速入门">
+    <meta itemprop="description" content=":::right
+WebGL 就是让你在浏览器里调用 GPU（显卡） 来画图的一种方式
+:::">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.1645be0a.css" as="style"><link rel="preload" href="/assets/js/app.c522256a.js" as="script"><link rel="preload" href="/assets/js/7.7a630101.js" as="script"><link rel="preload" href="/assets/js/2.f8874ec3.js" as="script"><link rel="preload" href="/assets/js/1.64e7c351.js" as="script"><link rel="preload" href="/assets/js/95.4d48c81b.js" as="script"><link rel="prefetch" href="/assets/js/10.189f867a.js"><link rel="prefetch" href="/assets/js/100.fc8a47fe.js"><link rel="prefetch" href="/assets/js/101.b4ecdb7d.js"><link rel="prefetch" href="/assets/js/102.b469a4bc.js"><link rel="prefetch" href="/assets/js/103.28d3eb6a.js"><link rel="prefetch" href="/assets/js/11.07b06b96.js"><link rel="prefetch" href="/assets/js/14.f24aac5a.js"><link rel="prefetch" href="/assets/js/15.571cff54.js"><link rel="prefetch" href="/assets/js/16.3cbd230c.js"><link rel="prefetch" href="/assets/js/17.3b0d18c7.js"><link rel="prefetch" href="/assets/js/18.91bd10c6.js"><link rel="prefetch" href="/assets/js/19.b47d0982.js"><link rel="prefetch" href="/assets/js/20.e36d99c1.js"><link rel="prefetch" href="/assets/js/21.e0d16a83.js"><link rel="prefetch" href="/assets/js/22.2df79638.js"><link rel="prefetch" href="/assets/js/23.88695ac7.js"><link rel="prefetch" href="/assets/js/24.faa8c60f.js"><link rel="prefetch" href="/assets/js/25.162f2b54.js"><link rel="prefetch" href="/assets/js/26.f5687de0.js"><link rel="prefetch" href="/assets/js/27.3fb11c6a.js"><link rel="prefetch" href="/assets/js/28.aaeceaea.js"><link rel="prefetch" href="/assets/js/29.faf17931.js"><link rel="prefetch" href="/assets/js/3.3f7346c5.js"><link rel="prefetch" href="/assets/js/30.a843b1c9.js"><link rel="prefetch" href="/assets/js/31.b6627419.js"><link rel="prefetch" href="/assets/js/32.b8d835fb.js"><link rel="prefetch" href="/assets/js/33.572460a2.js"><link rel="prefetch" href="/assets/js/34.4a59ece7.js"><link rel="prefetch" href="/assets/js/35.4207ff7e.js"><link rel="prefetch" href="/assets/js/36.45d0cc1a.js"><link rel="prefetch" href="/assets/js/37.5bb90b19.js"><link rel="prefetch" href="/assets/js/38.aef2f120.js"><link rel="prefetch" href="/assets/js/39.0195891a.js"><link rel="prefetch" href="/assets/js/4.cffa421f.js"><link rel="prefetch" href="/assets/js/40.e38d24d7.js"><link rel="prefetch" href="/assets/js/41.05207fed.js"><link rel="prefetch" href="/assets/js/42.ec503eb9.js"><link rel="prefetch" href="/assets/js/43.e67db07d.js"><link rel="prefetch" href="/assets/js/44.cec45af4.js"><link rel="prefetch" href="/assets/js/45.241b32bd.js"><link rel="prefetch" href="/assets/js/46.3c58bca4.js"><link rel="prefetch" href="/assets/js/47.8f221823.js"><link rel="prefetch" href="/assets/js/48.b7562876.js"><link rel="prefetch" href="/assets/js/49.7f7468d2.js"><link rel="prefetch" href="/assets/js/5.63870e03.js"><link rel="prefetch" href="/assets/js/50.8adc6499.js"><link rel="prefetch" href="/assets/js/51.fb6a5651.js"><link rel="prefetch" href="/assets/js/52.ab57b151.js"><link rel="prefetch" href="/assets/js/53.2dab3dc1.js"><link rel="prefetch" href="/assets/js/54.2364dfa2.js"><link rel="prefetch" href="/assets/js/55.f3c8f95b.js"><link rel="prefetch" href="/assets/js/56.5a6889e3.js"><link rel="prefetch" href="/assets/js/57.db62a7bd.js"><link rel="prefetch" href="/assets/js/58.084e9ed5.js"><link rel="prefetch" href="/assets/js/59.1bdc22dd.js"><link rel="prefetch" href="/assets/js/6.c0857dc2.js"><link rel="prefetch" href="/assets/js/60.2f59493f.js"><link rel="prefetch" href="/assets/js/61.962731fb.js"><link rel="prefetch" href="/assets/js/62.d451f7b8.js"><link rel="prefetch" href="/assets/js/63.15351943.js"><link rel="prefetch" href="/assets/js/64.4172003e.js"><link rel="prefetch" href="/assets/js/65.7308b306.js"><link rel="prefetch" href="/assets/js/66.37e43499.js"><link rel="prefetch" href="/assets/js/67.881e5249.js"><link rel="prefetch" href="/assets/js/68.28d9f255.js"><link rel="prefetch" href="/assets/js/69.c52b923a.js"><link rel="prefetch" href="/assets/js/70.b9a4c051.js"><link rel="prefetch" href="/assets/js/71.bac64098.js"><link rel="prefetch" href="/assets/js/72.7e1cde71.js"><link rel="prefetch" href="/assets/js/73.fc0aae5c.js"><link rel="prefetch" href="/assets/js/74.044a6686.js"><link rel="prefetch" href="/assets/js/75.eea07c4c.js"><link rel="prefetch" href="/assets/js/76.1d35d91d.js"><link rel="prefetch" href="/assets/js/77.fa80b307.js"><link rel="prefetch" href="/assets/js/78.220d3b3a.js"><link rel="prefetch" href="/assets/js/79.920c8501.js"><link rel="prefetch" href="/assets/js/8.99458c85.js"><link rel="prefetch" href="/assets/js/80.150296e4.js"><link rel="prefetch" href="/assets/js/81.1f66d9b4.js"><link rel="prefetch" href="/assets/js/82.511c6cee.js"><link rel="prefetch" href="/assets/js/83.8999dbcf.js"><link rel="prefetch" href="/assets/js/84.b577abd1.js"><link rel="prefetch" href="/assets/js/85.e0c7dbd9.js"><link rel="prefetch" href="/assets/js/86.bcb975a0.js"><link rel="prefetch" href="/assets/js/87.ddb68e70.js"><link rel="prefetch" href="/assets/js/88.1917a817.js"><link rel="prefetch" href="/assets/js/89.aa709c47.js"><link rel="prefetch" href="/assets/js/9.188c6dc1.js"><link rel="prefetch" href="/assets/js/90.18836b82.js"><link rel="prefetch" href="/assets/js/91.7c776dd2.js"><link rel="prefetch" href="/assets/js/92.fc870f95.js"><link rel="prefetch" href="/assets/js/93.992504cd.js"><link rel="prefetch" href="/assets/js/94.b74a2e5e.js"><link rel="prefetch" href="/assets/js/96.27b84433.js"><link rel="prefetch" href="/assets/js/97.12b0910d.js"><link rel="prefetch" href="/assets/js/98.9e7231a7.js"><link rel="prefetch" href="/assets/js/99.237570ae.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.caa45a04.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.1645be0a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-7dd95ae2><div data-v-7dd95ae2><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>Sapphire611</h3> <p class="description" data-v-59e6cb88>感谢来访🙏 </p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><!---->
+          
+        <span data-v-59e6cb88>2021 - </span>
+        2026
+      </a></span></div></div> <div class="hide" data-v-7dd95ae2><header class="navbar" data-v-7dd95ae2><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logo.jpg" alt="Sapphire611" class="logo"> <span class="site-name">Sapphire611</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/aboutMe/" class="nav-link"><i class="info"></i>
+  About Me
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Me/" class="nav-link"><i class="undefined"></i>
+  Me
+</a></li><li class="dropdown-item"><!----> <a href="/categories/archietcture/" class="nav-link"><i class="undefined"></i>
+  archietcture
+</a></li><li class="dropdown-item"><!----> <a href="/categories/elasticSearch/" class="nav-link"><i class="undefined"></i>
+  elasticSearch
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Backend/" class="nav-link"><i class="undefined"></i>
+  Backend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/mongodb/" class="nav-link"><i class="undefined"></i>
+  mongodb
+</a></li><li class="dropdown-item"><!----> <a href="/categories/interview/" class="nav-link"><i class="undefined"></i>
+  interview
+</a></li><li class="dropdown-item"><!----> <a href="/categories/shard/" class="nav-link"><i class="undefined"></i>
+  shard
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Frontend/" class="nav-link"><i class="undefined"></i>
+  Frontend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/sql/" class="nav-link"><i class="undefined"></i>
+  sql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Algorithm/" class="nav-link"><i class="undefined"></i>
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Javascript/" class="nav-link"><i class="undefined"></i>
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/backend/" class="nav-link"><i class="undefined"></i>
+  backend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/postgres/" class="nav-link"><i class="undefined"></i>
+  postgres
+</a></li><li class="dropdown-item"><!----> <a href="/categories/database/" class="nav-link"><i class="undefined"></i>
+  database
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Other/" class="nav-link"><i class="undefined"></i>
+  Other
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Certificate/" class="nav-link"><i class="undefined"></i>
+  Certificate
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Deploy/" class="nav-link"><i class="undefined"></i>
+  Deploy
+</a></li><li class="dropdown-item"><!----> <a href="/categories/graphql/" class="nav-link"><i class="undefined"></i>
+  graphql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/AI/" class="nav-link"><i class="undefined"></i>
+  AI
+</a></li><li class="dropdown-item"><!----> <a href="/categories/misc/" class="nav-link"><i class="undefined"></i>
+  misc
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div> <a href="https://github.com/Sapphire611/vuepress-sapphire611" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask" data-v-7dd95ae2></div> <aside class="sidebar" data-v-7dd95ae2><div class="personal-info-wrapper" data-v-1fad0c41 data-v-7dd95ae2><img src="/img/logo.jpg" alt="author-avatar" class="personal-img" data-v-1fad0c41> <!----> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>64</h3> <h6 data-v-1fad0c41>Articles</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>43</h3> <h6 data-v-1fad0c41>Tags</h6></div></div> <ul class="social-links" data-v-1fad0c41><li class="social-item" data-v-1fad0c41><i class="iconfont reco-github" style="color:#abbd81;" data-v-1fad0c41></i></li></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><a href="/aboutMe/" class="nav-link"><i class="info"></i>
+  About Me
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Me/" class="nav-link"><i class="undefined"></i>
+  Me
+</a></li><li class="dropdown-item"><!----> <a href="/categories/archietcture/" class="nav-link"><i class="undefined"></i>
+  archietcture
+</a></li><li class="dropdown-item"><!----> <a href="/categories/elasticSearch/" class="nav-link"><i class="undefined"></i>
+  elasticSearch
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Backend/" class="nav-link"><i class="undefined"></i>
+  Backend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/mongodb/" class="nav-link"><i class="undefined"></i>
+  mongodb
+</a></li><li class="dropdown-item"><!----> <a href="/categories/interview/" class="nav-link"><i class="undefined"></i>
+  interview
+</a></li><li class="dropdown-item"><!----> <a href="/categories/shard/" class="nav-link"><i class="undefined"></i>
+  shard
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Frontend/" class="nav-link"><i class="undefined"></i>
+  Frontend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/sql/" class="nav-link"><i class="undefined"></i>
+  sql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Algorithm/" class="nav-link"><i class="undefined"></i>
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Javascript/" class="nav-link"><i class="undefined"></i>
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/backend/" class="nav-link"><i class="undefined"></i>
+  backend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/postgres/" class="nav-link"><i class="undefined"></i>
+  postgres
+</a></li><li class="dropdown-item"><!----> <a href="/categories/database/" class="nav-link"><i class="undefined"></i>
+  database
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Other/" class="nav-link"><i class="undefined"></i>
+  Other
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Certificate/" class="nav-link"><i class="undefined"></i>
+  Certificate
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Deploy/" class="nav-link"><i class="undefined"></i>
+  Deploy
+</a></li><li class="dropdown-item"><!----> <a href="/categories/graphql/" class="nav-link"><i class="undefined"></i>
+  graphql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/AI/" class="nav-link"><i class="undefined"></i>
+  AI
+</a></li><li class="dropdown-item"><!----> <a href="/categories/misc/" class="nav-link"><i class="undefined"></i>
+  misc
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div> <a href="https://github.com/Sapphire611/vuepress-sapphire611" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>WebGL 极速入门</h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><!---->
+          
+        <span data-v-59e6cb88>2021 - </span>
+        2026
+      </a></span></div></div> <div data-v-7dd95ae2><div data-v-7dd95ae2><main class="page"><section style="display:;"><div class="page-title"><h1 class="title">WebGL 极速入门</h1> <div data-v-8a445198><!----> <i class="iconfont reco-date" data-v-8a445198><span data-v-8a445198>2/25/2026</span></i> <i class="iconfont reco-eye" data-v-8a445198><span id="/frontend/webgl/" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-8a445198><a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;"></a></span></i> <i class="tags iconfont reco-tag" data-v-8a445198><span class="tag-item" data-v-8a445198>webgl</span><span class="tag-item" data-v-8a445198>threejs</span><span class="tag-item" data-v-8a445198>interview</span></i></div></div> <div class="theme-reco-content content__default"><h2 id="🎯-webgl-极速入门-面试应急版"><a href="#🎯-webgl-极速入门-面试应急版" class="header-anchor">#</a> 🎯 WebGL 极速入门（面试应急版）</h2> <div class="custom-block right"><p>WebGL 就是让你在浏览器里调用 <strong>GPU（显卡）</strong> 来画图的一种方式</p></div> <hr> <h2 id="一、webgl-vs-canvas-2d"><a href="#一、webgl-vs-canvas-2d" class="header-anchor">#</a> 一、WebGL vs Canvas 2D</h2> <table><thead><tr><th>技术</th> <th>谁在画图</th> <th>适合场景</th> <th>性能</th></tr></thead> <tbody><tr><td>Canvas 2D</td> <td>CPU（中央处理器）</td> <td>简单图形、少量元素</td> <td>几千个元素就卡</td></tr> <tr><td>WebGL</td> <td>GPU（图形处理器）</td> <td>复杂3D、海量元素</td> <td>数万个元素流畅</td></tr></tbody></table> <div class="custom-block tip"><p class="title">核心区别</p><p>Canvas 2D 用 CPU 画图，适合简单图形，几千个元素就卡。WebGL 用 GPU 画图，适合复杂3D和海量元素，可以轻松处理��万个点。</p></div><hr> <h2 id="二、webgl-应用场景-军工场景举例"><a href="#二、webgl-应用场景-军工场景举例" class="header-anchor">#</a> 二、WebGL 应用场景（军工场景举例）</h2> <table><thead><tr><th>场景</th> <th>说明</th> <th>为什么用WebGL</th></tr></thead> <tbody><tr><td>三维地形</td> <td>战场地形、飞行航线</td> <td>需要实时旋转、缩放</td></tr> <tr><td>雷达扫描</td> <td>3D立体扫描效果</td> <td>需要光照、透明度效果</td></tr> <tr><td>海量目标</td> <td>同时显示上千个飞机/舰船</td> <td>Canvas会卡死</td></tr> <tr><td>装备模型</td> <td>坦克/导弹的3D模型展示</td> <td>需要真实感渲染</td></tr></tbody></table> <hr> <h2 id="三、webgl-的-三座大山-了解即可"><a href="#三、webgl-的-三座大山-了解即可" class="header-anchor">#</a> 三、WebGL 的&quot;三座大山&quot;（了解即可）</h2> <p>原生 WebGL 非常难，因为你要自己写着色器语言（GLSL），告诉 GPU 怎么画每个像素。</p> <div class="language-glsl extra-class"><pre class="language-glsl"><code><span class="token comment">// 顶点着色器：告诉GPU每个点在哪儿</span>
+<span class="token keyword">attribute</span> <span class="token keyword">vec3</span> position<span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  gl_Position <span class="token operator">=</span> projectionMatrix <span class="token operator">*</span> modelViewMatrix <span class="token operator">*</span> <span class="token keyword">vec4</span><span class="token punctuation">(</span>position<span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 片段着色器：告诉GPU每个像素什么颜色</span>
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  gl_FragColor <span class="token operator">=</span> <span class="token keyword">vec4</span><span class="token punctuation">(</span><span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 红色</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="custom-block warning"><p class="title"></p><p>90% 的前端工程师用 Three.js 而不是原生 WebGL。Three.js 把复杂的 WebGL 操作封装成了简单的 JavaScript 对象。</p></div><hr> <h2 id="四、three-js-核心概念"><a href="#四、three-js-核心概念" class="header-anchor">#</a> 四、Three.js 核心概念</h2> <h3 id="three-js-基础示例-面试常考"><a href="#three-js-基础示例-面试常考" class="header-anchor">#</a> Three.js 基础示例（面试常考）</h3> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> <span class="token constant">THREE</span> <span class="token keyword">from</span> <span class="token string">'three'</span>
+
+<span class="token comment">// 1. 创建场景</span>
+<span class="token keyword">const</span> scene <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">THREE<span class="token punctuation">.</span>Scene</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 2. 创建相机（相当于眼睛）</span>
+<span class="token keyword">const</span> camera <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">THREE<span class="token punctuation">.</span>PerspectiveCamera</span><span class="token punctuation">(</span><span class="token number">75</span><span class="token punctuation">,</span> window<span class="token punctuation">.</span>innerWidth <span class="token operator">/</span> window<span class="token punctuation">.</span>innerHeight<span class="token punctuation">,</span> <span class="token number">0.1</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 3. 创建渲染器</span>
+<span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">THREE<span class="token punctuation">.</span>WebGLRenderer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+renderer<span class="token punctuation">.</span><span class="token function">setSize</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>innerWidth<span class="token punctuation">,</span> window<span class="token punctuation">.</span>innerHeight<span class="token punctuation">)</span>
+document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>renderer<span class="token punctuation">.</span>domElement<span class="token punctuation">)</span>
+
+<span class="token comment">// 4. 创建物体</span>
+<span class="token keyword">const</span> geometry <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">THREE<span class="token punctuation">.</span>BoxGeometry</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment">// 立方体</span>
+<span class="token keyword">const</span> material <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">THREE<span class="token punctuation">.</span>MeshBasicMaterial</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token number">0x00ff00</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>  <span class="token comment">// 绿色材质</span>
+<span class="token keyword">const</span> cube <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">THREE<span class="token punctuation">.</span>Mesh</span><span class="token punctuation">(</span>geometry<span class="token punctuation">,</span> material<span class="token punctuation">)</span>
+scene<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>cube<span class="token punctuation">)</span>
+
+camera<span class="token punctuation">.</span>position<span class="token punctuation">.</span>z <span class="token operator">=</span> <span class="token number">5</span>
+
+<span class="token comment">// 5. 动画循环</span>
+<span class="token keyword">function</span> <span class="token function">animate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">requestAnimationFrame</span><span class="token punctuation">(</span>animate<span class="token punctuation">)</span>
+
+  <span class="token comment">// 让立方体旋转</span>
+  cube<span class="token punctuation">.</span>rotation<span class="token punctuation">.</span>x <span class="token operator">+=</span> <span class="token number">0.01</span>
+  cube<span class="token punctuation">.</span>rotation<span class="token punctuation">.</span>y <span class="token operator">+=</span> <span class="token number">0.01</span>
+
+  renderer<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span>scene<span class="token punctuation">,</span> camera<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token function">animate</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="核心概念对照表"><a href="#核心概念对照表" class="header-anchor">#</a> 核心概念对照表</h3> <table><thead><tr><th>Three.js 概念</th> <th>通俗解释</th></tr></thead> <tbody><tr><td>Scene</td> <td>整个3D世界，放所有东西的地方</td></tr> <tr><td>Camera</td> <td>你看世界的眼睛，决定看到什么</td></tr> <tr><td>Renderer</td> <td>负责把3D世界画到屏幕上</td></tr> <tr><td>Mesh</td> <td>物体 = 几何形状(Geometry) + 材质(Material)</td></tr> <tr><td>Light</td> <td>光照，没有光就看不见颜色</td></tr></tbody></table> <hr> <h2 id="五、面试常见问题-应急包"><a href="#五、面试常见问题-应急包" class="header-anchor">#</a> 五、面试常见问题（应急包）</h2> <h3 id="q1-webgl-和-canvas-2d-有什么区别"><a href="#q1-webgl-和-canvas-2d-有什么区别" class="header-anchor">#</a> Q1：WebGL 和 Canvas 2D 有什么区别？</h3> <p>Canvas 2D 用 CPU 画图，适合简单图形，几千个元素就卡。WebGL 用 GPU 画图，适合复杂3D和海量元素，可以轻松处理上万个点。</p> <h3 id="q2-你用过-three-js-吗-能做什么"><a href="#q2-你用过-three-js-吗-能做什么" class="header-anchor">#</a> Q2：你用过 Three.js 吗？能做什么？</h3> <p>我了解 Three.js 的基本用法，比如创建场景、相机、物体、添加光照。在军工场景中，可以用它来展示三维地形、雷达扫描效果或装备模型。</p> <h3 id="q3-webgl-性能优化有哪些方法"><a href="#q3-webgl-性能优化有哪些方法" class="header-anchor">#</a> Q3：WebGL 性能优化有哪些方法？</h3> <ul><li><strong>减少绘制调用</strong>：合并网格</li> <li><strong>使用 LOD（细节层次）</strong>：远处用低模</li> <li><strong>限制帧率</strong>：60fps 足够</li> <li><strong>离屏渲染 + 缓存</strong></li></ul> <hr> <h2 id="六、如果被问到-你没做过3d怎么证明你能学"><a href="#六、如果被问到-你没做过3d怎么证明你能学" class="header-anchor">#</a> 六、如果被问到&quot;你没做过3D怎么证明你能学&quot;</h2> <div class="custom-block tip"><p class="title">参考回答</p><p>虽然我之前项目以2D可视化为主，但我对Three.js有基本了解，知道它的核心概念和工作原理。而且WebGL本质是图形学在浏览器的实现，我有扎实的Canvas基础，对坐标系、矩阵变换、动画循环都很熟悉，相信能快速上手3D开发。</p></div></div></section> <footer class="page-edit"><!----> <!----></footer> <!----> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:12rem;" data-v-b57cc07c data-v-7dd95ae2><li class="level-2" data-v-b57cc07c><a href="/frontend/webgl/#🎯-webgl-极速入门-面试应急版" class="sidebar-link reco-side-🎯-webgl-极速入门-面试应急版" data-v-b57cc07c>🎯 WebGL 极速入门（面试应急版）</a></li><li class="level-2" data-v-b57cc07c><a href="/frontend/webgl/#一、webgl-vs-canvas-2d" class="sidebar-link reco-side-一、webgl-vs-canvas-2d" data-v-b57cc07c>一、WebGL vs Canvas 2D</a></li><li class="level-2" data-v-b57cc07c><a href="/frontend/webgl/#二、webgl-应用场景-军工场景举例" class="sidebar-link reco-side-二、webgl-应用场景-军工场景举例" data-v-b57cc07c>二、WebGL 应用场景（军工场景举例）</a></li><li class="level-2" data-v-b57cc07c><a href="/frontend/webgl/#三、webgl-的-三座大山-了解即可" class="sidebar-link reco-side-三、webgl-的-三座大山-了解即可" data-v-b57cc07c>三、WebGL 的&quot;三座大山&quot;（了解即可）</a></li><li class="level-2" data-v-b57cc07c><a href="/frontend/webgl/#四、three-js-核心概念" class="sidebar-link reco-side-四、three-js-核心概念" data-v-b57cc07c>四、Three.js 核心概念</a></li><li class="level-3" data-v-b57cc07c><a href="/frontend/webgl/#three-js-基础示例-面试常考" class="sidebar-link reco-side-three-js-基础示例-面试常考" data-v-b57cc07c>Three.js 基础示例（面试常考）</a></li><li class="level-3" data-v-b57cc07c><a href="/frontend/webgl/#核心概念对照表" class="sidebar-link reco-side-核心概念对照表" data-v-b57cc07c>核心概念对照表</a></li><li class="level-2" data-v-b57cc07c><a href="/frontend/webgl/#五、面试常见问题-应急包" class="sidebar-link reco-side-五、面试常见问题-应急包" data-v-b57cc07c>五、面试常见问题（应急包）</a></li><li class="level-3" data-v-b57cc07c><a href="/frontend/webgl/#q1-webgl-和-canvas-2d-有什么区别" class="sidebar-link reco-side-q1-webgl-和-canvas-2d-有什么区别" data-v-b57cc07c>Q1：WebGL 和 Canvas 2D 有什么区别？</a></li><li class="level-3" data-v-b57cc07c><a href="/frontend/webgl/#q2-你用过-three-js-吗-能做什么" class="sidebar-link reco-side-q2-你用过-three-js-吗-能做什么" data-v-b57cc07c>Q2：你用过 Three.js 吗？能做什么？</a></li><li class="level-3" data-v-b57cc07c><a href="/frontend/webgl/#q3-webgl-性能优化有哪些方法" class="sidebar-link reco-side-q3-webgl-性能优化有哪些方法" data-v-b57cc07c>Q3：WebGL 性能优化有哪些方法？</a></li><li class="level-2" data-v-b57cc07c><a href="/frontend/webgl/#六、如果被问到-你没做过3d怎么证明你能学" class="sidebar-link reco-side-六、如果被问到-你没做过3d怎么证明你能学" data-v-b57cc07c>六、如果被问到&quot;你没做过3D怎么证明你能学&quot;</a></li></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><!----></div></div>
+    <script src="/assets/js/app.c522256a.js" defer></script><script src="/assets/js/7.7a630101.js" defer></script><script src="/assets/js/2.f8874ec3.js" defer></script><script src="/assets/js/1.64e7c351.js" defer></script><script src="/assets/js/95.4d48c81b.js" defer></script>
+  </body>
+</html>

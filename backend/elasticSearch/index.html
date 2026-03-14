@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ElasticSearch Demo | Sapphire611</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    
+    <meta name="description" content="::: right">
+    <meta name="twitter:title" content="ElasticSearch Demo">
+    <meta name="twitter:description" content="::: right">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://sapphire611.github.io/backend/elasticSearch/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="ElasticSearch Demo">
+    <meta property="og:description" content="::: right">
+    <meta property="og:url" content="https://sapphire611.github.io/backend/elasticSearch/">
+    <meta property="og:site_name" content="Sapphire611">
+    <meta property="article:published_time" content="2025-07-14T00:00:00.000Z">
+    <meta itemprop="name" content="ElasticSearch Demo">
+    <meta itemprop="description" content="::: right">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.1645be0a.css" as="style"><link rel="preload" href="/assets/js/app.c522256a.js" as="script"><link rel="preload" href="/assets/js/7.7a630101.js" as="script"><link rel="preload" href="/assets/js/2.f8874ec3.js" as="script"><link rel="preload" href="/assets/js/1.64e7c351.js" as="script"><link rel="preload" href="/assets/js/41.05207fed.js" as="script"><link rel="prefetch" href="/assets/js/10.189f867a.js"><link rel="prefetch" href="/assets/js/100.fc8a47fe.js"><link rel="prefetch" href="/assets/js/101.b4ecdb7d.js"><link rel="prefetch" href="/assets/js/102.b469a4bc.js"><link rel="prefetch" href="/assets/js/103.28d3eb6a.js"><link rel="prefetch" href="/assets/js/11.07b06b96.js"><link rel="prefetch" href="/assets/js/14.f24aac5a.js"><link rel="prefetch" href="/assets/js/15.571cff54.js"><link rel="prefetch" href="/assets/js/16.3cbd230c.js"><link rel="prefetch" href="/assets/js/17.3b0d18c7.js"><link rel="prefetch" href="/assets/js/18.91bd10c6.js"><link rel="prefetch" href="/assets/js/19.b47d0982.js"><link rel="prefetch" href="/assets/js/20.e36d99c1.js"><link rel="prefetch" href="/assets/js/21.e0d16a83.js"><link rel="prefetch" href="/assets/js/22.2df79638.js"><link rel="prefetch" href="/assets/js/23.88695ac7.js"><link rel="prefetch" href="/assets/js/24.faa8c60f.js"><link rel="prefetch" href="/assets/js/25.162f2b54.js"><link rel="prefetch" href="/assets/js/26.f5687de0.js"><link rel="prefetch" href="/assets/js/27.3fb11c6a.js"><link rel="prefetch" href="/assets/js/28.aaeceaea.js"><link rel="prefetch" href="/assets/js/29.faf17931.js"><link rel="prefetch" href="/assets/js/3.3f7346c5.js"><link rel="prefetch" href="/assets/js/30.a843b1c9.js"><link rel="prefetch" href="/assets/js/31.b6627419.js"><link rel="prefetch" href="/assets/js/32.b8d835fb.js"><link rel="prefetch" href="/assets/js/33.572460a2.js"><link rel="prefetch" href="/assets/js/34.4a59ece7.js"><link rel="prefetch" href="/assets/js/35.4207ff7e.js"><link rel="prefetch" href="/assets/js/36.45d0cc1a.js"><link rel="prefetch" href="/assets/js/37.5bb90b19.js"><link rel="prefetch" href="/assets/js/38.aef2f120.js"><link rel="prefetch" href="/assets/js/39.0195891a.js"><link rel="prefetch" href="/assets/js/4.cffa421f.js"><link rel="prefetch" href="/assets/js/40.e38d24d7.js"><link rel="prefetch" href="/assets/js/42.ec503eb9.js"><link rel="prefetch" href="/assets/js/43.e67db07d.js"><link rel="prefetch" href="/assets/js/44.cec45af4.js"><link rel="prefetch" href="/assets/js/45.241b32bd.js"><link rel="prefetch" href="/assets/js/46.3c58bca4.js"><link rel="prefetch" href="/assets/js/47.8f221823.js"><link rel="prefetch" href="/assets/js/48.b7562876.js"><link rel="prefetch" href="/assets/js/49.7f7468d2.js"><link rel="prefetch" href="/assets/js/5.63870e03.js"><link rel="prefetch" href="/assets/js/50.8adc6499.js"><link rel="prefetch" href="/assets/js/51.fb6a5651.js"><link rel="prefetch" href="/assets/js/52.ab57b151.js"><link rel="prefetch" href="/assets/js/53.2dab3dc1.js"><link rel="prefetch" href="/assets/js/54.2364dfa2.js"><link rel="prefetch" href="/assets/js/55.f3c8f95b.js"><link rel="prefetch" href="/assets/js/56.5a6889e3.js"><link rel="prefetch" href="/assets/js/57.db62a7bd.js"><link rel="prefetch" href="/assets/js/58.084e9ed5.js"><link rel="prefetch" href="/assets/js/59.1bdc22dd.js"><link rel="prefetch" href="/assets/js/6.c0857dc2.js"><link rel="prefetch" href="/assets/js/60.2f59493f.js"><link rel="prefetch" href="/assets/js/61.962731fb.js"><link rel="prefetch" href="/assets/js/62.d451f7b8.js"><link rel="prefetch" href="/assets/js/63.15351943.js"><link rel="prefetch" href="/assets/js/64.4172003e.js"><link rel="prefetch" href="/assets/js/65.7308b306.js"><link rel="prefetch" href="/assets/js/66.37e43499.js"><link rel="prefetch" href="/assets/js/67.881e5249.js"><link rel="prefetch" href="/assets/js/68.28d9f255.js"><link rel="prefetch" href="/assets/js/69.c52b923a.js"><link rel="prefetch" href="/assets/js/70.b9a4c051.js"><link rel="prefetch" href="/assets/js/71.bac64098.js"><link rel="prefetch" href="/assets/js/72.7e1cde71.js"><link rel="prefetch" href="/assets/js/73.fc0aae5c.js"><link rel="prefetch" href="/assets/js/74.044a6686.js"><link rel="prefetch" href="/assets/js/75.eea07c4c.js"><link rel="prefetch" href="/assets/js/76.1d35d91d.js"><link rel="prefetch" href="/assets/js/77.fa80b307.js"><link rel="prefetch" href="/assets/js/78.220d3b3a.js"><link rel="prefetch" href="/assets/js/79.920c8501.js"><link rel="prefetch" href="/assets/js/8.99458c85.js"><link rel="prefetch" href="/assets/js/80.150296e4.js"><link rel="prefetch" href="/assets/js/81.1f66d9b4.js"><link rel="prefetch" href="/assets/js/82.511c6cee.js"><link rel="prefetch" href="/assets/js/83.8999dbcf.js"><link rel="prefetch" href="/assets/js/84.b577abd1.js"><link rel="prefetch" href="/assets/js/85.e0c7dbd9.js"><link rel="prefetch" href="/assets/js/86.bcb975a0.js"><link rel="prefetch" href="/assets/js/87.ddb68e70.js"><link rel="prefetch" href="/assets/js/88.1917a817.js"><link rel="prefetch" href="/assets/js/89.aa709c47.js"><link rel="prefetch" href="/assets/js/9.188c6dc1.js"><link rel="prefetch" href="/assets/js/90.18836b82.js"><link rel="prefetch" href="/assets/js/91.7c776dd2.js"><link rel="prefetch" href="/assets/js/92.fc870f95.js"><link rel="prefetch" href="/assets/js/93.992504cd.js"><link rel="prefetch" href="/assets/js/94.b74a2e5e.js"><link rel="prefetch" href="/assets/js/95.4d48c81b.js"><link rel="prefetch" href="/assets/js/96.27b84433.js"><link rel="prefetch" href="/assets/js/97.12b0910d.js"><link rel="prefetch" href="/assets/js/98.9e7231a7.js"><link rel="prefetch" href="/assets/js/99.237570ae.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.caa45a04.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.1645be0a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-7dd95ae2><div data-v-7dd95ae2><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>Sapphire611</h3> <p class="description" data-v-59e6cb88>感谢来访🙏 </p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><!---->
+          
+        <span data-v-59e6cb88>2021 - </span>
+        2026
+      </a></span></div></div> <div class="hide" data-v-7dd95ae2><header class="navbar" data-v-7dd95ae2><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logo.jpg" alt="Sapphire611" class="logo"> <span class="site-name">Sapphire611</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/aboutMe/" class="nav-link"><i class="info"></i>
+  About Me
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Me/" class="nav-link"><i class="undefined"></i>
+  Me
+</a></li><li class="dropdown-item"><!----> <a href="/categories/archietcture/" class="nav-link"><i class="undefined"></i>
+  archietcture
+</a></li><li class="dropdown-item"><!----> <a href="/categories/elasticSearch/" class="nav-link"><i class="undefined"></i>
+  elasticSearch
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Backend/" class="nav-link"><i class="undefined"></i>
+  Backend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/mongodb/" class="nav-link"><i class="undefined"></i>
+  mongodb
+</a></li><li class="dropdown-item"><!----> <a href="/categories/interview/" class="nav-link"><i class="undefined"></i>
+  interview
+</a></li><li class="dropdown-item"><!----> <a href="/categories/shard/" class="nav-link"><i class="undefined"></i>
+  shard
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Frontend/" class="nav-link"><i class="undefined"></i>
+  Frontend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/sql/" class="nav-link"><i class="undefined"></i>
+  sql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Algorithm/" class="nav-link"><i class="undefined"></i>
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Javascript/" class="nav-link"><i class="undefined"></i>
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/backend/" class="nav-link"><i class="undefined"></i>
+  backend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/postgres/" class="nav-link"><i class="undefined"></i>
+  postgres
+</a></li><li class="dropdown-item"><!----> <a href="/categories/database/" class="nav-link"><i class="undefined"></i>
+  database
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Other/" class="nav-link"><i class="undefined"></i>
+  Other
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Certificate/" class="nav-link"><i class="undefined"></i>
+  Certificate
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Deploy/" class="nav-link"><i class="undefined"></i>
+  Deploy
+</a></li><li class="dropdown-item"><!----> <a href="/categories/graphql/" class="nav-link"><i class="undefined"></i>
+  graphql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/AI/" class="nav-link"><i class="undefined"></i>
+  AI
+</a></li><li class="dropdown-item"><!----> <a href="/categories/misc/" class="nav-link"><i class="undefined"></i>
+  misc
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div> <a href="https://github.com/Sapphire611/vuepress-sapphire611" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask" data-v-7dd95ae2></div> <aside class="sidebar" data-v-7dd95ae2><div class="personal-info-wrapper" data-v-1fad0c41 data-v-7dd95ae2><img src="/img/logo.jpg" alt="author-avatar" class="personal-img" data-v-1fad0c41> <!----> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>64</h3> <h6 data-v-1fad0c41>Articles</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>43</h3> <h6 data-v-1fad0c41>Tags</h6></div></div> <ul class="social-links" data-v-1fad0c41><li class="social-item" data-v-1fad0c41><i class="iconfont reco-github" style="color:#abbd81;" data-v-1fad0c41></i></li></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><a href="/aboutMe/" class="nav-link"><i class="info"></i>
+  About Me
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Me/" class="nav-link"><i class="undefined"></i>
+  Me
+</a></li><li class="dropdown-item"><!----> <a href="/categories/archietcture/" class="nav-link"><i class="undefined"></i>
+  archietcture
+</a></li><li class="dropdown-item"><!----> <a href="/categories/elasticSearch/" class="nav-link"><i class="undefined"></i>
+  elasticSearch
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Backend/" class="nav-link"><i class="undefined"></i>
+  Backend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/mongodb/" class="nav-link"><i class="undefined"></i>
+  mongodb
+</a></li><li class="dropdown-item"><!----> <a href="/categories/interview/" class="nav-link"><i class="undefined"></i>
+  interview
+</a></li><li class="dropdown-item"><!----> <a href="/categories/shard/" class="nav-link"><i class="undefined"></i>
+  shard
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Frontend/" class="nav-link"><i class="undefined"></i>
+  Frontend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/sql/" class="nav-link"><i class="undefined"></i>
+  sql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Algorithm/" class="nav-link"><i class="undefined"></i>
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Javascript/" class="nav-link"><i class="undefined"></i>
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/backend/" class="nav-link"><i class="undefined"></i>
+  backend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/postgres/" class="nav-link"><i class="undefined"></i>
+  postgres
+</a></li><li class="dropdown-item"><!----> <a href="/categories/database/" class="nav-link"><i class="undefined"></i>
+  database
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Other/" class="nav-link"><i class="undefined"></i>
+  Other
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Certificate/" class="nav-link"><i class="undefined"></i>
+  Certificate
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Deploy/" class="nav-link"><i class="undefined"></i>
+  Deploy
+</a></li><li class="dropdown-item"><!----> <a href="/categories/graphql/" class="nav-link"><i class="undefined"></i>
+  graphql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/AI/" class="nav-link"><i class="undefined"></i>
+  AI
+</a></li><li class="dropdown-item"><!----> <a href="/categories/misc/" class="nav-link"><i class="undefined"></i>
+  misc
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div> <a href="https://github.com/Sapphire611/vuepress-sapphire611" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>ElasticSearch Demo</h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><!---->
+          
+        <span data-v-59e6cb88>2021 - </span>
+        2026
+      </a></span></div></div> <div data-v-7dd95ae2><div data-v-7dd95ae2><main class="page"><section style="display:;"><div class="page-title"><h1 class="title">ElasticSearch Demo</h1> <div data-v-8a445198><!----> <i class="iconfont reco-date" data-v-8a445198><span data-v-8a445198>7/14/2025</span></i> <i class="iconfont reco-eye" data-v-8a445198><span id="/backend/elasticSearch/" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-8a445198><a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;"></a></span></i> <!----></div></div> <div class="theme-reco-content content__default"><h2 id="elasticsearch-demo"><a href="#elasticsearch-demo" class="header-anchor">#</a> ElasticSearch Demo</h2> <div class="custom-block right"><p><a href="https://elasticsearch.bookhub.tech/" target="_blank" rel="noopener noreferrer">Elasticsearch 翻译说明<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>来自 <a href="http://sapphire611.github.io" target="_blank" rel="noopener noreferrer">Sapphire611<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></div> <p>Elasticsearch 是一种分布式文档存储。Elasticsearch 不用列数据行存储信息，而是存储已序列化为 JSON 文档的复杂数据结构。当集群中有多个 Elasticsearch 节点时，存储的文档将分布在集群中，且可以从任何节点直接访问。</p> <p>Elasticsearch 使用一种称之为倒排索引的数据结构，支持非常快的全文搜索。倒排索引列出任何文档中出现的唯一单词，并标识每个单词出现的所有文档。</p> <p>默认情况下，Elasticsearch 索引每个字段中的所有数据，且每个被索引的字段有一个专用的优化数据结构。例如，文本字段被存储在倒排索引中，数字和地理字段存储在 BKD 树 中。使用每个字段的数据结构来聚集和返回搜索结果是让 Elasticsearch 如此快的原因。</p> <h2 id="_1-使用-docker-拉取-elasticsearch"><a href="#_1-使用-docker-拉取-elasticsearch" class="header-anchor">#</a> 1. 使用 docker 拉取 elasticSearch</h2> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">docker</span> network create elastic
+
+<span class="token function">docker</span> pull docker.elastic.co/elasticsearch/elasticsearch:8.17.0
+<span class="token function">docker</span> pull docker.elastic.co/kibana/kibana:8.17.0
+
+<span class="token function">docker</span> run <span class="token parameter variable">--name</span> es01 <span class="token parameter variable">-p</span> <span class="token number">9200</span>:9200 <span class="token parameter variable">-p</span> <span class="token number">9300</span>:9300 <span class="token parameter variable">-e</span> <span class="token string">&quot;discovery.type=single-node&quot;</span>  <span class="token parameter variable">-e</span> <span class="token string">&quot;xpack.security.enabled=false&quot;</span> docker.elastic.co/elasticsearch/elasticsearch:8.17.0
+
+<span class="token function">docker</span> run <span class="token parameter variable">--name</span> kib01 <span class="token parameter variable">-p</span> <span class="token number">5601</span>:5601 <span class="token parameter variable">-e</span> <span class="token string">&quot;ELASTICSEARCH_HOSTS=http://host.docker.internal:9200&quot;</span> docker.elastic.co/kibana/kibana:8.17.0
+</code></pre></div><h2 id="_2-通过-restful-api-创建索引"><a href="#_2-通过-restful-api-创建索引" class="header-anchor">#</a> 2. 通过 RESTFUL API 创建索引</h2> <h3 id="_2-1-测试连通性"><a href="#_2-1-测试连通性" class="header-anchor">#</a> 2.1 测试连通性</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>GET http://localhost:9200
+
+<span class="token punctuation">{</span>
+    <span class="token string">&quot;name&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;667064611b41&quot;</span>,
+    <span class="token string">&quot;cluster_name&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;docker-cluster&quot;</span>,
+    <span class="token string">&quot;cluster_uuid&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;9EKuEBKaTmaLu5l93Ok1Uw&quot;</span>,
+    <span class="token string">&quot;version&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span>
+        <span class="token string">&quot;number&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;7.11.2&quot;</span>,
+        <span class="token string">&quot;build_flavor&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;default&quot;</span>,
+        <span class="token string">&quot;build_type&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;docker&quot;</span>,
+        <span class="token string">&quot;build_hash&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;3e5a16cfec50876d20ea77b075070932c6464c7d&quot;</span>,
+        <span class="token string">&quot;build_date&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;2021-03-06T05:54:38.141101Z&quot;</span>,
+        <span class="token string">&quot;build_snapshot&quot;</span><span class="token builtin class-name">:</span> false,
+        <span class="token string">&quot;lucene_version&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;8.7.0&quot;</span>,
+        <span class="token string">&quot;minimum_wire_compatibility_version&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;6.8.0&quot;</span>,
+        <span class="token string">&quot;minimum_index_compatibility_version&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;6.0.0-beta1&quot;</span>
+    <span class="token punctuation">}</span>,
+    <span class="token string">&quot;tagline&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;You Know, for Search&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-json extra-class"><pre class="language-json"><code>PUT http<span class="token operator">:</span><span class="token comment">//localhost:9200/customer/_doc/1</span>
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;John Doe&quot;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 由于这是一个新的文档，这个响应表明这个操作的结果为版本1的文档被创建：</span>
+<span class="token comment">// 重复操作会导致更新 _version 字段增加</span>
+<span class="token punctuation">{</span>
+    <span class="token property">&quot;_index&quot;</span><span class="token operator">:</span> <span class="token string">&quot;customer&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;_type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;_doc&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;_id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;_version&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;result&quot;</span><span class="token operator">:</span> <span class="token string">&quot;created&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;_shards&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;total&quot;</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;successful&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;failed&quot;</span><span class="token operator">:</span> <span class="token number">0</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;_seq_no&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;_primary_term&quot;</span><span class="token operator">:</span> <span class="token number">1</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-bash extra-class"><pre class="language-bash"><code>GET http://localhost:9200/_cat/indices&quot;
+
+yellow <span class="token function">open</span> bank     <span class="token parameter variable">-znPWZZRRjuxCjmFCKIvqg</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1000</span> <span class="token number">0</span> <span class="token number">379</span>.2kb <span class="token number">379</span>.2kb
+yellow <span class="token function">open</span> user     ITzFEZamSsuOjbphlCBs6A <span class="token number">1</span> <span class="token number">1</span>    <span class="token number">1</span> <span class="token number">3</span>  <span class="token number">22</span>.4kb  <span class="token number">22</span>.4kb
+yellow <span class="token function">open</span> customer FXdzSEiTSFyYR6EJ3KkmAA <span class="token number">1</span> <span class="token number">1</span>    <span class="token number">1</span> <span class="token number">0</span>   <span class="token number">3</span>.8kb   <span class="token number">3</span>.8kb
+</code></pre></div><blockquote><p>Bank query demo</p></blockquote> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;query&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;bool&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;must&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span> <span class="token property">&quot;match&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token property">&quot;age&quot;</span><span class="token operator">:</span> <span class="token string">&quot;40&quot;</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;must_not&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span> <span class="token property">&quot;match&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token property">&quot;state&quot;</span><span class="token operator">:</span> <span class="token string">&quot;ID&quot;</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+---
+
+<span class="token punctuation">{</span>
+    <span class="token property">&quot;took&quot;</span><span class="token operator">:</span> <span class="token number">16</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;timed_out&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;_shards&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;total&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;successful&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;skipped&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;failed&quot;</span><span class="token operator">:</span> <span class="token number">0</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;hits&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;total&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">&quot;value&quot;</span><span class="token operator">:</span> <span class="token number">43</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;relation&quot;</span><span class="token operator">:</span> <span class="token string">&quot;eq&quot;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;max_score&quot;</span><span class="token operator">:</span> <span class="token number">1.0</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;hits&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token property">&quot;_index&quot;</span><span class="token operator">:</span> <span class="token string">&quot;bank&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;_type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;_doc&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;_id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;474&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;_score&quot;</span><span class="token operator">:</span> <span class="token number">1.0</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;_source&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                    <span class="token property">&quot;account_number&quot;</span><span class="token operator">:</span> <span class="token number">474</span><span class="token punctuation">,</span>
+                    <span class="token property">&quot;balance&quot;</span><span class="token operator">:</span> <span class="token number">35896</span><span class="token punctuation">,</span>
+                    <span class="token property">&quot;firstname&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Obrien&quot;</span><span class="token punctuation">,</span>
+                    <span class="token property">&quot;lastname&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Walton&quot;</span><span class="token punctuation">,</span>
+                    <span class="token property">&quot;age&quot;</span><span class="token operator">:</span> <span class="token number">40</span><span class="token punctuation">,</span>
+                    <span class="token property">&quot;gender&quot;</span><span class="token operator">:</span> <span class="token string">&quot;F&quot;</span><span class="token punctuation">,</span>
+                    <span class="token property">&quot;address&quot;</span><span class="token operator">:</span> <span class="token string">&quot;192 Ide Court&quot;</span><span class="token punctuation">,</span>
+                    <span class="token property">&quot;employer&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Suremax&quot;</span><span class="token punctuation">,</span>
+                    <span class="token property">&quot;email&quot;</span><span class="token operator">:</span> <span class="token string">&quot;obrienwalton@suremax.com&quot;</span><span class="token punctuation">,</span>
+                    <span class="token property">&quot;city&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Crucible&quot;</span><span class="token punctuation">,</span>
+                    <span class="token property">&quot;state&quot;</span><span class="token operator">:</span> <span class="token string">&quot;UT&quot;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><p><a href="https://elasticsearch.bookhub.tech/getting_started/esindex" target="_blank" rel="noopener noreferrer">更多 demo 搜索可以查看文档，很详细<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <hr> <h3 id="_3-聚合搜索"><a href="#_3-聚合搜索" class="header-anchor">#</a> 3. 聚合搜索</h3> <div class="language-json extra-class"><pre class="language-json"><code>GET /bank/_search
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;size&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token comment">// 表示不返回原始文档，仅返回聚合结果（减少响应体积）</span>
+  <span class="token property">&quot;aggs&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;group_by_state&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>          <span class="token comment">// 聚合结果名称</span>
+      <span class="token property">&quot;terms&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>                 <span class="token comment">// 使用 terms 桶聚合（bucket aggregation）</span>
+        <span class="token property">&quot;field&quot;</span><span class="token operator">:</span> <span class="token string">&quot;state.keyword&quot;</span> <span class="token comment">// 对 state.keyword 字段进行分组统计，生成分组桶（buckets），每个桶代表一个州（如 CA/TX/NY）</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>可以使用嵌套聚合结果进行排序（通过指定词语聚合顺序），而不是按计数结果进行排序：</p> <div class="language-json extra-class"><pre class="language-json"><code>GET /bank/_search
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;size&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;aggs&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;group_by_state&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;terms&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;field&quot;</span><span class="token operator">:</span> <span class="token string">&quot;state.keyword&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;order&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">&quot;average_balance&quot;</span><span class="token operator">:</span> <span class="token string">&quot;desc&quot;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;aggs&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;average_balance&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">&quot;avg&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">&quot;field&quot;</span><span class="token operator">:</span> <span class="token string">&quot;balance&quot;</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="字段名称是-state-为什么要加上-keyword"><a href="#字段名称是-state-为什么要加上-keyword" class="header-anchor">#</a> 字段名称是 state，为什么要加上.keyword ?</h4> <div class="language-json extra-class"><pre class="language-json"><code><span class="token property">&quot;reason&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Text fields are not optimised for operations that require per-document field data like aggregations and sorting...&quot;</span>
+</code></pre></div><div class="custom-block warning"><p class="title"></p><p>⚠️ 类型冲突</p> <p>state 字段被映射为 text 类型（用于全文搜索）</p> <p>text 类型默认禁用聚合/排序操作，因为：</p> <p>全文搜索字段会被分词（如 &quot;New York&quot; → [&quot;new&quot;, &quot;york&quot;]）
+无法直接获取完整原始值进行分组统计</p></div><h3 id="kibana"><a href="#kibana" class="header-anchor">#</a> Kibana</h3> <blockquote><p>是一个开源的日志分析平台,正确配置后，点击左边 Discover 菜单，就可以看到数据并查询了</p></blockquote> <div class="language-bash extra-class"><pre class="language-bash"><code>age: <span class="token number">40</span>
+state.keyword: <span class="token string">&quot;UT&quot;</span>
+balance <span class="token operator">&gt;</span> <span class="token number">30000</span>
+age: <span class="token number">40</span> AND NOT state.keyword: <span class="token string">&quot;ID&quot;</span>
+</code></pre></div><p><a href="https://www.cnblogs.com/liyuanhong/articles/18308379" target="_blank" rel="noopener noreferrer">Kibana 中的 KQL 语法使用<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <hr> <h3 id="elasticsearch-的倒排索引-inverted-index-是什么-与传统数据库索引有何区别"><a href="#elasticsearch-的倒排索引-inverted-index-是什么-与传统数据库索引有何区别" class="header-anchor">#</a> Elasticsearch 的倒排索引（Inverted Index）是什么？与传统数据库索引有何区别？</h3> <ul><li><p>倒排索引是通过分词（Analysis）将文档内容拆分为词项（Terms），建立 词项 → 文档 ID 的映射，而非传统数据库的 文档 ID → 内容。</p></li> <li><p>优势：适合全文搜索，能快速定位包含关键词的文档（如搜索引擎）。</p></li> <li><p>对比：传统索引（如 B 树）适合精确查询，但模糊搜索效率低。</p></li></ul> <h3 id="bkd-树-vs-kd-树-对比"><a href="#bkd-树-vs-kd-树-对比" class="header-anchor">#</a> BKD 树 vs KD 树 对比</h3> <ul><li>KD 树 是一种 二叉搜索树（BST）的扩展，用于高效组织和查询 K 维空间中的数据点（如 2D 地理坐标、3D 模型数据、多维特征向量等）。它通过递归划分空间，加速 范围搜索 和 最近邻搜索（KNN）。</li></ul> <table><thead><tr><th><strong>对比维度</strong></th> <th><strong>KD 树 (K-Dimensional Tree)</strong></th> <th><strong>BKD 树 (Block K-Dimensional Tree)</strong></th></tr></thead> <tbody><tr><td><strong>设计目的</strong></td> <td>内存中的多维数据快速检索</td> <td>磁盘友好的高维数据存储与检索</td></tr> <tr><td><strong>数据结构</strong></td> <td>二叉搜索树，按维度轮换选择分割点（中位数）</td> <td>分层分块存储，结合 KD 树划分与 B+树的磁盘优化结构</td></tr> <tr><td><strong>存储方式</strong></td> <td>节点分散存储，无特殊磁盘优化</td> <td>数据分块连续存储，减少随机 I/O</td></tr> <tr><td><strong>动态更新</strong></td> <td>插入/删除需重构，维护成本高</td> <td>支持批量写入，适合只读/低频更新场景</td></tr> <tr><td><strong>查询效率</strong></td> <td>低维数据 O(log N)，高维退化为 O(N)</td> <td>稳定 O(log N)，通过分块剪枝优化高维查询</td></tr> <tr><td><strong>内存/磁盘适用</strong></td> <td>内存友好</td> <td>磁盘优化</td></tr> <tr><td><strong>典型应用</strong></td> <td>计算机视觉（特征匹配）、低维空间检索</td> <td>Elasticsearch/Lucene（数值/地理查询）、大数据存储</td></tr> <tr><td><strong>维度适应性</strong></td> <td>低维（K&lt;20）高效，高维性能骤降</td> <td>支持更高维度，通过分块缓解维数灾难</td></tr> <tr><td><strong>实现复杂度</strong></td> <td>相对简单</td> <td>较复杂（需处理分块、压缩、合并等）</td></tr> <tr><td><strong>开源应用案例</strong></td> <td>OpenCV、PCL（点云库）</td> <td>Apache Lucene、Elasticsearch</td></tr></tbody></table> <h4 id="关键区别总结"><a href="#关键区别总结" class="header-anchor">#</a> 关键区别总结</h4> <ol><li><strong>存储定位</strong>：KD 树为内存优化，BKD 树为磁盘优化</li> <li><strong>更新策略</strong>：KD 树动态更新困难，BKD 树采用批量写入+合并</li> <li><strong>高维表现</strong>：BKD 树通过分块机制更好应对高维数据</li> <li><strong>工程应用</strong>：KD 树适合实时计算，BKD 树适合搜索引擎/数据库底层存储</li></ol></div></section> <footer class="page-edit"><!----> <!----></footer> <!----> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:12rem;" data-v-b57cc07c data-v-7dd95ae2><li class="level-2" data-v-b57cc07c><a href="/backend/elasticSearch/#elasticsearch-demo" class="sidebar-link reco-side-elasticsearch-demo" data-v-b57cc07c>ElasticSearch Demo</a></li><li class="level-2" data-v-b57cc07c><a href="/backend/elasticSearch/#_1-使用-docker-拉取-elasticsearch" class="sidebar-link reco-side-_1-使用-docker-拉取-elasticsearch" data-v-b57cc07c>1. 使用 docker 拉取 elasticSearch</a></li><li class="level-2" data-v-b57cc07c><a href="/backend/elasticSearch/#_2-通过-restful-api-创建索引" class="sidebar-link reco-side-_2-通过-restful-api-创建索引" data-v-b57cc07c>2. 通过 RESTFUL API 创建索引</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/elasticSearch/#_2-1-测试连通性" class="sidebar-link reco-side-_2-1-测试连通性" data-v-b57cc07c>2.1 测试连通性</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/elasticSearch/#_3-聚合搜索" class="sidebar-link reco-side-_3-聚合搜索" data-v-b57cc07c>3. 聚合搜索</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/elasticSearch/#kibana" class="sidebar-link reco-side-kibana" data-v-b57cc07c>Kibana</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/elasticSearch/#elasticsearch-的倒排索引-inverted-index-是什么-与传统数据库索引有何区别" class="sidebar-link reco-side-elasticsearch-的倒排索引-inverted-index-是什么-与传统数据库索引有何区别" data-v-b57cc07c>Elasticsearch 的倒排索引（Inverted Index）是什么？与传统数据库索引有何区别？</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/elasticSearch/#bkd-树-vs-kd-树-对比" class="sidebar-link reco-side-bkd-树-vs-kd-树-对比" data-v-b57cc07c>BKD 树 vs KD 树 对比</a></li></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><!----></div></div>
+    <script src="/assets/js/app.c522256a.js" defer></script><script src="/assets/js/7.7a630101.js" defer></script><script src="/assets/js/2.f8874ec3.js" defer></script><script src="/assets/js/1.64e7c351.js" defer></script><script src="/assets/js/41.05207fed.js" defer></script>
+  </body>
+</html>

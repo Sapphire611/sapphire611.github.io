@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MQTT 相关 | Sapphire611</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    
+    <meta name="description" content="MQTT（Message Queuing Telemetry Transport） 是一种轻量级的发布/订阅消息传输协议，专为低带宽、高延迟网络环境设计。">
+    <meta name="twitter:title" content="MQTT 相关">
+    <meta name="twitter:description" content="MQTT（Message Queuing Telemetry Transport） 是一种轻量级的发布/订阅消息传输协议，专为低带宽、高延迟网络环境设计。">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://sapphire611.github.io/backend/mqtt/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="MQTT 相关">
+    <meta property="og:description" content="MQTT（Message Queuing Telemetry Transport） 是一种轻量级的发布/订阅消息传输协议，专为低带宽、高延迟网络环境设计。">
+    <meta property="og:url" content="https://sapphire611.github.io/backend/mqtt/">
+    <meta property="og:site_name" content="Sapphire611">
+    <meta property="article:published_time" content="2026-03-19T00:00:00.000Z">
+    <meta property="article:tag" content="mqtt">
+    <meta itemprop="name" content="MQTT 相关">
+    <meta itemprop="description" content="MQTT（Message Queuing Telemetry Transport） 是一种轻量级的发布/订阅消息传输协议，专为低带宽、高延迟网络环境设计。">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.975cf9e9.css" as="style"><link rel="preload" href="/assets/js/app.b73d127a.js" as="script"><link rel="preload" href="/assets/js/7.4905528e.js" as="script"><link rel="preload" href="/assets/js/2.9325dea3.js" as="script"><link rel="preload" href="/assets/js/1.5e3b8f6c.js" as="script"><link rel="preload" href="/assets/js/51.a9ba470a.js" as="script"><link rel="prefetch" href="/assets/js/10.174f33d6.js"><link rel="prefetch" href="/assets/js/100.3784640d.js"><link rel="prefetch" href="/assets/js/11.9c49c7ba.js"><link rel="prefetch" href="/assets/js/14.cbb1755b.js"><link rel="prefetch" href="/assets/js/15.61fff1cd.js"><link rel="prefetch" href="/assets/js/16.e9d7b982.js"><link rel="prefetch" href="/assets/js/17.bb4e111f.js"><link rel="prefetch" href="/assets/js/18.91118260.js"><link rel="prefetch" href="/assets/js/19.09b251c1.js"><link rel="prefetch" href="/assets/js/20.436af937.js"><link rel="prefetch" href="/assets/js/21.461c6912.js"><link rel="prefetch" href="/assets/js/22.7597ffa7.js"><link rel="prefetch" href="/assets/js/23.0f494ed8.js"><link rel="prefetch" href="/assets/js/24.59a6adb9.js"><link rel="prefetch" href="/assets/js/25.6212e678.js"><link rel="prefetch" href="/assets/js/26.42b3dd29.js"><link rel="prefetch" href="/assets/js/27.f6b883c4.js"><link rel="prefetch" href="/assets/js/28.07ebcf07.js"><link rel="prefetch" href="/assets/js/29.20437d59.js"><link rel="prefetch" href="/assets/js/3.243b25cb.js"><link rel="prefetch" href="/assets/js/30.a1ad6350.js"><link rel="prefetch" href="/assets/js/31.962e9e5b.js"><link rel="prefetch" href="/assets/js/32.878fb932.js"><link rel="prefetch" href="/assets/js/33.0db2c06a.js"><link rel="prefetch" href="/assets/js/34.1dbb0b23.js"><link rel="prefetch" href="/assets/js/35.1bf50774.js"><link rel="prefetch" href="/assets/js/36.e39f3b7f.js"><link rel="prefetch" href="/assets/js/37.2a41744f.js"><link rel="prefetch" href="/assets/js/38.a8d9bd25.js"><link rel="prefetch" href="/assets/js/39.69ccbcd5.js"><link rel="prefetch" href="/assets/js/4.d8f7f06d.js"><link rel="prefetch" href="/assets/js/40.a276aec2.js"><link rel="prefetch" href="/assets/js/41.7e3d7c5e.js"><link rel="prefetch" href="/assets/js/42.ebd46e61.js"><link rel="prefetch" href="/assets/js/43.33f0a54b.js"><link rel="prefetch" href="/assets/js/44.d91e8774.js"><link rel="prefetch" href="/assets/js/45.5e9bc551.js"><link rel="prefetch" href="/assets/js/46.22176526.js"><link rel="prefetch" href="/assets/js/47.27818333.js"><link rel="prefetch" href="/assets/js/48.06487c7c.js"><link rel="prefetch" href="/assets/js/49.80e99e11.js"><link rel="prefetch" href="/assets/js/5.0133f5a5.js"><link rel="prefetch" href="/assets/js/50.9b3867d8.js"><link rel="prefetch" href="/assets/js/52.0d7368fe.js"><link rel="prefetch" href="/assets/js/53.dd3f9d11.js"><link rel="prefetch" href="/assets/js/54.0f9d226b.js"><link rel="prefetch" href="/assets/js/55.821a241b.js"><link rel="prefetch" href="/assets/js/56.f3a4c28b.js"><link rel="prefetch" href="/assets/js/57.c962a7d7.js"><link rel="prefetch" href="/assets/js/58.f2f24dc2.js"><link rel="prefetch" href="/assets/js/59.d556f990.js"><link rel="prefetch" href="/assets/js/6.188dbb7e.js"><link rel="prefetch" href="/assets/js/60.133241fd.js"><link rel="prefetch" href="/assets/js/61.9313eedf.js"><link rel="prefetch" href="/assets/js/62.9b9f0da3.js"><link rel="prefetch" href="/assets/js/63.a6535d43.js"><link rel="prefetch" href="/assets/js/64.a0094b5c.js"><link rel="prefetch" href="/assets/js/65.47b3d5ab.js"><link rel="prefetch" href="/assets/js/66.1dbfd750.js"><link rel="prefetch" href="/assets/js/67.1c9c1ff6.js"><link rel="prefetch" href="/assets/js/68.ddc4f488.js"><link rel="prefetch" href="/assets/js/69.c2fc73dd.js"><link rel="prefetch" href="/assets/js/70.46bb2519.js"><link rel="prefetch" href="/assets/js/71.5168faa3.js"><link rel="prefetch" href="/assets/js/72.f84dee34.js"><link rel="prefetch" href="/assets/js/73.692ab11c.js"><link rel="prefetch" href="/assets/js/74.8bbed35a.js"><link rel="prefetch" href="/assets/js/75.083b722d.js"><link rel="prefetch" href="/assets/js/76.273f0731.js"><link rel="prefetch" href="/assets/js/77.a6ec3ff4.js"><link rel="prefetch" href="/assets/js/78.30e164b0.js"><link rel="prefetch" href="/assets/js/79.59a62620.js"><link rel="prefetch" href="/assets/js/8.38e12555.js"><link rel="prefetch" href="/assets/js/80.e1f9e208.js"><link rel="prefetch" href="/assets/js/81.49d04bed.js"><link rel="prefetch" href="/assets/js/82.b53c8155.js"><link rel="prefetch" href="/assets/js/83.8a597835.js"><link rel="prefetch" href="/assets/js/84.2a9d7ee5.js"><link rel="prefetch" href="/assets/js/85.c45353d6.js"><link rel="prefetch" href="/assets/js/86.6a35ab9d.js"><link rel="prefetch" href="/assets/js/87.2561f182.js"><link rel="prefetch" href="/assets/js/88.11581266.js"><link rel="prefetch" href="/assets/js/89.121e642c.js"><link rel="prefetch" href="/assets/js/9.0d31bb97.js"><link rel="prefetch" href="/assets/js/90.9809c83a.js"><link rel="prefetch" href="/assets/js/91.9d45d902.js"><link rel="prefetch" href="/assets/js/92.0b488237.js"><link rel="prefetch" href="/assets/js/93.731d05e0.js"><link rel="prefetch" href="/assets/js/94.9b3a95d2.js"><link rel="prefetch" href="/assets/js/95.82f4a5a5.js"><link rel="prefetch" href="/assets/js/96.f373e9e7.js"><link rel="prefetch" href="/assets/js/97.ef86437a.js"><link rel="prefetch" href="/assets/js/98.a786ed87.js"><link rel="prefetch" href="/assets/js/99.36c23ae0.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.9cd2d626.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.975cf9e9.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-7dd95ae2><div data-v-7dd95ae2><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>Sapphire611</h3> <p class="description" data-v-59e6cb88>感谢来访🙏 </p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><!---->
+          
+        <span data-v-59e6cb88>2021 - </span>
+        2026
+      </a></span></div></div> <div class="hide" data-v-7dd95ae2><header class="navbar" data-v-7dd95ae2><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logo.jpg" alt="Sapphire611" class="logo"> <span class="site-name">Sapphire611</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/aboutMe/" class="nav-link"><i class="info"></i>
+  About Me
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/archietcture/" class="nav-link"><i class="undefined"></i>
+  archietcture
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Me/" class="nav-link"><i class="undefined"></i>
+  Me
+</a></li><li class="dropdown-item"><!----> <a href="/categories/elasticSearch/" class="nav-link"><i class="undefined"></i>
+  elasticSearch
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Backend/" class="nav-link"><i class="undefined"></i>
+  Backend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/mongodb/" class="nav-link"><i class="undefined"></i>
+  mongodb
+</a></li><li class="dropdown-item"><!----> <a href="/categories/interview/" class="nav-link"><i class="undefined"></i>
+  interview
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Frontend/" class="nav-link"><i class="undefined"></i>
+  Frontend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Algorithm/" class="nav-link"><i class="undefined"></i>
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/categories/sql/" class="nav-link"><i class="undefined"></i>
+  sql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Javascript/" class="nav-link"><i class="undefined"></i>
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/postgres/" class="nav-link"><i class="undefined"></i>
+  postgres
+</a></li><li class="dropdown-item"><!----> <a href="/categories/misc/" class="nav-link"><i class="undefined"></i>
+  misc
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Certificate/" class="nav-link"><i class="undefined"></i>
+  Certificate
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Deploy/" class="nav-link"><i class="undefined"></i>
+  Deploy
+</a></li><li class="dropdown-item"><!----> <a href="/categories/graphql/" class="nav-link"><i class="undefined"></i>
+  graphql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/AI/" class="nav-link"><i class="undefined"></i>
+  AI
+</a></li><li class="dropdown-item"><!----> <a href="/categories/backend/" class="nav-link"><i class="undefined"></i>
+  backend
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div> <a href="https://github.com/Sapphire611/vuepress-sapphire611" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask" data-v-7dd95ae2></div> <aside class="sidebar" data-v-7dd95ae2><div class="personal-info-wrapper" data-v-1fad0c41 data-v-7dd95ae2><img src="/img/logo.jpg" alt="author-avatar" class="personal-img" data-v-1fad0c41> <!----> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>61</h3> <h6 data-v-1fad0c41>Articles</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>41</h3> <h6 data-v-1fad0c41>Tags</h6></div></div> <ul class="social-links" data-v-1fad0c41><li class="social-item" data-v-1fad0c41><i class="iconfont reco-github" style="color:#f47e60;" data-v-1fad0c41></i></li></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><a href="/aboutMe/" class="nav-link"><i class="info"></i>
+  About Me
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/archietcture/" class="nav-link"><i class="undefined"></i>
+  archietcture
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Me/" class="nav-link"><i class="undefined"></i>
+  Me
+</a></li><li class="dropdown-item"><!----> <a href="/categories/elasticSearch/" class="nav-link"><i class="undefined"></i>
+  elasticSearch
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Backend/" class="nav-link"><i class="undefined"></i>
+  Backend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/mongodb/" class="nav-link"><i class="undefined"></i>
+  mongodb
+</a></li><li class="dropdown-item"><!----> <a href="/categories/interview/" class="nav-link"><i class="undefined"></i>
+  interview
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Frontend/" class="nav-link"><i class="undefined"></i>
+  Frontend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Algorithm/" class="nav-link"><i class="undefined"></i>
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/categories/sql/" class="nav-link"><i class="undefined"></i>
+  sql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Javascript/" class="nav-link"><i class="undefined"></i>
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/postgres/" class="nav-link"><i class="undefined"></i>
+  postgres
+</a></li><li class="dropdown-item"><!----> <a href="/categories/misc/" class="nav-link"><i class="undefined"></i>
+  misc
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Certificate/" class="nav-link"><i class="undefined"></i>
+  Certificate
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Deploy/" class="nav-link"><i class="undefined"></i>
+  Deploy
+</a></li><li class="dropdown-item"><!----> <a href="/categories/graphql/" class="nav-link"><i class="undefined"></i>
+  graphql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/AI/" class="nav-link"><i class="undefined"></i>
+  AI
+</a></li><li class="dropdown-item"><!----> <a href="/categories/backend/" class="nav-link"><i class="undefined"></i>
+  backend
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div> <a href="https://github.com/Sapphire611/vuepress-sapphire611" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>MQTT 相关</h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><!---->
+          
+        <span data-v-59e6cb88>2021 - </span>
+        2026
+      </a></span></div></div> <div data-v-7dd95ae2><div data-v-7dd95ae2><main class="page"><section style="display:;"><div class="page-title"><h1 class="title">MQTT 相关</h1> <div data-v-8a445198><!----> <i class="iconfont reco-date" data-v-8a445198><span data-v-8a445198>3/19/2026</span></i> <i class="iconfont reco-eye" data-v-8a445198><span id="/backend/mqtt/" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-8a445198><a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;"></a></span></i> <i class="tags iconfont reco-tag" data-v-8a445198><span class="tag-item" data-v-8a445198>mqtt</span></i></div></div> <div class="theme-reco-content content__default"><h2 id="mqtt-面试知识点"><a href="#mqtt-面试知识点" class="header-anchor">#</a> MQTT 面试知识点</h2> <h3 id="_1-mqtt-基础概念"><a href="#_1-mqtt-基础概念" class="header-anchor">#</a> 1. MQTT 基础概念</h3> <p><strong>MQTT（Message Queuing Telemetry Transport）</strong> 是一种轻量级的发布/订阅消息传输协议，专为低带宽、高延迟网络环境设计。</p> <table><thead><tr><th>特性</th> <th>说明</th></tr></thead> <tbody><tr><td><strong>架构模式</strong></td> <td>发布/订阅（Pub/Sub）</td></tr> <tr><td><strong>传输协议</strong></td> <td>TCP/IP</td></tr> <tr><td><strong>数据格式</strong></td> <td>二进制，头部仅 2 字节</td></tr> <tr><td><strong>设计目标</strong></td> <td>轻量、简单、易实现</td></tr> <tr><td><strong>适用场景</strong></td> <td>IoT、车联网、移动应用</td></tr></tbody></table> <hr> <h3 id="_2-mqtt-核心组件"><a href="#_2-mqtt-核心组件" class="header-anchor">#</a> 2. MQTT 核心组件</h3> <div class="language- extra-class"><pre class="language-text"><code>┌──────────┐                    ┌──────────┐
+│ Publisher│ ──发布消息──→       │          │
+│  (发布者) │                    │  Broker  │
+└──────────┘                    │  (代理)  │
+                                │          │
+┌──────────┐                    │          │
+│Subscriber│ ←──接收消息──      │          │
+│ (订阅者) │                    └──────────┘
+└──────────┘                         ↑  ↓
+                                     │  │
+                                   Topic (主题)
+</code></pre></div><table><thead><tr><th>组件</th> <th>说明</th></tr></thead> <tbody><tr><td><strong>Broker</strong></td> <td>消息代理服务器，负责接收和转发消息（如 EMQX、Mosquitto）</td></tr> <tr><td><strong>Publisher</strong></td> <td>消息发布者，向特定 Topic 发送消息</td></tr> <tr><td><strong>Subscriber</strong></td> <td>消息订阅者，订阅感兴趣的 Topic</td></tr> <tr><td><strong>Topic</strong></td> <td>消息主题，支持层级结构（如 <code>home/livingroom/temperature</code>）</td></tr></tbody></table> <hr> <h2 id="常用-broker-对比"><a href="#常用-broker-对比" class="header-anchor">#</a> 常用 Broker 对比</h2> <table><thead><tr><th>Broker</th> <th>特点</th> <th>适用场景</th></tr></thead> <tbody><tr><td><strong>EMQX</strong></td> <td>功能强大、高性能、支持集群</td> <td>企业级、大规模 IoT</td></tr> <tr><td><strong>Mosquitto</strong></td> <td>轻量、易部署</td> <td>嵌入式设备、测试环境</td></tr> <tr><td><strong>HiveMQ</strong></td> <td>商业产品、企业级</td> <td>大规模生产环境</td></tr> <tr><td><strong>VerneMQ</strong></td> <td>高并发、分布式</td> <td>高吞吐场景</td></tr></tbody></table> <hr> <h2 id="_3-qos-质量等级"><a href="#_3-qos-质量等级" class="header-anchor">#</a> 3. QoS 质量等级</h2> <p>MQTT 提供 3 种消息服务质量：</p> <table><thead><tr><th style="text-align:center;">QoS 等级</th> <th>名称</th> <th>说明</th> <th>使用场景</th></tr></thead> <tbody><tr><td style="text-align:center;"><strong>0</strong></td> <td>最多一次</td> <td>发送即忘，不确认</td> <td>丢包影响不大的数据（如传感器温度）</td></tr> <tr><td style="text-align:center;"><strong>1</strong></td> <td>至少一次</td> <td>确保消息送达，可能重复</td> <td>需要确保送达但可容忍重复（如指令）</td></tr> <tr><td style="text-align:center;"><strong>2</strong></td> <td>恰好一次</td> <td>确保消息只送达一次</td> <td>不能重复的关键数据（如支付）</td></tr></tbody></table> <p><strong>QoS 流程对比</strong>：</p> <div class="language- extra-class"><pre class="language-text"><code>【QoS 0 - At most once】
+Publisher ────消息────→ Broker ────消息────→ Subscriber
+  (无需确认)
+
+【QoS 1 - At least once】
+Publisher ────消息────→ Broker ←────PUBACK───
+            ─────PUBACK──→ Broker ────消息────→ Subscriber ←────PUBACK───
+  (确保送达，可能重复)
+
+【QoS 2 - Exactly once】
+Publisher ────消息────→ Broker ←────PUBREC───
+            ─────PUBREL──→ Broker ←────PUBCOMP──
+            ─────PUBCOMP──→ Broker ────消息────→ Subscriber (完整的 4 步握手)
+  (确保只送达一次)
+</code></pre></div><p><strong>面试话术</strong>：</p> <blockquote><p>&quot;在实际项目中，我们车联网场景下：</p> <ul><li>车辆位置数据用 QoS 0，实时性要求高，偶尔丢包没关系</li> <li>远程控制指令用 QoS 1，确保指令送达，重复执行影响不大</li> <li>OTA 升级通知用 QoS 2，避免重复推送导致升级混乱&quot;</li></ul></blockquote> <hr> <h3 id="_4-topic-主题与通配符"><a href="#_4-topic-主题与通配符" class="header-anchor">#</a> 4. Topic 主题与通配符</h3> <p><strong>Topic 层级结构</strong>：</p> <div class="language- extra-class"><pre class="language-text"><code>home                    # 一级主题
+├── livingroom          # 二级主题
+│   ├── temperature
+│   └── humidity
+└── bedroom
+    ├── temperature
+    └── light
+</code></pre></div><p><strong>通配符类型</strong>：</p> <table><thead><tr><th>通配符</th> <th>类型</th> <th>说明</th> <th>示例</th></tr></thead> <tbody><tr><td><code>+</code></td> <td>单级通配符</td> <td>匹配单个层级</td> <td><code>home/+/temperature</code> 匹配 <code>home/livingroom/temperature</code></td></tr> <tr><td><code>#</code></td> <td>多级通配符</td> <td>匹配多个层级（只能用在末尾）</td> <td><code>home/#</code> 匹配 <code>home/livingroom/temperature</code></td></tr></tbody></table> <p><strong>订阅示例</strong>：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// 订阅所有房间的温度</span>
+client<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token string">'home/+/temperature'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 订阅客厅的所有信息</span>
+client<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token string">'home/livingroom/#'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 订阅所有家居数据</span>
+client<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token string">'home/#'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p><strong>注意事项</strong>：</p> <ul><li>通配符只能在 <strong>订阅时</strong> 使用，发布时无效</li> <li><code>#</code> 必须是 Topic 的最后一个字符</li> <li>系统主题 <code>$SYS/#</code> 默认不允许订阅</li></ul> <hr> <h3 id="_5-clean-session-vs-持久会话"><a href="#_5-clean-session-vs-持久会话" class="header-anchor">#</a> 5. Clean Session vs 持久会话</h3> <table><thead><tr><th>参数</th> <th>说明</th> <th>适用场景</th></tr></thead> <tbody><tr><td><strong>clean: true</strong></td> <td>客户端断开时清除会话状态</td> <td>临时设备、在线状态重要</td></tr> <tr><td><strong>clean: false</strong></td> <td>Broker 保留订阅和未送达消息（QoS 1/2）</td> <td>离线消息、移动应用</td></tr></tbody></table> <p><strong>面试话术</strong>：</p> <blockquote><p>&quot;我们车联网项目中，T-Box 使用 clean:false，确保车辆离线时的指令在上线后能送达；而监控设备使用 clean:true，因为实时数据不需要离线缓存。&quot;</p></blockquote> <hr> <h3 id="_6-遗嘱消息-lwt-last-will-and-testament"><a href="#_6-遗嘱消息-lwt-last-will-and-testament" class="header-anchor">#</a> 6. 遗嘱消息（LWT - Last Will and Testament）</h3> <p>客户端在连接时设置遗嘱消息，当客户端<strong>异常断开</strong>时，Broker 会自动发送该消息。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">const</span> client <span class="token operator">=</span> mqtt<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span>connectUrl<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  clientId<span class="token punctuation">,</span>
+  <span class="token literal-property property">clean</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">will</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">topic</span><span class="token operator">:</span> <span class="token string">'status/device001'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">payload</span><span class="token operator">:</span> <span class="token string">'offline'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">qos</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">retain</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p><strong>使用场景</strong>：</p> <ul><li>设备离线通知</li> <li>异常断开告警</li> <li>状态监控</li></ul> <p><strong>正常断开 vs 异常断开</strong>：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// 正常断开：发送 DISCONNECT 数据包</span>
+client<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 异常断开：网络故障、崩溃</span>
+<span class="token comment">// Broker 会检测到并发送遗嘱消息</span>
+</code></pre></div><hr> <h3 id="_7-保留消息-retain"><a href="#_7-保留消息-retain" class="header-anchor">#</a> 7. 保留消息（Retain）</h3> <p><strong>Retain 标志</strong>：Broker 保留最后一条消息，新订阅者会立即收到。</p> <table><thead><tr><th>Retain 值</th> <th>说明</th></tr></thead> <tbody><tr><td><code>false</code></td> <td>默认，Broker 不保留消息</td></tr> <tr><td><code>true</code></td> <td>Broker 保留该 Topic 的最后一条消息</td></tr></tbody></table> <p><strong>使用场景</strong>：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// 发布传感器状态（保留消息）</span>
+client<span class="token punctuation">.</span><span class="token function">publish</span><span class="token punctuation">(</span><span class="token string">'home/livingroom/temperature'</span><span class="token punctuation">,</span> <span class="token string">'25'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">retain</span><span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 新订阅者会立即收到最新的温度值</span>
+client<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token string">'home/livingroom/temperature'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 立即收到: '25'</span>
+</code></pre></div><p><strong>典型应用</strong>：</p> <ul><li>设备当前状态（温度、湿度等）</li> <li>配置信息</li> <li>仪表盘初始数据</li></ul> <hr> <h3 id="_8-连接参数详解"><a href="#_8-连接参数详解" class="header-anchor">#</a> 8. 连接参数详解</h3> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">const</span> client <span class="token operator">=</span> mqtt<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">clientId</span><span class="token operator">:</span> <span class="token string">'unique_client_id'</span><span class="token punctuation">,</span> <span class="token comment">// 必须唯一，重复会互相踢下线</span>
+  <span class="token literal-property property">clean</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 清除会话</span>
+  <span class="token literal-property property">connectTimeout</span><span class="token operator">:</span> <span class="token number">4000</span><span class="token punctuation">,</span> <span class="token comment">// 连接超时（毫秒）</span>
+  <span class="token literal-property property">reconnectPeriod</span><span class="token operator">:</span> <span class="token number">1000</span><span class="token punctuation">,</span> <span class="token comment">// 重连间隔（毫秒）</span>
+  <span class="token literal-property property">keepalive</span><span class="token operator">:</span> <span class="token number">60</span><span class="token punctuation">,</span> <span class="token comment">// 心跳间隔（秒），默认 60</span>
+  <span class="token literal-property property">username</span><span class="token operator">:</span> <span class="token string">'user'</span><span class="token punctuation">,</span> <span class="token comment">// 用户名（可选）</span>
+  <span class="token literal-property property">password</span><span class="token operator">:</span> <span class="token string">'pass'</span><span class="token punctuation">,</span> <span class="token comment">// 密码（可选）</span>
+  <span class="token literal-property property">will</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 遗嘱消息（可选）</span>
+    <span class="token literal-property property">topic</span><span class="token operator">:</span> <span class="token string">'last/will'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">payload</span><span class="token operator">:</span> <span class="token string">'client disconnected'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p><strong>关键参数说明</strong>：</p> <table><thead><tr><th>参数</th> <th>作用</th> <th>注意事项</th></tr></thead> <tbody><tr><td><strong>clientId</strong></td> <td>客户端唯一标识</td> <td>同一 clientId 的新连接会踢掉旧连接</td></tr> <tr><td><strong>keepalive</strong></td> <td>心跳检测</td> <td>建议设置为 30-120 秒</td></tr> <tr><td><strong>reconnectPeriod</strong></td> <td>重连间隔</td> <td>设为 0 禁用自动重连</td></tr></tbody></table> <hr> <h3 id="_9-mqtt-vs-http-vs-websocket"><a href="#_9-mqtt-vs-http-vs-websocket" class="header-anchor">#</a> 9. MQTT vs HTTP vs WebSocket</h3> <table><thead><tr><th>对比项</th> <th>MQTT</th> <th>HTTP</th> <th>WebSocket</th></tr></thead> <tbody><tr><td><strong>通信模式</strong></td> <td>Pub/Sub</td> <td>请求/响应</td> <td>全双工</td></tr> <tr><td><strong>连接开销</strong></td> <td>极小（2 字节头）</td> <td>大（HTTP 头）</td> <td>中等</td></tr> <tr><td><strong>推送能力</strong></td> <td>天然支持</td> <td>需轮询/长轮询</td> <td>天然支持</td></tr> <tr><td><strong>网络要求</strong></td> <td>低带宽、不稳定</td> <td>稳定网络</td> <td>稳定网络</td></tr> <tr><td><strong>适用场景</strong></td> <td>IoT、车联网</td> <td>Web API</td> <td>实时通讯</td></tr></tbody></table> <hr> <h3 id="_10-常见面试问题"><a href="#_10-常见面试问题" class="header-anchor">#</a> 10. 常见面试问题</h3> <h4 id="q1-mqtt-为什么适合物联网场景"><a href="#q1-mqtt-为什么适合物联网场景" class="header-anchor">#</a> Q1：MQTT 为什么适合物联网场景？</h4> <blockquote><p>&quot;MQTT 专为 IoT 设计：</p> <ol><li><strong>轻量级</strong>：头部仅 2 字节，节省带宽</li> <li><strong>发布订阅</strong>：解耦发布者和订阅者，支持多对多通讯</li> <li><strong>QoS 机制</strong>：适应不同网络质量</li> <li><strong>异步通信</strong>：支持设备离线消息</li> <li><strong>低功耗</strong>：适合电池供电设备&quot;</li></ol></blockquote> <h4 id="q2-qos-1-和-qos-2-的区别"><a href="#q2-qos-1-和-qos-2-的区别" class="header-anchor">#</a> Q2：QoS 1 和 QoS 2 的区别？</h4> <blockquote><p>&quot;QoS 1 是'至少一次'，可能会重复；QoS 2 是'恰好一次'，通过 4 步握手确保不重复。
+实际项目中，QoS 1 用于可重复的场景（如传感器数据），QoS 2 用于不能重复的场景（如远程控制指令）。&quot;</p></blockquote> <h4 id="q3-如何保证消息不丢失"><a href="#q3-如何保证消息不丢失" class="header-anchor">#</a> Q3：如何保证消息不丢失？</h4> <blockquote><p>&quot;多层保障：</p> <ol><li>选择合适的 QoS（1 或 2）</li> <li>设置 clean: false 保留会话</li> <li>使用持久化存储（Redis、数据库）</li> <li>客户端 ACK 确认机制</li> <li>重连后重新订阅关键 Topic&quot;</li></ol></blockquote> <h4 id="q4-topic-设计有什么最佳实践"><a href="#q4-topic-设计有什么最佳实践" class="header-anchor">#</a> Q4：Topic 设计有什么最佳实践？</h4> <blockquote><p>&quot;1. 使用层级结构，按 <code>/</code> 分隔 2. 命名清晰，如 <code>device/{id}/status</code> 3. 避免过深的层级（不超过 3 层） 4. 设备 ID 放在层级中而非 clientId 5. 生产环境避免使用 <code>#</code> 通配符&quot;</p></blockquote> <h4 id="q5-mqtt-的安全机制有哪些"><a href="#q5-mqtt-的安全机制有哪些" class="header-anchor">#</a> Q5：MQTT 的安全机制有哪些？</h4> <blockquote><p>&quot;1. <strong>传输层</strong>：使用 TLS/SSL（端口 8883） 2. <strong>认证层</strong>：用户名/密码、Client Certificate 3. <strong>授权层</strong>：ACL 访问控制列表（限制 Topic 读写权限） 4. <strong>应用层</strong>：消息加密、签名验证&quot;</p></blockquote> <h4 id="q6-如何处理-mqtt-的离线消息"><a href="#q6-如何处理-mqtt-的离线消息" class="header-anchor">#</a> Q6：如何处理 MQTT 的离线消息？</h4> <blockquote><p>&quot;1. 设置 clean: false 2. Broker 开启持久化（如 EMQX 的消息存储） 3. 订阅时使用 QoS 1 或 2 4. 客户端重连后重新订阅 5. 注意离线消息的存储限制和过期时间&quot;</p></blockquote> <hr> <h3 id="_11-实战技巧"><a href="#_11-实战技巧" class="header-anchor">#</a> 11. 实战技巧</h3> <h4 id="批量订阅"><a href="#批量订阅" class="header-anchor">#</a> 批量订阅</h4> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// 一次订阅多个 Topic</span>
+client<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'sensor/temp'</span><span class="token punctuation">,</span> <span class="token string">'sensor/humidity'</span><span class="token punctuation">,</span> <span class="token string">'device/status'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">qos</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h4 id="消息去重-qos-1-场景"><a href="#消息去重-qos-1-场景" class="header-anchor">#</a> 消息去重（QoS 1 场景）</h4> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">const</span> messageIds <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+client<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">topic<span class="token punctuation">,</span> payload</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> msg <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>payload<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 检查是否重复</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>messageIds<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Duplicate message, ignored'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  messageIds<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 处理消息...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h4 id="心跳保活优化"><a href="#心跳保活优化" class="header-anchor">#</a> 心跳保活优化</h4> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">const</span> client <span class="token operator">=</span> mqtt<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">keepalive</span><span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token comment">// 30 秒心跳</span>
+  <span class="token literal-property property">reconnectPeriod</span><span class="token operator">:</span> <span class="token number">5000</span><span class="token punctuation">,</span> <span class="token comment">// 5 秒重连</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+client<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'offline'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Client offline, will reconnect...'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+client<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'reconnect'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Reconnecting...'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><hr> <h3 id="👋-通过-docker-安装-mqtt"><a href="#👋-通过-docker-安装-mqtt" class="header-anchor">#</a> 👋 通过 docker 安装 mqtt</h3> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token parameter variable">--name</span> emqx <span class="token parameter variable">-p</span> <span class="token number">1883</span>:1883 <span class="token parameter variable">-p</span> <span class="token number">8083</span>:8083 <span class="token parameter variable">-p</span> <span class="token number">8883</span>:8883 <span class="token parameter variable">-p</span> <span class="token number">8084</span>:8084 <span class="token parameter variable">-p</span> <span class="token number">18083</span>:18083 emqx/emqx
+</code></pre></div><h3 id="mqtt-公有服务器地址"><a href="#mqtt-公有服务器地址" class="header-anchor">#</a> mqtt 公有服务器地址</h3> <blockquote><p>如果您不需要本地部署的 MQTT Broker，那么可以使用 EMQX 的线上公开版进行快速测试；</p></blockquote> <div class="language-js extra-class"><pre class="language-js"><code>Broker 地址<span class="token operator">:</span> broker<span class="token punctuation">.</span>emqx<span class="token punctuation">.</span>io
+Broker <span class="token constant">TCP</span> <span class="token literal-property property">端口</span><span class="token operator">:</span> <span class="token number">1883</span>
+Broker <span class="token constant">SSL</span> <span class="token literal-property property">端口</span><span class="token operator">:</span> <span class="token number">8883</span>
+</code></pre></div><hr> <h3 id="node-最小-demo"><a href="#node-最小-demo" class="header-anchor">#</a> Node 最小 demo</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> mqtt <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'mqtt'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> host <span class="token operator">=</span> <span class="token string">'127.0.0.1'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> port <span class="token operator">=</span> <span class="token string">'1883'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> clientId <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">mqtt_</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 随机clientId</span>
+  <span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> connectUrl <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">mqtt://</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>host<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>port<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> client <span class="token operator">=</span> mqtt<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span>connectUrl<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  clientId<span class="token punctuation">,</span>
+  <span class="token literal-property property">clean</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">connectTimeout</span><span class="token operator">:</span> <span class="token number">4000</span><span class="token punctuation">,</span>
+  <span class="token comment">// username: 'emqx',</span>
+  <span class="token comment">// password: 'public',</span>
+  <span class="token literal-property property">reconnectPeriod</span><span class="token operator">:</span> <span class="token number">1000</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> topic <span class="token operator">=</span> <span class="token string">'sapphire611'</span><span class="token punctuation">;</span>
+
+client<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'connect'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Connected'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  client<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token punctuation">[</span>topic<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Subscribe to topic '</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>topic<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">'</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// client.publish( // 打开这个就会发送消息</span>
+  <span class="token comment">//   topic,</span>
+  <span class="token comment">//   'nodejs mqtt test',</span>
+  <span class="token comment">//   { qos: 0, retain: false },</span>
+  <span class="token comment">//   (error) =&gt; {</span>
+  <span class="token comment">//     if (error) {</span>
+  <span class="token comment">//       console.error(error);</span>
+  <span class="token comment">//     }</span>
+  <span class="token comment">//   }</span>
+  <span class="token comment">// );</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+client<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">topic<span class="token punctuation">,</span> payload</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Received Message:'</span><span class="token punctuation">,</span> topic<span class="token punctuation">,</span> payload<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></div></section> <footer class="page-edit"><!----> <!----></footer> <!----> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:12rem;" data-v-b57cc07c data-v-7dd95ae2><li class="level-2" data-v-b57cc07c><a href="/backend/mqtt/#mqtt-面试知识点" class="sidebar-link reco-side-mqtt-面试知识点" data-v-b57cc07c>MQTT 面试知识点</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/mqtt/#_1-mqtt-基础概念" class="sidebar-link reco-side-_1-mqtt-基础概念" data-v-b57cc07c>1. MQTT 基础概念</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/mqtt/#_2-mqtt-核心组件" class="sidebar-link reco-side-_2-mqtt-核心组件" data-v-b57cc07c>2. MQTT 核心组件</a></li><li class="level-2" data-v-b57cc07c><a href="/backend/mqtt/#常用-broker-对比" class="sidebar-link reco-side-常用-broker-对比" data-v-b57cc07c>常用 Broker 对比</a></li><li class="level-2" data-v-b57cc07c><a href="/backend/mqtt/#_3-qos-质量等级" class="sidebar-link reco-side-_3-qos-质量等级" data-v-b57cc07c>3. QoS 质量等级</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/mqtt/#_4-topic-主题与通配符" class="sidebar-link reco-side-_4-topic-主题与通配符" data-v-b57cc07c>4. Topic 主题与通配符</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/mqtt/#_5-clean-session-vs-持久会话" class="sidebar-link reco-side-_5-clean-session-vs-持久会话" data-v-b57cc07c>5. Clean Session vs 持久会话</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/mqtt/#_6-遗嘱消息-lwt-last-will-and-testament" class="sidebar-link reco-side-_6-遗嘱消息-lwt-last-will-and-testament" data-v-b57cc07c>6. 遗嘱消息（LWT - Last Will and Testament）</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/mqtt/#_7-保留消息-retain" class="sidebar-link reco-side-_7-保留消息-retain" data-v-b57cc07c>7. 保留消息（Retain）</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/mqtt/#_8-连接参数详解" class="sidebar-link reco-side-_8-连接参数详解" data-v-b57cc07c>8. 连接参数详解</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/mqtt/#_9-mqtt-vs-http-vs-websocket" class="sidebar-link reco-side-_9-mqtt-vs-http-vs-websocket" data-v-b57cc07c>9. MQTT vs HTTP vs WebSocket</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/mqtt/#_10-常见面试问题" class="sidebar-link reco-side-_10-常见面试问题" data-v-b57cc07c>10. 常见面试问题</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/mqtt/#_11-实战技巧" class="sidebar-link reco-side-_11-实战技巧" data-v-b57cc07c>11. 实战技巧</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/mqtt/#👋-通过-docker-安装-mqtt" class="sidebar-link reco-side-👋-通过-docker-安装-mqtt" data-v-b57cc07c>👋 通过 docker 安装 mqtt</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/mqtt/#mqtt-公有服务器地址" class="sidebar-link reco-side-mqtt-公有服务器地址" data-v-b57cc07c>mqtt 公有服务器地址</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/mqtt/#node-最小-demo" class="sidebar-link reco-side-node-最小-demo" data-v-b57cc07c>Node 最小 demo</a></li></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.b73d127a.js" defer></script><script src="/assets/js/7.4905528e.js" defer></script><script src="/assets/js/2.9325dea3.js" defer></script><script src="/assets/js/1.5e3b8f6c.js" defer></script><script src="/assets/js/51.a9ba470a.js" defer></script>
+  </body>
+</html>

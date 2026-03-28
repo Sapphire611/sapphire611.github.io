@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>5分钟速通 RabbitMQ | Sapphire611</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    
+    <meta name="description" content="::: right
+来自 Sapphire611
+:::">
+    <meta name="twitter:title" content="5分钟速通 RabbitMQ">
+    <meta name="twitter:description" content="::: right
+来自 Sapphire611
+:::">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://sapphire611.github.io/backend/rabbitmq/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="5分钟速通 RabbitMQ">
+    <meta property="og:description" content="::: right
+来自 Sapphire611
+:::">
+    <meta property="og:url" content="https://sapphire611.github.io/backend/rabbitmq/">
+    <meta property="og:site_name" content="Sapphire611">
+    <meta property="article:published_time" content="2025-08-04T00:00:00.000Z">
+    <meta property="article:tag" content="rabbitmq">
+    <meta itemprop="name" content="5分钟速通 RabbitMQ">
+    <meta itemprop="description" content="::: right
+来自 Sapphire611
+:::">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.975cf9e9.css" as="style"><link rel="preload" href="/assets/js/app.b73d127a.js" as="script"><link rel="preload" href="/assets/js/7.4905528e.js" as="script"><link rel="preload" href="/assets/js/2.9325dea3.js" as="script"><link rel="preload" href="/assets/js/1.5e3b8f6c.js" as="script"><link rel="preload" href="/assets/js/62.9b9f0da3.js" as="script"><link rel="prefetch" href="/assets/js/10.174f33d6.js"><link rel="prefetch" href="/assets/js/100.3784640d.js"><link rel="prefetch" href="/assets/js/11.9c49c7ba.js"><link rel="prefetch" href="/assets/js/14.cbb1755b.js"><link rel="prefetch" href="/assets/js/15.61fff1cd.js"><link rel="prefetch" href="/assets/js/16.e9d7b982.js"><link rel="prefetch" href="/assets/js/17.bb4e111f.js"><link rel="prefetch" href="/assets/js/18.91118260.js"><link rel="prefetch" href="/assets/js/19.09b251c1.js"><link rel="prefetch" href="/assets/js/20.436af937.js"><link rel="prefetch" href="/assets/js/21.461c6912.js"><link rel="prefetch" href="/assets/js/22.7597ffa7.js"><link rel="prefetch" href="/assets/js/23.0f494ed8.js"><link rel="prefetch" href="/assets/js/24.59a6adb9.js"><link rel="prefetch" href="/assets/js/25.6212e678.js"><link rel="prefetch" href="/assets/js/26.42b3dd29.js"><link rel="prefetch" href="/assets/js/27.f6b883c4.js"><link rel="prefetch" href="/assets/js/28.07ebcf07.js"><link rel="prefetch" href="/assets/js/29.20437d59.js"><link rel="prefetch" href="/assets/js/3.243b25cb.js"><link rel="prefetch" href="/assets/js/30.a1ad6350.js"><link rel="prefetch" href="/assets/js/31.962e9e5b.js"><link rel="prefetch" href="/assets/js/32.878fb932.js"><link rel="prefetch" href="/assets/js/33.0db2c06a.js"><link rel="prefetch" href="/assets/js/34.1dbb0b23.js"><link rel="prefetch" href="/assets/js/35.1bf50774.js"><link rel="prefetch" href="/assets/js/36.e39f3b7f.js"><link rel="prefetch" href="/assets/js/37.2a41744f.js"><link rel="prefetch" href="/assets/js/38.a8d9bd25.js"><link rel="prefetch" href="/assets/js/39.69ccbcd5.js"><link rel="prefetch" href="/assets/js/4.d8f7f06d.js"><link rel="prefetch" href="/assets/js/40.a276aec2.js"><link rel="prefetch" href="/assets/js/41.7e3d7c5e.js"><link rel="prefetch" href="/assets/js/42.ebd46e61.js"><link rel="prefetch" href="/assets/js/43.33f0a54b.js"><link rel="prefetch" href="/assets/js/44.d91e8774.js"><link rel="prefetch" href="/assets/js/45.5e9bc551.js"><link rel="prefetch" href="/assets/js/46.22176526.js"><link rel="prefetch" href="/assets/js/47.27818333.js"><link rel="prefetch" href="/assets/js/48.06487c7c.js"><link rel="prefetch" href="/assets/js/49.80e99e11.js"><link rel="prefetch" href="/assets/js/5.0133f5a5.js"><link rel="prefetch" href="/assets/js/50.9b3867d8.js"><link rel="prefetch" href="/assets/js/51.a9ba470a.js"><link rel="prefetch" href="/assets/js/52.0d7368fe.js"><link rel="prefetch" href="/assets/js/53.dd3f9d11.js"><link rel="prefetch" href="/assets/js/54.0f9d226b.js"><link rel="prefetch" href="/assets/js/55.821a241b.js"><link rel="prefetch" href="/assets/js/56.f3a4c28b.js"><link rel="prefetch" href="/assets/js/57.c962a7d7.js"><link rel="prefetch" href="/assets/js/58.f2f24dc2.js"><link rel="prefetch" href="/assets/js/59.d556f990.js"><link rel="prefetch" href="/assets/js/6.188dbb7e.js"><link rel="prefetch" href="/assets/js/60.133241fd.js"><link rel="prefetch" href="/assets/js/61.9313eedf.js"><link rel="prefetch" href="/assets/js/63.a6535d43.js"><link rel="prefetch" href="/assets/js/64.a0094b5c.js"><link rel="prefetch" href="/assets/js/65.47b3d5ab.js"><link rel="prefetch" href="/assets/js/66.1dbfd750.js"><link rel="prefetch" href="/assets/js/67.1c9c1ff6.js"><link rel="prefetch" href="/assets/js/68.ddc4f488.js"><link rel="prefetch" href="/assets/js/69.c2fc73dd.js"><link rel="prefetch" href="/assets/js/70.46bb2519.js"><link rel="prefetch" href="/assets/js/71.5168faa3.js"><link rel="prefetch" href="/assets/js/72.f84dee34.js"><link rel="prefetch" href="/assets/js/73.692ab11c.js"><link rel="prefetch" href="/assets/js/74.8bbed35a.js"><link rel="prefetch" href="/assets/js/75.083b722d.js"><link rel="prefetch" href="/assets/js/76.273f0731.js"><link rel="prefetch" href="/assets/js/77.a6ec3ff4.js"><link rel="prefetch" href="/assets/js/78.30e164b0.js"><link rel="prefetch" href="/assets/js/79.59a62620.js"><link rel="prefetch" href="/assets/js/8.38e12555.js"><link rel="prefetch" href="/assets/js/80.e1f9e208.js"><link rel="prefetch" href="/assets/js/81.49d04bed.js"><link rel="prefetch" href="/assets/js/82.b53c8155.js"><link rel="prefetch" href="/assets/js/83.8a597835.js"><link rel="prefetch" href="/assets/js/84.2a9d7ee5.js"><link rel="prefetch" href="/assets/js/85.c45353d6.js"><link rel="prefetch" href="/assets/js/86.6a35ab9d.js"><link rel="prefetch" href="/assets/js/87.2561f182.js"><link rel="prefetch" href="/assets/js/88.11581266.js"><link rel="prefetch" href="/assets/js/89.121e642c.js"><link rel="prefetch" href="/assets/js/9.0d31bb97.js"><link rel="prefetch" href="/assets/js/90.9809c83a.js"><link rel="prefetch" href="/assets/js/91.9d45d902.js"><link rel="prefetch" href="/assets/js/92.0b488237.js"><link rel="prefetch" href="/assets/js/93.731d05e0.js"><link rel="prefetch" href="/assets/js/94.9b3a95d2.js"><link rel="prefetch" href="/assets/js/95.82f4a5a5.js"><link rel="prefetch" href="/assets/js/96.f373e9e7.js"><link rel="prefetch" href="/assets/js/97.ef86437a.js"><link rel="prefetch" href="/assets/js/98.a786ed87.js"><link rel="prefetch" href="/assets/js/99.36c23ae0.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.9cd2d626.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.975cf9e9.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-7dd95ae2><div data-v-7dd95ae2><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>Sapphire611</h3> <p class="description" data-v-59e6cb88>感谢来访🙏 </p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><!---->
+          
+        <span data-v-59e6cb88>2021 - </span>
+        2026
+      </a></span></div></div> <div class="hide" data-v-7dd95ae2><header class="navbar" data-v-7dd95ae2><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logo.jpg" alt="Sapphire611" class="logo"> <span class="site-name">Sapphire611</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/aboutMe/" class="nav-link"><i class="info"></i>
+  About Me
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/archietcture/" class="nav-link"><i class="undefined"></i>
+  archietcture
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Me/" class="nav-link"><i class="undefined"></i>
+  Me
+</a></li><li class="dropdown-item"><!----> <a href="/categories/elasticSearch/" class="nav-link"><i class="undefined"></i>
+  elasticSearch
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Backend/" class="nav-link"><i class="undefined"></i>
+  Backend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/mongodb/" class="nav-link"><i class="undefined"></i>
+  mongodb
+</a></li><li class="dropdown-item"><!----> <a href="/categories/interview/" class="nav-link"><i class="undefined"></i>
+  interview
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Frontend/" class="nav-link"><i class="undefined"></i>
+  Frontend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Algorithm/" class="nav-link"><i class="undefined"></i>
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/categories/sql/" class="nav-link"><i class="undefined"></i>
+  sql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Javascript/" class="nav-link"><i class="undefined"></i>
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/postgres/" class="nav-link"><i class="undefined"></i>
+  postgres
+</a></li><li class="dropdown-item"><!----> <a href="/categories/misc/" class="nav-link"><i class="undefined"></i>
+  misc
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Certificate/" class="nav-link"><i class="undefined"></i>
+  Certificate
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Deploy/" class="nav-link"><i class="undefined"></i>
+  Deploy
+</a></li><li class="dropdown-item"><!----> <a href="/categories/graphql/" class="nav-link"><i class="undefined"></i>
+  graphql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/AI/" class="nav-link"><i class="undefined"></i>
+  AI
+</a></li><li class="dropdown-item"><!----> <a href="/categories/backend/" class="nav-link"><i class="undefined"></i>
+  backend
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div> <a href="https://github.com/Sapphire611/vuepress-sapphire611" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask" data-v-7dd95ae2></div> <aside class="sidebar" data-v-7dd95ae2><div class="personal-info-wrapper" data-v-1fad0c41 data-v-7dd95ae2><img src="/img/logo.jpg" alt="author-avatar" class="personal-img" data-v-1fad0c41> <!----> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>61</h3> <h6 data-v-1fad0c41>Articles</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>41</h3> <h6 data-v-1fad0c41>Tags</h6></div></div> <ul class="social-links" data-v-1fad0c41><li class="social-item" data-v-1fad0c41><i class="iconfont reco-github" style="color:#f47e60;" data-v-1fad0c41></i></li></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><a href="/aboutMe/" class="nav-link"><i class="info"></i>
+  About Me
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/archietcture/" class="nav-link"><i class="undefined"></i>
+  archietcture
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Me/" class="nav-link"><i class="undefined"></i>
+  Me
+</a></li><li class="dropdown-item"><!----> <a href="/categories/elasticSearch/" class="nav-link"><i class="undefined"></i>
+  elasticSearch
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Backend/" class="nav-link"><i class="undefined"></i>
+  Backend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/mongodb/" class="nav-link"><i class="undefined"></i>
+  mongodb
+</a></li><li class="dropdown-item"><!----> <a href="/categories/interview/" class="nav-link"><i class="undefined"></i>
+  interview
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Frontend/" class="nav-link"><i class="undefined"></i>
+  Frontend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Algorithm/" class="nav-link"><i class="undefined"></i>
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/categories/sql/" class="nav-link"><i class="undefined"></i>
+  sql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Javascript/" class="nav-link"><i class="undefined"></i>
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/postgres/" class="nav-link"><i class="undefined"></i>
+  postgres
+</a></li><li class="dropdown-item"><!----> <a href="/categories/misc/" class="nav-link"><i class="undefined"></i>
+  misc
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Certificate/" class="nav-link"><i class="undefined"></i>
+  Certificate
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Deploy/" class="nav-link"><i class="undefined"></i>
+  Deploy
+</a></li><li class="dropdown-item"><!----> <a href="/categories/graphql/" class="nav-link"><i class="undefined"></i>
+  graphql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/AI/" class="nav-link"><i class="undefined"></i>
+  AI
+</a></li><li class="dropdown-item"><!----> <a href="/categories/backend/" class="nav-link"><i class="undefined"></i>
+  backend
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div> <a href="https://github.com/Sapphire611/vuepress-sapphire611" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>5分钟速通 RabbitMQ</h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><!---->
+          
+        <span data-v-59e6cb88>2021 - </span>
+        2026
+      </a></span></div></div> <div data-v-7dd95ae2><div data-v-7dd95ae2><main class="page"><section style="display:;"><div class="page-title"><h1 class="title">5分钟速通 RabbitMQ</h1> <div data-v-8a445198><!----> <i class="iconfont reco-date" data-v-8a445198><span data-v-8a445198>8/4/2025</span></i> <i class="iconfont reco-eye" data-v-8a445198><span id="/backend/rabbitmq/" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-8a445198><a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;"></a></span></i> <i class="tags iconfont reco-tag" data-v-8a445198><span class="tag-item" data-v-8a445198>rabbitmq</span></i></div></div> <div class="theme-reco-content content__default"><div class="custom-block right"><p>来自 <a href="http://sapphire611.github.io" target="_blank" rel="noopener noreferrer">Sapphire611<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></div> <h2 id="👋-通过-docker-安装-rabbitmq"><a href="#👋-通过-docker-安装-rabbitmq" class="header-anchor">#</a> 👋 通过 docker 安装 rabbitMq</h2> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token parameter variable">--name</span> rabbitmq <span class="token parameter variable">--restart</span><span class="token operator">=</span>always <span class="token parameter variable">-p</span> <span class="token number">15672</span>:15672 <span class="token parameter variable">-p</span> <span class="token number">5672</span>:5672 <span class="token parameter variable">-e</span> <span class="token assign-left variable">RABBITMQ_DEFAULT_USER</span><span class="token operator">=</span>guest <span class="token parameter variable">-e</span> <span class="token assign-left variable">RABBITMQ_DEFAULT_PASS</span><span class="token operator">=</span>guest <span class="token parameter variable">--name</span> rabbitmq:management
+</code></pre></div><h3 id="gui"><a href="#gui" class="header-anchor">#</a> GUI</h3> <ul><li><a href="http://127.0.0.1:15672/" target="_blank" rel="noopener noreferrer">默认账户：guest/guest<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul> <h3 id="node-demo"><a href="#node-demo" class="header-anchor">#</a> Node Demo</h3> <h4 id="producer-js"><a href="#producer-js" class="header-anchor">#</a> producer.js</h4> <blockquote><p>生产者配置（带死信队列）</p></blockquote> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> amqp <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'amqplib'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">setupProducer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 1. 建立连接</span>
+    <span class="token keyword">const</span> connection <span class="token operator">=</span> <span class="token keyword">await</span> amqp<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token string">'amqp://localhost'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> channel <span class="token operator">=</span> <span class="token keyword">await</span> connection<span class="token punctuation">.</span><span class="token function">createConfirmChannel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 开启确认模式</span>
+
+    <span class="token comment">// 2. 声明死信交换机</span>
+    <span class="token keyword">await</span> channel<span class="token punctuation">.</span><span class="token function">assertExchange</span><span class="token punctuation">(</span><span class="token string">'dlx.exchange'</span><span class="token punctuation">,</span> <span class="token string">'direct'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">durable</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 3. 声明死信队列</span>
+    <span class="token keyword">await</span> channel<span class="token punctuation">.</span><span class="token function">assertQueue</span><span class="token punctuation">(</span><span class="token string">'dlx.queue'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">durable</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 4. 绑定死信队列</span>
+    <span class="token keyword">await</span> channel<span class="token punctuation">.</span><span class="token function">bindQueue</span><span class="token punctuation">(</span><span class="token string">'dlx.queue'</span><span class="token punctuation">,</span> <span class="token string">'dlx.exchange'</span><span class="token punctuation">,</span> <span class="token string">'dlx.routing.key'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 5. 声明主队列（绑定死信配置）</span>
+    <span class="token keyword">await</span> channel<span class="token punctuation">.</span><span class="token function">assertQueue</span><span class="token punctuation">(</span><span class="token string">'main.queue'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">durable</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      <span class="token comment">// 死信配置</span>
+      <span class="token literal-property property">deadLetterExchange</span><span class="token operator">:</span> <span class="token string">'dlx.exchange'</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">deadLetterRoutingKey</span><span class="token operator">:</span> <span class="token string">'dlx.routing.key'</span><span class="token punctuation">,</span>
+      <span class="token comment">// 可选：队列消息TTL（毫秒）</span>
+      <span class="token literal-property property">messageTtl</span><span class="token operator">:</span> <span class="token number">60000</span><span class="token punctuation">,</span> <span class="token comment">// 1分钟过期</span>
+      <span class="token comment">// 可选：队列最大长度</span>
+      <span class="token literal-property property">maxLength</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 6. 发送消息（带TTL示例）</span>
+    <span class="token keyword">const</span> message <span class="token operator">=</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">id</span><span class="token operator">:</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">content</span><span class="token operator">:</span> <span class="token string">'Important message'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    channel<span class="token punctuation">.</span><span class="token function">sendToQueue</span><span class="token punctuation">(</span><span class="token string">'main.queue'</span><span class="token punctuation">,</span> Buffer<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">persistent</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      <span class="token comment">// 消息级TTL（优先级高于队列TTL）</span>
+      <span class="token comment">// expiration: '30000' // 30秒过期</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string"> [x] Sent message: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 7. 关闭连接</span>
+    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      connection<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      process<span class="token punctuation">.</span><span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'Producer error:'</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">setupProducer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h4 id="consumer-js"><a href="#consumer-js" class="header-anchor">#</a> consumer.js</h4> <blockquote><p>消费者配置（带死信队列）</p></blockquote> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> amqp <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'amqplib'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">setupConsumer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 1. 建立连接</span>
+    <span class="token keyword">const</span> connection <span class="token operator">=</span> <span class="token keyword">await</span> amqp<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token string">'amqp://localhost'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> channel <span class="token operator">=</span> <span class="token keyword">await</span> connection<span class="token punctuation">.</span><span class="token function">createChannel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 2. 声明死信交换机（应与生产者一致）</span>
+    <span class="token keyword">await</span> channel<span class="token punctuation">.</span><span class="token function">assertExchange</span><span class="token punctuation">(</span><span class="token string">'dlx.exchange'</span><span class="token punctuation">,</span> <span class="token string">'direct'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">durable</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 3. 声明死信队列（应与生产者一致）</span>
+    <span class="token keyword">await</span> channel<span class="token punctuation">.</span><span class="token function">assertQueue</span><span class="token punctuation">(</span><span class="token string">'dlx.queue'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">durable</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 4. 绑定死信队列</span>
+    <span class="token keyword">await</span> channel<span class="token punctuation">.</span><span class="token function">bindQueue</span><span class="token punctuation">(</span><span class="token string">'dlx.queue'</span><span class="token punctuation">,</span> <span class="token string">'dlx.exchange'</span><span class="token punctuation">,</span> <span class="token string">'dlx.routing.key'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 5. 声明主队列（配置应与生产者一致）</span>
+    <span class="token keyword">await</span> channel<span class="token punctuation">.</span><span class="token function">assertQueue</span><span class="token punctuation">(</span><span class="token string">'main.queue'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">durable</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">deadLetterExchange</span><span class="token operator">:</span> <span class="token string">'dlx.exchange'</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">deadLetterRoutingKey</span><span class="token operator">:</span> <span class="token string">'dlx.routing.key'</span><span class="token punctuation">,</span>
+      <span class="token comment">// 可选：队列消息TTL（毫秒）</span>
+      <span class="token literal-property property">messageTtl</span><span class="token operator">:</span> <span class="token number">60000</span><span class="token punctuation">,</span> <span class="token comment">// 1分钟过期</span>
+      <span class="token comment">// 可选：队列最大长度</span>
+      <span class="token literal-property property">maxLength</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 6. 设置每次只处理一条消息（公平分发）</span>
+    channel<span class="token punctuation">.</span><span class="token function">prefetch</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">' [*] Waiting for messages. To exit press CTRL+C'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 7. 主队列消费者</span>
+    channel<span class="token punctuation">.</span><span class="token function">consume</span><span class="token punctuation">(</span>
+      <span class="token string">'main.queue'</span><span class="token punctuation">,</span>
+      <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">msg</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+          <span class="token keyword">const</span> message <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>content<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">' [x] Received:'</span><span class="token punctuation">,</span> message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+          <span class="token comment">// 模拟业务处理</span>
+          <span class="token keyword">await</span> <span class="token function">processMessage</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+          <span class="token comment">// 处理成功，确认消息</span>
+          channel<span class="token punctuation">.</span><span class="token function">ack</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">' [√] Message processed successfully'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">' [!] Processing failed:'</span><span class="token punctuation">,</span> error<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+          <span class="token comment">// 处理失败，拒绝消息（不重新入队，转到死信队列）</span>
+          channel<span class="token punctuation">.</span><span class="token function">nack</span><span class="token punctuation">(</span>msg<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">' [→] Message sent to DLQ'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span> <span class="token literal-property property">noAck</span><span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 8. 死信队列消费者</span>
+    channel<span class="token punctuation">.</span><span class="token function">consume</span><span class="token punctuation">(</span>
+      <span class="token string">'dlx.queue'</span><span class="token punctuation">,</span>
+      <span class="token punctuation">(</span><span class="token parameter">msg</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> deadMessage <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>content<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">' [DLQ] Received dead letter:'</span><span class="token punctuation">,</span> deadMessage<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 这里可以添加死信处理逻辑：</span>
+        <span class="token comment">// 1. 记录到数据库</span>
+        <span class="token comment">// 2. 发送报警通知</span>
+        <span class="token comment">// 3. 人工干预接口</span>
+
+        channel<span class="token punctuation">.</span><span class="token function">ack</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span> <span class="token literal-property property">noAck</span><span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'Consumer error:'</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 模拟业务处理函数</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">processMessage</span><span class="token punctuation">(</span><span class="token parameter">message</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 随机失败（模拟业务异常）</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0.7</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'Random processing error'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// 模拟处理耗时</span>
+  <span class="token keyword">await</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">setupConsumer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="死信"><a href="#死信" class="header-anchor">#</a> 死信</h3> <ul><li>死信（Dead Letter）是指 RabbitMQ 中无法被正常消费的消息。这些消息通常会被重新路由到一个特殊的队列中，这个队列就称为死信队列（DLQ, Dead Letter Queue）。</li></ul> <h3 id="延迟队列实现"><a href="#延迟队列实现" class="header-anchor">#</a> 延迟队列实现</h3> <blockquote><p>通过 TTL+死信队列的组合可以实现延迟队列功能（RabbitMQ 本身没有直接提供延迟队列功能）。</p></blockquote> <ul><li><p>创建带 TTL 和 DLX 的队列</p></li> <li><p>消息过期后自动转入死信队列</p></li> <li><p>消费者监听死信队列</p></li></ul> <h2 id="面试题"><a href="#面试题" class="header-anchor">#</a> 面试题</h2> <h3 id="如何保证-rabbitmq-消息的可靠投递"><a href="#如何保证-rabbitmq-消息的可靠投递" class="header-anchor">#</a> 如何保证 RabbitMQ 消息的可靠投递？</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 1. 生产者确认模式 (Publisher Confirm)</span>
+<span class="token keyword">const</span> channel <span class="token operator">=</span> <span class="token keyword">await</span> connection<span class="token punctuation">.</span><span class="token function">createConfirmChannel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 开启确认模式</span>
+
+<span class="token comment">// 2. 消息持久化</span>
+<span class="token keyword">await</span> channel<span class="token punctuation">.</span><span class="token function">assertQueue</span><span class="token punctuation">(</span>queue<span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">durable</span><span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 队列持久化</span>
+channel<span class="token punctuation">.</span><span class="token function">sendToQueue</span><span class="token punctuation">(</span>queue<span class="token punctuation">,</span> content<span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">persistent</span><span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 消息持久化</span>
+
+<span class="token comment">// 3. 消费者手动ACK</span>
+channel<span class="token punctuation">.</span><span class="token function">consume</span><span class="token punctuation">(</span>
+  queue<span class="token punctuation">,</span>
+  <span class="token punctuation">(</span><span class="token parameter">msg</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+      <span class="token function">process</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      channel<span class="token punctuation">.</span><span class="token function">ack</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 处理成功才确认</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      channel<span class="token punctuation">.</span><span class="token function">nack</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 处理失败拒绝</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> <span class="token literal-property property">noAck</span><span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 必须关闭自动ACK</span>
+
+<span class="token comment">// 4. 备份交换机</span>
+<span class="token keyword">await</span> channel<span class="token punctuation">.</span><span class="token function">assertExchange</span><span class="token punctuation">(</span><span class="token string">'main.exchange'</span><span class="token punctuation">,</span> <span class="token string">'direct'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">durable</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">alternateExchange</span><span class="token operator">:</span> <span class="token string">'ae.exchange'</span><span class="token punctuation">,</span> <span class="token comment">// 指定备份交换机</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="rabbitmq-如何实现延迟队列-有哪些方案"><a href="#rabbitmq-如何实现延迟队列-有哪些方案" class="header-anchor">#</a> RabbitMQ 如何实现延迟队列？有哪些方案？</h3> <ul><li>方案 1：TTL+死信队列（最常用）</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 延迟队列设置</span>
+<span class="token keyword">await</span> channel<span class="token punctuation">.</span><span class="token function">assertQueue</span><span class="token punctuation">(</span><span class="token string">'delay.queue'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">deadLetterExchange</span><span class="token operator">:</span> <span class="token string">'target.exchange'</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">messageTtl</span><span class="token operator">:</span> <span class="token number">60000</span><span class="token punctuation">,</span> <span class="token comment">// 60秒后成为死信</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 消费者监听目标队列</span>
+<span class="token keyword">await</span> channel<span class="token punctuation">.</span><span class="token function">assertQueue</span><span class="token punctuation">(</span><span class="token string">'target.queue'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+channel<span class="token punctuation">.</span><span class="token function">consume</span><span class="token punctuation">(</span><span class="token string">'target.queue'</span><span class="token punctuation">,</span> processMessage<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><ul><li><p>方案 2：rabbitmq_delayed_message_exchange 插件</p></li> <li><p>方案 3：外部存储+定时任务</p></li></ul> <h3 id="如何处理-rabbitmq-消息积压问题"><a href="#如何处理-rabbitmq-消息积压问题" class="header-anchor">#</a> 如何处理 RabbitMQ 消息积压问题？</h3> <ul><li>扩容消费者</li></ul> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// 启动多个消费者实例</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  cluster<span class="token punctuation">.</span><span class="token function">fork</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 使用集群模式</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li>批量消费模式</li></ul> <div class="language-javascript extra-class"><pre class="language-javascript"><code>channel<span class="token punctuation">.</span><span class="token function">prefetch</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 提高预取数量</span>
+channel<span class="token punctuation">.</span><span class="token function">consume</span><span class="token punctuation">(</span>queue<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">msg</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  batch<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>batch<span class="token punctuation">.</span>length <span class="token operator">&gt;=</span> <span class="token number">50</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">bulkProcess</span><span class="token punctuation">(</span>batch<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> batch<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">m</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> channel<span class="token punctuation">.</span><span class="token function">ack</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><ul><li>临时消息转储</li></ul> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// 将积压消息转移到临时队列</span>
+channel<span class="token punctuation">.</span><span class="token function">consume</span><span class="token punctuation">(</span><span class="token string">'overload.queue'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">msg</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token function">saveToRedis</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> channel<span class="token punctuation">.</span><span class="token function">ack</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><ul><li>监控预警</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># 监控队列积压情况</span>
+rabbitmqctl list_queues name messages_ready
+</code></pre></div><ul><li>动态伸缩</li></ul> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// 根据队列长度自动扩展消费者</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>queueLength <span class="token operator">&gt;</span> <span class="token number">1000</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">scaleUpConsumers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div></section> <footer class="page-edit"><!----> <!----></footer> <!----> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:12rem;" data-v-b57cc07c data-v-7dd95ae2><li class="level-2" data-v-b57cc07c><a href="/backend/rabbitmq/#👋-通过-docker-安装-rabbitmq" class="sidebar-link reco-side-👋-通过-docker-安装-rabbitmq" data-v-b57cc07c>👋 通过 docker 安装 rabbitMq</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/rabbitmq/#gui" class="sidebar-link reco-side-gui" data-v-b57cc07c>GUI</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/rabbitmq/#node-demo" class="sidebar-link reco-side-node-demo" data-v-b57cc07c>Node Demo</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/rabbitmq/#死信" class="sidebar-link reco-side-死信" data-v-b57cc07c>死信</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/rabbitmq/#延迟队列实现" class="sidebar-link reco-side-延迟队列实现" data-v-b57cc07c>延迟队列实现</a></li><li class="level-2" data-v-b57cc07c><a href="/backend/rabbitmq/#面试题" class="sidebar-link reco-side-面试题" data-v-b57cc07c>面试题</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/rabbitmq/#如何保证-rabbitmq-消息的可靠投递" class="sidebar-link reco-side-如何保证-rabbitmq-消息的可靠投递" data-v-b57cc07c>如何保证 RabbitMQ 消息的可靠投递？</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/rabbitmq/#rabbitmq-如何实现延迟队列-有哪些方案" class="sidebar-link reco-side-rabbitmq-如何实现延迟队列-有哪些方案" data-v-b57cc07c>RabbitMQ 如何实现延迟队列？有哪些方案？</a></li><li class="level-3" data-v-b57cc07c><a href="/backend/rabbitmq/#如何处理-rabbitmq-消息积压问题" class="sidebar-link reco-side-如何处理-rabbitmq-消息积压问题" data-v-b57cc07c>如何处理 RabbitMQ 消息积压问题？</a></li></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.b73d127a.js" defer></script><script src="/assets/js/7.4905528e.js" defer></script><script src="/assets/js/2.9325dea3.js" defer></script><script src="/assets/js/1.5e3b8f6c.js" defer></script><script src="/assets/js/62.9b9f0da3.js" defer></script>
+  </body>
+</html>

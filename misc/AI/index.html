@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>AI Agent 相关 | Sapphire611</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    
+    <meta name="description" content="RAG (Retrieval-Augmented Generation) 是一种结合上下文检索和生成的 AI 技术，用于增强大语言模型的准确性和可靠性。">
+    <meta name="twitter:title" content="AI Agent 相关">
+    <meta name="twitter:description" content="RAG (Retrieval-Augmented Generation) 是一种结合上下文检索和生成的 AI 技术，用于增强大语言模型的准确性和可靠性。">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://sapphire611.github.io/misc/AI/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="AI Agent 相关">
+    <meta property="og:description" content="RAG (Retrieval-Augmented Generation) 是一种结合上下文检索和生成的 AI 技术，用于增强大语言模型的准确性和可靠性。">
+    <meta property="og:url" content="https://sapphire611.github.io/misc/AI/">
+    <meta property="og:site_name" content="Sapphire611">
+    <meta property="article:published_time" content="2026-03-18T00:00:00.000Z">
+    <meta property="article:tag" content="AI">
+    <meta itemprop="name" content="AI Agent 相关">
+    <meta itemprop="description" content="RAG (Retrieval-Augmented Generation) 是一种结合上下文检索和生成的 AI 技术，用于增强大语言模型的准确性和可靠性。">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.975cf9e9.css" as="style"><link rel="preload" href="/assets/js/app.b73d127a.js" as="script"><link rel="preload" href="/assets/js/7.4905528e.js" as="script"><link rel="preload" href="/assets/js/2.9325dea3.js" as="script"><link rel="preload" href="/assets/js/1.5e3b8f6c.js" as="script"><link rel="preload" href="/assets/js/92.0b488237.js" as="script"><link rel="prefetch" href="/assets/js/10.174f33d6.js"><link rel="prefetch" href="/assets/js/100.3784640d.js"><link rel="prefetch" href="/assets/js/11.9c49c7ba.js"><link rel="prefetch" href="/assets/js/14.cbb1755b.js"><link rel="prefetch" href="/assets/js/15.61fff1cd.js"><link rel="prefetch" href="/assets/js/16.e9d7b982.js"><link rel="prefetch" href="/assets/js/17.bb4e111f.js"><link rel="prefetch" href="/assets/js/18.91118260.js"><link rel="prefetch" href="/assets/js/19.09b251c1.js"><link rel="prefetch" href="/assets/js/20.436af937.js"><link rel="prefetch" href="/assets/js/21.461c6912.js"><link rel="prefetch" href="/assets/js/22.7597ffa7.js"><link rel="prefetch" href="/assets/js/23.0f494ed8.js"><link rel="prefetch" href="/assets/js/24.59a6adb9.js"><link rel="prefetch" href="/assets/js/25.6212e678.js"><link rel="prefetch" href="/assets/js/26.42b3dd29.js"><link rel="prefetch" href="/assets/js/27.f6b883c4.js"><link rel="prefetch" href="/assets/js/28.07ebcf07.js"><link rel="prefetch" href="/assets/js/29.20437d59.js"><link rel="prefetch" href="/assets/js/3.243b25cb.js"><link rel="prefetch" href="/assets/js/30.a1ad6350.js"><link rel="prefetch" href="/assets/js/31.962e9e5b.js"><link rel="prefetch" href="/assets/js/32.878fb932.js"><link rel="prefetch" href="/assets/js/33.0db2c06a.js"><link rel="prefetch" href="/assets/js/34.1dbb0b23.js"><link rel="prefetch" href="/assets/js/35.1bf50774.js"><link rel="prefetch" href="/assets/js/36.e39f3b7f.js"><link rel="prefetch" href="/assets/js/37.2a41744f.js"><link rel="prefetch" href="/assets/js/38.a8d9bd25.js"><link rel="prefetch" href="/assets/js/39.69ccbcd5.js"><link rel="prefetch" href="/assets/js/4.d8f7f06d.js"><link rel="prefetch" href="/assets/js/40.a276aec2.js"><link rel="prefetch" href="/assets/js/41.7e3d7c5e.js"><link rel="prefetch" href="/assets/js/42.ebd46e61.js"><link rel="prefetch" href="/assets/js/43.33f0a54b.js"><link rel="prefetch" href="/assets/js/44.d91e8774.js"><link rel="prefetch" href="/assets/js/45.5e9bc551.js"><link rel="prefetch" href="/assets/js/46.22176526.js"><link rel="prefetch" href="/assets/js/47.27818333.js"><link rel="prefetch" href="/assets/js/48.06487c7c.js"><link rel="prefetch" href="/assets/js/49.80e99e11.js"><link rel="prefetch" href="/assets/js/5.0133f5a5.js"><link rel="prefetch" href="/assets/js/50.9b3867d8.js"><link rel="prefetch" href="/assets/js/51.a9ba470a.js"><link rel="prefetch" href="/assets/js/52.0d7368fe.js"><link rel="prefetch" href="/assets/js/53.dd3f9d11.js"><link rel="prefetch" href="/assets/js/54.0f9d226b.js"><link rel="prefetch" href="/assets/js/55.821a241b.js"><link rel="prefetch" href="/assets/js/56.f3a4c28b.js"><link rel="prefetch" href="/assets/js/57.c962a7d7.js"><link rel="prefetch" href="/assets/js/58.f2f24dc2.js"><link rel="prefetch" href="/assets/js/59.d556f990.js"><link rel="prefetch" href="/assets/js/6.188dbb7e.js"><link rel="prefetch" href="/assets/js/60.133241fd.js"><link rel="prefetch" href="/assets/js/61.9313eedf.js"><link rel="prefetch" href="/assets/js/62.9b9f0da3.js"><link rel="prefetch" href="/assets/js/63.a6535d43.js"><link rel="prefetch" href="/assets/js/64.a0094b5c.js"><link rel="prefetch" href="/assets/js/65.47b3d5ab.js"><link rel="prefetch" href="/assets/js/66.1dbfd750.js"><link rel="prefetch" href="/assets/js/67.1c9c1ff6.js"><link rel="prefetch" href="/assets/js/68.ddc4f488.js"><link rel="prefetch" href="/assets/js/69.c2fc73dd.js"><link rel="prefetch" href="/assets/js/70.46bb2519.js"><link rel="prefetch" href="/assets/js/71.5168faa3.js"><link rel="prefetch" href="/assets/js/72.f84dee34.js"><link rel="prefetch" href="/assets/js/73.692ab11c.js"><link rel="prefetch" href="/assets/js/74.8bbed35a.js"><link rel="prefetch" href="/assets/js/75.083b722d.js"><link rel="prefetch" href="/assets/js/76.273f0731.js"><link rel="prefetch" href="/assets/js/77.a6ec3ff4.js"><link rel="prefetch" href="/assets/js/78.30e164b0.js"><link rel="prefetch" href="/assets/js/79.59a62620.js"><link rel="prefetch" href="/assets/js/8.38e12555.js"><link rel="prefetch" href="/assets/js/80.e1f9e208.js"><link rel="prefetch" href="/assets/js/81.49d04bed.js"><link rel="prefetch" href="/assets/js/82.b53c8155.js"><link rel="prefetch" href="/assets/js/83.8a597835.js"><link rel="prefetch" href="/assets/js/84.2a9d7ee5.js"><link rel="prefetch" href="/assets/js/85.c45353d6.js"><link rel="prefetch" href="/assets/js/86.6a35ab9d.js"><link rel="prefetch" href="/assets/js/87.2561f182.js"><link rel="prefetch" href="/assets/js/88.11581266.js"><link rel="prefetch" href="/assets/js/89.121e642c.js"><link rel="prefetch" href="/assets/js/9.0d31bb97.js"><link rel="prefetch" href="/assets/js/90.9809c83a.js"><link rel="prefetch" href="/assets/js/91.9d45d902.js"><link rel="prefetch" href="/assets/js/93.731d05e0.js"><link rel="prefetch" href="/assets/js/94.9b3a95d2.js"><link rel="prefetch" href="/assets/js/95.82f4a5a5.js"><link rel="prefetch" href="/assets/js/96.f373e9e7.js"><link rel="prefetch" href="/assets/js/97.ef86437a.js"><link rel="prefetch" href="/assets/js/98.a786ed87.js"><link rel="prefetch" href="/assets/js/99.36c23ae0.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.9cd2d626.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.975cf9e9.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-7dd95ae2><div data-v-7dd95ae2><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>Sapphire611</h3> <p class="description" data-v-59e6cb88>感谢来访🙏 </p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><!---->
+          
+        <span data-v-59e6cb88>2021 - </span>
+        2026
+      </a></span></div></div> <div class="hide" data-v-7dd95ae2><header class="navbar" data-v-7dd95ae2><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logo.jpg" alt="Sapphire611" class="logo"> <span class="site-name">Sapphire611</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/aboutMe/" class="nav-link"><i class="info"></i>
+  About Me
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/archietcture/" class="nav-link"><i class="undefined"></i>
+  archietcture
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Me/" class="nav-link"><i class="undefined"></i>
+  Me
+</a></li><li class="dropdown-item"><!----> <a href="/categories/elasticSearch/" class="nav-link"><i class="undefined"></i>
+  elasticSearch
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Backend/" class="nav-link"><i class="undefined"></i>
+  Backend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/mongodb/" class="nav-link"><i class="undefined"></i>
+  mongodb
+</a></li><li class="dropdown-item"><!----> <a href="/categories/interview/" class="nav-link"><i class="undefined"></i>
+  interview
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Frontend/" class="nav-link"><i class="undefined"></i>
+  Frontend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Algorithm/" class="nav-link"><i class="undefined"></i>
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/categories/sql/" class="nav-link"><i class="undefined"></i>
+  sql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Javascript/" class="nav-link"><i class="undefined"></i>
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/postgres/" class="nav-link"><i class="undefined"></i>
+  postgres
+</a></li><li class="dropdown-item"><!----> <a href="/categories/misc/" class="nav-link"><i class="undefined"></i>
+  misc
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Certificate/" class="nav-link"><i class="undefined"></i>
+  Certificate
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Deploy/" class="nav-link"><i class="undefined"></i>
+  Deploy
+</a></li><li class="dropdown-item"><!----> <a href="/categories/graphql/" class="nav-link"><i class="undefined"></i>
+  graphql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/AI/" class="nav-link"><i class="undefined"></i>
+  AI
+</a></li><li class="dropdown-item"><!----> <a href="/categories/backend/" class="nav-link"><i class="undefined"></i>
+  backend
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div> <a href="https://github.com/Sapphire611/vuepress-sapphire611" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask" data-v-7dd95ae2></div> <aside class="sidebar" data-v-7dd95ae2><div class="personal-info-wrapper" data-v-1fad0c41 data-v-7dd95ae2><img src="/img/logo.jpg" alt="author-avatar" class="personal-img" data-v-1fad0c41> <!----> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>61</h3> <h6 data-v-1fad0c41>Articles</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>41</h3> <h6 data-v-1fad0c41>Tags</h6></div></div> <ul class="social-links" data-v-1fad0c41><li class="social-item" data-v-1fad0c41><i class="iconfont reco-github" style="color:#f47e60;" data-v-1fad0c41></i></li></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><a href="/aboutMe/" class="nav-link"><i class="info"></i>
+  About Me
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/archietcture/" class="nav-link"><i class="undefined"></i>
+  archietcture
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Me/" class="nav-link"><i class="undefined"></i>
+  Me
+</a></li><li class="dropdown-item"><!----> <a href="/categories/elasticSearch/" class="nav-link"><i class="undefined"></i>
+  elasticSearch
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Backend/" class="nav-link"><i class="undefined"></i>
+  Backend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/mongodb/" class="nav-link"><i class="undefined"></i>
+  mongodb
+</a></li><li class="dropdown-item"><!----> <a href="/categories/interview/" class="nav-link"><i class="undefined"></i>
+  interview
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Frontend/" class="nav-link"><i class="undefined"></i>
+  Frontend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Algorithm/" class="nav-link"><i class="undefined"></i>
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/categories/sql/" class="nav-link"><i class="undefined"></i>
+  sql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Javascript/" class="nav-link"><i class="undefined"></i>
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/postgres/" class="nav-link"><i class="undefined"></i>
+  postgres
+</a></li><li class="dropdown-item"><!----> <a href="/categories/misc/" class="nav-link"><i class="undefined"></i>
+  misc
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Certificate/" class="nav-link"><i class="undefined"></i>
+  Certificate
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Deploy/" class="nav-link"><i class="undefined"></i>
+  Deploy
+</a></li><li class="dropdown-item"><!----> <a href="/categories/graphql/" class="nav-link"><i class="undefined"></i>
+  graphql
+</a></li><li class="dropdown-item"><!----> <a href="/categories/AI/" class="nav-link"><i class="undefined"></i>
+  AI
+</a></li><li class="dropdown-item"><!----> <a href="/categories/backend/" class="nav-link"><i class="undefined"></i>
+  backend
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div> <a href="https://github.com/Sapphire611/vuepress-sapphire611" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>AI Agent 相关</h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><!---->
+          
+        <span data-v-59e6cb88>2021 - </span>
+        2026
+      </a></span></div></div> <div data-v-7dd95ae2><div data-v-7dd95ae2><main class="page"><section style="display:;"><div class="page-title"><h1 class="title">AI Agent 相关</h1> <div data-v-8a445198><!----> <i class="iconfont reco-date" data-v-8a445198><span data-v-8a445198>3/18/2026</span></i> <i class="iconfont reco-eye" data-v-8a445198><span id="/misc/AI/" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-8a445198><a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;"></a></span></i> <i class="tags iconfont reco-tag" data-v-8a445198><span class="tag-item" data-v-8a445198>AI</span></i></div></div> <div class="theme-reco-content content__default"><h2 id="ai-agent-相关"><a href="#ai-agent-相关" class="header-anchor">#</a> AI Agent 相关</h2> <h3 id="什么是-rag"><a href="#什么是-rag" class="header-anchor">#</a> 什么是 RAG</h3> <p><strong>RAG (Retrieval-Augmented Generation)</strong> 是一种结合上下文检索和生成的 AI 技术，用于增强大语言模型的准确性和可靠性。</p> <h4 id="核心概念"><a href="#核心概念" class="header-anchor">#</a> 核心概念</h4> <p>RAG 通过以下步骤工作：</p> <ol><li><strong>文档处理</strong>：将知识库文档切分成小块（chunks）</li> <li><strong>向量化</strong>：使用 embedding 模型将文本块转换为向量</li> <li><strong>存储</strong>：将向量存储在向量数据库中（如 Pinecone、Weaviate、Milvus）</li> <li><strong>检索</strong>：用户提问时，将问题向量化，从数据库中检索最相关的文本块</li> <li><strong>增强</strong>：将检索到的相关内容作为上下文注入到提示词中</li> <li><strong>生成</strong>：LLM 基于增强的上下文生成回答</li></ol> <h4 id="优势"><a href="#优势" class="header-anchor">#</a> 优势</h4> <ul><li><strong>减少幻觉</strong>：基于真实数据生成答案</li> <li><strong>知识更新</strong>：无需重新训练模型即可更新知识</li> <li><strong>可追溯性</strong>：可以引用信息来源</li> <li><strong>成本效益</strong>：相比微调模型成本更低</li></ul> <h4 id="应用场景"><a href="#应用场景" class="header-anchor">#</a> 应用场景</h4> <ul><li>企业知识库问答</li> <li>客服智能助手</li> <li>技术文档查询</li> <li>个人笔记搜索</li></ul> <h4 id="面试要点"><a href="#面试要点" class="header-anchor">#</a> 面试要点</h4> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># RAG vs Fine-tuning 对比</span>
+RAG:
+- 适合需要访问最新信息的场景
+- 实现简单，快速部署
+- 可以引用数据源
+
+Fine-tuning:
+- 适合学习特定风格或格式
+- 需要大量训练数据
+- 训练成本高，更新困难
+</code></pre></div><h4 id="常用技术栈"><a href="#常用技术栈" class="header-anchor">#</a> 常用技术栈</h4> <ul><li><strong>Embedding 模型</strong>：OpenAI text-embedding-3、BGE、M3E</li> <li><strong>向量数据库</strong>：ChromaDB、FAISS、Qdrant</li> <li><strong>框架</strong>：LangChain、LlamaIndex</li></ul> <hr> <h3 id="什么是-mcp"><a href="#什么是-mcp" class="header-anchor">#</a> 什么是 MCP</h3> <p><strong>MCP (Model Context Protocol)</strong> 是一个开放协议，用于连接 AI 助手与外部数据源和工具。</p> <h4 id="核心概念-2"><a href="#核心概念-2" class="header-anchor">#</a> 核心概念</h4> <p>MCP 定义了标准化的方式让 AI 模型：</p> <ol><li><strong>连接数据源</strong>：访问本地文件、数据库、API 等</li> <li><strong>执行工具</strong>：运行脚本、调用函数</li> <li><strong>上下文共享</strong>：在不同会话间共享状态</li></ol> <h4 id="架构"><a href="#架构" class="header-anchor">#</a> 架构</h4> <div class="language- extra-class"><pre class="language-text"><code>┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│   Client    │────▶│   Server    │────▶│  Resources  │
+│ (AI 助手)   │     │ (MCP 服务)  │     │ (数据/工具)  │
+└─────────────┘     └─────────────┘     └─────────────┘
+</code></pre></div><h4 id="优势-2"><a href="#优势-2" class="header-anchor">#</a> 优势</h4> <ul><li><strong>标准化</strong>：统一的接口协议</li> <li><strong>安全性</strong>：明确的权限控制</li> <li><strong>可扩展</strong>：轻松添加新的数据源</li> <li><strong>跨平台</strong>：支持多种 AI 应用</li></ul> <h4 id="应用示例"><a href="#应用示例" class="header-anchor">#</a> 应用示例</h4> <ul><li>读取本地代码仓库</li> <li>执行数据库查询</li> <li>调用外部 API</li> <li>文件系统操作</li></ul> <h4 id="面试要点-2"><a href="#面试要点-2" class="header-anchor">#</a> 面试要点</h4> <p>MCP 解决了 AI 应用的关键问题：</p> <ul><li>如何让 AI 访问实时数据</li> <li>如何安全地执行操作</li> <li>如何扩展 AI 能力</li></ul> <hr> <h3 id="什么是-transformer-架构"><a href="#什么是-transformer-架构" class="header-anchor">#</a> 什么是 Transformer 架构？</h3> <ul><li>自注意力机制（Self-Attention）</li> <li>编码器-解码器结构</li> <li>并行计算能力</li> <li>位置编码</li></ul> <h4 id="解释-temperature-参数"><a href="#解释-temperature-参数" class="header-anchor">#</a> 解释 Temperature 参数</h4> <ul><li>控制输出的随机性</li> <li>低温度（0.1-0.3）：更确定、聚焦</li> <li>高温度（0.7-1.0）：更有创意、多样化</li></ul> <h4 id="什么是-token"><a href="#什么是-token" class="header-anchor">#</a> 什么是 Token？</h4> <ul><li>LLM 处理文本的基本单位</li> <li>1 token ≈ 0.75 个英文单词或 2-3 个汉字</li> <li>影响计费和上下文窗口</li></ul> <h3 id="如何处理-llm-的上下文限制"><a href="#如何处理-llm-的上下文限制" class="header-anchor">#</a> 如何处理 LLM 的上下文限制？</h3> <ul><li>滑动窗口：保留最近的对话</li> <li>总结压缩：将旧对话总结后保留</li> <li>向量检索：只检索相关信息（RAG）</li> <li>分段处理：将任务分解为多个小任务</li></ul> <hr> <h4 id="向量数据库选择"><a href="#向量数据库选择" class="header-anchor">#</a> 向量数据库选择</h4> <table><thead><tr><th>数据库</th> <th>特点</th> <th>适用场景</th></tr></thead> <tbody><tr><td>ChromaDB</td> <td>轻量、易用</td> <td>原型开发、小规模应用</td></tr> <tr><td>Pinecone</td> <td>托管服务、高性能</td> <td>生产环境、大规模应用</td></tr> <tr><td>FAISS</td> <td>开源、高效</td> <td>本地部署、成本敏感</td></tr> <tr><td>Qdrant</td> <td>过滤支持好</td> <td>需要复杂过滤查询</td></tr></tbody></table> <h4 id="成本优化"><a href="#成本优化" class="header-anchor">#</a> 成本优化</h4> <ol><li><strong>使用更小的模型</strong>：简单任务用小模型</li> <li><strong>缓存机制</strong>：相同问题直接返回缓存</li> <li><strong>Prompt 压缩</strong>：去除冗余信息</li> <li><strong>批量处理</strong>：合并多个请求</li></ol> <hr> <h3 id="什么是-langchain"><a href="#什么是-langchain" class="header-anchor">#</a> 什么是 LangChain？</h3> <p><strong>LangChain</strong> 是一个开源框架，用于开发由大型语言模型（LLM）驱动的应用程序。它提供了一套工具和抽象，帮助开发者轻松构建 LLM 应用，包括聊天机器人、智能代理、文档问答系统等。</p> <h4 id="核心特点"><a href="#核心特点" class="header-anchor">#</a> 核心特点</h4> <ul><li><strong>模块化设计</strong>：提供可组合的组件和接口</li> <li><strong>链式调用</strong>：支持将多个组件串联形成复杂的处理流程</li> <li><strong>多 LLM 支持</strong>：兼容 OpenAI、Anthropic、Hugging Face 等多种 LLM</li> <li><strong>数据集成</strong>：内置与各种数据源的集成能力</li> <li><strong>记忆管理</strong>：提供对话历史和上下文记忆功能</li></ul> <h4 id="实际应用场景"><a href="#实际应用场景" class="header-anchor">#</a> 实际应用场景</h4> <h5 id="文档问答系统-rag"><a href="#文档问答系统-rag" class="header-anchor">#</a> 文档问答系统（RAG）</h5> <p>结合检索和生成，基于文档内容回答问题</p> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token comment">// 1. 加载文档</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> TextLoader <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'langchain/document_loaders/fs/text'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> loader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TextLoader</span><span class="token punctuation">(</span><span class="token string">'document.txt'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> documents <span class="token operator">=</span> <span class="token keyword">await</span> loader<span class="token punctuation">.</span><span class="token function">load</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 2. 文本分块</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> RecursiveCharacterTextSplitter <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'langchain/text_splitter'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> splitter <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RecursiveCharacterTextSplitter</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  chunkSize<span class="token operator">:</span> <span class="token number">1000</span><span class="token punctuation">,</span>
+  chunkOverlap<span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> splits <span class="token operator">=</span> <span class="token keyword">await</span> splitter<span class="token punctuation">.</span><span class="token function">splitDocuments</span><span class="token punctuation">(</span>documents<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 3. 向量化存储</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> MemoryVectorStore <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'langchain/vectorstores/memory'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> OpenAIEmbeddings <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@langchain/openai'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> vectorStore <span class="token operator">=</span> <span class="token keyword">await</span> MemoryVectorStore<span class="token punctuation">.</span><span class="token function">fromDocuments</span><span class="token punctuation">(</span>splits<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">OpenAIEmbeddings</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 4. 创建检索链</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> RetrievalQAChain <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'langchain/chains'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> chain <span class="token operator">=</span> RetrievalQAChain<span class="token punctuation">.</span><span class="token function">fromLLM</span><span class="token punctuation">(</span>model<span class="token punctuation">,</span> vectorStore<span class="token punctuation">.</span><span class="token function">asRetriever</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> answer <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">chain</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token punctuation">{</span> query<span class="token operator">:</span> <span class="token string">'文档的主要内容是什么？'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h5 id="聊天机器人"><a href="#聊天机器人" class="header-anchor">#</a> 聊天机器人</h5> <p>具有记忆功能的对话系统</p> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> ConversationChain <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'langchain/chains'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> BufferMemory <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'langchain/memory'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> chatChain <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ConversationChain</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  llm<span class="token operator">:</span> model<span class="token punctuation">,</span>
+  memory<span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">BufferMemory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> response1 <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">chatChain</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  input<span class="token operator">:</span> <span class="token string">'我喜欢编程，特别是 Python'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> response2 <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">chatChain</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  input<span class="token operator">:</span> <span class="token string">'我刚才说我喜欢什么？'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Bot 会记得之前的对话内容</span>
+</code></pre></div><h4 id="langchain-expression-language-lcel"><a href="#langchain-expression-language-lcel" class="header-anchor">#</a> LangChain Expression Language (LCEL)</h4> <p>LCEL 是 LangChain 的新一代声明式链语言，提供：</p> <ul><li><strong>流式处理</strong>：支持流式输出</li> <li><strong>并行执行</strong>：自动并行化独立步骤</li> <li><strong>类型检查</strong>：完整的 TypeScript 支持</li> <li><strong>异步原生</strong>：基于 async/await</li></ul> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> ChatOpenAI <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@langchain/openai'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> PromptTemplate <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@langchain/core/prompts'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> RunnableSequence <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@langchain/core/runnables'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> model <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ChatOpenAI</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> prompt <span class="token operator">=</span> PromptTemplate<span class="token punctuation">.</span><span class="token function">fromTemplate</span><span class="token punctuation">(</span><span class="token string">'将以下内容翻译成{language}：{text}'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> chain <span class="token operator">=</span> RunnableSequence<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span><span class="token punctuation">[</span>prompt<span class="token punctuation">,</span> model<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword">await</span> chain<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  language<span class="token operator">:</span> <span class="token string">'英语'</span><span class="token punctuation">,</span>
+  text<span class="token operator">:</span> <span class="token string">'你好，世界'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h4 id="面试常见问题"><a href="#面试常见问题" class="header-anchor">#</a> 面试常见问题</h4> <p><strong>Q1: LangChain 与直接调用 OpenAI API 有什么区别？</strong></p> <p>LangChain 提供了更高层的抽象，支持链式调用、记忆管理、工具集成等复杂功能，而直接调用 API 需要手动管理上下文、提示词编排等细节。</p> <p><strong>Q2: 如何优化 LangChain 应用的性能？</strong></p> <ul><li>使用流式处理减少首字延迟</li> <li>使用缓存避免重复调用</li> <li>批量处理嵌入操作</li> <li>选择合适的向量存储和索引策略</li></ul> <p><strong>Q3: LangChain 的 Memory 组件有哪些类型？如何选择？</strong></p> <ul><li><strong>Buffer Memory</strong>：适用于短对话，完整保存历史</li> <li><strong>Summary Memory</strong>：适用于长对话，压缩历史为摘要</li> <li><strong>Window Memory</strong>：适用于需要限制上下文长度的场景</li> <li><strong>Vector Store Memory</strong>：适用于需要语义检索历史的场景</li></ul> <p><strong>Q4: 如何处理 LangChain 中的错误和重试？</strong></p> <p>LangChain 内置了重试机制，可以配置：</p> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token keyword">const</span> chain <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LLMChain</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  llm<span class="token operator">:</span> model<span class="token punctuation">,</span>
+  prompt<span class="token punctuation">,</span>
+  timeout<span class="token operator">:</span> <span class="token number">30000</span><span class="token punctuation">,</span>
+  maxRetries<span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p><strong>Q5: LCEL 与传统 Chains 的区别？</strong></p> <p>LCEL 提供更灵活的组合方式、更好的类型安全、原生支持流式处理，是 LangChain 推荐的新一代开发范式。</p> <h3 id="大模型如何拥有记忆-如何记住之前的信息"><a href="#大模型如何拥有记忆-如何记住之前的信息" class="header-anchor">#</a> 大模型如何拥有记忆（如何记住之前的信息）</h3> <ul><li>实际上 AI 并没有记忆，只是每次聊天时，都把历史对话记录一起发出去而已，前端需要维护上下文。</li></ul> <h4 id="短期记忆层-通过-store-维护-保证当前对话上下文一致"><a href="#短期记忆层-通过-store-维护-保证当前对话上下文一致" class="header-anchor">#</a> 短期记忆层：通过 <code>Store</code> 维护，保证当前对话上下文一致</h4> <h4 id="中期记忆层-localstorage-中存储最近几轮的对话文章记录"><a href="#中期记忆层-localstorage-中存储最近几轮的对话文章记录" class="header-anchor">#</a> 中期记忆层: <code>localStorage</code> 中存储最近几轮的对话文章记录</h4> <ul><li>滑动窗口策略: 只保留最新的 N 条信息，更早的丢弃</li> <li>增量摘要：当对话超过 N 次，将最早的一部分信息，使用模型生成摘要，并存储。后续请求时，使用 <code>摘要+最近N条完整信息</code> 作为上下文</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">[</span>系统提示词 <span class="token operator">+</span> <span class="token function">项目级记忆</span><span class="token punctuation">(</span>比如 <span class="token constant">CLAUDE</span><span class="token punctuation">.</span>md<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token punctuation">[</span>会话摘要<span class="token operator">:</span> summary_1<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token punctuation">[</span>最近<span class="token constant">N</span>条完整消息<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token punctuation">[</span>当前用户问题<span class="token punctuation">]</span>
+</code></pre></div><h4 id="长期记忆层-服务端存储"><a href="#长期记忆层-服务端存储" class="header-anchor">#</a> 长期记忆层：服务端存储</h4> <ul><li><p>存储绘画内容：后端为每个 <code>session</code> 生成唯一 id，并作为存储和检索的钥匙</p></li> <li><p>按需加载：前端初始化时，像后端请求最近的 N 条会话信息作为参考</p></li> <li><p>冷热分离：活跃的会话保存在 <code>Redis</code> 中，不活跃的保存在普通数据库中</p></li></ul> <h3 id="claude-md-是什么-实现原理"><a href="#claude-md-是什么-实现原理" class="header-anchor">#</a> CLAUDE.md 是什么？实现原理?</h3> <p><code>CLAUDE.md</code> 是 Anthropic 为 Claude Code（Claude 的命令行工具）设计的一种持久化记忆文件，Claude 每次启动时自动读取这个文件，从而&quot;记住&quot;你项目的各种规范、命令和注意事项</p> <div class="language-markdown extra-class"><pre class="language-markdown"><code><span class="token title important"><span class="token punctuation">#</span> CLAUDE.md - 我的项目记忆文件</span>
+
+<span class="token title important"><span class="token punctuation">##</span> 项目概述</span>
+
+这是一个 Next.js 电商应用，使用 Stripe 支付和 Prisma ORM
+
+<span class="token title important"><span class="token punctuation">##</span> 代码规范</span>
+
+<span class="token list punctuation">-</span> 使用 TypeScript 严格模式，禁止使用 <span class="token code-snippet code keyword">`any`</span>
+<span class="token list punctuation">-</span> 使用命名导出，不使用默认导出
+<span class="token list punctuation">-</span> 组件命名使用 PascalCase，自定义 Hook 使用 use 前缀
+
+<span class="token title important"><span class="token punctuation">##</span> 常用命令</span>
+
+<span class="token list punctuation">-</span> <span class="token code-snippet code keyword">`npm run dev`</span>: 启动开发服务器
+<span class="token list punctuation">-</span> <span class="token code-snippet code keyword">`npm test`</span>: 运行测试
+<span class="token list punctuation">-</span> <span class="token code-snippet code keyword">`npm run lint`</span>: 代码检查
+</code></pre></div><h4 id="实现原理"><a href="#实现原理" class="header-anchor">#</a> 实现原理</h4> <p>CLAUDE.md 的实现基于一个分层记忆系统，类似你之前了解的前端存储分层设计</p> <table><thead><tr><th>记忆层级</th> <th>文件位置</th> <th>作用范围</th> <th>类比</th></tr></thead> <tbody><tr><td><strong>用户级记忆</strong></td> <td><code>~/.claude/CLAUDE.md</code></td> <td>所有项目</td> <td>你的个人习惯（随身携带）</td></tr> <tr><td><strong>项目级记忆</strong></td> <td><code>./CLAUDE.md</code>（项目根目录）</td> <td>当前项目</td> <td>团队规范（家规）</td></tr> <tr><td><strong>模块化规则</strong></td> <td><code>.claude/rules/*.md</code></td> <td>特定文件类型</td> <td>专项说明书</td></tr> <tr><td><strong>自动记忆</strong></td> <td><code>.claude/projects/*/MEMORY.md</code></td> <td>项目+用户</td> <td>经验积累本</td></tr></tbody></table> <h4 id="实现-demo"><a href="#实现-demo" class="header-anchor">#</a> 实现 demo</h4> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 简化版的实现原理</span>
+<span class="token comment">// 当多个层级的记忆文件存在时，遵循就近原则：项目级覆盖用户级，模块化规则按需激活</span>
+<span class="token comment">// 你之前的伪代码</span>
+<span class="token punctuation">[</span>系统提示词 <span class="token operator">+</span> <span class="token function">项目级记忆</span><span class="token punctuation">(</span>比如 Claude<span class="token punctuation">.</span>md<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token punctuation">[</span>会话摘要<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token punctuation">[</span>最近消息<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token punctuation">[</span>当前问题<span class="token punctuation">]</span>
+
+<span class="token comment">// 实际实现</span>
+<span class="token comment">// 前端实现示例</span>
+<span class="token keyword">class</span> <span class="token class-name">AIChatWithMemory</span> <span class="token punctuation">{</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">projectId</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>projectId <span class="token operator">=</span> projectId<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>projectMemory <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">loadProjectMemory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 加载项目级记忆（相当于 CLAUDE.md）</span>
+    <span class="token keyword">async</span> <span class="token function">loadProjectMemory</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 可以从后端 API 获取项目的&quot;记忆配置&quot;</span>
+        <span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/api/projects/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>projectId<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/memory</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>projectMemory <span class="token operator">=</span> <span class="token keyword">await</span> response<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 格式示例：</span>
+        <span class="token comment">// {</span>
+        <span class="token comment">//   &quot;description&quot;: &quot;电商项目，使用 React + Node.js&quot;,</span>
+        <span class="token comment">//   &quot;codeStyle&quot;: &quot;使用 TypeScript，命名导出&quot;,</span>
+        <span class="token comment">//   &quot;apiDocs&quot;: &quot;RESTful 风格，使用 /api/v1 前缀&quot;</span>
+        <span class="token comment">// }</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 构建发送给 AI 的消息</span>
+    <span class="token keyword">async</span> <span class="token function">sendMessage</span><span class="token punctuation">(</span><span class="token parameter">userMessage<span class="token punctuation">,</span> sessionContext</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 将项目记忆作为系统提示词的一部分</span>
+        <span class="token keyword">const</span> messages <span class="token operator">=</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token literal-property property">role</span><span class="token operator">:</span> <span class="token string">'system'</span><span class="token punctuation">,</span>
+                <span class="token literal-property property">content</span><span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">formatProjectMemory</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment">// 注入项目级记忆</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token operator">...</span>sessionContext<span class="token punctuation">.</span>summary<span class="token punctuation">,</span>  <span class="token comment">// 会话摘要</span>
+            <span class="token operator">...</span>sessionContext<span class="token punctuation">.</span>recent<span class="token punctuation">,</span>   <span class="token comment">// 最近 N 条消息</span>
+            <span class="token punctuation">{</span> <span class="token literal-property property">role</span><span class="token operator">:</span> <span class="token string">'user'</span><span class="token punctuation">,</span> <span class="token literal-property property">content</span><span class="token operator">:</span> userMessage <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">callAIAPI</span><span class="token punctuation">(</span>messages<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">formatProjectMemory</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+            项目信息：</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>projectMemory<span class="token punctuation">.</span>description<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">
+            代码规范：</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>projectMemory<span class="token punctuation">.</span>codeStyle<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">
+            API 规范：</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>projectMemory<span class="token punctuation">.</span>apiDocs<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">
+
+            请在这些规范指导下回答用户问题。
+        </span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div></section> <footer class="page-edit"><!----> <!----></footer> <!----> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:12rem;" data-v-b57cc07c data-v-7dd95ae2><li class="level-2" data-v-b57cc07c><a href="/misc/AI/#ai-agent-相关" class="sidebar-link reco-side-ai-agent-相关" data-v-b57cc07c>AI Agent 相关</a></li><li class="level-3" data-v-b57cc07c><a href="/misc/AI/#什么是-rag" class="sidebar-link reco-side-什么是-rag" data-v-b57cc07c>什么是 RAG</a></li><li class="level-3" data-v-b57cc07c><a href="/misc/AI/#什么是-mcp" class="sidebar-link reco-side-什么是-mcp" data-v-b57cc07c>什么是 MCP</a></li><li class="level-3" data-v-b57cc07c><a href="/misc/AI/#什么是-transformer-架构" class="sidebar-link reco-side-什么是-transformer-架构" data-v-b57cc07c>什么是 Transformer 架构？</a></li><li class="level-3" data-v-b57cc07c><a href="/misc/AI/#如何处理-llm-的上下文限制" class="sidebar-link reco-side-如何处理-llm-的上下文限制" data-v-b57cc07c>如何处理 LLM 的上下文限制？</a></li><li class="level-3" data-v-b57cc07c><a href="/misc/AI/#什么是-langchain" class="sidebar-link reco-side-什么是-langchain" data-v-b57cc07c>什么是 LangChain？</a></li><li class="level-3" data-v-b57cc07c><a href="/misc/AI/#大模型如何拥有记忆-如何记住之前的信息" class="sidebar-link reco-side-大模型如何拥有记忆-如何记住之前的信息" data-v-b57cc07c>大模型如何拥有记忆（如何记住之前的信息）</a></li><li class="level-3" data-v-b57cc07c><a href="/misc/AI/#claude-md-是什么-实现原理" class="sidebar-link reco-side-claude-md-是什么-实现原理" data-v-b57cc07c>CLAUDE.md 是什么？实现原理?</a></li></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.b73d127a.js" defer></script><script src="/assets/js/7.4905528e.js" defer></script><script src="/assets/js/2.9325dea3.js" defer></script><script src="/assets/js/1.5e3b8f6c.js" defer></script><script src="/assets/js/92.0b488237.js" defer></script>
+  </body>
+</html>

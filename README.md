@@ -20,6 +20,12 @@
 | `favicon.ico` | 浏览器标签页图标 | 从旧博客带过来的，270KB，想换小的随时换 |
 | `BingSiteAuth.xml` | Bing 站长验证 | 别删，删了要重新验证 |
 | `baidu_verify_code-*.html` | 百度站长验证 | 同上 |
+| `README.md` | 这份部署说明 | **别从 `_config.yml` 的 exclude 里拿掉**，否则本文会被发布到站点上 |
+| `_config.yml` | Jekyll 配置，只用来排除 `README.md` | 以下划线开头，Jekyll 自动不发布它自己 |
+
+> **为什么需要 `_config.yml`**：GitHub Pages 服务的是**仓库根目录的全部文件**，
+> 仓库里放什么就对外发布什么。`README.md` 是给维护者看的内部文档，
+> 靠 Jekyll 的 `exclude` 把它挡在站点之外（文件仍在仓库里，也照常能读）。
 
 ## 发布流程
 

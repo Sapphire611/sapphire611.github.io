@@ -1,0 +1,5 @@
+# GitHub Pages 用 Jekyll 构建，而它服务的是仓库根目录的全部内容。
+# README.md 是给维护者看的部署说明，不该出现在对外站点上，这里排除掉。
+# 注意：这个文件本身以下划线开头，Jekyll 会自动忽略，不会被发布。
+exclude:
+  - README.md

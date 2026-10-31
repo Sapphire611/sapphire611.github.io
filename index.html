@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sapphire611</title>
+<meta name="description" content="Sapphire611 的个人主页 —— 全栈开发工程师，主攻工业软件与 Electron，现居上海。">
+<meta property="og:title" content="Sapphire611">
+<meta property="og:description" content="全栈开发 / Electron / 工业软件 · 上海">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://sapphire611.github.io/">
+<meta property="og:image" content="https://sapphire611.github.io/avatar.jpg">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta property="og:image:alt" content="Sapphire611">
+<link rel="icon" href="/favicon.ico">
+<script>
+// 主题：没手动选过就跟随系统。必须放在 <style> 之前执行，否则刷新会先闪一下浅色。
+(function () {
+  var mq = matchMedia('(prefers-color-scheme: dark)');
+  var saved = null;
+  try { saved = localStorage.getItem('theme'); } catch (e) {}
+
+  function apply(dark) {
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  }
+
+  apply(saved ? saved === 'dark' : mq.matches);
+
+  // 没手动选过时，系统切了跟着切
+  mq.addEventListener('change', function (e) {
+    var picked = null;
+    try { picked = localStorage.getItem('theme'); } catch (err) {}
+    if (!picked) apply(e.matches);
+  });
+})();
+</script>
+<style>
+* { box-sizing: border-box; }
+
+:root {
+  --bg: #f4f5f8;
+  --surface: #ffffff;
+  --surface-2: #fafafd;
+  --text: #1b1b1f;
+  --dim: #56545f;
+  --faint: #8b8894;
+  --outline: #e6e4ec;
+  --primary: #2f5bd7;
+  --primary-soft: #eaeffc;
+  --green: #1a8a52;
+  --radius: 18px;
+  --shadow: 0 1px 2px rgba(16, 18, 40, .04), 0 10px 28px -16px rgba(16, 18, 40, .18);
+}
+
+/* 深色：由 <head> 里的脚本按 localStorage / 系统偏好设置 data-theme */
+:root[data-theme="dark"] {
+  --bg: #101116;
+  --surface: #191a21;
+  --surface-2: #1e1f28;
+  --text: #e8e7ee;
+  --dim: #a6a4b1;
+  --faint: #7c7a88;
+  --outline: #2c2d38;
+  --primary: #94affa;
+  --primary-soft: #1e2540;
+  --green: #5ed49a;
+  --shadow: 0 1px 2px rgba(0, 0, 0, .35), 0 10px 28px -16px rgba(0, 0, 0, .7);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.75 -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--primary); }
+
+/* ---------- 顶栏 ---------- */
+
+.appbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--bg);
+  border-bottom: 1px solid var(--outline);
+}
+@supports (backdrop-filter: blur(1px)) {
+  .appbar {
+    background: color-mix(in srgb, var(--bg) 80%, transparent);
+    backdrop-filter: saturate(180%) blur(14px);
+  }
+}
+
+.appbar-inner {
+  max-width: 864px;
+  margin: 0 auto;
+  padding: 0 24px;
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.brand {
+  font-weight: 650;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: .2px;
+  white-space: nowrap;
+}
+.brand .sep { color: var(--faint); font-weight: 300; margin: 0 1px; }
+
+.nav { margin-left: auto; display: flex; gap: 2px; flex-wrap: wrap; }
+
+.nav a {
+  color: var(--dim);
+  text-decoration: none;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  transition: background .18s, color .18s;
+}
+.nav a:hover { background: var(--primary-soft); color: var(--primary); }
+.nav a.active { background: var(--primary-soft); color: var(--primary); font-weight: 600; }
+
+.theme-btn {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--dim);
+  cursor: pointer;
+  transition: background .18s, color .18s;
+}
+.theme-btn:hover { background: var(--primary-soft); color: var(--primary); }
+.theme-btn svg { width: 17px; height: 17px; }
+.theme-btn .i-sun { display: none; }
+:root[data-theme="dark"] .theme-btn .i-moon { display: none; }
+:root[data-theme="dark"] .theme-btn .i-sun { display: block; }
+
+/* ---------- 布局 ---------- */
+
+.wrap { max-width: 864px; margin: 0 auto; padding: 30px 24px 72px; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--outline);
+  border-radius: var(--radius);
+  padding: 26px 30px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+  scroll-margin-top: 78px;
+}
+
+.card h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 22px;
+  font-size: 17px;
+  letter-spacing: .3px;
+}
+.card h2::before {
+  content: "";
+  width: 4px;
+  height: 16px;
+  border-radius: 2px;
+  background: var(--primary);
+}
+
+.card h3 {
+  margin: 26px 0 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--faint);
+  letter-spacing: 1px;
+}
+.card h3:first-of-type { margin-top: 4px; }
+
+/* ---------- 概览 ---------- */
+
+.hero {
+  padding: 38px 30px 32px;
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.hero-main { flex: 1; min-width: 0; }
+
+.avatar {
+  flex: none;
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 0 1px var(--outline);
+}
+
+.hero h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+  line-height: 1.3;
+  letter-spacing: -.4px;
+}
+.hero h1 .sep { color: var(--faint); font-weight: 300; }
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 18px;
+  padding: 3px 11px 3px 9px;
+  border-radius: 999px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-size: 13px;
+}
+.status::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+}
+
+.lead { margin: 0 0 22px; color: var(--dim); }
+.lead strong { color: var(--text); font-weight: 600; }
+
+.links { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 15px;
+  border: 1px solid var(--outline);
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--text);
+  font-size: 14px;
+  text-decoration: none;
+  transition: border-color .18s, background .18s, color .18s;
+}
+.chip:hover { border-color: var(--primary); background: var(--primary-soft); color: var(--primary); }
+.chip svg { width: 15px; height: 15px; flex: none; }
+
+/* ---------- 技能 ---------- */
+
+.skills {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: 11px 22px;
+  align-items: start;
+}
+.skills dt { color: var(--faint); font-size: 13.5px; padding-top: 4px; }
+.skills dd { margin: 0; display: flex; flex-wrap: wrap; gap: 7px; }
+
+.tag {
+  padding: 3px 11px;
+  border: 1px solid var(--outline);
+  border-radius: 8px;
+  background: var(--surface-2);
+  color: var(--dim);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* ---------- 时间线 ---------- */
+
+.timeline {
+  margin-left: 5px;
+  padding-left: 22px;
+  border-left: 2px solid var(--outline);
+}
+
+.tl-item { position: relative; padding-bottom: 28px; }
+.tl-item:last-child { padding-bottom: 0; }
+.tl-item::before {
+  content: "";
+  position: absolute;
+  left: -28px;
+  top: 8px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 0 4px var(--surface);
+}
+
+.tl-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+}
+.tl-title { font-weight: 640; font-size: 15.5px; }
+.tl-title a { color: inherit; text-decoration: none; }
+.tl-title a:hover { color: var(--primary); }
+.tl-date { margin-left: auto; color: var(--faint); font-size: 13px; font-variant-numeric: tabular-nums; }
+.tl-role { color: var(--primary); font-size: 13.5px; }
+
+.tl-item ul { margin: 10px 0 0; padding-left: 18px; }
+.tl-item li { margin: 5px 0; color: var(--dim); font-size: 14.5px; }
+.tl-item li::marker { color: var(--faint); }
+.tl-item li strong { color: var(--text); font-weight: 600; }
+
+/* ---------- 项目 ---------- */
+
+.projects { display: grid; gap: 13px; }
+
+.proj {
+  padding: 16px 18px;
+  border: 1px solid var(--outline);
+  border-radius: 14px;
+  background: var(--surface-2);
+  transition: border-color .18s;
+}
+.proj:hover { border-color: var(--primary); }
+
+.proj-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+  margin-bottom: 6px;
+}
+.proj-name { font-weight: 640; }
+.proj-name a { color: inherit; text-decoration: none; }
+.proj-name a:hover { color: var(--primary); }
+.proj-name .ext { color: var(--faint); font-weight: 400; font-size: 12px; margin-left: 2px; }
+
+.proj-link { color: var(--primary); font-size: 12px; text-decoration: none; overflow-wrap: anywhere; }
+.proj-link:hover { text-decoration: underline; }
+.proj-date { margin-left: auto; color: var(--faint); font-size: 13px; font-variant-numeric: tabular-nums; }
+
+.proj p { margin: 0; color: var(--dim); font-size: 14.5px; }
+.proj p + p { margin-top: 5px; }
+.proj p strong { color: var(--text); font-weight: 600; }
+
+.stack { margin-top: 9px; color: var(--faint); font-size: 12.5px; }
+
+/* ---------- 荣誉 ---------- */
+
+.awards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.awards li {
+  padding: 12px 15px;
+  border: 1px solid var(--outline);
+  border-radius: 12px;
+  background: var(--surface-2);
+  font-size: 14px;
+}
+.awards li span { display: block; margin-top: 3px; color: var(--faint); font-size: 12.5px; }
+
+/* ---------- 页脚 ---------- */
+
+.footer {
+  padding: 4px 0 0;
+  text-align: center;
+  color: var(--faint);
+  font-size: 13px;
+}
+.footer a { color: var(--faint); }
+.footer a:hover { color: var(--primary); }
+
+/* ---------- 响应式 ---------- */
+
+@media (max-width: 640px) {
+  .appbar-inner { padding: 0 16px; gap: 12px; }
+  .brand { font-size: 14px; }
+  .nav a { padding: 5px 9px; font-size: 13px; }
+  .wrap { padding: 20px 16px 56px; }
+  .card { padding: 22px 20px; }
+  .hero { padding: 30px 20px 26px; flex-direction: column-reverse; gap: 20px; }
+  .avatar { width: 88px; height: 88px; }
+  .hero h1 { font-size: 23px; }
+  .skills { grid-template-columns: 1fr; gap: 4px 0; }
+  .skills dt { padding-top: 10px; }
+  .tl-date { margin-left: 0; width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<header class="appbar">
+  <div class="appbar-inner">
+    <a class="brand" href="#overview">Sapphire611</a>
+    <nav class="nav">
+      <a href="#overview">概览</a>
+      <a href="#skills">技能</a>
+      <a href="#experience">经历</a>
+      <a href="#projects">项目</a>
+      <a href="#awards">荣誉</a>
+    </nav>
+    <button class="theme-btn" id="theme-btn" type="button" aria-label="切换深色 / 浅色主题" title="切换深色 / 浅色主题">
+      <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.2 4.2l1.5 1.5M18.3 18.3l1.5 1.5M2 12h2M20 12h2M4.2 19.8l1.5-1.5M18.3 5.7l1.5-1.5"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="card hero" id="overview">
+    <div class="hero-main">
+    <h1>Sapphire611</h1>
+    <div class="status">上海 · 全栈开发 / Electron</div>
+    <p class="lead">
+      <span id="yoe">5</span> 年经验的全栈开发工程师，主攻工业软件与 Electron。目前在上海从事<strong>工业缺陷检测软件</strong>的研发。
+      此前在车联网领域做过 OTA 升级平台，在政企领域做过一套支撑教育、医疗、司法多行业的智能会议预订系统。
+      习惯把复杂业务拆成清晰的数据流与模块边界。
+    </p>
+    <div class="links">
+      <a class="chip" href="https://github.com/Sapphire611" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        github.com/Sapphire611
+      </a>
+    </div>
+    </div>
+    <img class="avatar" src="avatar.jpg" alt="Sapphire611">
+  </section>
+
+  <section class="card" id="skills">
+    <h2>技能栈</h2>
+    <dl class="skills">
+      <dt>领域</dt>
+      <dd><span class="tag">工业缺陷检测</span><span class="tag">FPC / IC 载板</span><span class="tag">车联网 OTA</span><span class="tag">政企 CMS</span><span class="tag">会议系统</span></dd>
+
+      <dt>核心</dt>
+      <dd><span class="tag">TypeScript</span><span class="tag">JavaScript</span><span class="tag">Node.js</span><span class="tag">Electron</span><span class="tag">Vue 2 / 3</span><span class="tag">MongoDB</span><span class="tag">ZMQ</span><span class="tag">RabbitMQ</span><span class="tag">Konva.js</span></dd>
+
+      <dt>熟练</dt>
+      <dd><span class="tag">React</span><span class="tag">Next.js</span><span class="tag">Koa</span><span class="tag">Express</span><span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">Redis</span><span class="tag">MQTT / EMQX</span><span class="tag">WebSocket</span><span class="tag">Canvas / SVG</span><span class="tag">ECharts</span><span class="tag">OpenSeadragon</span><span class="tag">Docker</span><span class="tag">Linux</span><span class="tag">CI / CD</span><span class="tag">Supabase</span><span class="tag">Vercel</span></dd>
+
+      <dt>了解</dt>
+      <dd><span class="tag">Tauri</span><span class="tag">Rust</span><span class="tag">Python</span><span class="tag">Java</span><span class="tag">SpringBoot</span><span class="tag">FastAPI</span><span class="tag">NestJS</span><span class="tag">Taro</span><span class="tag">uni-app</span><span class="tag">微信小程序</span><span class="tag">LevelDB</span><span class="tag">leaflet-heatmap</span><span class="tag">阿里云</span><span class="tag">AWS</span></dd>
+
+      <dt>AI 应用</dt>
+      <dd><span class="tag">Claude Code</span><span class="tag">Vercel AI SDK</span><span class="tag">ReAct</span><span class="tag">Tool Calling</span><span class="tag">SSE</span></dd>
+    </dl>
+  </section>
+
+  <section class="card" id="experience">
+    <h2>经历</h2>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-head">
+          <span class="tl-title">东华大学</span>
+          <span class="tl-date">2026.09 - 2029.03（在读）</span>
+        </div>
+        <div class="tl-role">硕士 · 工程管理（MEM）· 非全日制</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-head">
+          <span class="tl-title">深视光拓（上海）科技有限公司</span>
+          <span class="tl-date">2025.07 - 至今</span>
+        </div>
+        <div class="tl-role">全栈开发工程师</div>
+        <ul>
+          <li>负责工业缺陷检测软件（FPC / IC 载板）的研发与维护，技术栈为 Electron + Vue 3 + Konva.js + MongoDB</li>
+          <li>参与缺陷复判流程、多维统计与可视化模块的开发</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-head">
+          <span class="tl-title">上海科络达云软件技术有限公司</span>
+          <span class="tl-date">2023.09 - 2025.05</span>
+        </div>
+        <div class="tl-role">全栈工程师</div>
+        <ul>
+          <li>负责 OTA 后台的设计与开发：车辆 ECU 管理、升级包上传 / 差分 / 签名 / 加密 / 下发</li>
+          <li>设计文件分片 + MD5 校验方案，弱网（&lt;100KB/s）升级成功率从 <strong>75% 提升到 98%</strong></li>
+          <li>Electron 大文件（&gt;2GB）上传工具：进度可视化 + 失败日志自动上报，问题定位效率提升 <strong>70%</strong></li>
+          <li>平台累计服务 <strong>6 家车企</strong>，日均处理车机上报数据超百万条</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-head">
+          <span class="tl-title">上海金桥信息股份有限公司</span>
+          <span class="tl-date">2021.12 - 2023.09</span>
+        </div>
+        <div class="tl-role">Node.js 后端开发</div>
+        <ul>
+          <li>为教育、医疗、司法行业定制 CMS 及智能会议预订系统，一套后端服务支撑多行业客户</li>
+          <li>设计 RBAC + 组织树混合权限模型，支持数据级权限控制，权限配置效率提升 <strong>50%</strong></li>
+          <li>引入 MQTT（EMQX）实现会议室设备联动（门禁屏 / 灯光 / 投影仪），响应延迟 <strong>&lt; 1 秒</strong></li>
+          <li>牵头制定后端代码规范，贡献多篇知识库文章</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-head">
+          <span class="tl-title">上海杉达学院</span>
+          <span class="tl-date">2017 - 2021</span>
+        </div>
+        <div class="tl-role">本科 · 计算机科学与技术 · 班长</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="card" id="projects">
+    <h2>项目</h2>
+
+    <h3>工作项目</h3>
+    <div class="projects">
+
+      <div class="proj">
+        <div class="proj-head">
+          <span class="proj-name">工业缺陷检测软件</span>
+          <span class="proj-date">2025.07 - 至今</span>
+        </div>
+        <p>面向 FPC / IC 载板产线的缺陷检测与人工复判软件：支持缺陷复核、分类判定与统计数据回传。</p>
+        <div class="stack">Electron · Vue 3 · Pinia · Konva.js · MongoDB · ArcoDesign · ZMQ · RabbitMQ · LevelDB</div>
+      </div>
+
+      <div class="proj">
+        <div class="proj-head">
+          <span class="proj-name">OTA 升级平台</span>
+          <span class="proj-date">2023.09 - 2025.05</span>
+        </div>
+        <p>面向车企的 OTA 云管理平台：ECU 软件 / 固件远程升级、状态监控、故障诊断。断点续传方案基于文件分片 + MD5 校验，把弱网升级成功率从 75% 拉到 98%。</p>
+        <p>配套 Electron 上传工具，解决 &gt;2GB 大文件上传的进度可视化与失败日志自动上报。</p>
+        <div class="stack">Vue 2 / React · Express.js · MongoDB · Electron</div>
+      </div>
+
+      <div class="proj">
+        <div class="proj-head">
+          <span class="proj-name">智能会议预订系统</span>
+          <span class="proj-date">2021.12 - 2023.09</span>
+        </div>
+        <p>多行业 CMS 平台（学校 / 法院 / 医院），一套后端服务支撑多行业客户。RBAC + 组织树混合权限模型支持数据级权限控制；通过 MQTT 实现会议室设备联动与状态实时推送。</p>
+        <div class="stack">React · Koa.js · MongoDB · MQTT / EMQX</div>
+      </div>
+
+    </div>
+
+    <h3>个人 / 开源项目</h3>
+    <div class="projects">
+
+      <div class="proj">
+        <div class="proj-head">
+          <span class="proj-name">bigImgPin（大图钉）</span>
+          <a class="proj-link" href="https://github.com/Sapphire611/bigImgPin" target="_blank" rel="noopener">github.com/Sapphire611/bigImgPin</a>
+          <span class="proj-date">2026.09</span>
+        </div>
+        <p>十亿像素级工业图像的查看、定位与标注工具，面向版图、显微影像一类的工业场景，完全离线运行。整幅图连显卡都装不下，先切成瓦片金字塔，像看地图一样缩放浏览，按坐标精确定位到指定区域，并直接在图上圈画标注。</p>
+        <div class="stack">Tauri v2 · Rust · Vue 3 · TypeScript · OpenSeadragon · libvips</div>
+      </div>
+
+      <div class="proj">
+        <div class="proj-head">
+          <span class="proj-name">Sapphire Studio · AI 工作站</span>
+          <a class="proj-link" href="https://github.com/Sapphire611/INFP-cms" target="_blank" rel="noopener">github.com/Sapphire611/INFP-cms</a>
+          <a class="proj-link" href="https://infp-notebook.xyz/" target="_blank" rel="noopener">infp-notebook.xyz</a>
+          <span class="proj-date">2025.09 - 至今</span>
+        </div>
+        <p>集成 DeepSeek 的全栈 AI 工作站：SSE 流式对话、服务端工具（搜索 / 抓正文 / 深度调研 / 天气 / 时间 / 计算）、多 Agent 切换、对话摘要。</p>
+        <p>手写 ReAct Agent 循环：每轮工具执行结果回灌下一轮；工具返回带 confidence，低于阈值自动触发反思。</p>
+        <p>同时承担 CMS 内容管理、RBAC 权限、微信小程序用户绑定与数据可视化看板。</p>
+        <div class="stack">Next.js 16 · React 19 · TypeScript · Supabase · Vercel AI SDK · Tailwind CSS v4</div>
+      </div>
+
+      <div class="proj">
+        <div class="proj-head">
+          <span class="proj-name">INFP 的备忘录</span>
+          <span class="proj-date">2026.01 - 至今</span>
+        </div>
+        <p>面向 MBTI 人群的纪念日管理小程序：纪念日创建、每年重复提醒、倒计时展示。后端直接落在 Supabase，微信登录认证 + PostgreSQL 数据持久化，无需自建服务。</p>
+        <div class="stack">uni-app · Vue 3 · TypeScript · Pinia · Supabase</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="card" id="awards">
+    <h2>荣誉与证书</h2>
+    <ul class="awards">
+      <li>谢希德综合奖学金特等奖<span>上海杉达学院</span></li>
+      <li>上海市奖学金<span>上海市教育委员会</span></li>
+      <li>蓝桥杯 Java B 组 上海市一等奖<span>工业和信息化部人才交流中心</span></li>
+      <li>大学英语六级（CET-6）<span>教育部教育考试院</span></li>
+    </ul>
+  </section>
+
+  <footer class="footer">
+    <p>Sapphire611 · <a href="https://github.com/Sapphire611/sapphire611.github.io" target="_blank" rel="noopener">本站源码</a></p>
+  </footer>
+
+</main>
+
+<script>
+(function () {
+  // 工作年限跟着年份自动往上走（2021 年入职第一家）
+  document.getElementById('yoe').textContent = new Date().getFullYear() - 2021;
+
+  // 主题切换：点一下固定住，之后系统怎么变都不跟了
+  document.getElementById('theme-btn').addEventListener('click', function () {
+    var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+
+  var links = document.querySelectorAll('.nav a');
+  var sections = document.querySelectorAll('main section[id]');
+
+  function spy() {
+    var current = sections[0] && sections[0].id;
+    for (var i = 0; i < sections.length; i++) {
+      if (sections[i].getBoundingClientRect().top <= 90) current = sections[i].id;
+    }
+    for (var j = 0; j < links.length; j++) {
+      links[j].classList.toggle('active', links[j].getAttribute('href') === '#' + current);
+    }
+  }
+
+  window.addEventListener('scroll', spy, { passive: true });
+  spy();
+})();
+</script>
+
+</body>
+</html>

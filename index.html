@@ -490,8 +490,8 @@ a { color: var(--primary); }
         <div class="tl-role">全栈工程师</div>
         <ul>
           <li>负责 OTA 后台的设计与开发：车辆 ECU 管理、升级包上传 / 差分 / 签名 / 加密 / 下发</li>
-          <li>设计文件分片 + MD5 校验方案，弱网（&lt;100KB/s）升级成功率从 <strong>75% 提升到 98%</strong></li>
-          <li>Electron 大文件（&gt;2GB）上传工具：进度可视化 + 失败日志自动上报，问题定位效率提升 <strong>70%</strong></li>
+          <li>面向弱网（&lt;100KB/s）场景设计文件分片 + 哈希校验 + 断点续传方案，避免网络中断后整包重传，支持数 GB 级升级包</li>
+          <li>Electron 大文件（&gt;2GB）上传工具：进度可视化 + 失败日志自动上报，降低现场排查成本</li>
           <li>平台累计服务 <strong>6 家车企</strong>，日均处理车机上报数据超百万条</li>
         </ul>
       </div>
@@ -541,7 +541,7 @@ a { color: var(--primary); }
           <span class="proj-name">OTA 升级平台</span>
           <span class="proj-date">2023.09 - 2025.05</span>
         </div>
-        <p>面向车企的 OTA 云管理平台：ECU 软件 / 固件远程升级、状态监控、故障诊断。断点续传方案基于文件分片 + MD5 校验，把弱网升级成功率从 75% 拉到 98%。</p>
+        <p>面向车企的 OTA 云管理平台：ECU 软件 / 固件远程升级、状态监控、故障诊断。断点续传方案基于文件分片 + 哈希校验，避免弱网中断后整包重传，支持数 GB 级升级包。</p>
         <p>配套 Electron 上传工具，解决 &gt;2GB 大文件上传的进度可视化与失败日志自动上报。</p>
         <div class="stack">Vue 2 / React · Express.js · MongoDB · Electron</div>
       </div>

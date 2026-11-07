@@ -477,8 +477,8 @@ a { color: var(--primary); }
         </div>
         <div class="tl-role">全栈开发工程师</div>
         <ul>
-          <li>接手工业缺陷检测软件 VRS 复判端（Electron + Vue 3 + Konva.js + MongoDB）的维护与功能扩展</li>
-          <li>参与缺陷复判流程、多维统计与可视化模块的开发</li>
+          <li>负责工业缺陷检测软件 VRS 复判端（Electron + Vue 3 + Konva.js + MongoDB）的维护与功能扩展</li>
+          <li>对接甲方 MES 系统，复判后生成定制化 e-mapping 数据，覆盖 <strong>15+ 家</strong>工厂 / 基地</li>
         </ul>
       </div>
 
@@ -489,10 +489,8 @@ a { color: var(--primary); }
         </div>
         <div class="tl-role">全栈工程师</div>
         <ul>
-          <li>负责 OTA 后台的设计与开发：车辆 ECU 管理、升级包上传 / 差分 / 签名 / 加密 / 下发</li>
-          <li>面向弱网（&lt;100KB/s）场景设计文件分片 + 哈希校验 + 断点续传方案，避免网络中断后整包重传，支持数 GB 级升级包</li>
-          <li>Electron 大文件（&gt;2GB）上传工具：进度可视化 + 失败日志自动上报，降低现场排查成本</li>
-          <li>平台累计服务 <strong>6 家车企</strong>，日均处理车机上报数据超百万条</li>
+          <li>负责 OTA 云端的设计与开发：车辆 ECU 管理、升级包上传 / 差分 / 签名 / 加密 / 下发</li>
+          <li>面向弱网（&lt;100KB/s）场景设计文件分片 + 哈希校验 + 断点续传方案，支持 GB 级升级包</li>
         </ul>
       </div>
 
@@ -503,10 +501,8 @@ a { color: var(--primary); }
         </div>
         <div class="tl-role">Node.js 后端开发</div>
         <ul>
-          <li>为教育、医疗、司法行业定制 CMS 及智能会议预订系统，一套后端服务支撑多行业客户</li>
-          <li>负责权限树的后端数据存储设计，支持多租户隔离</li>
+          <li>为教育、医疗、司法行业定制 CMS 及智能会议预订系统，支持多租户隔离</li>
           <li>引入 MQTT（EMQX）实现会议室设备联动（门禁屏 / 灯光 / 投影仪）</li>
-          <li>牵头制定后端代码规范，贡献多篇知识库文章</li>
         </ul>
       </div>
 
@@ -532,7 +528,8 @@ a { color: var(--primary); }
           <span class="proj-name">工业缺陷检测软件</span>
           <span class="proj-date">2025.07 - 至今</span>
         </div>
-        <p>面向 FPC / IC 载板产线的缺陷检测与人工复判软件：支持缺陷复核、分类判定与统计数据回传。</p>
+        <p>面向 FPC / IC 载板产线的缺陷检测与人工复判软件。ZMQ 对接机台运动控制与相机，RabbitMQ 对接甲方 MES；从 AVI 数据接入、缺陷数据重组到 M×N 网格人工复判，整条复判链路都在这个端里跑。</p>
+        <p>为 <strong>15+ 家</strong>工厂 / 基地分别维护 e-mapping 生成逻辑，各家的缺陷码映射、坐标编码、NG/OK 判定和输出格式都不一样。另有缺陷 / PCS / Lot 多维统计与坐标热力图可视化。</p>
         <div class="stack">Electron · Vue 3 · Pinia · Konva.js · MongoDB · ArcoDesign · ZMQ · RabbitMQ · LevelDB</div>
       </div>
 
